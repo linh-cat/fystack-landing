@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Code, Shield, Zap, Server, Key, Lock, Globe, Database, Users, ChevronRight, Github, ExternalLink, X, Bot, ArrowRight, Wallet, CircleDollarSign, ShoppingCart } from "lucide-react";
+import { CheckCircle, Code, Shield, Zap, KeyIcon, Server, Key, Lock, Globe, Database, Users, ChevronRight, Github, ExternalLink, X, Bot, ArrowRight, Wallet, CircleDollarSign, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import qrCode from '@/app/images/qr.png'
@@ -192,87 +192,207 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-bold">MPC Wallet Generation</h3>
                 <p className="text-muted-foreground">
-                  Create secure wallets using Multi-Party Computation technology that distributes key fragments across multiple locations.
+                  Create secure wallets using Multi-Party Computation technology that distributes key fragments across multiple cloud providers.
                 </p>
                 <div className="flex items-center gap-2 text-primary">
                   <ArrowRight className="w-4 h-4" />
                   <span>Enterprise-grade security</span>
                 </div>
               </div>
-              <div className="relative h-[300px] rounded-xl border bg-background/50 p-6 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative w-full h-full">
-                    {/* Key Fragments */}
-                    <div className="absolute top-1/4 left-1/4 group animate-float" style={{ animationDelay: "0s" }}>
-                      <div className="p-4 rounded-lg bg-blue-500/10 backdrop-blur-sm border border-blue-500/20 transition-all duration-300">
-                        <Key className="h-6 w-6 text-blue-500" />
-                        <div className="mt-2 text-xs font-mono text-blue-500/80">Key Share 1</div>
-                      </div>
-                      {/* Signature Beam */}
-                      <div className="absolute top-1/2 right-0 w-24 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-blue-500 to-transparent group-hover:scale-x-100 transition-transform duration-700"></div>
-                    </div>
+             {/* MPC Wallet Visualization */}
+<div className="relative h-[400px] rounded-xl border bg-background/50 p-6">
+  <div className="absolute inset-0 flex items-center justify-center">
+    <div className="relative w-[900px] h-full">
+      {/* Main Wallet */}
+      <div className="absolute top-1/2 left-[30%] -translate-y-1/2">
+        <div className="p-4 rounded-lg bg-background border border-blue-500/20">
+          <div className="flex items-center gap-2">
+            <Wallet className="h-6 w-6 text-blue-500" />
+          </div>
+        </div>
+      </div>
 
-                    <div className="absolute top-1/4 right-1/4 group animate-float" style={{ animationDelay: "0.3s" }}>
-                      <div className="p-4 rounded-lg bg-green-500/10 backdrop-blur-sm border border-green-500/20 transition-all duration-300">
-                        <Key className="h-6 w-6 text-green-500" />
-                        <div className="mt-2 text-xs font-mono text-green-500/80">Key Share 2</div>
-                      </div>
-                      {/* Signature Beam */}
-                      <div className="absolute top-1/2 left-0 w-24 h-0.5 origin-right scale-x-0 bg-gradient-to-l from-green-500 to-transparent group-hover:scale-x-100 transition-transform duration-700"></div>
-                    </div>
+      {/* Key Shares with Cloud Provider Icons */}
+      <div className="absolute top-[25%] right-[25%] -translate-y-1/2 animate-fade-in">
+        <div className="relative">
+          <div className="p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/20 flex items-center gap-2">
+            <KeyIcon className="h-5 w-5 text-yellow-500" />
+            <Image 
+              src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" 
+              alt="AWS" 
+              width={40} 
+              height={20} 
+              className="h-5 w-auto"
+            />
+          </div>
+        </div>
+      </div>
 
-                    <div className="absolute bottom-1/4 left-1/2 -translate-x-1/2 group animate-float" style={{ animationDelay: "0.6s" }}>
-                      <div className="p-4 rounded-lg bg-purple-500/10 backdrop-blur-sm border border-purple-500/20 transition-all duration-300">
-                        <Key className="h-6 w-6 text-purple-500" />
-                        <div className="mt-2 text-xs font-mono text-purple-500/80">Key Share 3</div>
-                      </div>
-                      {/* Signature Beam */}
-                      <div className="absolute bottom-full left-1/2 w-0.5 h-16 origin-bottom scale-y-0 bg-gradient-to-t from-purple-500 to-transparent group-hover:scale-y-100 transition-transform duration-700"></div>
-                    </div>
+      <div className="absolute top-1/2 right-[25%] -translate-y-1/2 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+        <div className="relative">
+          <div className="p-3 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center gap-2">
+            <KeyIcon className="h-5 w-5 text-blue-500" />
+            <Image 
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg" 
+              alt="Azure" 
+              width={40} 
+              height={20} 
+              className="h-5 w-auto"
+            />
+          </div>
+        </div>
+      </div>
 
-                    {/* Transaction Signing Center */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                      <div className="relative">
-                        {/* Outer Ring */}
-                        <div className="absolute -inset-8 border-2 border-dashed border-primary/30 rounded-full animate-spin-slow"></div>
-                        
-                        {/* Transaction Box */}
-                        <div className="p-4 rounded-lg bg-background/80 backdrop-blur-sm border-2 border-primary/20 shadow-lg">
-                          <div className="flex items-center gap-2 text-sm">
-                            <CircleDollarSign className="h-4 w-4 text-primary animate-pulse" />
-                            <span className="font-mono">Sign Tx</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+      <div className="absolute bottom-[25%] right-[25%] translate-y-1/2 animate-fade-in" style={{ animationDelay: "0.6s" }}>
+        <div className="relative">
+          <div className="p-3 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center gap-2">
+            <KeyIcon className="h-5 w-5 text-green-500" />
+            <Image 
+              src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" 
+              alt="Google Cloud" 
+              width={40} 
+              height={20} 
+              className="h-5 w-auto"
+            />
+          </div>
+        </div>
+      </div>
 
-                    {/* Connecting Lines */}
-                    <svg className="absolute inset-0 w-full h-full" style={{ zIndex: -1 }}>
-                      <path
-                        d="M200,150 L100,75 M200,150 L300,75 M200,150 L200,225"
-                        stroke="currentColor"
-                        strokeWidth="1"
-                        strokeDasharray="4 4"
-                        className="text-primary/20"
-                      />
-                    </svg>
+      {/* SVG Curves and Animated Dots */}
+      <svg 
+        width="100%" 
+        height="100%" 
+        className="absolute inset-0"
+        style={{ zIndex: -1 }}
+        viewBox="0 0 900 400"
+      >
+        {/* Curved connecting lines */}
+        <g stroke="currentColor" strokeWidth="1">
+          {/* AWS connection */}
+          <path 
+            d="M 270 200 Q 450 50, 580 100" 
+            className="text-yellow-500/20" 
+            fill="none" 
+            strokeDasharray="3 3"
+          />
+          
+          {/* Azure connection */}
+          <path 
+            d="M 270 200 Q 450 200, 580 200" 
+            className="text-blue-500/20" 
+            fill="none"
+            strokeDasharray="3 3"
+          />
+          
+          {/* Google Cloud connection */}
+          <path 
+            d="M 270 200 Q 450 350, 580 300" 
+            className="text-green-500/20" 
+            fill="none"
+            strokeDasharray="3 3"
+          />
+        </g>
 
-                    {/* Background Particles */}
-                    {[...Array(15)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="absolute w-1 h-1 bg-primary/20 rounded-full animate-pulse"
-                        style={{
-                          left: `${Math.random() * 100}%`,
-                          top: `${Math.random() * 100}%`,
-                          animationDelay: `${Math.random() * 2}s`,
-                          animationDuration: `${2 + Math.random() * 2}s`
-                        }}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
+        {/* Animated dots */}
+        <g>
+          {/* AWS dot */}
+          <circle r="2" fill="#EAB308">
+            <animateMotion
+              dur="3s"
+              repeatCount="indefinite"
+              path="M 270 200 Q 450 50, 580 100"
+            >
+              <animate
+                attributeName="opacity"
+                values="0;0.5;0"
+                dur="3s"
+                repeatCount="indefinite"
+              />
+            </animateMotion>
+          </circle>
+
+          {/* Azure dot */}
+          <circle r="2" fill="#3B82F6">
+            <animateMotion
+              dur="3s"
+              repeatCount="indefinite"
+              path="M 270 200 Q 450 200, 580 200"
+              begin="1s"
+            >
+              <animate
+                attributeName="opacity"
+                values="0;0.5;0"
+                dur="3s"
+                repeatCount="indefinite"
+                begin="1s"
+              />
+            </animateMotion>
+          </circle>
+
+          {/* Google Cloud dot */}
+          <circle r="2" fill="#22C55E">
+            <animateMotion
+              dur="3s"
+              repeatCount="indefinite"
+              path="M 270 200 Q 450 350, 580 300"
+              begin="2s"
+            >
+              <animate
+                attributeName="opacity"
+                values="0;0.5;0"
+                dur="3s"
+                repeatCount="indefinite"
+                begin="2s"
+              />
+            </animateMotion>
+          </circle>
+        </g>
+
+        {/* Additional floating particles */}
+        {[...Array(15)].map((_, i) => (
+          <circle
+            key={i}
+            r="1"
+            className={`
+              ${i % 3 === 0 ? 'text-yellow-500/30' : ''}
+              ${i % 3 === 1 ? 'text-blue-500/30' : ''}
+              ${i % 3 === 2 ? 'text-green-500/30' : ''}
+            `}
+          >
+            <animateMotion
+              dur="4s"
+              repeatCount="indefinite"
+              path={`M 270 200 Q ${450 + (i * 5)} ${200 + ((i % 3 - 1) * 150)}, ${580 + (i * 2)} ${200 + ((i % 3 - 1) * 100)}`}
+              begin={`${i * 0.2}s`}
+            >
+              <animate
+                attributeName="opacity"
+                values="0;0.3;0"
+                dur="4s"
+                repeatCount="indefinite"
+                begin={`${i * 0.2}s`}
+              />
+            </animateMotion>
+          </circle>
+        ))}
+      </svg>
+
+      {/* Background Particles */}
+      {[...Array(15)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute w-1 h-1 bg-blue-500/20 rounded-full animate-float"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 3}s`,
+            animationDuration: `${3 + Math.random() * 2}s`
+          }}
+        />
+      ))}
+    </div>
+  </div>
+</div>
             </div>
 
             {/* Crypto Payment - Left visualization */}
@@ -591,8 +711,8 @@ export default function Home() {
                     </div>
                     <h3 className="text-xl font-bold">Multi Approvals with Quorum</h3>
                   </div>
-                  <p className="text-muted-foreground">
-                    Require multiple approvals for transactions based on customizable quorum rules, preventing unauthorized access even if a single key is compromised.
+                     <p className="text-muted-foreground">
+                    Set flexible approval requirements based on your security needs. Configure custom quorum rules for different transaction types and amounts.
                   </p>
                   {/* Interactive Visualization */}
                   <div className="mt-6 grid grid-cols-3 gap-2">
@@ -601,7 +721,7 @@ export default function Home() {
                         <Users className={`h-5 w-5 ${i <= 2 ? 'text-primary' : 'text-muted-foreground'}`} />
                       </div>
                     ))}
-                    <div className="col-span-3 text-center text-sm text-muted-foreground mt-2">2/3 Approvals Required</div>
+                    <div className="col-span-3 text-center text-sm text-muted-foreground mt-2">Customizable Approval Threshold</div>
                   </div>
                 </div>
               </div>
