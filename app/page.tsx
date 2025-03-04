@@ -2,9 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Code, Shield, Zap, Server, Key, Lock, Globe, Database, Users, ChevronRight, Github, ExternalLink, X } from "lucide-react";
+import { CheckCircle, Code, Shield, Zap, Server, Key, Lock, Globe, Database, Users, ChevronRight, Github, ExternalLink, X, Bot, ArrowRight, Wallet, CircleDollarSign, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import qrCode from '@/app/images/qr.png'
 
 export default function Home() {
   return (
@@ -167,87 +168,370 @@ export default function Home() {
 
         {/* Features Section */}
         <section id="features" className="py-24 relative">
-          {/* More prominent gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-100 via-blue-50/50 to-transparent dark:from-blue-950/30 dark:via-blue-900/20 dark:to-transparent -z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-blue-100/20 to-transparent dark:from-blue-950/20 dark:via-blue-900/10 dark:to-transparent -z-10"></div>
           
-          <div className="container px-4 md:px-6 max-w-7xl mx-auto relative">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <Badge variant="outline" className="w-fit mx-auto bg-primary/10 text-primary border-primary/20">Core Features</Badge>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Everything you need to build secure wallets</h2>
-                <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto">
-                  Our platform provides all the tools developers need to create secure, scalable wallet solutions.
+          <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+            {/* Header */}
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 text-sm rounded-full border bg-primary/5 text-primary border-primary/20">
+                Core Features
+              </div>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+                Everything you need to build secure wallets
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground max-w-[700px] mx-auto">
+                Our platform provides all the tools developers need to create secure, scalable wallet solutions.
+              </p>
+            </div>
+
+            {/* MPC Wallet Generation - Right visualization */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
+              <div className="space-y-4">
+                <div className="p-2 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Key className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-2xl font-bold">MPC Wallet Generation</h3>
+                <p className="text-muted-foreground">
+                  Create secure wallets using Multi-Party Computation technology that distributes key fragments across multiple locations.
                 </p>
+                <div className="flex items-center gap-2 text-primary">
+                  <ArrowRight className="w-4 h-4" />
+                  <span>Enterprise-grade security</span>
+                </div>
+              </div>
+              <div className="relative h-[300px] rounded-xl border bg-background/50 p-6 overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative w-full h-full">
+                    {/* Key Fragments */}
+                    <div className="absolute top-1/4 left-1/4 group animate-float" style={{ animationDelay: "0s" }}>
+                      <div className="p-4 rounded-lg bg-blue-500/10 backdrop-blur-sm border border-blue-500/20 transition-all duration-300">
+                        <Key className="h-6 w-6 text-blue-500" />
+                        <div className="mt-2 text-xs font-mono text-blue-500/80">Key Share 1</div>
+                      </div>
+                      {/* Signature Beam */}
+                      <div className="absolute top-1/2 right-0 w-24 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-blue-500 to-transparent group-hover:scale-x-100 transition-transform duration-700"></div>
+                    </div>
+
+                    <div className="absolute top-1/4 right-1/4 group animate-float" style={{ animationDelay: "0.3s" }}>
+                      <div className="p-4 rounded-lg bg-green-500/10 backdrop-blur-sm border border-green-500/20 transition-all duration-300">
+                        <Key className="h-6 w-6 text-green-500" />
+                        <div className="mt-2 text-xs font-mono text-green-500/80">Key Share 2</div>
+                      </div>
+                      {/* Signature Beam */}
+                      <div className="absolute top-1/2 left-0 w-24 h-0.5 origin-right scale-x-0 bg-gradient-to-l from-green-500 to-transparent group-hover:scale-x-100 transition-transform duration-700"></div>
+                    </div>
+
+                    <div className="absolute bottom-1/4 left-1/2 -translate-x-1/2 group animate-float" style={{ animationDelay: "0.6s" }}>
+                      <div className="p-4 rounded-lg bg-purple-500/10 backdrop-blur-sm border border-purple-500/20 transition-all duration-300">
+                        <Key className="h-6 w-6 text-purple-500" />
+                        <div className="mt-2 text-xs font-mono text-purple-500/80">Key Share 3</div>
+                      </div>
+                      {/* Signature Beam */}
+                      <div className="absolute bottom-full left-1/2 w-0.5 h-16 origin-bottom scale-y-0 bg-gradient-to-t from-purple-500 to-transparent group-hover:scale-y-100 transition-transform duration-700"></div>
+                    </div>
+
+                    {/* Transaction Signing Center */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                      <div className="relative">
+                        {/* Outer Ring */}
+                        <div className="absolute -inset-8 border-2 border-dashed border-primary/30 rounded-full animate-spin-slow"></div>
+                        
+                        {/* Transaction Box */}
+                        <div className="p-4 rounded-lg bg-background/80 backdrop-blur-sm border-2 border-primary/20 shadow-lg">
+                          <div className="flex items-center gap-2 text-sm">
+                            <CircleDollarSign className="h-4 w-4 text-primary animate-pulse" />
+                            <span className="font-mono">Sign Tx</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Connecting Lines */}
+                    <svg className="absolute inset-0 w-full h-full" style={{ zIndex: -1 }}>
+                      <path
+                        d="M200,150 L100,75 M200,150 L300,75 M200,150 L200,225"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                        strokeDasharray="4 4"
+                        className="text-primary/20"
+                      />
+                    </svg>
+
+                    {/* Background Particles */}
+                    {[...Array(15)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="absolute w-1 h-1 bg-primary/20 rounded-full animate-pulse"
+                        style={{
+                          left: `${Math.random() * 100}%`,
+                          top: `${Math.random() * 100}%`,
+                          animationDelay: `${Math.random() * 2}s`,
+                          animationDuration: `${2 + Math.random() * 2}s`
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-              <Card className="group hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30">
-                <CardContent className="p-6 space-y-4">
-                  <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                    <Key className="h-6 w-6 text-primary" />
+
+            {/* Crypto Payment - Left visualization */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
+              <div className="relative h-[400px] rounded-xl border bg-background/50 p-6 overflow-hidden"> {/* Increased height */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative w-full h-full">
+                    {/* Checkout Card */}
+                    <div className="absolute left-[20%] top-1/2 -translate-y-1/2"> {/* Moved further left */}
+                      <div className="p-4 rounded-lg bg-background border border-primary/20 backdrop-blur-sm">
+                        <div className="flex items-center gap-2 mb-2">
+                          <ShoppingCart className="h-5 w-5 text-blue-500" />
+                          <span className="font-medium">Checkout</span>
+                        </div>
+                        <div className="text-muted-foreground">
+                          Total: $99.99
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Curved Connection */}
+                    <div className="absolute inset-0 top-1/2 -translate-y-1/2 pointer-events-none">
+                      <svg width="100%" height="100%" className="absolute inset-0">
+                        <path
+                          d="M 30% 50% Q 50% 35%, 70% 50%"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeDasharray="4 4"
+                          className="text-blue-500/20"
+                        />
+                        {/* Animated Dot along the path */}
+                        <circle r="4" fill="currentColor" className="text-blue-500 animate-move-along-path">
+                          <animateMotion
+                            dur="2s"
+                            repeatCount="indefinite"
+                            path="M 30% 50% Q 50% 35%, 70% 50%"
+                          />
+                        </circle>
+                      </svg>
+                    </div>
+
+                    {/* QR Code */}
+                    <div className="absolute right-[20%] top-1/2 -translate-y-1/2">
+                      <div className="p-4 rounded-lg bg-background border border-primary/20 backdrop-blur-sm">
+                        <div className="flex flex-col items-center gap-3">
+                          <div className="w-32 h-32 bg-white rounded-lg relative flex items-center justify-center"> {/* Removed p-2 */}
+                            <Image
+                              src={qrCode}
+                              alt="Payment QR Code"
+                              width={96} 
+                              height={96}
+                              className="rounded"
+                              priority
+                              style={{ objectFit: 'contain' }}
+                            />
+                            {/* Scanning Effect */}
+                            <div className="absolute inset-0 bg-gradient-to-b from-blue-500/0 via-blue-500/10 to-blue-500/0 animate-scan rounded-lg"></div>
+                          </div>
+                          <span className="text-sm text-muted-foreground">Scan to pay with crypto</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Background Particles */}
+                    {[...Array(20)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="absolute w-1 h-1 bg-blue-500/20 rounded-full animate-float"
+                        style={{
+                          left: `${Math.random() * 100}%`,
+                          top: `${Math.random() * 100}%`,
+                          animationDelay: `${Math.random() * 3}s`,
+                          animationDuration: `${3 + Math.random() * 2}s`
+                        }}
+                      />
+                    ))}
                   </div>
-                  <h3 className="text-xl font-bold">MPC Wallet Generation</h3>
-                  <p className="text-muted-foreground">
-                    Create secure wallets using Multi-Party Computation technology that distributes key fragments across multiple locations.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className="group hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30">
-                <CardContent className="p-6 space-y-4">
-                  <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                    <Zap className="h-6 w-6 text-primary" />
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="p-2 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Zap className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-2xl font-bold">Crypto Payment</h3>
+                <p className="text-muted-foreground">
+                  Seamlessly integrate cryptocurrency payments into your applications with our simple API.
+                </p>
+                <div className="flex items-center gap-2 text-primary">
+                  <ArrowRight className="w-4 h-4" />
+                  <span>Simple integration</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Telegram Bot - Right visualization */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
+              <div className="space-y-4">
+                <div className="p-2 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Bot className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-2xl font-bold">Telegram Bot</h3>
+                <p className="text-muted-foreground">
+                  Securely generate and manage wallets for your Telegram crypto bots with enterprise-grade security.
+                </p>
+                <div className="flex items-center gap-2 text-primary">
+                  <ArrowRight className="w-4 h-4" />
+                  <span>Automated management</span>
+                </div>
+              </div>
+              <div className="relative h-[300px] rounded-xl border bg-background/50 p-6 overflow-hidden">
+                {/* Telegram Bot Interface */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative w-[280px] h-[400px] bg-background rounded-xl border-2 border-primary/20 overflow-hidden scale-90">
+                    {/* Bot Header */}
+                    <div className="p-4 border-b bg-primary/5">
+                      <div className="flex items-center gap-3">
+                        <Bot className="h-6 w-6 text-primary" />
+                        <span className="font-medium">Wallet Bot</span>
+                      </div>
+                    </div>
+
+                    {/* Chat Messages */}
+                    <div className="p-4 space-y-4">
+                      <div className="flex items-start gap-2 animate-slide-left">
+                        <div className="p-2 rounded bg-primary/10 max-w-[80%]">
+                          <p className="text-sm">/create_wallet</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-2 justify-end animate-slide-left" style={{ animationDelay: "0.5s" }}>
+                        <div className="p-2 rounded bg-blue-500/10 max-w-[80%]">
+                          <p className="text-sm">✅ New wallet created</p>
+                          <p className="text-xs font-mono mt-1">0x1234...5678</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold">Crypto Payment</h3>
-                  <p className="text-muted-foreground">
-                    Seamlessly integrate cryptocurrency payments into your applications with our simple API.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className="group hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30">
-                <CardContent className="p-6 space-y-4">
-                  <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                    <Server className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold">Telegram Bot</h3>
-                  <p className="text-muted-foreground">
-                    Manage your wallets and transactions directly from Telegram with our secure bot integration.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className="group hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30">
-                <CardContent className="p-6 space-y-4">
-                  <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                    <Code className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold">Developer Friendly APIs</h3>
-                  <p className="text-muted-foreground">
-                    Well-documented, intuitive APIs that make integration simple for developers of all skill levels.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className="group hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30">
-                <CardContent className="p-6 space-y-4">
-                  <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                    <Globe className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold">Multi-Chain Support</h3>
-                  <p className="text-muted-foreground">
-                    Support for all major blockchain networks including Ethereum, Solana, and other EVM-compatible chains.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className="group hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30">
-                <CardContent className="p-6 space-y-4">
-                  <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                    <Database className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold">100+ Tokens Supported</h3>
-                  <p className="text-muted-foreground">
-                    Built-in support for over 100 tokens including ETH, USDC, USDT, and many more.
-                  </p>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
+            </div>
+
+            {/* Wallet Automation - Left visualization */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Wallet Automation Visualization */}
+<div className="relative h-[400px] rounded-xl border bg-background/50 p-6 overflow-hidden">
+  <div className="absolute inset-0 flex items-center justify-center">
+    <div className="relative w-[900px] h-full mx-auto">
+      {/* Source Wallets */}
+      <div className="absolute top-[25%] left-[15%]">
+        <div className="p-3 rounded-lg bg-background border border-blue-500/20">
+          <div className="flex items-center gap-2">
+            <Wallet className="h-5 w-5 text-blue-500" />
+            <span className="text-sm">Wallet 1</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute top-[45%] left-[15%]">
+        <div className="p-3 rounded-lg bg-background border border-blue-500/20">
+          <div className="flex items-center gap-2">
+            <Wallet className="h-5 w-5 text-blue-500" />
+            <span className="text-sm">Wallet 2</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute top-[65%] left-[15%]">
+        <div className="p-3 rounded-lg bg-background border border-blue-500/20">
+          <div className="flex items-center gap-2">
+            <Wallet className="h-5 w-5 text-blue-500" />
+            <span className="text-sm">Wallet 3</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Wallet */}
+      <div className="absolute top-1/2 left-[65%] -translate-y-1/2"> {/* Moved from 75% to 65% */}
+        <div className="p-4 rounded-lg bg-background border border-green-500/20">
+          <div className="flex items-center gap-2">
+            <Wallet className="h-6 w-6 text-green-500" />
+            <span>Main Wallet</span>
+          </div>
+        </div>
+      </div>
+
+      {/* SVG with converging paths */}
+      <svg 
+        width="100%" 
+        height="100%" 
+        className="absolute inset-0"
+        style={{ zIndex: -1 }}
+        viewBox="0 0 900 400"
+      >
+        {/* Define the paths - all converging to the exact same point */}
+        <g stroke="currentColor" strokeWidth="1.5" className="text-blue-500/30">
+          <path d="M 135 100 Q 350 100, 585 200" fill="none" /> {/* Shortened paths */}
+          <path d="M 135 180 Q 350 180, 585 200" fill="none" />
+          <path d="M 135 260 Q 350 260, 585 200" fill="none" />
+        </g>
+
+        {/* Animated dots */}
+        <g>
+          <circle r="3" fill="#3B82F6">
+            <animateMotion
+              dur="2s"
+              repeatCount="indefinite"
+              path="M 135 100 Q 350 100, 585 200"
+            />
+          </circle>
+
+          <circle r="3" fill="#3B82F6">
+            <animateMotion
+              dur="2s"
+              repeatCount="indefinite"
+              path="M 135 180 Q 350 180, 585 200"
+              begin="0.6s"
+            />
+          </circle>
+
+          <circle r="3" fill="#3B82F6">
+            <animateMotion
+              dur="2s"
+              repeatCount="indefinite"
+              path="M 135 260 Q 350 260, 585 200"
+              begin="1.2s"
+            />
+          </circle>
+        </g>
+      </svg>
+
+      {/* Background Particles */}
+      {[...Array(15)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute w-1 h-1 bg-blue-500/20 rounded-full animate-float"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 3}s`,
+            animationDuration: `${3 + Math.random() * 2}s`
+          }}
+        />
+      ))}
+    </div>
+  </div>
+</div>
+              <div className="space-y-4">
+                <div className="p-2 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Wallet className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-2xl font-bold">Wallet Automation</h3>
+                <p className="text-muted-foreground">
+                  Automatically sweep and consolidate funds from multiple wallets into a central wallet with customizable rules and schedules.
+                </p>
+                <div className="flex items-center gap-2 text-primary">
+                  <ArrowRight className="w-4 h-4" />
+                  <span>Automated fund management</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
