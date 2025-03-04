@@ -439,7 +439,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="absolute top-[65%] left-[15%]">
+      <div className="absolute top-[65%] left-[15%]"> {/* Verified position */}
         <div className="p-3 rounded-lg bg-background border border-blue-500/20">
           <div className="flex items-center gap-2">
             <Wallet className="h-5 w-5 text-blue-500" />
@@ -468,9 +468,9 @@ export default function Home() {
       >
         {/* Define the paths - all converging to the exact same point */}
         <g stroke="currentColor" strokeWidth="1.5" className="text-blue-500/30">
-          <path d="M 135 100 Q 350 100, 585 200" fill="none" /> {/* Shortened paths */}
+          <path d="M 135 100 Q 350 100, 585 200" fill="none" />
           <path d="M 135 180 Q 350 180, 585 200" fill="none" />
-          <path d="M 135 260 Q 350 260, 585 200" fill="none" />
+          <path d="M 135 290 Q 350 290, 585 200" fill="none" /> {/* Adjusted Y coordinate to match Wallet 3 center */}
         </g>
 
         {/* Animated dots */}
@@ -496,7 +496,7 @@ export default function Home() {
             <animateMotion
               dur="2s"
               repeatCount="indefinite"
-              path="M 135 260 Q 350 260, 585 200"
+              path="M 135 290 Q 350 290, 585 200"
               begin="1.2s"
             />
           </circle>
