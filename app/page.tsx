@@ -8,6 +8,15 @@ import Link from "next/link";
 import qrCode from '@/app/images/qr.png'
 
 export default function Home() {
+  const evmChains = [
+    { name: "Ethereum", logo: "ethereum-eth-logo.svg" },
+    { name: "Polygon", logo: "polygon-matic-logo.svg" },
+    { name: "BNB Chain", logo: "bnb-bnb-logo.svg" },
+    { name: "Avalanche", logo: "avalanche-avax-logo.svg" },
+    { name: "Optimism", logo: "optimism-ethereum-op-logo.svg" },
+    { name: "Arbitrum", logo: "arbitrum-arb-logo.svg" },
+  ];
+
   return (
     <div className="flex flex-col min-h-screen">
       <header className="border-b sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -24,8 +33,31 @@ export default function Home() {
             <Link href="#pricing" className="text-sm font-medium hover:underline underline-offset-4">Pricing</Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Button variant="outline" size="sm">Log in</Button>
-            <Button size="sm">Sign up</Button>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              asChild
+            >
+              <Link 
+                href="https://app.fystack.io" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Log in
+              </Link>
+            </Button>
+            <Button 
+              size="sm" 
+              asChild
+            >
+              <Link 
+                href="https://app.fystack.io" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Sign up
+              </Link>
+            </Button>
           </div>
         </div>
       </header>
@@ -47,14 +79,30 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button size="lg" className="gap-1 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary">
-                    Get Started <ChevronRight className="h-4 w-4" />
+                  <Button 
+                    size="lg" 
+                    className="gap-1 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary"
+                    asChild
+                  >
+                    <Link 
+                      href="https://app.fystack.io" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      Get Started <ChevronRight className="h-4 w-4" />
+                    </Link>
                   </Button>
-                  <Button size="lg" variant="outline" className="gap-1">
-                    <Github className="h-4 w-4" /> View on GitHub
-                  </Button>
+                  <Link 
+                    href="https://github.com/fystack" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    <Button size="lg" variant="outline" className="gap-1">
+                      <Github className="h-4 w-4" /> View on GitHub
+                    </Button>
+                  </Link>
                 </div>
-                <div className="flex items-center gap-4 pt-8">
+                {/* <div className="flex items-center gap-4 pt-8">
                   <p className="text-sm text-muted-foreground">Trusted by:</p>
                   <div className="flex gap-6 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300">
                     <Image 
@@ -79,7 +127,7 @@ export default function Home() {
                       className="h-6 w-auto object-contain" 
                     />
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="relative h-[350px] lg:h-[500px] rounded-xl overflow-hidden border bg-muted/30 backdrop-blur-sm">
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -711,7 +759,7 @@ export default function Home() {
                     </div>
                     <h3 className="text-xl font-bold">Multi Approvals with Quorum</h3>
                   </div>
-                     <p className="text-muted-foreground">
+                  <p className="text-muted-foreground">
                     Set flexible approval requirements based on your security needs. Configure custom quorum rules for different transaction types and amounts.
                   </p>
                   {/* Interactive Visualization */}
@@ -878,7 +926,7 @@ async function createTransaction(
   const params: TransactionParams = {
     walletId,
     to,
-    value: amount,
+    value: amount,v
     chainId: 1 // Ethereum Mainnet
   };
   
@@ -984,42 +1032,31 @@ def create_transaction(wallet_id, to, amount):
             <div className="mt-16">
               <h3 className="text-xl font-bold mb-8">EVM Chains</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
-                <div className="flex flex-col items-center gap-2 p-4 rounded-lg border bg-card hover:shadow-md transition-all duration-300 hover:border-primary/30">
-                  <Image src="https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=025" alt="Ethereum" width={40} height={40} className="transition-transform hover:scale-110 duration-300" />
-                  <span className="text-sm font-medium">Ethereum</span>
-                </div>
-                <div className="flex flex-col items-center gap-2 p-4 rounded-lg border bg-card hover:shadow-md transition-all duration-300 hover:border-primary/30">
-                  <Image src="https://cryptologos.cc/logos/polygon-matic-logo.svg?v=025" alt="Polygon" width={40} height={40} className="transition-transform hover:scale-110 duration-300" />
-                  <span className="text-sm font-medium">Polygon</span>
-                </div>
-                <div className="flex flex-col items-center gap-2 p-4 rounded-lg border bg-card hover:shadow-md transition-all duration-300 hover:border-primary/30">
-                  <Image src="https://cryptologos.cc/logos/bnb-bnb-logo.svg?v=025" alt="BNB Chain" width={40} height={40} className="transition-transform hover:scale-110 duration-300" />
-                  <span className="text-sm font-medium">BNB Chain</span>
-                </div>
-                <div className="flex flex-col items-center gap-2 p-4 rounded-lg border bg-card hover:shadow-md transition-all duration-300 hover:border-primary/30">
-                  <Image src="https://cryptologos.cc/logos/avalanche-avax-logo.svg?v=025" alt="Avalanche" width={40} height={40} className="transition-transform hover:scale-110 duration-300" />
-                  <span className="text-sm font-medium">Avalanche</span>
-                </div>
-                <div className="flex flex-col items-center gap-2 p-4 rounded-lg border bg-card hover:shadow-md transition-all duration-300 hover:border-primary/30">
-                  <Image src="https://cryptologos.cc/logos/optimism-ethereum-op-logo.svg?v=025" alt="Optimism" width={40} height={40} className="transition-transform hover:scale-110 duration-300" />
-                  <span className="text-sm font-medium">Optimism</span>
-                </div>
-                <div className="flex flex-col items-center gap-2 p-4 rounded-lg border bg-card hover:shadow-md transition-all duration-300 hover:border-primary/30">
-                  <Image src="https://cryptologos.cc/logos/arbitrum-arb-logo.svg?v=025" alt="Arbitrum" width={40} height={40} className="transition-transform hover:scale-110 duration-300" />
-                  <span className="text-sm font-medium">Arbitrum</span>
-                </div>
+                {evmChains.map((chain) => (
+                  <div 
+                    key={chain.name}
+                    className="flex flex-col items-center justify-center gap-2 p-4 rounded-lg border bg-card hover:shadow-md transition-all duration-300 hover:border-primary/30 min-h-[120px]"
+                  >
+                    <div className="flex items-center justify-center h-10">
+                      <Image 
+                        src={`https://cryptologos.cc/logos/${chain.logo}?v=025`}
+                        alt={chain.name}
+                        width={40}
+                        height={40}
+                        className="transition-transform hover:scale-110 duration-300"
+                      />
+                    </div>
+                    <span className="text-sm font-medium text-center">{chain.name}</span>
+                  </div>
+                ))}
               </div>
 
               <div className="mt-16">
                 <h3 className="text-xl font-bold mb-8">Non-EVM Chains</h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
-                  <div className="flex flex-col items-center gap-2 p-4 rounded-lg border bg-card hover:shadow-md transition-all duration-300 hover:border-primary/30">
+                  <div className="flex flex-col items-center justify-center gap-2 p-4 rounded-lg border bg-card hover:shadow-md transition-all duration-300 hover:border-primary/30 min-h-[120px]">
                     <Image src="https://cryptologos.cc/logos/solana-sol-logo.svg?v=025" alt="Solana" width={40} height={40} className="transition-transform hover:scale-110 duration-300" />
                     <span className="text-sm font-medium">Solana</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 p-4 rounded-lg border bg-card hover:shadow-md transition-all duration-300 hover:border-primary/30">
-                    <Image src="https://cryptologos.cc/logos/near-protocol-near-logo.svg?v=025" alt="NEAR" width={40} height={40} className="transition-transform hover:scale-110 duration-300" />
-                    <span className="text-sm font-medium">NEAR</span>
                   </div>
                 </div>
               </div>
@@ -1073,25 +1110,30 @@ def create_transaction(wallet_id, to, amount):
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+              {/* Developer (Free) Plan */}
               <Card className="flex flex-col hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30">
                 <CardContent className="p-6 flex-1">
                   <div className="space-y-2">
                     <h3 className="text-xl font-bold">Developer</h3>
                     <p className="text-muted-foreground">For individual developers and small projects.</p>
                     <div className="flex items-baseline gap-1">
-                      <span className="text-3xl font-bold">$49</span>
-                      <span className="text-muted-foreground">/month</span>
+                      <span className="text-3xl font-bold">Free</span>
+                      <span className="text-muted-foreground">/forever</span>
                     </div>
                   </div>
                   <div className="space-y-4 mt-6">
                     <ul className="space-y-2">
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">Up to 100 wallets</span>
+                        <span className="text-sm">Up to 3 MPC wallets, 5 standard wallets</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">10,000 API calls/month</span>
+                        <span className="text-sm">1 workspace, 3 users</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">1,000 API calls/month</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
@@ -1108,6 +1150,8 @@ def create_transaction(wallet_id, to, amount):
                   <Button variant="outline" className="w-full hover:bg-primary/5">Get Started</Button>
                 </div>
               </Card>
+
+              {/* Team Plan */}
               <Card className="flex flex-col border-primary relative hover:shadow-xl transition-all duration-300 scale-105">
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground text-xs font-medium py-1 px-3 rounded-full">
                   Most Popular
@@ -1115,22 +1159,26 @@ def create_transaction(wallet_id, to, amount):
                 <CardContent className="p-6 flex-1">
                   <div className="space-y-2">
                     <Badge className="bg-primary">Popular</Badge>
-                    <h3 className="text-xl font-bold">Business</h3>
-                    <p className="text-muted-foreground">For growing businesses and applications.</p>
+                    <h3 className="text-xl font-bold">Team</h3>
+                    <p className="text-muted-foreground">For growing teams and businesses.</p>
                     <div className="flex items-baseline gap-1">
-                      <span className="text-3xl font-bold">$199</span>
-                      <span className="text-muted-foreground">/month</span>
+                      <span className="text-3xl font-bold">$30</span>
+                      <span className="text-muted-foreground">/user/month</span>
                     </div>
                   </div>
                   <div className="space-y-4 mt-6">
                     <ul className="space-y-2">
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">Up to 1,000 wallets</span>
+                        <span className="text-sm">Up to 30 MPC wallets, 100 standard wallets</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">100,000 API calls/month</span>
+                        <span className="text-sm">3 workspaces</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">20,000 API calls/month</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
@@ -1138,11 +1186,7 @@ def create_transaction(wallet_id, to, amount):
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">Priority email support</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">Telegram bot integration</span>
+                        <span className="text-sm">Priority support</span>
                       </li>
                     </ul>
                   </div>
@@ -1151,6 +1195,8 @@ def create_transaction(wallet_id, to, amount):
                   <Button className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary">Get Started</Button>
                 </div>
               </Card>
+
+              {/* Enterprise Plan */}
               <Card className="flex flex-col hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30">
                 <CardContent className="p-6 flex-1">
                   <div className="space-y-2">
@@ -1164,15 +1210,15 @@ def create_transaction(wallet_id, to, amount):
                     <ul className="space-y-2">
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">Unlimited wallets</span>
+                        <span className="text-sm">Everything in Team, plus:</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">Additional workspaces available</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
                         <span className="text-sm">Custom API call limits</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">All security features</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
@@ -1186,6 +1232,10 @@ def create_transaction(wallet_id, to, amount):
                         <CheckCircle className="h-4 w-4 text-primary" />
                         <span className="text-sm">SLA guarantees</span>
                       </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">Dedicated account manager</span>
+                      </li>
                     </ul>
                   </div>
                 </CardContent>
@@ -1198,7 +1248,7 @@ def create_transaction(wallet_id, to, amount):
         </section>
 
         {/* Testimonials Section */}
-        <section className="py-24 relative">
+        {/* <section className="py-24 relative">
           <div className="absolute inset-0 -z-10 bg-[radial-gradient(40%_40%_at_50%_50%,rgba(var(--primary-rgb),0.05),transparent)]"></div>
           <div className="container px-4 md:px-6 max-w-7xl mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -1282,7 +1332,7 @@ def create_transaction(wallet_id, to, amount):
               </Card>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* CTA Section */}
         <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
@@ -1295,9 +1345,14 @@ def create_transaction(wallet_id, to, amount):
                   Join thousands of developers building secure wallet solutions with our platform.
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button size="lg" variant="secondary" className="gap-1 hover:bg-secondary/90">
+                  <Link 
+                    href="https://app.fystack.io" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-lg font-medium hover:underline"
+                  >
                     Get Started <ChevronRight className="h-4 w-4" />
-                  </Button>
+                  </Link>
                   <Button size="lg" variant="outline" className="gap-1 bg-transparent border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
                     Contact Sales
                   </Button>
@@ -1340,11 +1395,13 @@ def create_transaction(wallet_id, to, amount):
                 MPC platform built for developers. Create wallets with ease securely.
               </p>
               <div className="flex gap-4 mt-4">
-                <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
-                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                    <path d="M9 18c-4.51 2-5-2-7-2" />
-                  </svg>
+                <Link 
+                  href="https://github.com/fystack"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                >
+                  <Github className="h-5 w-5" />
                   <span className="sr-only">GitHub</span>
                 </Link>
                 <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
