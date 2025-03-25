@@ -242,6 +242,21 @@ export default function Home() {
                 <p className="text-muted-foreground">
                   Create secure wallets using Multi-Party Computation technology that distributes key fragments across multiple cloud providers.
                 </p>
+
+                {/* Security Highlight Box */}
+                <div className="mt-4 p-4 border border-primary/20 rounded-xl bg-primary/5">
+                  <h4 className="text-base font-semibold text-primary mb-2">Avoid Single Point of Failure & Private Key Leaks</h4>
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="h-12 w-12 rounded-full bg-red-500/10 flex items-center justify-center">
+                      <span className="text-red-500 font-bold text-sm">75%</span>
+                    </div>
+                    <p className="text-sm">of crypto hacks involve private key leaks.</p>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Never worry again—MPC wallets have no private keys to compromise.
+                  </p>
+                </div>
+                
                 <div className="flex items-center gap-2 text-primary">
                   <ArrowRight className="w-4 h-4" />
                   <span>Enterprise-grade security</span>
@@ -441,6 +456,204 @@ export default function Home() {
     </div>
   </div>
 </div>
+            </div>
+
+            {/* Secure Smart Contract Deployment */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
+              <div className="space-y-4">
+                <div className="p-2 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Server className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-2xl font-bold">Secure Smart Contract Deployment</h3>
+                <p className="text-muted-foreground">
+                  Deploy smart contracts without exposing private keys in your code or CI/CD pipelines, using secure OpenID Connect (OIDC) authentication.
+                </p>
+                
+                {/* Security Risk Box */}
+                <div className="mt-4 p-4 border border-red-500/20 rounded-xl bg-red-500/5">
+                  <h4 className="text-base font-semibold text-red-500 mb-2">The .env File Security Risk</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Developers commonly store private keys in .env files during development and deployment, which can lead to:
+                  </p>
+                  <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <X className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
+                      <span>Accidental commits to public repositories</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <X className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
+                      <span>Unauthorized access to deployment environments</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <X className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
+                      <span>Complete loss of funds if compromised</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <X className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
+                      <span>Related projects using the same key are also compromised, leading to protocol-wide hacks</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                {/* Solution Box */}
+                <div className="mt-4 p-4 border border-green-500/20 rounded-xl bg-green-500/5">
+                  <h4 className="text-base font-semibold text-green-500 mb-2">Smart contract deployment + OIDC Authentication</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Secure your deployment process without compromising decentralization:
+                  </p>
+                  <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                      <span>No private keys in your codebase or CI/CD pipeline</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                      <span>Authenticate deployments using OIDC identity providers</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                      <span>Sign transactions securely through our API with proper access controls</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div className="flex items-center gap-2 text-primary">
+                  <ArrowRight className="w-4 h-4" />
+                  <span>Enterprise-grade security</span>
+                </div>
+              </div>
+              
+              {/* Secure/Insecure Deployment Visualization */}
+              <div className="relative h-[400px] rounded-xl border bg-background/50 p-6 overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative w-full h-full">
+                    {/* Insecure Deployment Side */}
+                    <div className="absolute left-[5%] top-1/3 -translate-y-1/2 w-[40%]">
+                      <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/30">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Code className="h-5 w-5 text-red-500" />
+                          <span className="font-medium text-red-500">.env file (Insecure)</span>
+                        </div>
+                        <div className="bg-background/80 p-2 rounded font-mono text-xs overflow-hidden">
+                          <div className="text-red-500">
+                            PRIVATE_KEY=0xabc123def456...
+                          </div>
+                          <div className="text-muted-foreground mt-1">
+                            INFURA_API_KEY=...
+                          </div>
+                        </div>
+                        
+                        {/* Warning Icon */}
+                        <div className="absolute -right-3 -top-3 bg-red-500 text-white p-1 rounded-full animate-pulse">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                          </svg>
+                        </div>
+                      </div>
+                      
+                      {/* Hacker */}
+                      <div className="absolute top-[150%] left-[20%] flex items-center gap-1">
+                        <div className="p-2 rounded-lg bg-red-500/10">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-red-500">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                          </svg>
+                        </div>
+                        <div className="text-xs text-red-500 font-medium">Vulnerable to theft</div>
+                      </div>
+                    </div>
+                    
+                    {/* Secure Deployment Side */}
+                    <div className="absolute right-[5%] top-1/3 -translate-y-1/2 w-[40%]">
+                      <div className="p-3 rounded-lg bg-green-500/10 border border-green-500/30">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Shield className="h-5 w-5 text-green-500" />
+                          <span className="font-medium text-green-500">MPC + OIDC (Secure)</span>
+                        </div>
+                        <div className="bg-background/80 p-2 rounded font-mono text-xs">
+                          <div className="text-green-500">
+                            await wallet.getSignature(tx);
+                          </div>
+                          <div className="text-muted-foreground mt-1">
+                            // No private keys in code
+                          </div>
+                        </div>
+                        
+                        {/* Check Icon */}
+                        <div className="absolute -right-3 -top-3 bg-green-500 text-white p-1 rounded-full">
+                          <CheckCircle className="h-4 w-4" />
+                        </div>
+                      </div>
+                      
+                      {/* Security Indicator */}
+                      <div className="absolute top-[150%] left-[20%] flex items-center gap-1">
+                        <div className="p-2 rounded-lg bg-green-500/10">
+                          <Lock className="h-5 w-5 text-green-500" />
+                        </div>
+                        <div className="text-xs text-green-500 font-medium">Secure authentication</div>
+                      </div>
+                    </div>
+                    
+                    {/* Deployment Target - Repositioned to bottom */}
+                    <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 p-3 rounded-lg bg-background border border-primary/20">
+                      <div className="flex items-center gap-2">
+                        <Server className="h-5 w-5 text-primary" />
+                        <span className="font-medium">Smart Contract Deployment</span>
+                      </div>
+                    </div>
+                    
+                    {/* Simple straight line connections instead of curved paths */}
+                    <svg 
+                      width="100%" 
+                      height="100%" 
+                      className="absolute inset-0"
+                      style={{ zIndex: -1 }}
+                      viewBox="0 0 400 400"
+                    >
+                      {/* Direct line from insecure to deployment */}
+                      <line 
+                        x1="80" 
+                        y1="100" 
+                        x2="200" 
+                        y2="320" 
+                        stroke="#f87171" 
+                        strokeWidth="2" 
+                        strokeDasharray="4 2" 
+                      />
+                      
+                      {/* Direct line from secure to deployment */}
+                      <line 
+                        x1="320" 
+                        y1="100" 
+                        x2="200" 
+                        y2="320" 
+                        stroke="#22c55e" 
+                        strokeWidth="2" 
+                        strokeDasharray="4 2" 
+                      />
+                      
+                      {/* Animated Circle for Insecure Path */}
+                      <circle r="4" fill="#f87171">
+                        <animateMotion
+                          dur="3s"
+                          repeatCount="indefinite"
+                          path="M 80 100 L 200 320"
+                        />
+                      </circle>
+                      
+                      {/* Animated Circle for Secure Path */}
+                      <circle r="4" fill="#22c55e">
+                        <animateMotion
+                          dur="3s"
+                          repeatCount="indefinite"
+                          path="M 320 100 L 200 320"
+                        />
+                      </circle>
+                    </svg>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Crypto Payment - Left visualization */}
