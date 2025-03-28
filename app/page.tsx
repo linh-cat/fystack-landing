@@ -27,6 +27,9 @@ export default function Home() {
               src={appLogo} 
               alt="App Logo" 
               priority
+              width={170}
+              height={50}
+              className="h-auto"
             />
           </div>
           <nav className="hidden md:flex items-center gap-6">
@@ -89,11 +92,11 @@ export default function Home() {
                     asChild
                   >
                     <Link 
-                      href="https://app.fystack.io" 
+                      href="https://sandbox.fystack.io/" 
                       target="_blank" 
                       rel="noopener noreferrer"
                     >
-                      Get Started <ChevronRight className="h-4 w-4" />
+                      Live demo <ChevronRight className="h-4 w-4" />
                     </Link>
                   </Button>
                   <Link 
@@ -1516,12 +1519,12 @@ def create_transaction(wallet_id, to, amount):
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Link 
-                    href="https://app.fystack.io" 
+                    href="https://sandbox.fystack.io/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-lg font-medium hover:underline"
                   >
-                    Get Started <ChevronRight className="h-4 w-4" />
+                    Live demo <ChevronRight className="h-4 w-4" />
                   </Link>
                   <Button size="lg" variant="outline" className="gap-1 bg-transparent border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
                     Contact Sales
@@ -1558,8 +1561,14 @@ def create_transaction(wallet_id, to, amount):
           <div className="grid gap-8 lg:grid-cols-5">
             <div className="lg:col-span-2">
               <div className="flex items-center gap-2 mb-4">
-                <Shield className="h-6 w-6 text-primary" />
-                <span className="text-xl font-bold">SecureWallet</span>
+                <Image 
+                  src={appLogo} 
+                  alt="App Logo" 
+                  priority
+                  width={170}
+                  height={50}
+                  className="h-auto"
+                />
               </div>
               <p className="text-muted-foreground max-w-xs">
                 MPC platform built for developers. Create wallets with ease securely.
