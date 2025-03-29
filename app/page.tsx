@@ -100,12 +100,12 @@ export default function Home() {
                     </Link>
                   </Button>
                   <Link 
-                    href="https://github.com/fystack" 
+                    href="https://docs.fystack.io/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                   >
                     <Button size="lg" variant="outline" className="gap-1">
-                      <Github className="h-4 w-4" /> View on GitHub
+                      Documentation
                     </Button>
                   </Link>
                 </div>
