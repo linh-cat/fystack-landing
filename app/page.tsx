@@ -85,10 +85,10 @@ export default function Home() {
                     Create wallets with ease securely. Our Multi-Party Computation technology ensures your keys are never in one place.
                   </p>
                 </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                <div className="flex flex-col gap-2 min-[400px]:flex-row w-full sm:w-auto">
                   <Button 
                     size="lg" 
-                    className="gap-1 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary"
+                    className="gap-1 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary w-full sm:w-auto"
                     asChild
                   >
                     <Link 
@@ -99,15 +99,20 @@ export default function Home() {
                       Live demo <ChevronRight className="h-4 w-4" />
                     </Link>
                   </Button>
-                  <Link 
-                    href="https://docs.fystack.io/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="gap-1 w-full sm:w-auto"
+                    asChild
                   >
-                    <Button size="lg" variant="outline" className="gap-1">
+                    <Link 
+                      href="https://docs.fystack.io/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
                       Documentation
-                    </Button>
-                  </Link>
+                    </Link>
+                  </Button>
                 </div>
                 {/* <div className="flex items-center gap-4 pt-8">
                   <p className="text-sm text-muted-foreground">Trusted by:</p>
