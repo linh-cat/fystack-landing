@@ -1,0 +1,33 @@
+name: fystack-landing Deployment
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy using SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.REMOTE_PORT }}
+          script: |
+            # Navigate to your application folder
+            cd ~/fystack-landing
+
+            # Ensure you are on the master branch and pull latest changes
+            git checkout master
+            git pull origin master
+
+            # Install dependencies and build the Next.js application
+            npm install
+            npm run build
+
+            # Restart the application using PM2.
+            # If the application is already running, restart it.
+            # Otherwise, start it with the name "fystack-landing".
+            pm2 restart fystack-landing || pm2 start npm --name fystack-landing -- start
