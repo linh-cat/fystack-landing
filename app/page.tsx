@@ -1217,13 +1217,31 @@ def create_transaction(wallet_id, to, amount):
                     className="flex flex-col items-center justify-center gap-2 p-4 rounded-lg border bg-card hover:shadow-md transition-all duration-300 hover:border-primary/30 min-h-[120px]"
                   >
                     <div className="flex items-center justify-center h-10">
-                      <Image 
-                        src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/${chain.trustWalletPath || chain.name.toLowerCase()}/info/logo.png`}
-                        alt={chain.name}
-                        width={40}
-                        height={40}
-                        className="transition-transform hover:scale-110 duration-300"
-                      />
+                      {chain.name === "BNB Chain" ? (
+                        <Image 
+                          src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/smartchain/info/logo.png"
+                          alt="BNB Chain"
+                          width={40}
+                          height={40}
+                          className="transition-transform hover:scale-110 duration-300"
+                        />
+                      ) : chain.name === "Avalanche" ? (
+                        <Image 
+                          src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/avalanchec/info/logo.png"
+                          alt="Avalanche"
+                          width={40}
+                          height={40}
+                          className="transition-transform hover:scale-110 duration-300"
+                        />
+                      ) : (
+                        <Image 
+                          src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/${chain.trustWalletPath || chain.name.toLowerCase()}/info/logo.png`}
+                          alt={chain.name}
+                          width={40}
+                          height={40}
+                          className="transition-transform hover:scale-110 duration-300"
+                        />
+                      )}
                     </div>
                     <span className="text-sm font-medium text-center">{chain.name}</span>
                   </div>
