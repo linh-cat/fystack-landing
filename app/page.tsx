@@ -10,12 +10,12 @@ import appLogo from '@/app/images/app-logo.svg' // Updated logo import
 
 export default function Home() {
   const evmChains = [
-    { name: "Ethereum", logo: "ethereum-eth-logo.svg" },
-    { name: "Polygon", logo: "polygon-matic-logo.svg" },
-    { name: "BNB Chain", logo: "bnb-bnb-logo.svg" },
-    { name: "Avalanche", logo: "avalanche-avax-logo.svg" },
-    { name: "Optimism", logo: "optimism-ethereum-op-logo.svg" },
-    { name: "Arbitrum", logo: "arbitrum-arb-logo.svg" },
+    { name: "Ethereum", logo: "ethereum-eth-logo.svg", trustWalletPath: "ethereum" },
+    { name: "Polygon", logo: "polygon-matic-logo.svg", trustWalletPath: "polygon" },
+    { name: "BNB Chain", logo: "bnb-bnb-logo.svg", trustWalletPath: "bnb" },
+    { name: "Avalanche", logo: "avalanche-avax-logo.svg", trustWalletPath: "avalanche" },
+    { name: "Optimism", logo: "optimism-ethereum-op-logo.svg", trustWalletPath: "optimism" },
+    { name: "Arbitrum", logo: "arbitrum-arb-logo.svg", trustWalletPath: "arbitrum" },
   ];
 
   return (
@@ -1208,6 +1208,7 @@ def create_transaction(wallet_id, to, amount):
               </div>
             </div>
             <div className="mt-16">
+              {/* EVM Chains */}
               <h3 className="text-xl font-bold mb-8">EVM Chains</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
                 {evmChains.map((chain) => (
@@ -1217,7 +1218,7 @@ def create_transaction(wallet_id, to, amount):
                   >
                     <div className="flex items-center justify-center h-10">
                       <Image 
-                        src={`https://cryptologos.cc/logos/${chain.logo}?v=025`}
+                        src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/${chain.trustWalletPath || chain.name.toLowerCase()}/info/logo.png`}
                         alt={chain.name}
                         width={40}
                         height={40}
@@ -1233,7 +1234,7 @@ def create_transaction(wallet_id, to, amount):
                 <h3 className="text-xl font-bold mb-8">Non-EVM Chains</h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
                   <div className="flex flex-col items-center justify-center gap-2 p-4 rounded-lg border bg-card hover:shadow-md transition-all duration-300 hover:border-primary/30 min-h-[120px]">
-                    <Image src="https://cryptologos.cc/logos/solana-sol-logo.svg?v=025" alt="Solana" width={40} height={40} className="transition-transform hover:scale-110 duration-300" />
+                    <Image src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/solana/info/logo.png" alt="Solana" width={40} height={40} className="transition-transform hover:scale-110 duration-300" />
                     <span className="text-sm font-medium">Solana</span>
                   </div>
                 </div>
@@ -1243,27 +1244,27 @@ def create_transaction(wallet_id, to, amount):
                 <h3 className="text-xl font-bold mb-8">Supported Tokens</h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
                   <div className="flex items-center gap-2 p-3 rounded-lg border bg-card hover:shadow-md transition-all duration-300 hover:border-primary/30">
-                    <Image src="https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=025" alt="ETH" width={24} height={24} />
+                    <Image src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/info/logo.png" alt="ETH" width={24} height={24} />
                     <span className="text-sm font-medium">ETH</span>
                   </div>
                   <div className="flex items-center gap-2 p-3 rounded-lg border bg-card hover:shadow-md transition-all duration-300 hover:border-primary/30">
-                    <Image src="https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=025" alt="USDC" width={24} height={24} />
+                    <Image src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png" alt="USDC" width={24} height={24} />
                     <span className="text-sm font-medium">USDC</span>
                   </div>
                   <div className="flex items-center gap-2 p-3 rounded-lg border bg-card hover:shadow-md transition-all duration-300 hover:border-primary/30">
-                    <Image src="https://cryptologos.cc/logos/tether-usdt-logo.svg?v=025" alt="USDT" width={24} height={24} />
+                    <Image src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png" alt="USDT" width={24} height={24} />
                     <span className="text-sm font-medium">USDT</span>
                   </div>
                   <div className="flex items-center gap-2 p-3 rounded-lg border bg-card hover:shadow-md transition-all duration-300 hover:border-primary/30">
-                    <Image src="https://cryptologos.cc/logos/dai-dai-logo.svg?v=025" alt="DAI" width={24} height={24} />
+                    <Image src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png" alt="DAI" width={24} height={24} />
                     <span className="text-sm font-medium">DAI</span>
                   </div>
                   <div className="flex items-center gap-2 p-3 rounded-lg border bg-card hover:shadow-md transition-all duration-300 hover:border-primary/30">
-                    <Image src="https://cryptologos.cc/logos/wrapped-bitcoin-wbtc-logo.svg?v=025" alt="WBTC" width={24} height={24} />
+                    <Image src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png" alt="WBTC" width={24} height={24} />
                     <span className="text-sm font-medium">WBTC</span>
                   </div>
                   <div className="flex items-center gap-2 p-3 rounded-lg border bg-card hover:shadow-md transition-all duration-300 hover:border-primary/30">
-                    <Image src="https://cryptologos.cc/logos/chainlink-link-logo.svg?v=025" alt="LINK" width={24} height={24} />
+                    <Image src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x514910771AF9Ca656af840dff83E8264EcF986CA/logo.png" alt="LINK" width={24} height={24} />
                     <span className="text-sm font-medium">LINK</span>
                   </div>
                 </div>
