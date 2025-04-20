@@ -1728,7 +1728,7 @@ def create_transaction(wallet_id, to, amount):
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
                         <span className="text-sm">
-                          Up to 200 MPC wallets, 100 standard wallets
+                          Up to 200 MPC wallets, 1000 standard wallets
                         </span>
                       </li>
                       <li className="flex items-center gap-2">
