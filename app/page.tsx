@@ -1674,7 +1674,7 @@ def create_transaction(wallet_id, to, amount):
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
                         <span className="text-sm">
-                          Up to 3 MPC wallets, 5 standard wallets
+                          Up to 10 MPC wallets, 50 standard wallets
                         </span>
                       </li>
                       <li className="flex items-center gap-2">
@@ -1719,7 +1719,7 @@ def create_transaction(wallet_id, to, amount):
                       For growing teams and businesses.
                     </p>
                     <div className="flex items-baseline gap-1">
-                      <span className="text-3xl font-bold">$30</span>
+                      <span className="text-3xl font-bold">$15</span>
                       <span className="text-muted-foreground">/user/month</span>
                     </div>
                   </div>
@@ -1728,7 +1728,7 @@ def create_transaction(wallet_id, to, amount):
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
                         <span className="text-sm">
-                          Up to 30 MPC wallets, 100 standard wallets
+                          Up to 200 MPC wallets, 100 standard wallets
                         </span>
                       </li>
                       <li className="flex items-center gap-2">
@@ -2202,4 +2202,3 @@ def create_transaction(wallet_id, to, amount):
     </div>
   );
 }
-
