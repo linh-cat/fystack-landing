@@ -82,7 +82,7 @@ export default function Home() {
               priority
               width={170}
               height={50}
-              className="h-auto"
+              className="h-auto w-[120px] sm:w-[150px] md:w-[170px]"
             />
           </div>
           <nav className="hidden md:flex items-center gap-6">
@@ -133,8 +133,8 @@ export default function Home() {
               </DropdownMenuContent>
             </DropdownMenu>
           </nav>
-          <div className="flex items-center gap-4">
-            <Button variant="outline" size="sm" asChild className="gap-2">
+          <div className="flex items-center gap-2 md:gap-4">
+            <Button variant="outline" size="sm" asChild className="hidden sm:flex gap-2">
               <Link
                 href="https://github.com/fystack"
                 target="_blank"
@@ -144,6 +144,18 @@ export default function Home() {
                   <Github className="h-3 w-3 text-white fill-white" />
                 </div>
                 GitHub
+              </Link>
+            </Button>
+            
+            <Button variant="ghost" size="icon" asChild className="flex sm:hidden">
+              <Link
+                href="https://github.com/fystack"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="bg-gray-900 dark:bg-gray-800 p-1 rounded-full">
+                  <Github className="h-4 w-4 text-white fill-white" />
+                </div>
               </Link>
             </Button>
             
