@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/button";
 
 export default function SDKExample() {
   return (
-    <section className="w-full py-16 md:py-24">
+    <section className="w-full py-10 md:py-16">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
           <div className="order-2 lg:order-1">
             <div className="p-[2px] rounded-lg bg-gradient-to-r from-blue-500 via-cyan-400 to-green-500">
               <div className="bg-gray-950 rounded-lg overflow-hidden">
@@ -81,11 +81,11 @@ export default function SDKExample() {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-xl md:text-3xl">
               Simple SDK Integration
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-3 text-lg text-muted-foreground">
               Generate secure wallets in seconds with minimal code, no deep crypto expertise required.
             </p>
             
-            <div className="mt-6 space-y-4">
+            <div className="mt-5 space-y-3">
               <div className="flex items-start">
                 <div className="mr-2 mt-1 flex-shrink-0">
                   <div className="h-4 w-4 rounded-full bg-blue-500"></div>

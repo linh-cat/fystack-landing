@@ -25,6 +25,7 @@ import {
   ShoppingCart,
   XCircle,
   ChevronDown,
+  Twitter,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -1485,8 +1486,15 @@ export default function Home() {
                   <Button
                     variant="outline"
                     className="w-full hover:bg-primary/5"
+                    asChild
                   >
-                    Get Started
+                    <Link
+                      href="https://app.fystack.io"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Get Started
+                    </Link>
                   </Button>
                 </div>
               </Card>
@@ -1538,8 +1546,14 @@ export default function Home() {
                   </div>
                 </CardContent>
                 <div className="p-6 pt-0 mt-auto">
-                  <Button className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary">
-                    Get Started
+                  <Button className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary" asChild>
+                    <Link
+                      href="https://app.fystack.io"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Get Started
+                    </Link>
                   </Button>
                 </div>
               </Card>
@@ -1599,8 +1613,15 @@ export default function Home() {
                   <Button
                     variant="outline"
                     className="w-full hover:bg-primary/5"
+                    asChild
                   >
-                    Contact Sales
+                    <Link
+                      href="https://t.me/anhthind"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Contact Sales
+                    </Link>
                   </Button>
                 </div>
               </Card>
@@ -1721,8 +1742,15 @@ export default function Home() {
                     size="lg"
                     variant="outline"
                     className="gap-1 bg-transparent border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
+                    asChild
                   >
-                    Contact Sales
+                    <Link
+                      href="https://t.me/anhthind"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Contact Sales
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -1786,23 +1814,12 @@ export default function Home() {
                   <span className="sr-only">GitHub</span>
                 </Link>
                 <Link
-                  href="#"
+                  href="https://x.com/fystack"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground transition-colors duration-200"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-                  </svg>
+                  <Twitter className="h-5 w-5" />
                   <span className="sr-only">Twitter</span>
                 </Link>
                 <Link
