@@ -1,7 +1,10 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
+import { useState, useEffect } from "react";
 import {
   CheckCircle,
   Code,
@@ -41,8 +44,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import AnimatedStat, { Highlight } from "./components/AnimatedStat"; // Updated import
 
 export default function Home() {
+  const hackerStats = [
+    <>Crypto hacks cost <Highlight>$17B</Highlight></>,
+    <><Highlight>1 project</Highlight> is hacked per day</>,
+    <><Highlight>1-3$M</Highlight> is lost on average</>
+  ];
+  
   const evmChains = [
     {
       name: "Ethereum",
@@ -191,11 +201,15 @@ export default function Home() {
               {/* Left Column - Problem Statement */}
               <div className="flex flex-col space-y-4">
                 <div className="space-y-2">
-                  <h1 className="text-2xl font-bold tracking-tighter sm:text-4xl text-gray-600 dark:text-gray-400">
-                    Crypto hacks cost <span className="bg-gradient-to-r from-red-500 via-orange-500 to-amber-500 text-transparent bg-clip-text">$17B</span>
-                  </h1>
+                  {/* Use the new AnimatedStat component */}
+                  <AnimatedStat 
+                    stats={hackerStats} 
+                    interval={3000} // Changed from 2000 to 3000 milliseconds
+                    className="text-2xl font-bold tracking-tighter sm:text-4xl text-gray-600 dark:text-gray-400 min-h-[40px]" 
+                  />
+                  <div className="h-4"></div>
                   <p className="text-2xl font-semibold text-muted-foreground">
-                    <span className="bg-gradient-to-r from-red-400 to-orange-400 text-transparent bg-clip-text">1000+</span> crypto companies and projects <span className="bg-gradient-to-r from-red-400 via-pink-400 to-red-500 text-transparent bg-clip-text">hacked</span> due to private keys compromised
+                    <span className="bg-gradient-to-r from-red-400 to-orange-400 text-transparent bg-clip-text">1000+</span> crypto companies and projects <span className="bg-gradient-to-r from-red-400 via-pink-400 to-red-500 text-transparent bg-clip-text">hacked</span> due to compromised private keys.
                   </p>
                 </div>
 
@@ -204,7 +218,7 @@ export default function Home() {
                     Are your keys still safe?
                   </h2>
                   <p className="max-w-[600px] text-muted-foreground md:text-lg">
-                    Traditional wallets put a single key at risk. Phishing, malware or supply chain compromise can drain funds in seconds.
+                    Traditional wallets put your project at risk. Phishing, malware or software supply chain compromise can steal private keys and drain funds in seconds.
                   </p>
                 </div>
 
@@ -247,10 +261,10 @@ export default function Home() {
               <div className="flex flex-col space-y-6">
                 <div className="space-y-4 text-center">
                   <h2 className="text-2xl font-bold tracking-tighter sm:text-4xl text-gray-600 dark:text-gray-400">
-                    <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text">Fystack</span> AWS for crypto wallets
+                    <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text">Fystack</span>
                   </h2>
                   <p className="text-xl sm:text-2xl text-muted-foreground mx-auto">
-                    <span className="text-xl sm:text-2xl bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text font-semibold">Secure wallet infrastructure</span> built for developers
+                    <span className="text-xl sm:text-2xl font-semibold"><span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text font-semibold">Hack-resistant</span> wallet infrastructure</span> <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text font-semibold"><br/>built for developers</span>
                   </p>
                   <p className="max-w-[600px] text-muted-foreground mx-auto">
                     Our <span className="font-medium bg-gradient-to-r from-blue-500 to-primary text-transparent bg-clip-text">MPC</span> (Multi-Party Computation) distributes key fragments across multiple nodes, ensuring no single point of failure.
