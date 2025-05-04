@@ -24,6 +24,7 @@ import {
   CircleDollarSign,
   ShoppingCart,
   XCircle,
+  ChevronDown,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -33,6 +34,12 @@ import MpcVisualization from "./components/MpcVisualization";
 import SDKExample from "./components/SDKExample";
 import { DashboardPreview } from "@/components/DashboardPreview";
 import dashboardImage from "@/app/images/dashboard.png";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function Home() {
   const evmChains = [
@@ -109,6 +116,22 @@ export default function Home() {
             >
               Pricing
             </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="text-sm font-medium hover:underline underline-offset-4 cursor-pointer hover:cursor-pointer flex items-center">
+                Tools <ChevronDown className="inline h-4 w-4 ml-1" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start">
+                <DropdownMenuItem asChild>
+                  <Link
+                    href="https://risk-dashboard.fystack.io/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Wallet risk analyzer
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
           <div className="flex items-center gap-4">
             <Button variant="outline" size="sm" asChild className="gap-2">
@@ -123,6 +146,7 @@ export default function Home() {
                 GitHub
               </Link>
             </Button>
+            
             <Button variant="outline" size="sm" asChild>
               <Link
                 href="https://app.fystack.io"
@@ -216,7 +240,7 @@ export default function Home() {
                     <span className="text-xl sm:text-2xl bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text font-semibold">Secure wallet infrastructure</span> built for developers
                   </p>
                   <p className="max-w-[600px] text-muted-foreground mx-auto">
-                    Our <span className="font-medium bg-gradient-to-r from-blue-500 to-primary text-transparent bg-clip-text">MPC</span> (Multi-Party Computation) distributes key fragments across multiple secure cloud providers, ensuring no single point of failure.
+                    Our <span className="font-medium bg-gradient-to-r from-blue-500 to-primary text-transparent bg-clip-text">MPC</span> (Multi-Party Computation) distributes key fragments across multiple nodes, ensuring no single point of failure.
                   </p>
                 </div>
 

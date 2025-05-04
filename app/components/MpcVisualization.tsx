@@ -19,12 +19,10 @@ export default function MpcVisualization() {
           <div className="absolute top-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2">
             <div className="relative">
               <div className="w-16 h-16 rounded-lg bg-blue-500/20 flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
-                <Image
-                  src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
-                  alt="AWS"
-                  width={40}
-                  height={40}
-                />
+                <div className="flex flex-col items-center justify-center">
+                  <div className="text-blue-600 font-bold text-lg">A</div>
+                  <div className="text-xs text-blue-500">Node</div>
+                </div>
               </div>
               <div className="absolute -right-2 -bottom-2 bg-primary/20 rounded-full p-1">
                 <Key className="h-4 w-4 text-primary" />
@@ -34,13 +32,11 @@ export default function MpcVisualization() {
 
           <div className="absolute top-1/3 right-1/4 transform translate-x-1/2 -translate-y-1/2">
             <div className="relative">
-              <div className="w-16 h-16 rounded-lg bg-blue-500/20 flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
-                <Image
-                  src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg"
-                  alt="Azure"
-                  width={40}
-                  height={40}
-                />
+              <div className="w-16 h-16 rounded-lg bg-indigo-500/20 flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
+                <div className="flex flex-col items-center justify-center">
+                  <div className="text-indigo-600 font-bold text-lg">B</div>
+                  <div className="text-xs text-indigo-500">Node</div>
+                </div>
               </div>
               <div className="absolute -right-2 -bottom-2 bg-primary/20 rounded-full p-1">
                 <Key className="h-4 w-4 text-primary" />
@@ -50,14 +46,11 @@ export default function MpcVisualization() {
 
           <div className="absolute bottom-1/4 left-1/3 transform -translate-x-1/2 translate-y-1/2">
             <div className="relative">
-              <div className="w-16 h-16 rounded-lg bg-blue-500/20 flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
-                <Image
-                  src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg"
-                  alt="Google Cloud"
-                  width={60}
-                  height={60}
-                  className="scale-125"
-                />
+              <div className="w-16 h-16 rounded-lg bg-emerald-500/20 flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
+                <div className="flex flex-col items-center justify-center">
+                  <div className="text-emerald-600 font-bold text-lg">C</div>
+                  <div className="text-xs text-emerald-500">Node</div>
+                </div>
               </div>
               <div className="absolute -right-2 -bottom-2 bg-primary/20 rounded-full p-1">
                 <Key className="h-4 w-4 text-primary" />

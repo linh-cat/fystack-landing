@@ -113,8 +113,11 @@ export default function SDKExample() {
                 size="lg"
                 variant="default"
                 className="bg-primary hover:bg-primary/90"
+                asChild
               >
-                Try it now
+                <a href="https://app.fystack.io/auth" target="_blank" rel="noopener noreferrer">
+                  Get API Key
+                </a>
               </Button>
             </div>
           </div>
