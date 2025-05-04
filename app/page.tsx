@@ -29,6 +29,7 @@ import {
   XCircle,
   ChevronDown,
   Twitter,
+  Bell,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -45,14 +46,21 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import AnimatedStat, { Highlight } from "./components/AnimatedStat"; // Updated import
+import { SecurityFeatures } from "./components/security-features";
 
 export default function Home() {
   const hackerStats = [
-    <>Crypto hacks cost <Highlight>$17B</Highlight></>,
-    <><Highlight>1 project</Highlight> is hacked per day</>,
-    <><Highlight>1-3$M</Highlight> is lost on average</>
+    <>
+      Crypto hacks cost <Highlight>$17B</Highlight>
+    </>,
+    <>
+      <Highlight>1 project</Highlight> is hacked per day
+    </>,
+    <>
+      <Highlight>1-3$M</Highlight> is lost on average
+    </>,
   ];
-  
+
   const evmChains = [
     {
       name: "Ethereum",
@@ -145,7 +153,12 @@ export default function Home() {
             </DropdownMenu>
           </nav>
           <div className="flex items-center gap-2 md:gap-4">
-            <Button variant="outline" size="sm" asChild className="hidden sm:flex gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              asChild
+              className="hidden sm:flex gap-2"
+            >
               <Link
                 href="https://github.com/fystack"
                 target="_blank"
@@ -157,8 +170,13 @@ export default function Home() {
                 GitHub
               </Link>
             </Button>
-            
-            <Button variant="ghost" size="icon" asChild className="flex sm:hidden">
+
+            <Button
+              variant="ghost"
+              size="icon"
+              asChild
+              className="flex sm:hidden"
+            >
               <Link
                 href="https://github.com/fystack"
                 target="_blank"
@@ -169,7 +187,7 @@ export default function Home() {
                 </div>
               </Link>
             </Button>
-            
+
             <Button variant="outline" size="sm" asChild>
               <Link
                 href="https://app.fystack.io"
@@ -202,14 +220,21 @@ export default function Home() {
               <div className="flex flex-col space-y-4">
                 <div className="space-y-2">
                   {/* Use the new AnimatedStat component */}
-                  <AnimatedStat 
-                    stats={hackerStats} 
+                  <AnimatedStat
+                    stats={hackerStats}
                     interval={3000} // Changed from 2000 to 3000 milliseconds
-                    className="text-2xl font-bold tracking-tighter sm:text-4xl text-gray-600 dark:text-gray-400 min-h-[40px]" 
+                    className="text-2xl font-bold tracking-tighter sm:text-4xl text-gray-600 dark:text-gray-400 min-h-[40px]"
                   />
                   <div className="h-4"></div>
                   <p className="text-2xl font-semibold text-muted-foreground">
-                    <span className="bg-gradient-to-r from-red-400 to-orange-400 text-transparent bg-clip-text">1000+</span> crypto companies and projects <span className="bg-gradient-to-r from-red-400 via-pink-400 to-red-500 text-transparent bg-clip-text">hacked</span> due to compromised private keys.
+                    <span className="bg-gradient-to-r from-red-400 to-orange-400 text-transparent bg-clip-text">
+                      1000+
+                    </span>{" "}
+                    crypto companies and projects{" "}
+                    <span className="bg-gradient-to-r from-red-400 via-pink-400 to-red-500 text-transparent bg-clip-text">
+                      hacked
+                    </span>{" "}
+                    due to compromised private keys.
                   </p>
                 </div>
 
@@ -218,7 +243,9 @@ export default function Home() {
                     Are your keys still safe?
                   </h2>
                   <p className="max-w-[600px] text-muted-foreground md:text-lg">
-                    Traditional wallets put your project at risk. Phishing, malware or software supply chain compromise can steal private keys and drain funds in seconds.
+                    Traditional wallets put your project at risk. Phishing,
+                    malware or software supply chain compromise can steal
+                    private keys and drain funds in seconds.
                   </p>
                 </div>
 
@@ -232,7 +259,9 @@ export default function Home() {
                         <p className="text-muted-foreground">
                           <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500 font-medium">
                             Poor access controls
-                          </span> and unsecured private key management lead to 75% of crypto hacks.
+                          </span>{" "}
+                          and unsecured private key management lead to 75% of
+                          crypto hacks.
                         </p>
                       </div>
 
@@ -243,31 +272,49 @@ export default function Home() {
                           Developer Slip-Ups
                         </h3>
                         <p className="text-muted-foreground">
-                          Almost 50% of breaches are due to developers 
-                          {" "}<span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500 font-medium">
+                          Almost 50% of breaches are due to developers{" "}
+                          <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500 font-medium">
                             generating wallets insecurely
-                          </span> and storing 
-                          {" "}<span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500 font-medium">
+                          </span>{" "}
+                          and storing{" "}
+                          <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500 font-medium">
                             unencrypted
-                          </span> keys on personal machines.
+                          </span>{" "}
+                          keys on personal machines.
                         </p>
                       </div>
                     </div>
                   </div>
                 </section>
               </div>
-              
+
               {/* Right Column - Solution */}
               <div className="flex flex-col space-y-6">
                 <div className="space-y-4 text-center">
                   <h2 className="text-2xl font-bold tracking-tighter sm:text-4xl text-gray-600 dark:text-gray-400">
-                    <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text">Fystack</span>
+                    <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text">
+                      Fystack
+                    </span>
                   </h2>
                   <p className="text-xl sm:text-2xl text-muted-foreground mx-auto">
-                    <span className="text-xl sm:text-2xl font-semibold"><span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text font-semibold">Hack-resistant</span> wallet infrastructure</span> <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text font-semibold"><br/>built for developers</span>
+                    <span className="text-xl sm:text-2xl font-semibold">
+                      <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text font-semibold">
+                        Hack-resistant
+                      </span>{" "}
+                      wallet infrastructure
+                    </span>{" "}
+                    <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text font-semibold">
+                      <br />
+                      built for developers
+                    </span>
                   </p>
                   <p className="max-w-[600px] text-muted-foreground mx-auto">
-                    Our <span className="font-medium bg-gradient-to-r from-blue-500 to-primary text-transparent bg-clip-text">MPC</span> (Multi-Party Computation) distributes key fragments across multiple nodes, ensuring no single point of failure.
+                    Our{" "}
+                    <span className="font-medium bg-gradient-to-r from-blue-500 to-primary text-transparent bg-clip-text">
+                      MPC
+                    </span>{" "}
+                    (Multi-Party Computation) distributes key fragments across
+                    multiple nodes, ensuring no single point of failure.
                   </p>
                 </div>
 
@@ -321,7 +368,8 @@ export default function Home() {
                 Monitor and manage your wallets with ease
               </h2>
               <p className="mt-4 text-lg text-muted-foreground max-w-[700px] mx-auto">
-                Our intuitive dashboard gives you complete visibility and control over all your crypto wallets and transactions.
+                Our intuitive dashboard gives you complete visibility and
+                control over all your crypto wallets and transactions.
               </p>
             </div>
 
@@ -338,33 +386,63 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg font-bold mb-2">Security Controls</h3>
                 <p className="text-muted-foreground">
-                  Monitor and manage security settings for all your wallets from a single interface. Set spending limits, IP restrictions, and multi-signature requirements.
+                  Monitor and manage security settings for all your wallets from
+                  a single interface. Set spending limits, IP restrictions, and
+                  multi-signature requirements.
                 </p>
               </div>
-              
+
               <div className="p-6 rounded-lg border bg-card">
                 <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <CircleDollarSign className="h-5 w-5 text-primary" />
                 </div>
                 <h3 className="text-lg font-bold mb-2">Transaction Insights</h3>
                 <p className="text-muted-foreground">
-                  Get detailed analytics on all your transactions across different chains. Track spending patterns and identify unusual activity.
+                  Get detailed analytics on all your transactions across
+                  different chains. Track spending patterns and identify unusual
+                  activity.
                 </p>
               </div>
-              
+
               <div className="p-6 rounded-lg border bg-card">
                 <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <Users className="h-5 w-5 text-primary" />
                 </div>
                 <h3 className="text-lg font-bold mb-2">Team Management</h3>
                 <p className="text-muted-foreground">
-                  Assign different roles and permissions to team members. Control who can view, create, or approve transactions from specific wallets.
+                  Assign different roles and permissions to team members.
+                  Control who can view, create, or approve transactions from
+                  specific wallets.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
+        {/* Security Section */}
+        <section id="security" className="py-24 relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-100 via-blue-50/50 to-transparent dark:from-blue-950/30 dark:via-blue-900/20 dark:to-transparent -z-10"></div>
+          <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <Badge
+                  variant="outline"
+                  className="w-fit mx-auto bg-primary/10 text-primary border-primary/20"
+                >
+                  Advanced Security
+                </Badge>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                  Enterprise-grade security features
+                </h2>
+                <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto">
+                  Our platform is built with security as the top priority,
+                  providing multiple layers of protection.
+                </p>
+              </div>
+            </div>
+            <SecurityFeatures />
+          </div>
+        </section>
         {/* Features Section */}
         <section id="features" className="py-24 relative">
           <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-blue-100/20 to-transparent dark:from-blue-950/20 dark:via-blue-900/10 dark:to-transparent -z-10"></div>
@@ -417,11 +495,6 @@ export default function Home() {
                     compromise.
                   </p>
                 </div>
-
-                <div className="flex items-center gap-2 text-primary">
-                  <ArrowRight className="w-4 h-4" />
-                  <span>Enterprise-grade security</span>
-                </div>
               </div>
               {/* MPC Wallet Visualization */}
               <div className="relative h-[400px] rounded-xl border bg-background/50 p-6">
@@ -441,13 +514,7 @@ export default function Home() {
                       <div className="relative">
                         <div className="p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/20 flex items-center gap-2">
                           <KeyIcon className="h-5 w-5 text-yellow-500" />
-                          <Image
-                            src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
-                            alt="AWS"
-                            width={40}
-                            height={20}
-                            className="h-5 w-auto"
-                          />
+                          AWS
                         </div>
                       </div>
                     </div>
@@ -459,13 +526,7 @@ export default function Home() {
                       <div className="relative">
                         <div className="p-3 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center gap-2">
                           <KeyIcon className="h-5 w-5 text-blue-500" />
-                          <Image
-                            src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg"
-                            alt="Azure"
-                            width={40}
-                            height={20}
-                            className="h-5 w-auto"
-                          />
+                          Azure
                         </div>
                       </div>
                     </div>
@@ -477,13 +538,7 @@ export default function Home() {
                       <div className="relative">
                         <div className="p-3 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center gap-2">
                           <KeyIcon className="h-5 w-5 text-green-500" />
-                          <Image
-                            src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg"
-                            alt="Google Cloud"
-                            width={40}
-                            height={20}
-                            className="h-5 w-auto"
-                          />
+                          {"Google cloud"}
                         </div>
                       </div>
                     </div>
@@ -1117,170 +1172,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Security Section */}
-        <section id="security" className="py-24 relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-100 via-blue-50/50 to-transparent dark:from-blue-950/30 dark:via-blue-900/20 dark:to-transparent -z-10"></div>
-
-          <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <Badge
-                  variant="outline"
-                  className="w-fit mx-auto bg-primary/10 text-primary border-primary/20"
-                >
-                  Advanced Security
-                </Badge>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Enterprise-grade security features
-                </h2>
-                <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto">
-                  Our platform is built with security as the top priority,
-                  providing multiple layers of protection.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
-              {/* IP Whitelist */}
-              <div className="group relative p-8 rounded-2xl border border-primary/10 hover:border-primary/30 bg-background/50 backdrop-blur-sm transition-all duration-300 hover:shadow-lg">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl transition-opacity group-hover:opacity-100 opacity-0"></div>
-                <div className="relative">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
-                      <Shield className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-bold">IP Whitelist</h3>
-                  </div>
-                  <p className="text-muted-foreground">
-                    Restrict access to your wallets and APIs to specific IP
-                    addresses, ensuring only authorized systems can interact
-                    with your assets.
-                  </p>
-                  {/* Interactive Visualization */}
-                  <div className="mt-6 p-4 rounded-lg bg-muted/50 overflow-hidden">
-                    <div className="flex items-center gap-2 animate-slide-left">
-                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                      <code className="text-sm">192.168.1.1</code>
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                    </div>
-                    <div
-                      className="flex items-center gap-2 mt-2 animate-slide-left"
-                      style={{ animationDelay: "0.2s" }}
-                    >
-                      <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                      <code className="text-sm">Unknown IP</code>
-                      <X className="h-4 w-4 text-red-500" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Multi Approvals */}
-              <div className="group relative p-8 rounded-2xl border border-primary/10 hover:border-primary/30 bg-background/50 backdrop-blur-sm transition-all duration-300 hover:shadow-lg">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl transition-opacity group-hover:opacity-100 opacity-0"></div>
-                <div className="relative">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
-                      <Users className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-bold">
-                      Multi Approvals with Quorum
-                    </h3>
-                  </div>
-                  <p className="text-muted-foreground">
-                    Set flexible approval requirements based on your security
-                    needs. Configure custom quorum rules for different
-                    transaction types and amounts.
-                  </p>
-                  {/* Interactive Visualization */}
-                  <div className="mt-6 grid grid-cols-3 gap-2">
-                    {[1, 2, 3].map((i) => (
-                      <div
-                        key={i}
-                        className={`p-3 rounded-lg ${
-                          i <= 2 ? "bg-primary/20" : "bg-muted"
-                        } transition-colors duration-300 animate-fade-in`}
-                        style={{ animationDelay: `${i * 0.2}s` }}
-                      >
-                        <Users
-                          className={`h-5 w-5 ${
-                            i <= 2 ? "text-primary" : "text-muted-foreground"
-                          }`}
-                        />
-                      </div>
-                    ))}
-                    <div className="col-span-3 text-center text-sm text-muted-foreground mt-2">
-                      Customizable Approval Threshold
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Transaction Policy */}
-              <div className="group relative p-8 rounded-2xl border border-primary/10 hover:border-primary/30 bg-background/50 backdrop-blur-sm transition-all duration-300 hover:shadow-lg">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl transition-opacity group-hover:opacity-100 opacity-0"></div>
-                <div className="relative">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
-                      <Lock className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-bold">Transaction Policy</h3>
-                  </div>
-                  <p className="text-muted-foreground">
-                    Define and enforce transaction policies including spending
-                    limits, allowed destinations, and time-based restrictions.
-                  </p>
-                  {/* Interactive Visualization */}
-                  <div className="mt-6 space-y-2">
-                    <div className="flex items-center justify-between p-2 rounded bg-muted/50 animate-fade-in">
-                      <span className="text-sm">Daily Limit</span>
-                      <span className="text-sm font-mono">5 ETH</span>
-                    </div>
-                    <div
-                      className="flex items-center justify-between p-2 rounded bg-muted/50 animate-fade-in"
-                      style={{ animationDelay: "0.2s" }}
-                    >
-                      <span className="text-sm">Allowed Chains</span>
-                      <span className="text-sm font-mono">ETH, BSC</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Zero Knowledge Encryption */}
-              <div className="group relative p-8 rounded-2xl border border-primary/10 hover:border-primary/30 bg-background/50 backdrop-blur-sm transition-all duration-300 hover:shadow-lg">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl transition-opacity group-hover:opacity-100 opacity-0"></div>
-                <div className="relative">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
-                      <Key className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-bold">
-                    End-to-End Key Encryption
-                    </h3>
-                  </div>
-                  <p className="text-muted-foreground">
-                    Keys are encrypted end-to-end using our secure
-                    protocols, ensuring that even we cannot touch your keys.
-                  </p>
-                  {/* Interactive Visualization */}
-                  <div className="mt-6 relative h-16">
-                    <div className="absolute inset-0 flex items-center justify-between">
-                      <div className="p-3 rounded-lg bg-primary/10 animate-pulse">
-                        <Lock className="h-5 w-5 text-primary" />
-                      </div>
-                      <div className="flex-1 mx-4 border-t-2 border-dashed border-primary/30"></div>
-                      <div className="p-3 rounded-lg bg-primary/10 animate-pulse">
-                        <Key className="h-5 w-5 text-primary" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Chains Section */}
         <section id="chains" className="py-24 relative">
           <div className="absolute inset-0 -z-10 bg-[radial-gradient(40%_40%_at_50%_50%,rgba(var(--primary-rgb),0.05),transparent)]"></div>
@@ -1560,7 +1451,10 @@ export default function Home() {
                   </div>
                 </CardContent>
                 <div className="p-6 pt-0 mt-auto">
-                  <Button className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary" asChild>
+                  <Button
+                    className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary"
+                    asChild
+                  >
                     <Link
                       href="https://app.fystack.io"
                       target="_blank"
@@ -2019,21 +1913,21 @@ export default function Home() {
       {/* Add this just before the closing </div> of the main flex-col min-h-screen container */}
       {/* Floating Telegram Button */}
       <div className="fixed bottom-6 right-6 z-50">
-        <Link 
-          href="https://t.me/+IsRhPyWuOFxmNmM9" 
-          target="_blank" 
+        <Link
+          href="https://t.me/+IsRhPyWuOFxmNmM9"
+          target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center bg-[#389BFF] hover:bg-[#2D8EF4] text-white px-7 py-4 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl"
         >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="24" 
-            height="24" 
-            viewBox="0 0 24 24" 
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="white"
             className="flex-shrink-0 mr-3"
           >
-            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
           </svg>
           <span className="text-lg font-medium">Join our community</span>
         </Link>
