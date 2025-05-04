@@ -30,6 +30,9 @@ import Link from "next/link";
 import qrCode from "@/app/images/qr.png";
 import appLogo from "@/app/images/app-logo.svg"; // Updated logo import
 import MpcVisualization from "./components/MpcVisualization";
+import SDKExample from "./components/SDKExample";
+import { DashboardPreview } from "@/components/DashboardPreview";
+import dashboardImage from "@/app/images/dashboard.png";
 
 export default function Home() {
   const evmChains = [
@@ -108,6 +111,18 @@ export default function Home() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
+            <Button variant="outline" size="sm" asChild className="gap-2">
+              <Link
+                href="https://github.com/fystack"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="bg-gray-900 dark:bg-gray-800 p-1 rounded-full">
+                  <Github className="h-3 w-3 text-white fill-white" />
+                </div>
+                GitHub
+              </Link>
+            </Button>
             <Button variant="outline" size="sm" asChild>
               <Link
                 href="https://app.fystack.io"
@@ -158,36 +173,32 @@ export default function Home() {
 
                 <section className="py-12 bg-red-50/50 dark:bg-red-950/10 border-y border-red-100/50 dark:border-red-900/20">
                   <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-                    <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left">
+                    <div className="flex flex-col md:flex-row items-start justify-center gap-8 text-center md:text-left">
                       <div className="flex-1 max-w-md">
-                        <div className="inline-flex items-center justify-center p-3 rounded-full bg-red-100/80 dark:bg-red-900/30 mb-4">
-                          <XCircle className="h-6 w-6 text-red-600 dark:text-red-400" />
-                        </div>
                         <h3 className="text-2xl font-bold mb-2">
-                          Key Compromise Reality
+                          Why Keys Break
                         </h3>
                         <p className="text-muted-foreground">
-                          <span className="font-bold text-red-600 dark:text-red-400">
-                            80%
-                          </span>{" "}
-                          of crypto hacks come from Access Control & Key Compromises
+                          <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500 font-medium">
+                            Poor access controls
+                          </span> and unsecured private key management lead to 75% of crypto hacks.
                         </p>
                       </div>
 
                       <div className="h-16 border-l border-red-200 dark:border-red-800 hidden md:block"></div>
 
                       <div className="flex-1 max-w-md">
-                        <div className="inline-flex items-center justify-center p-3 rounded-full bg-red-100/80 dark:bg-red-900/30 mb-4">
-                          <Shield className="h-6 w-6 text-red-600 dark:text-red-400 transform rotate-180" />
-                        </div>
                         <h3 className="text-2xl font-bold mb-2">
-                          Developer Mistakes
+                          Developer Slip-Ups
                         </h3>
                         <p className="text-muted-foreground">
-                          <span className="font-bold text-red-600 dark:text-red-400">
-                            Nearly 50%
-                          </span>{" "}
-                          come from developer mistakes in managing private keys
+                          Almost 50% of breaches are due to developers 
+                          {" "}<span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500 font-medium">
+                            generating wallets insecurely
+                          </span> and storing 
+                          {" "}<span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500 font-medium">
+                            unencrypted
+                          </span> keys on personal machines.
                         </p>
                       </div>
                     </div>
@@ -199,8 +210,11 @@ export default function Home() {
               <div className="flex flex-col space-y-6">
                 <div className="space-y-4 text-center">
                   <h2 className="text-2xl font-bold tracking-tighter sm:text-4xl text-gray-600 dark:text-gray-400">
-                    <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text">Fystack</span> secure wallet infrastructure <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text">built for developers</span>
+                    <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text">Fystack</span> AWS for crypto wallets
                   </h2>
+                  <p className="text-xl sm:text-2xl text-muted-foreground mx-auto">
+                    <span className="text-xl sm:text-2xl bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text font-semibold">Secure wallet infrastructure</span> built for developers
+                  </p>
                   <p className="max-w-[600px] text-muted-foreground mx-auto">
                     Our <span className="font-medium bg-gradient-to-r from-blue-500 to-primary text-transparent bg-clip-text">MPC</span> (Multi-Party Computation) distributes key fragments across multiple secure cloud providers, ensuring no single point of failure.
                   </p>
@@ -213,11 +227,11 @@ export default function Home() {
                     asChild
                   >
                     <Link
-                      href="https://sandbox.fystack.io/"
+                      href="https://app.fystack.io"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Try Live Demo <ChevronRight className="h-4 w-4" />
+                      Get Started!
                     </Link>
                   </Button>
                   <Button
@@ -242,6 +256,64 @@ export default function Home() {
           </div>
         </section>
 
+        <SDKExample />
+
+        {/* Dashboard Section */}
+        <section className="py-24 relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-50/30 via-transparent to-transparent dark:from-blue-950/10 dark:via-transparent dark:to-transparent -z-10"></div>
+          <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 text-sm rounded-full border bg-primary/5 text-primary border-primary/20">
+                Dashboard
+              </div>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-2xl md:text-3xl lg:text-4xl">
+                Monitor and manage your wallets with ease
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground max-w-[700px] mx-auto">
+                Our intuitive dashboard gives you complete visibility and control over all your crypto wallets and transactions.
+              </p>
+            </div>
+
+            {/* Dashboard Preview */}
+            <div className="max-w-[800px] mx-auto mb-16">
+              <DashboardPreview imageSrc={dashboardImage.src} />
+            </div>
+
+            {/* Dashboard Features */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="p-6 rounded-lg border bg-card">
+                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <Shield className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="text-lg font-bold mb-2">Security Controls</h3>
+                <p className="text-muted-foreground">
+                  Monitor and manage security settings for all your wallets from a single interface. Set spending limits, IP restrictions, and multi-signature requirements.
+                </p>
+              </div>
+              
+              <div className="p-6 rounded-lg border bg-card">
+                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <CircleDollarSign className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="text-lg font-bold mb-2">Transaction Insights</h3>
+                <p className="text-muted-foreground">
+                  Get detailed analytics on all your transactions across different chains. Track spending patterns and identify unusual activity.
+                </p>
+              </div>
+              
+              <div className="p-6 rounded-lg border bg-card">
+                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <Users className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="text-lg font-bold mb-2">Team Management</h3>
+                <p className="text-muted-foreground">
+                  Assign different roles and permissions to team members. Control who can view, create, or approve transactions from specific wallets.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Features Section */}
         <section id="features" className="py-24 relative">
           <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-blue-100/20 to-transparent dark:from-blue-950/20 dark:via-blue-900/10 dark:to-transparent -z-10"></div>
@@ -252,7 +324,7 @@ export default function Home() {
               <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 text-sm rounded-full border bg-primary/5 text-primary border-primary/20">
                 Core Features
               </div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-2xl md:text-3xl lg:text-4xl">
                 Everything you need to build secure wallets
               </h2>
               <p className="mt-4 text-lg text-muted-foreground max-w-[700px] mx-auto">
@@ -1133,13 +1205,12 @@ export default function Home() {
                       <Key className="h-6 w-6 text-primary" />
                     </div>
                     <h3 className="text-xl font-bold">
-                      Zero Knowledge End-to-End Key Encryption
+                    End-to-End Key Encryption
                     </h3>
                   </div>
                   <p className="text-muted-foreground">
-                    Your keys are encrypted end-to-end using zero-knowledge
-                    protocols, ensuring that even we cannot access your private
-                    keys.
+                    Keys are encrypted end-to-end using our secure
+                    protocols, ensuring that even we cannot touch your keys.
                   </p>
                   {/* Interactive Visualization */}
                   <div className="mt-6 relative h-16">
@@ -1153,215 +1224,6 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* SDK Section */}
-        <section id="sdk" className="py-24 bg-muted/50">
-          <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <Badge
-                  variant="outline"
-                  className="w-fit mx-auto bg-primary/10 text-primary border-primary/20"
-                >
-                  Developer SDK
-                </Badge>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Simple integration with our SDK
-                </h2>
-                <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto">
-                  Just a few lines of code to create secure wallets and manage
-                  transactions.
-                </p>
-              </div>
-            </div>
-            <div className="mt-16 grid gap-8 lg:grid-cols-2">
-              <Card className="overflow-hidden border-primary/10">
-                <CardContent className="p-0">
-                  <Tabs defaultValue="javascript" className="w-full">
-                    <div className="flex items-center justify-between border-b px-4">
-                      <TabsList className="bg-transparent">
-                        <TabsTrigger value="javascript">JavaScript</TabsTrigger>
-                        <TabsTrigger value="typescript">TypeScript</TabsTrigger>
-                        <TabsTrigger value="python">Python</TabsTrigger>
-                      </TabsList>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="gap-1 text-xs"
-                      >
-                        <ExternalLink className="h-3 w-3" /> View Docs
-                      </Button>
-                    </div>
-                    <TabsContent value="javascript" className="p-0 m-0">
-                      <pre className="p-4 overflow-x-auto text-sm bg-muted font-mono">
-                        <code>{`// Initialize the SDK
-const securewallet = require('fystack-sdk');
-const client = new securewallet.Client({
-  apiKey: 'YOUR_API_KEY'
-});
-
-// Create a new wallet
-async function createWallet() {
-  const wallet = await client.createWallet({
-    name: 'My Wallet',
-    quorum: { required: 2, total: 3 },
-    policies: {
-      dailyLimit: '1000000000000000000' // 1 ETH
-    }
-  });
-  
-  console.log(\`Wallet created: \${wallet.address}\`);
-  return wallet;
-}
-
-// Generate a transaction
-async function createTransaction(walletId, to, amount) {
-  const tx = await client.createTransaction({
-    walletId,
-    to,
-    value: amount,
-    chainId: 1 // Ethereum Mainnet
-  });
-  
-  return tx;
-}`}</code>
-                      </pre>
-                    </TabsContent>
-                    <TabsContent value="typescript" className="p-0 m-0">
-                      <pre className="p-4 overflow-x-auto text-sm bg-muted font-mono">
-                        <code>{`// Initialize the SDK
-import { Client, WalletConfig, TransactionParams } from 'securewallet-sdk';
-
-const client = new Client({
-  apiKey: 'YOUR_API_KEY'
-});
-
-// Create a new wallet
-async function createWallet(): Promise<Wallet> {
-  const config: WalletConfig = {
-    name: 'My Wallet',
-    quorum: { required: 2, total: 3 },
-    policies: {
-      dailyLimit: '1000000000000000000' // 1 ETH
-    }
-  };
-  
-  const wallet = await client.createWallet(config);
-  console.log(\`Wallet created: \${wallet.address}\`);
-  return wallet;
-}
-
-// Generate a transaction
-async function createTransaction(
-  walletId: string, 
-  to: string, 
-  amount: string
-): Promise<Transaction> {
-  const params: TransactionParams = {
-    walletId,
-    to,
-    value: amount,v
-    chainId: 1 // Ethereum Mainnet
-  };
-  
-  return await client.createTransaction(params);
-}`}</code>
-                      </pre>
-                    </TabsContent>
-                    <TabsContent value="python" className="p-0 m-0">
-                      <pre className="p-4 overflow-x-auto text-sm bg-muted font-mono">
-                        <code>{`# Initialize the SDK
-from securewallet_sdk import Client
-
-client = Client(api_key='YOUR_API_KEY')
-
-# Create a new wallet
-def create_wallet():
-    wallet = client.create_wallet(
-        name='My Wallet',
-        quorum={'required': 2, 'total': 3},
-        policies={
-            'daily_limit': '1000000000000000000'  # 1 ETH
-        }
-    )
-    
-    print(f"Wallet created: {wallet.address}")
-    return wallet
-
-# Generate a transaction
-def create_transaction(wallet_id, to, amount):
-    tx = client.create_transaction(
-        wallet_id=wallet_id,
-        to=to,
-        value=amount,
-        chain_id=1  # Ethereum Mainnet
-    )
-    
-    return tx`}</code>
-                      </pre>
-                    </TabsContent>
-                  </Tabs>
-                </CardContent>
-              </Card>
-              <div className="space-y-6">
-                <div className="space-y-2">
-                  <h3 className="text-2xl font-bold">Simple, Powerful API</h3>
-                  <p className="text-muted-foreground">
-                    Our SDK provides a clean, intuitive interface for all wallet
-                    operations, from creation to transaction management.
-                  </p>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
-                    <div>
-                      <h4 className="font-medium">Easy Wallet Creation</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Create secure MPC wallets with just a few lines of code.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
-                    <div>
-                      <h4 className="font-medium">
-                        Flexible Security Policies
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        Define custom security policies for each wallet.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
-                    <div>
-                      <h4 className="font-medium">Multi-Chain Support</h4>
-                      <p className="text-sm text-muted-foreground">
-                        One SDK for all supported blockchains.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
-                    <div>
-                      <h4 className="font-medium">
-                        Comprehensive Documentation
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        Detailed guides, examples, and API references.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <Button className="gap-1 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary">
-                    Get API Key <ChevronRight className="h-4 w-4" />
-                  </Button>
                 </div>
               </div>
             </div>
@@ -2086,6 +1948,29 @@ def create_transaction(wallet_id, to, amount):
           </div>
         </div>
       </footer>
+
+      {/* Add this just before the closing </div> of the main flex-col min-h-screen container */}
+      {/* Floating Telegram Button */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <Link 
+          href="https://t.me/+IsRhPyWuOFxmNmM9" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center justify-center bg-[#389BFF] hover:bg-[#2D8EF4] text-white px-7 py-4 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl"
+        >
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24" 
+            fill="white"
+            className="flex-shrink-0 mr-3"
+          >
+            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+          </svg>
+          <span className="text-lg font-medium">Join our community</span>
+        </Link>
+      </div>
     </div>
   );
 }
