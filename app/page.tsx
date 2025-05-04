@@ -29,6 +29,7 @@ import Image from "next/image";
 import Link from "next/link";
 import qrCode from "@/app/images/qr.png";
 import appLogo from "@/app/images/app-logo.svg"; // Updated logo import
+import MpcVisualization from "./components/MpcVisualization";
 
 export default function Home() {
   const evmChains = [
@@ -134,25 +135,78 @@ export default function Home() {
         <section className="py-32 md:py-32 relative overflow-hidden">
           <div className="absolute inset-0 -z-10 bg-[radial-gradient(45%_40%_at_50%_60%,rgba(var(--primary-rgb),0.1),transparent)]"></div>
           <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-            <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
-              <div className="flex flex-col justify-center space-y-4">
+            <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-start">
+              {/* Left Column - Problem Statement */}
+              <div className="flex flex-col space-y-4">
                 <div className="space-y-2">
-                  <Badge
-                    variant="outline"
-                    className="w-fit bg-primary/10 text-primary border-primary/20"
-                  >
-                    Secure. Scalable. Simple.
-                  </Badge>
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                    MPC platform built for developers
+                  <h1 className="text-2xl font-bold tracking-tighter sm:text-4xl text-gray-600 dark:text-gray-400">
+                    Crypto hacks cost <span className="bg-gradient-to-r from-red-500 via-orange-500 to-amber-500 text-transparent bg-clip-text">$17B</span>
                   </h1>
-                  <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    Create wallets with ease securely. Our Multi-Party
-                    Computation technology ensures your keys are never in one
-                    place.
+                  <p className="text-2xl font-semibold text-muted-foreground">
+                    <span className="bg-gradient-to-r from-red-400 to-orange-400 text-transparent bg-clip-text">1000+</span> crypto companies and projects <span className="bg-gradient-to-r from-red-400 via-pink-400 to-red-500 text-transparent bg-clip-text">hacked</span> due to private keys compromised
                   </p>
                 </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row w-full sm:w-auto">
+
+                <div className="space-y-2 mt-4">
+                  <h2 className="text-lg font-bold tracking-tighter sm:text-2xl text-gray-600 dark:text-gray-400">
+                    Are your keys still safe?
+                  </h2>
+                  <p className="max-w-[600px] text-muted-foreground md:text-lg">
+                    Traditional wallets put a single key at risk. Phishing, malware or supply chain compromise can drain funds in seconds.
+                  </p>
+                </div>
+
+                <section className="py-12 bg-red-50/50 dark:bg-red-950/10 border-y border-red-100/50 dark:border-red-900/20">
+                  <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left">
+                      <div className="flex-1 max-w-md">
+                        <div className="inline-flex items-center justify-center p-3 rounded-full bg-red-100/80 dark:bg-red-900/30 mb-4">
+                          <XCircle className="h-6 w-6 text-red-600 dark:text-red-400" />
+                        </div>
+                        <h3 className="text-2xl font-bold mb-2">
+                          Key Compromise Reality
+                        </h3>
+                        <p className="text-muted-foreground">
+                          <span className="font-bold text-red-600 dark:text-red-400">
+                            80%
+                          </span>{" "}
+                          of crypto hacks come from Access Control & Key Compromises
+                        </p>
+                      </div>
+
+                      <div className="h-16 border-l border-red-200 dark:border-red-800 hidden md:block"></div>
+
+                      <div className="flex-1 max-w-md">
+                        <div className="inline-flex items-center justify-center p-3 rounded-full bg-red-100/80 dark:bg-red-900/30 mb-4">
+                          <Shield className="h-6 w-6 text-red-600 dark:text-red-400 transform rotate-180" />
+                        </div>
+                        <h3 className="text-2xl font-bold mb-2">
+                          Developer Mistakes
+                        </h3>
+                        <p className="text-muted-foreground">
+                          <span className="font-bold text-red-600 dark:text-red-400">
+                            Nearly 50%
+                          </span>{" "}
+                          come from developer mistakes in managing private keys
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              
+              {/* Right Column - Solution */}
+              <div className="flex flex-col space-y-6">
+                <div className="space-y-4 text-center">
+                  <h2 className="text-2xl font-bold tracking-tighter sm:text-4xl text-gray-600 dark:text-gray-400">
+                    <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text">Fystack</span> secure wallet infrastructure <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text">built for developers</span>
+                  </h2>
+                  <p className="max-w-[600px] text-muted-foreground mx-auto">
+                    Our <span className="font-medium bg-gradient-to-r from-blue-500 to-primary text-transparent bg-clip-text">MPC</span> (Multi-Party Computation) distributes key fragments across multiple secure cloud providers, ensuring no single point of failure.
+                  </p>
+                </div>
+
+                <div className="flex flex-col gap-2 min-[400px]:flex-row w-full sm:w-auto justify-center">
                   <Button
                     size="lg"
                     className="gap-1 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary w-full sm:w-auto"
@@ -163,7 +217,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Live demo <ChevronRight className="h-4 w-4" />
+                      Try Live Demo <ChevronRight className="h-4 w-4" />
                     </Link>
                   </Button>
                   <Button
@@ -177,179 +231,12 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Documentation
+                      Read the Docs
                     </Link>
                   </Button>
                 </div>
-                {/* <div className="flex items-center gap-4 pt-8">
-                  <p className="text-sm text-muted-foreground">Trusted by:</p>
-                  <div className="flex gap-6 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300">
-                    <Image 
-                      src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" 
-                      alt="Company 1" 
-                      width={80} 
-                      height={30} 
-                      className="h-6 w-auto object-contain" 
-                    />
-                    <Image 
-                      src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" 
-                      alt="Company 2" 
-                      width={80} 
-                      height={30} 
-                      className="h-6 w-auto object-contain" 
-                    />
-                    <Image 
-                      src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" 
-                      alt="Company 3" 
-                      width={80} 
-                      height={30} 
-                      className="h-6 w-auto object-contain" 
-                    />
-                  </div>
-                </div> */}
-              </div>
-              <div className="relative h-[350px] lg:h-[500px] rounded-xl overflow-hidden border bg-muted/30 backdrop-blur-sm">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative w-full max-w-[80%] aspect-video">
-                    {/* Central Key Icon with Pulse Effect */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                      <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center z-10">
-                        <Key className="h-8 w-8 text-primary animate-pulse" />
-                      </div>
-                      <div className="w-32 h-32 rounded-full bg-primary/5 absolute animate-ping"></div>
-                    </div>
 
-                    {/* Cloud Provider Nodes with Key Fragments */}
-                    <div className="absolute top-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2">
-                      <div className="relative">
-                        <div className="w-16 h-16 rounded-lg bg-blue-500/20 flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
-                          <Image
-                            src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
-                            alt="AWS"
-                            width={40}
-                            height={40}
-                          />
-                        </div>
-                        <div className="absolute -right-2 -bottom-2 bg-primary/20 rounded-full p-1">
-                          <Key className="h-4 w-4 text-primary" />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="absolute top-1/3 right-1/4 transform translate-x-1/2 -translate-y-1/2">
-                      <div className="relative">
-                        <div className="w-16 h-16 rounded-lg bg-blue-500/20 flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
-                          <Image
-                            src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg"
-                            alt="Azure"
-                            width={40}
-                            height={40}
-                          />
-                        </div>
-                        <div className="absolute -right-2 -bottom-2 bg-primary/20 rounded-full p-1">
-                          <Key className="h-4 w-4 text-primary" />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="absolute bottom-1/4 left-1/3 transform -translate-x-1/2 translate-y-1/2">
-                      <div className="relative">
-                        <div className="w-16 h-16 rounded-lg bg-blue-500/20 flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
-                          <Image
-                            src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg"
-                            alt="Google Cloud"
-                            width={60}
-                            height={60}
-                            className="scale-125"
-                          />
-                        </div>
-                        <div className="absolute -right-2 -bottom-2 bg-primary/20 rounded-full p-1">
-                          <Key className="h-4 w-4 text-primary" />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Animated Connection Lines */}
-                    <svg
-                      className="absolute inset-0 w-full h-full"
-                      viewBox="0 0 100 100"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      {/* Animated dashed lines */}
-                      <path
-                        d="M25,35 Q40,20 50,35 T75,35"
-                        fill="none"
-                        stroke="rgba(var(--primary-rgb), 0.5)"
-                        strokeWidth="0.5"
-                        strokeDasharray="2,2"
-                      >
-                        <animate
-                          attributeName="stroke-dashoffset"
-                          from="0"
-                          to="100"
-                          dur="20s"
-                          repeatCount="indefinite"
-                        />
-                      </path>
-                      <path
-                        d="M25,45 Q40,30 50,45 T75,45"
-                        fill="none"
-                        stroke="rgba(var(--primary-rgb), 0.3)"
-                        strokeWidth="0.5"
-                        strokeDasharray="2,2"
-                      >
-                        <animate
-                          attributeName="stroke-dashoffset"
-                          from="0"
-                          to="-100"
-                          dur="15s"
-                          repeatCount="indefinite"
-                        />
-                      </path>
-                      <path
-                        d="M25,55 Q40,40 50,55 T75,55"
-                        fill="none"
-                        stroke="rgba(var(--primary-rgb), 0.2)"
-                        strokeWidth="0.5"
-                        strokeDasharray="2,2"
-                      >
-                        <animate
-                          attributeName="stroke-dashoffset"
-                          from="0"
-                          to="100"
-                          dur="25s"
-                          repeatCount="indefinite"
-                        />
-                      </path>
-
-                      {/* Animated particles along the paths */}
-                      <circle r="0.5" fill="var(--primary)">
-                        <animateMotion
-                          dur="10s"
-                          repeatCount="indefinite"
-                          path="M25,35 Q40,20 50,35 T75,35"
-                        />
-                      </circle>
-                      <circle r="0.5" fill="var(--primary)">
-                        <animateMotion
-                          dur="8s"
-                          repeatCount="indefinite"
-                          path="M25,45 Q40,30 50,45 T75,45"
-                        />
-                      </circle>
-                      <circle r="0.5" fill="var(--primary)">
-                        <animateMotion
-                          dur="12s"
-                          repeatCount="indefinite"
-                          path="M25,55 Q40,40 50,55 T75,55"
-                        />
-                      </circle>
-                    </svg>
-
-                    {/* Background Glow Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 animate-pulse"></div>
-                  </div>
-                </div>
+                <MpcVisualization />
               </div>
             </div>
           </div>
@@ -744,7 +631,7 @@ export default function Home() {
                 </h3>
                 <p className="text-muted-foreground">
                   Deploy smart contracts without exposing private keys in your
-                  code or CI/CD pipelines, using secure OpenID Connect (OIDC)
+                  codebase or CI/CD pipeline, using secure OpenID Connect (OIDC)
                   authentication.
                 </p>
 
@@ -1834,8 +1721,8 @@ def create_transaction(wallet_id, to, amount):
                 <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto">
                   See what our customers have to say about our platform.
                 </p>
-              </div>
-            </div>
+                        </div>
+                        </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
               <Card className="hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30">
                 <CardContent className="p-6">
@@ -1846,7 +1733,7 @@ def create_transaction(wallet_id, to, amount):
                           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                         </svg>
                       ))}
-                    </div>
+                      </div>
                     <p className="text-muted-foreground">
                       "SecureWallet's MPC technology has completely transformed how we handle crypto assets. The security features are top-notch, and the API is incredibly easy to work with."
                     </p>
@@ -1855,9 +1742,9 @@ def create_transaction(wallet_id, to, amount):
                       <div>
                         <p className="font-medium">Sarah Johnson</p>
                         <p className="text-sm text-muted-foreground">CTO, CryptoFin</p>
-                      </div>
                     </div>
-                  </div>
+                        </div>
+                        </div>
                 </CardContent>
               </Card>
               <Card className="hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30">
@@ -1869,7 +1756,7 @@ def create_transaction(wallet_id, to, amount):
                           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                         </svg>
                       ))}
-                    </div>
+                      </div>
                     <p className="text-muted-foreground">
                       "The multi-approval feature has been a game-changer for our treasury management. We can now ensure that no single person has complete control over our funds."
                     </p>
@@ -1878,9 +1765,9 @@ def create_transaction(wallet_id, to, amount):
                       <div>
                         <p className="font-medium">Michael Chen</p>
                         <p className="text-sm text-muted-foreground">Founder, BlockTech</p>
-                      </div>
                     </div>
-                  </div>
+                        </div>
+                        </div>
                 </CardContent>
               </Card>
               <Card className="hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30">
@@ -1892,7 +1779,7 @@ def create_transaction(wallet_id, to, amount):
                           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                         </svg>
                       ))}
-                    </div>
+                      </div>
                     <p className="text-muted-foreground">
                       "We integrated SecureWallet into our DeFi platform in just a few days. The documentation is excellent, and their support team was incredibly helpful throughout the process."
                     </p>
@@ -1901,7 +1788,7 @@ def create_transaction(wallet_id, to, amount):
                       <div>
                         <p className="font-medium">Alex Rodriguez</p>
                         <p className="text-sm text-muted-foreground">Lead Developer, DeFiHub</p>
-                      </div>
+                    </div>
                     </div>
                   </div>
                 </CardContent>
