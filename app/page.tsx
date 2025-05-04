@@ -183,7 +183,7 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-32 md:py-32 relative overflow-hidden">
+        <section className="py-16 md:py-20 relative overflow-hidden">
           <div className="absolute inset-0 -z-10 bg-[radial-gradient(45%_40%_at_50%_60%,rgba(var(--primary-rgb),0.1),transparent)]"></div>
           <div className="container px-4 md:px-6 max-w-7xl mx-auto">
             <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-start">
