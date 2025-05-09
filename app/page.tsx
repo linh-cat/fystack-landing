@@ -1357,7 +1357,6 @@ export default function Home() {
                     </p>
                     <div className="flex items-baseline gap-1">
                       <span className="text-3xl font-bold">Free</span>
-                      <span className="text-muted-foreground">/forever</span>
                     </div>
                   </div>
                   <div className="space-y-4 mt-6">
@@ -1365,8 +1364,12 @@ export default function Home() {
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
                         <span className="text-sm">
-                          Up to 10 MPC wallets, 50 standard wallets
+                          Up to 3 MPC wallets - 3,000 standard wallets
                         </span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">100 crypto payments</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
@@ -1374,7 +1377,7 @@ export default function Home() {
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">1,000 API calls/month</span>
+                        <span className="text-sm">20,000 API calls/month</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
@@ -1417,8 +1420,8 @@ export default function Home() {
                       For growing teams and businesses.
                     </p>
                     <div className="flex items-baseline gap-1">
-                      <span className="text-3xl font-bold">$15</span>
-                      <span className="text-muted-foreground">/user/month</span>
+                      <span className="text-3xl font-bold">$99</span>
+                      {/* <span className="text-muted-foreground">/user/month</span> */}
                     </div>
                   </div>
                   <div className="space-y-4 mt-6">
@@ -1426,8 +1429,12 @@ export default function Home() {
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
                         <span className="text-sm">
-                          Up to 200 MPC wallets, 1000 standard wallets
+                          Up to 100 MPC wallets - 10,000 standard wallets
                         </span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">2000 crypto payments</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
@@ -1435,7 +1442,7 @@ export default function Home() {
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">20,000 API calls/month</span>
+                        <span className="text-sm">100,000 API calls/month</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
