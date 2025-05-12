@@ -39,6 +39,7 @@ import MpcVisualization from "./components/MpcVisualization";
 import SDKExample from "./components/SDKExample";
 import { DashboardPreview } from "@/components/DashboardPreview";
 import dashboardImage from "@/app/images/dashboard.png";
+import Hosting from "./components/Hosting"; // Add this import
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -353,6 +354,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <Hosting />
 
         <SDKExample />
 
@@ -1421,7 +1424,6 @@ export default function Home() {
                     </p>
                     <div className="flex items-baseline gap-1">
                       <span className="text-3xl font-bold">$99</span>
-                      {/* <span className="text-muted-foreground">/user/month</span> */}
                     </div>
                   </div>
                   <div className="space-y-4 mt-6">
