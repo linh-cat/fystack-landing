@@ -40,13 +40,13 @@ export default function Hosting() {
             <TabsList className="grid grid-cols-2 w-full h-auto p-1.5 bg-muted/70 rounded-xl border shadow-sm">
               <TabsTrigger
                 value="managed"
-                className="py-3.5 data-[state=active]:bg-background rounded-lg data-[state=active]:shadow transition-all font-medium"
+                className="py-3.5 data-[state=active]:bg-primary/80 data-[state=active]:text-primary-foreground rounded-lg data-[state=active]:shadow transition-all font-medium"
               >
                 Managed Service
               </TabsTrigger>
               <TabsTrigger
                 value="self-hosted"
-                className="py-3.5 data-[state=active]:bg-background rounded-lg data-[state=active]:shadow transition-all font-medium"
+                className="py-3.5 data-[state=active]:bg-primary/80 data-[state=active]:text-primary-foreground rounded-lg data-[state=active]:shadow transition-all font-medium"
               >
                 Self-Hosted
               </TabsTrigger>
