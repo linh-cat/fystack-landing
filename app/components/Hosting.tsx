@@ -14,46 +14,50 @@ import Link from "next/link";
 
 export default function Hosting() {
   return (
-    <section id="hosting" className="py-16 relative">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_50%_50%,rgba(var(--primary-rgb),0.12),transparent)]"></div>
+    <section id="hosting" className="py-12 relative">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(40%_40%_at_50%_50%,rgba(var(--primary-rgb),0.05),transparent)]"></div>
       <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-        <div className="flex flex-col items-center justify-center space-y-6 text-center">
-          <div className="space-y-3">
+        <div className="flex flex-col items-center justify-center space-y-4 text-center">
+          <div className="space-y-2">
             <Badge
               variant="outline"
-              className="w-fit mx-auto bg-primary/20 text-primary border-primary/30 px-4 py-1 text-sm"
+              className="w-fit mx-auto bg-primary/10 text-primary border-primary/20"
             >
               Deployment Options
             </Badge>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Choose your implementation
             </h2>
-            <p className="max-w-[750px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto">
+            <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto">
               Select the deployment model that best fits your security needs and
               regulatory requirements
             </p>
           </div>
         </div>
 
-        <div className="mt-12">
-          <Tabs defaultValue="managed" className="w-full max-w-5xl mx-auto">
+        <div className="mt-10">
+          <Tabs defaultValue="managed" className="w-full max-w-4xl mx-auto">
             <TabsList className="grid grid-cols-2 w-full h-auto p-1.5 bg-muted/70 rounded-xl border shadow-sm">
               <TabsTrigger
                 value="managed"
-                className="py-3.5 data-[state=active]:bg-primary/80 data-[state=active]:text-primary-foreground rounded-lg data-[state=active]:shadow transition-all font-medium"
+                className="py-3.5 font-medium rounded-lg transition-all
+                data-[state=active]:bg-blue-500 
+                data-[state=active]:text-white"
               >
                 Managed Service
               </TabsTrigger>
               <TabsTrigger
                 value="self-hosted"
-                className="py-3.5 data-[state=active]:bg-primary/80 data-[state=active]:text-primary-foreground rounded-lg data-[state=active]:shadow transition-all font-medium"
+                className="py-3.5 font-medium rounded-lg transition-all
+                data-[state=active]:bg-blue-500 
+                data-[state=active]:text-white"
               >
                 Self-Hosted
               </TabsTrigger>
             </TabsList>
 
-            <TabsContent value="managed" className="mt-8">
-              <div className="grid md:grid-cols-2 gap-8 p-8 border-2 rounded-xl bg-card shadow-md">
+            <TabsContent value="managed" className="mt-6">
+              <div className="grid md:grid-cols-2 gap-8 p-6 border rounded-xl bg-card">
                 <div className="space-y-6">
                   <div className="flex items-center gap-3">
                     <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -63,8 +67,8 @@ export default function Hosting() {
                   </div>
 
                   <p className="text-muted-foreground">
-                    Our fully-managed MPC infrastructure provides instant
-                    deployment with zero setup complexity. Start building secure
+                    Our fully-managed MPC infrastructure provides instant wallet
+                    creation with zero setup complexity. Start building secure
                     wallet solutions immediately with our production-ready
                     infrastructure.
                   </p>
@@ -152,8 +156,8 @@ export default function Hosting() {
               </div>
             </TabsContent>
 
-            <TabsContent value="self-hosted" className="mt-8">
-              <div className="grid md:grid-cols-2 gap-8 p-8 border-2 rounded-xl bg-card shadow-md">
+            <TabsContent value="self-hosted" className="mt-6">
+              <div className="grid md:grid-cols-2 gap-8 p-6 border rounded-xl bg-card">
                 <div className="space-y-6">
                   <div className="flex items-center gap-3">
                     <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -246,4 +250,3 @@ export default function Hosting() {
     </section>
   );
 }
-
