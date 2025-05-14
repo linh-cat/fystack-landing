@@ -1410,14 +1410,94 @@ export default function Home() {
                 </div>
               </Card>
 
+              {/* Starter Plan - New */}
+              <Card className="flex flex-col hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30">
+                <CardContent className="p-6 flex-1">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-xl font-bold">Starter</h3>
+                      <Badge className="bg-green-500 text-white">Save 34%</Badge>
+                    </div>
+                    <p className="text-muted-foreground">
+                      For startups and growing businesses.
+                    </p>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-3xl font-bold">$19</span>
+                      <span className="text-muted-foreground line-through">$29</span>
+                      <span className="text-muted-foreground">/month</span>
+                    </div>
+                  </div>
+                  <div className="space-y-4 mt-6">
+                    <ul className="space-y-2">
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">
+                          Up to 50 MPC wallets - 5,000 standard wallets
+                        </span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">500 crypto payments</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">2 workspaces, 5 users</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">50,000 API calls/month</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">Priority email support</span>
+                      </li>
+                      
+                      {/* Advanced Security Features Section */}
+                      <li className="pt-2">
+                        <span className="text-sm font-semibold text-primary">Advanced Security Features:</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">Audit trails</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">Transaction policies</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">Approval groups</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">Alerts and monitors</span>
+                      </li>
+                    </ul>
+                  </div>
+                </CardContent>
+                <div className="p-6 pt-0 mt-auto">
+                  <Button
+                    className="w-full"
+                    asChild
+                  >
+                    <Link
+                      href="https://app.fystack.io"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Get Started
+                    </Link>
+                  </Button>
+                </div>
+              </Card>
+
               {/* Team Plan */}
-              <Card className="flex flex-col border-primary relative hover:shadow-xl transition-all duration-300 scale-105">
+              <Card className="flex flex-col border-primary relative hover:shadow-xl transition-all duration-300">
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground text-xs font-medium py-1 px-3 rounded-full">
                   Most Popular
                 </div>
                 <CardContent className="p-6 flex-1">
                   <div className="space-y-2">
-                    <Badge className="bg-primary">Popular</Badge>
                     <h3 className="text-xl font-bold">Team</h3>
                     <p className="text-muted-foreground">
                       For growing teams and businesses.
@@ -1440,21 +1520,35 @@ export default function Home() {
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">3 workspaces</span>
+                        <span className="text-sm">5 workspaces</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">100,000 API calls/month</span>
+                        <span className="text-sm">200,000 API calls/month</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">
-                          Advanced security features
-                        </span>
+                        <span className="text-sm">Priority Telegram support</span>
+                      </li>
+                       {/* Advanced Security Features Section */}
+                       <li className="pt-2">
+                        <span className="text-sm font-semibold text-primary">Advanced Security Features:</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">Priority support</span>
+                        <span className="text-sm">Audit trails</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">Transaction policies</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">Approval groups</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">Alerts and monitors</span>
                       </li>
                     </ul>
                   </div>
@@ -1474,62 +1568,95 @@ export default function Home() {
                   </Button>
                 </div>
               </Card>
-
+              
               {/* Enterprise Plan */}
-              <Card className="flex flex-col hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30">
+              <Card className="md:col-span-3 flex flex-col hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30 mt-8">
                 <CardContent className="p-6 flex-1">
                   <div className="space-y-2">
-                    <h3 className="text-xl font-bold">Enterprise</h3>
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-xl font-bold">Enterprise</h3>
+                      <Badge className="bg-blue-500 text-white">Custom Solution</Badge>
+                    </div>
                     <p className="text-muted-foreground">
-                      For large organizations with custom needs.
+                      For large organizations with custom requirements and high volume needs.
                     </p>
                     <div className="flex items-baseline gap-1">
                       <span className="text-3xl font-bold">Custom</span>
+                      <span className="text-muted-foreground">pricing</span>
                     </div>
                   </div>
                   <div className="space-y-4 mt-6">
-                    <ul className="space-y-2">
-                      <li className="flex items-center gap-2">
+                    <div className="grid md:grid-cols-3 gap-6">
+                      <div className="space-y-2">
+                        <h4 className="text-base font-semibold">Infrastructure</h4>
+                        <ul className="space-y-2">
+                          <li className="flex items-center gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary" />
+                            <span className="text-sm">Unlimited MPC wallets</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary" />
+                            <span className="text-sm">Unlimited standard wallets</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary" />
+                            <span className="text-sm">Unlimited crypto payments</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary" />
+                            <span className="text-sm">Custom API limits</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="space-y-2">
+                        <h4 className="text-base font-semibold">Security & Compliance</h4>
+                        <ul className="space-y-2">
+                          <li className="flex items-center gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary" />
+                            <span className="text-sm">Custom security policies</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary" />
+                            <span className="text-sm">Advanced multi-sig controls</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary" />
+                            <span className="text-sm">Risk monitoring & alerts</span>
+                          </li>
+                          <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">
-                          Everything in Team, plus:
-                        </span>
+                        <span className="text-sm">Audit trails</span>
                       </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">
-                          Additional workspaces available
-                        </span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">Custom API call limits</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">24/7 dedicated support</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">Custom integrations</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">SLA guarantees</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">
-                          Dedicated account manager
-                        </span>
-                      </li>
-                    </ul>
+                        </ul>
+                      </div>
+                      <div className="space-y-2">
+                        <h4 className="text-base font-semibold">Support & Services</h4>
+                        <ul className="space-y-2">
+                          <li className="flex items-center gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary" />
+                            <span className="text-sm">Advanced Analytics</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary" />
+                            <span className="text-sm">On-prem deployment</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary" />
+                            <span className="text-sm">Custom implementation</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary" />
+                            <span className="text-sm">SLA guarantees</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </CardContent>
                 <div className="p-6 pt-0 mt-auto">
                   <Button
                     variant="outline"
-                    className="w-full hover:bg-primary/5"
+                    className="w-full"
                     asChild
                   >
                     <Link
