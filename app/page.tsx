@@ -40,6 +40,7 @@ import SDKExample from "./components/SDKExample";
 import { DashboardPreview } from "@/components/DashboardPreview";
 import dashboardImage from "@/app/images/dashboard.png";
 import Hosting from "./components/Hosting"; // Add this import
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -350,6 +351,36 @@ export default function Home() {
                 </div>
 
                 <MpcVisualization />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Hosting />
+
+        {/* Video Section - Add this before <Hosting /> */}
+        <section className="py-16 relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-50/30 via-transparent to-transparent dark:from-blue-950/10 dark:via-transparent dark:to-transparent -z-10"></div>
+          <div className="container px-4 md:px-6 max-w-5xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl mb-4">
+                See Fystack in Action
+              </h2>
+              <p className="text-muted-foreground max-w-[600px] mx-auto">
+                Watch how easy it is to create secure MPC wallets and integrate them into your applications
+              </p>
+            </div>
+            
+            <div className="relative w-full max-w-4xl mx-auto">
+              <div className="relative aspect-video rounded-xl overflow-hidden border bg-background/50 shadow-2xl">
+                <iframe 
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/TeyoKqYy_Ls"
+                  title="Fystack Demo Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
               </div>
             </div>
           </div>
