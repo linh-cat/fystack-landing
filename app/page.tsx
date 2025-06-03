@@ -386,7 +386,6 @@ export default function Home() {
           </div>
         </section>
 
-        <Hosting />
 
         <SDKExample />
 
