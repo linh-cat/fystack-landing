@@ -315,7 +315,7 @@ export default function Home() {
                     <span className="font-medium bg-gradient-to-r from-blue-500 to-primary text-transparent bg-clip-text">
                       MPC
                     </span>{" "}
-                    (Multi-Party Computation) distributes key fragments across
+                    (Multi-Party Computation) technology distributes key fragments across
                     multiple nodes, ensuring no single point of failure.
                   </p>
                 </div>
