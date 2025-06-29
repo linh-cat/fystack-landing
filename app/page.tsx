@@ -353,7 +353,7 @@ export default function Home() {
                   financial services.
                 </p>
                 <Link 
-                  href="https://docs.fystack.io/self-host" 
+                  href="https://docs.fystack.io/mpcium" 
                   target="_blank"
                   className="text-primary hover:underline text-sm font-medium inline-flex items-center gap-1"
                 >
@@ -372,7 +372,7 @@ export default function Home() {
                   Integrate wallet functionality in minutes, not months.
                 </p>
                 <Link 
-                  href="https://docs.fystack.io/api" 
+                  href="https://docs.fystack.io/wallets" 
                   target="_blank"
                   className="text-primary hover:underline text-sm font-medium inline-flex items-center gap-1"
                 >
