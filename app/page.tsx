@@ -30,6 +30,9 @@ import {
   ChevronDown,
   Twitter,
   Bell,
+  Cloud,
+  Settings,
+  Code2,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -51,18 +54,6 @@ import AnimatedStat, { Highlight } from "./components/AnimatedStat"; // Updated 
 import { SecurityFeatures } from "./components/security-features";
 
 export default function Home() {
-  const hackerStats = [
-    <>
-      Crypto hacks cost <Highlight>$17B</Highlight>
-    </>,
-    <>
-      <Highlight>1 project</Highlight> is hacked per day
-    </>,
-    <>
-      <Highlight>1-3$M</Highlight> is lost on average
-    </>,
-  ];
-
   const evmChains = [
     {
       name: "Ethereum",
@@ -132,10 +123,12 @@ export default function Home() {
               Chains
             </Link>
             <Link
-              href="#pricing"
+              href="https://t.me/anhthind"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm font-medium hover:underline underline-offset-4"
             >
-              Pricing
+              Contact
             </Link>
             <DropdownMenu>
               <DropdownMenuTrigger className="text-sm font-medium hover:underline underline-offset-4 cursor-pointer hover:cursor-pointer flex items-center">
@@ -217,113 +210,55 @@ export default function Home() {
         <section className="py-16 md:py-20 relative overflow-hidden">
           <div className="absolute inset-0 -z-10 bg-[radial-gradient(45%_40%_at_50%_60%,rgba(var(--primary-rgb),0.1),transparent)]"></div>
           <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-            <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-start">
-              {/* Left Column - Problem Statement */}
-              <div className="flex flex-col space-y-4">
-                <div className="space-y-2">
-                  {/* Use the new AnimatedStat component */}
-                  <AnimatedStat
-                    stats={hackerStats}
-                    interval={3000} // Changed from 2000 to 3000 milliseconds
-                    className="text-2xl font-bold tracking-tighter sm:text-4xl text-gray-600 dark:text-gray-400 min-h-[40px]"
-                  />
-                  <div className="h-4"></div>
-                  <p className="text-2xl font-semibold text-muted-foreground">
-                    <span className="bg-gradient-to-r from-red-400 to-orange-400 text-transparent bg-clip-text">
-                      1000+
-                    </span>{" "}
-                    crypto companies and projects{" "}
-                    <span className="bg-gradient-to-r from-red-400 via-pink-400 to-red-500 text-transparent bg-clip-text">
-                      hacked
-                    </span>{" "}
-                    due to compromised private keys.
+            <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
+              {/* Left Column - Main Value Proposition */}
+              <div className="flex flex-col space-y-6">
+                <div className="space-y-4">
+                  {/* Main Headline */}
+                  <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl leading-relaxed">
+                    <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text">
+                      Secure wallet infrastructure
+                    </span>
+                    <div className="mt-2">
+                      for Web3 teams
+                    </div>
+                  </h1>
+                  
+                  {/* Subtitle */}
+                  <p className="text-xl text-muted-foreground max-w-[600px]">
+                    Powered by <span className="font-semibold bg-gradient-to-r from-blue-500 to-primary text-transparent bg-clip-text">open-source MPC</span>. 
+                    Build wallet solutions that scale with your business.
                   </p>
                 </div>
 
-                <div className="space-y-2 mt-4">
-                  <h2 className="text-lg font-bold tracking-tighter sm:text-2xl text-gray-600 dark:text-gray-400">
-                    Are your keys still safe?
-                  </h2>
-                  <p className="max-w-[600px] text-muted-foreground md:text-lg">
-                    Traditional wallets put your project at risk. Phishing,
-                    malware or software supply chain compromise can steal
-                    private keys and drain funds in seconds.
-                  </p>
-                </div>
-
-                <section className="py-12 bg-red-50/50 dark:bg-red-950/10 border-y border-red-100/50 dark:border-red-900/20">
-                  <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-                    <div className="flex flex-col md:flex-row items-start justify-center gap-8 text-center md:text-left">
-                      <div className="flex-1 max-w-md">
-                        <h3 className="text-2xl font-bold mb-2">
-                          Why Keys Break
-                        </h3>
-                        <p className="text-muted-foreground">
-                          <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500 font-medium">
-                            Poor access controls
-                          </span>{" "}
-                          and unsecured private key management lead to 75% of
-                          crypto hacks.
-                        </p>
-                      </div>
-
-                      <div className="h-16 border-l border-red-200 dark:border-red-800 hidden md:block"></div>
-
-                      <div className="flex-1 max-w-md">
-                        <h3 className="text-2xl font-bold mb-2">
-                          Developer Slip-Ups
-                        </h3>
-                        <p className="text-muted-foreground">
-                          Almost 50% of breaches are due to developers{" "}
-                          <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500 font-medium">
-                            generating wallets insecurely
-                          </span>{" "}
-                          and storing{" "}
-                          <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500 font-medium">
-                            unencrypted
-                          </span>{" "}
-                          keys on personal machines.
-                        </p>
-                      </div>
+                {/* Key Differentiators */}
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/20 flex items-center justify-center mt-1">
+                      <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">No vendor lock-in</p>
+                      <p className="text-sm text-muted-foreground">Run MPC nodes in your cloud, or self-host anytime for regulatory compliance</p>
                     </div>
                   </div>
-                </section>
-              </div>
-
-              {/* Right Column - Solution */}
-              <div className="flex flex-col space-y-6">
-                <div className="space-y-4 text-center">
-                  <h2 className="text-2xl font-bold tracking-tighter sm:text-4xl text-gray-600 dark:text-gray-400">
-                    <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text">
-                      Fystack
-                    </span>
-                  </h2>
-                  <p className="text-xl sm:text-2xl text-muted-foreground mx-auto">
-                    <span className="text-xl sm:text-2xl font-semibold">
-                      <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text font-semibold">
-                        Hack-resistant
-                      </span>{" "}
-                      wallet infrastructure
-                    </span>{" "}
-                    <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text font-semibold">
-                      <br />
-                      built for developers
-                    </span>
-                  </p>
-                  <p className="max-w-[600px] text-muted-foreground mx-auto">
-                    Our{" "}
-                    <span className="font-medium bg-gradient-to-r from-blue-500 to-primary text-transparent bg-clip-text">
-                      MPC
-                    </span>{" "}
-                    (Multi-Party Computation) technology distributes key fragments across
-                    multiple nodes, ensuring no single point of failure.
-                  </p>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/20 flex items-center justify-center mt-1">
+                      <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">Built for builders</p>
+                      <p className="text-sm text-muted-foreground">API-first, language-agnostic, production-ready</p>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="flex flex-col gap-2 min-[400px]:flex-row w-full sm:w-auto justify-center">
+                {/* CTA Buttons */}
+                <div className="flex flex-col gap-3 min-[400px]:flex-row w-full sm:w-auto">
                   <Button
                     size="lg"
-                    className="gap-1 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary w-full sm:w-auto"
+                    className="gap-2 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary w-full sm:w-auto"
                     asChild
                   >
                     <Link
@@ -331,13 +266,14 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Get Started!
+                      <Code2 className="w-4 h-4" />
+                      Start Building
                     </Link>
                   </Button>
                   <Button
                     size="lg"
                     variant="outline"
-                    className="gap-1 w-full sm:w-auto"
+                    className="gap-2 w-full sm:w-auto"
                     asChild
                   >
                     <Link
@@ -345,12 +281,103 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Read the Docs
+                      <ExternalLink className="w-4 h-4" />
+                      Documentation
                     </Link>
                   </Button>
                 </div>
+              </div>
 
+              {/* Right Column - MPC Visualization */}
+              <div className="flex flex-col space-y-6">
+                <div className="space-y-4 text-center">
+                  <div className="inline-flex items-center justify-center px-4 py-2 rounded-full border bg-primary/5 text-primary border-primary/20">
+                    <Settings className="w-4 h-4 mr-2" />
+                    Multi-Party Computation
+                  </div>
+                  <h2 className="text-2xl font-bold tracking-tighter">
+                    Distributed by design
+                  </h2>
+                  <p className="text-muted-foreground max-w-[500px] mx-auto">
+                    Our MPC technology distributes key fragments across multiple nodes, 
+                    ensuring no single point of failure while maintaining full control.
+                  </p>
+                </div>
                 <MpcVisualization />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Choose Fystack Section */}
+        <section className="py-24 bg-muted/30 relative">
+          <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
+                Why Web3 teams choose Fystack
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-[700px] mx-auto">
+                The only wallet infrastructure that gives you security, flexibility, and control
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Open Source */}
+              <div className="p-6 rounded-lg border bg-card hover:shadow-md transition-all duration-300">
+                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Github className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Open Source</h3>
+                <p className="text-muted-foreground mb-4">
+                  Full transparency with open-source MPC protocols. Audit our code, 
+                  contribute improvements, or fork for custom implementations.
+                </p>
+                <Link 
+                  href="https://github.com/fystack" 
+                  target="_blank"
+                  className="text-primary hover:underline text-sm font-medium inline-flex items-center gap-1"
+                >
+                  View on GitHub <ExternalLink className="w-3 h-3" />
+                </Link>
+              </div>
+
+              {/* Self-Hostable */}
+              <div className="p-6 rounded-lg border bg-card hover:shadow-md transition-all duration-300">
+                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Cloud className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Self-Hostable</h3>
+                <p className="text-muted-foreground mb-4">
+                  Deploy MPC nodes in your own infrastructure. Essential for regulatory 
+                  compliance, data sovereignty, and meeting strict legal requirements in 
+                  financial services.
+                </p>
+                <Link 
+                  href="https://docs.fystack.io/self-host" 
+                  target="_blank"
+                  className="text-primary hover:underline text-sm font-medium inline-flex items-center gap-1"
+                >
+                  Self-host guide <ExternalLink className="w-3 h-3" />
+                </Link>
+              </div>
+
+              {/* Developer First */}
+              <div className="p-6 rounded-lg border bg-card hover:shadow-md transition-all duration-300">
+                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Code className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Developer First</h3>
+                <p className="text-muted-foreground mb-4">
+                  RESTful APIs, comprehensive SDKs, and detailed documentation. 
+                  Integrate wallet functionality in minutes, not months.
+                </p>
+                <Link 
+                  href="https://docs.fystack.io/api" 
+                  target="_blank"
+                  className="text-primary hover:underline text-sm font-medium inline-flex items-center gap-1"
+                >
+                  API Reference <ExternalLink className="w-3 h-3" />
+                </Link>
               </div>
             </div>
           </div>
@@ -714,17 +741,15 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Secure Smart Contract Deployment */}
+            {/* Secure Smart Contract Deployment - COMMENTED OUT */}
+            {/*
             <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
-              {/* Visualization (moved to left) */}
               <div className="relative h-[400px] rounded-xl border bg-background/50 p-6">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative w-full h-full">
-                    {/* Top Section (removed CI/CD Pipeline text) */}
                     <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[80%]">
                       <div className="p-3 rounded-lg bg-background/90 border border-muted shadow-sm">
                         <div className="grid grid-cols-2 gap-4">
-                          {/* Insecure Path */}
                           <div className="space-y-2">
                             <div className="flex items-center gap-1.5">
                               <XCircle className="h-4 w-4 text-red-500" />
@@ -742,7 +767,6 @@ export default function Home() {
                             </div>
                           </div>
 
-                          {/* Secure Path */}
                           <div className="space-y-2">
                             <div className="flex items-center gap-1.5">
                               <CheckCircle className="h-4 w-4 text-green-500" />
@@ -763,7 +787,6 @@ export default function Home() {
                       </div>
                     </div>
 
-                    {/* Blockchain Section - moved much lower */}
                     <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-[60%]">
                       <div className="p-3 rounded-lg bg-background/90 border border-blue-200 shadow-sm">
                         <div className="flex items-center gap-2 mb-2">
@@ -791,7 +814,6 @@ export default function Home() {
                       </div>
                     </div>
 
-                    {/* Connection lines - adjusted to connect to the new position */}
                     <svg
                       width="100%"
                       height="100%"
@@ -799,7 +821,6 @@ export default function Home() {
                       style={{ zIndex: -1 }}
                       viewBox="0 0 400 400"
                     >
-                      {/* Secure path only */}
                       <path
                         d="M 250 100 C 270 250, 270 280, 220 380"
                         stroke="#dcfce7"
@@ -808,7 +829,6 @@ export default function Home() {
                         strokeDasharray="4 2"
                       />
 
-                      {/* Animated dot for secure path only */}
                       <circle r="3" fill="#22c55e">
                         <animateMotion
                           dur="3s"
@@ -818,12 +838,10 @@ export default function Home() {
                       </circle>
                     </svg>
 
-                    {/* Key warning icon on insecure path - keeping this for context */}
                     <div className="absolute top-[50%] left-[30%] p-1.5 rounded-full bg-red-100 border border-red-300 animate-pulse">
                       <Key className="h-4 w-4 text-red-500" />
                     </div>
 
-                    {/* Lock icon on secure path */}
                     <div className="absolute top-[50%] right-[30%] p-1.5 rounded-full bg-green-100 border border-green-300 animate-pulse">
                       <Lock className="h-4 w-4 text-green-500" />
                     </div>
@@ -831,7 +849,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Text content (moved to right) */}
               <div className="space-y-6">
                 <div className="p-2 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                   <Server className="w-6 h-6 text-primary" />
@@ -845,9 +862,7 @@ export default function Home() {
                   authentication.
                 </p>
 
-                {/* Lean Design: Combined Risk and Solution in a cleaner format */}
                 <div className="space-y-6 mt-2">
-                  {/* Problem Section */}
                   <div>
                     <h4 className="text-base font-semibold text-red-500 mb-3">
                       The Problem: .env File Security Risk
@@ -875,7 +890,6 @@ export default function Home() {
                     </ul>
                   </div>
 
-                  {/* Solution Section */}
                   <div>
                     <h4 className="text-base font-semibold text-green-500 mb-3">
                       The Solution: MPC wallet + OIDC Authentication
@@ -905,6 +919,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            */}
 
             {/* Crypto Payment - Left visualization */}
             <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
@@ -1009,10 +1024,6 @@ export default function Home() {
                   Seamlessly integrate cryptocurrency payments into your
                   applications with our simple API.
                 </p>
-                <div className="flex items-center gap-2 text-primary">
-                  <ArrowRight className="w-4 h-4" />
-                  <span>Simple integration</span>
-                </div>
               </div>
             </div>
 
@@ -1027,10 +1038,6 @@ export default function Home() {
                   Securely generate and manage wallets for your Telegram crypto
                   bots with enterprise-grade security.
                 </p>
-                <div className="flex items-center gap-2 text-primary">
-                  <ArrowRight className="w-4 h-4" />
-                  <span>Automated management</span>
-                </div>
               </div>
               <div className="relative h-[300px] rounded-xl border bg-background/50 p-6 overflow-hidden">
                 {/* Telegram Bot Interface */}
@@ -1195,10 +1202,6 @@ export default function Home() {
                   wallets into a central wallet with customizable rules and
                   schedules.
                 </p>
-                <div className="flex items-center gap-2 text-primary">
-                  <ArrowRight className="w-4 h-4" />
-                  <span>Automated fund management</span>
-                </div>
               </div>
             </div>
           </div>
