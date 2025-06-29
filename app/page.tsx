@@ -123,6 +123,12 @@ export default function Home() {
               Chains
             </Link>
             <Link
+              href="#pricing"
+              className="text-sm font-medium hover:underline underline-offset-4"
+            >
+              Pricing
+            </Link>
+            <Link
               href="https://t.me/anhthind"
               target="_blank"
               rel="noopener noreferrer"
@@ -209,9 +215,9 @@ export default function Home() {
         {/* Hero Section */}
         <section className="py-20 md:py-32 relative overflow-hidden">
           <div className="absolute inset-0 -z-10">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/20 dark:via-indigo-950/20 dark:to-purple-950/20" />
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-blue-100 to-cyan-50 dark:from-blue-950/20 dark:via-blue-900/20 dark:to-cyan-950/20" />
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400/20 rounded-full blur-3xl" />
           </div>
           <div className="container px-4 md:px-6 max-w-7xl mx-auto">
             <div className="text-center space-y-8">
@@ -219,7 +225,7 @@ export default function Home() {
               <div className="space-y-6">
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
                   <span className="bg-gradient-to-r from-blue-500 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
-                    Secure wallet infrastructure
+                  Developer-first wallet infrastructure
                   </span>
                   <div className="mt-3 text-gray-900 dark:text-gray-100">
                     for Web3 teams
@@ -227,8 +233,11 @@ export default function Home() {
                 </h1>
                 
                 <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                  Powered by <span className="font-semibold bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">open-source MPC</span>. 
-                  Provide secure wallet solutions that scale with your business.
+                  Powered by <span className="font-semibold bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">MPC technology</span>
+                </p>
+
+                <p className="mt-8 text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                  Spin up enterprise-grade MPC wallets in minutes. No key exposure. No security headaches.
                 </p>
               </div>
 
@@ -293,15 +302,29 @@ export default function Home() {
                   </div>
                   <pre className="text-left text-sm leading-relaxed">
                     <code className="text-gray-300">
-                      <span className="text-purple-400">import</span> <span className="text-blue-400">{'{ FystackSDK }'}</span> <span className="text-purple-400">from</span> <span className="text-green-400">'@fystack/sdk'</span>
-                      {'\n\n'}
-                      <span className="text-purple-400">const</span> <span className="text-blue-400">fystack</span> <span className="text-gray-400">=</span> <span className="text-purple-400">new</span> <span className="text-yellow-400">FystackSDK</span><span className="text-gray-400">(</span><span className="text-green-400">'your-api-key'</span><span className="text-gray-400">)</span>
-                      {'\n\n'}
-                      <span className="text-gray-500">// Create secure MPC wallet in seconds</span>
+                      <span className="text-purple-400">import</span> <span className="text-gray-400">{'{'}</span>
+                      {'\n  '}
+                      <span className="text-blue-400">FystackSDK</span><span className="text-gray-400">,</span> <span className="text-blue-400">Environment</span>
                       {'\n'}
-                      <span className="text-purple-400">const</span> <span className="text-blue-400">wallet</span> <span className="text-gray-400">=</span> <span className="text-purple-400">await</span> <span className="text-blue-400">fystack</span><span className="text-gray-400">.</span><span className="text-yellow-400">createWallet</span><span className="text-gray-400">(</span><span className="text-green-400">'ethereum'</span><span className="text-gray-400">)</span>
+                      <span className="text-gray-400">{'}'}</span> <span className="text-purple-400">from</span> <span className="text-green-400">'@fystack/sdk'</span>
+                      {'\n\n'}
+                      <span className="text-purple-400">const</span> <span className="text-blue-400">sdk</span> <span className="text-gray-400">=</span> <span className="text-purple-400">new</span> <span className="text-yellow-400">FystackSDK</span><span className="text-gray-400">({'{'}</span>
+                      {'\n  '}
+                      <span className="text-blue-400">credentials</span><span className="text-gray-400">:</span> <span className="text-blue-400">apiCredentials</span><span className="text-gray-400">,</span>
+                      {'\n  '}
+                      <span className="text-blue-400">environment</span><span className="text-gray-400">:</span> <span className="text-blue-400">Environment</span><span className="text-gray-400">.</span><span className="text-blue-400">Production</span><span className="text-gray-400">,</span>
+                      {'\n  '}
+                      <span className="text-blue-400">logger</span><span className="text-gray-400">:</span> <span className="text-orange-400">true</span>
                       {'\n'}
-                      <span className="text-blue-400">console</span><span className="text-gray-400">.</span><span className="text-yellow-400">log</span><span className="text-gray-400">(</span><span className="text-green-400">'Wallet address:'</span><span className="text-gray-400">,</span> <span className="text-blue-400">wallet</span><span className="text-gray-400">.</span><span className="text-blue-400">address</span><span className="text-gray-400">)</span>
+                      <span className="text-gray-400">{'}'}</span><span className="text-gray-400">)</span>
+                      {'\n\n'}
+                      <span className="text-purple-400">await</span> <span className="text-blue-400">sdk</span><span className="text-gray-400">.</span><span className="text-yellow-400">createWallet</span><span className="text-gray-400">({'{'}</span>
+                      {'\n  '}
+                      <span className="text-blue-400">name</span><span className="text-gray-400">:</span> <span className="text-green-400">'MPC wallet 1'</span><span className="text-gray-400">,</span>
+                      {'\n  '}
+                      <span className="text-blue-400">walletType</span><span className="text-gray-400">:</span> <span className="text-blue-400">WalletType</span><span className="text-gray-400">.</span><span className="text-blue-400">MPC</span>
+                      {'\n'}
+                      <span className="text-gray-400">{'}'}</span><span className="text-gray-400">)</span>
                     </code>
                   </pre>
                 </div>
@@ -315,7 +338,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 -z-10"></div>
           <div className="container px-4 md:px-6 max-w-7xl mx-auto">
             <div className="text-center mb-20">
-              <div className="inline-flex items-center gap-2 bg-purple-50 dark:bg-purple-950/30 text-purple-600 dark:text-purple-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center gap-2 bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Settings className="w-4 h-4" />
                 Dashboard
               </div>
@@ -331,7 +354,7 @@ export default function Home() {
             {/* Dashboard Preview */}
             <div className="max-w-[1200px] mx-auto mb-20">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 to-blue-400/20 rounded-3xl blur-3xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-3xl blur-3xl"></div>
                 <DashboardPreview imageSrc={dashboardImage.src} />
               </div>
             </div>
