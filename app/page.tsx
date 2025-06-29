@@ -207,177 +207,104 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-16 md:py-20 relative overflow-hidden">
-          <div className="absolute inset-0 -z-10 bg-[radial-gradient(45%_40%_at_50%_60%,rgba(var(--primary-rgb),0.1),transparent)]"></div>
-          <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-            <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
-              {/* Left Column - Main Value Proposition */}
-              <div className="flex flex-col space-y-6">
-                <div className="space-y-4">
-                  {/* Main Headline */}
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl leading-relaxed">
-                    <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-primary text-transparent bg-clip-text">
-                      Secure wallet infrastructure
-                    </span>
-                    <div className="mt-2">
-                      for Web3 teams
-                    </div>
-                  </h1>
-                  
-                  {/* Subtitle */}
-                  <p className="text-xl text-muted-foreground max-w-[600px]">
-                    Powered by <span className="font-semibold bg-gradient-to-r from-blue-500 to-primary text-transparent bg-clip-text">open-source MPC</span>. 
-                    Build wallet solutions that scale with your business.
-                  </p>
-                </div>
-
-                {/* Key Differentiators */}
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/20 flex items-center justify-center mt-1">
-                      <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400" />
-                    </div>
-                    <div>
-                      <p className="font-medium text-foreground">No vendor lock-in</p>
-                      <p className="text-sm text-muted-foreground">Run MPC nodes in your cloud, or self-host anytime for regulatory compliance</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/20 flex items-center justify-center mt-1">
-                      <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400" />
-                    </div>
-                    <div>
-                      <p className="font-medium text-foreground">Built for builders</p>
-                      <p className="text-sm text-muted-foreground">API-first, language-agnostic, production-ready</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-col gap-3 min-[400px]:flex-row w-full sm:w-auto">
-                  <Button
-                    size="lg"
-                    className="gap-2 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary w-full sm:w-auto"
-                    asChild
-                  >
-                    <Link
-                      href="https://app.fystack.io"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Code2 className="w-4 h-4" />
-                      Start Building
-                    </Link>
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="gap-2 w-full sm:w-auto"
-                    asChild
-                  >
-                    <Link
-                      href="https://docs.fystack.io/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      Documentation
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-
-              {/* Right Column - MPC Visualization */}
-              <div className="flex flex-col space-y-6">
-                <div className="space-y-4 text-center">
-                  <div className="inline-flex items-center justify-center px-4 py-2 rounded-full border bg-primary/5 text-primary border-primary/20">
-                    <Settings className="w-4 h-4 mr-2" />
-                    Multi-Party Computation
-                  </div>
-                  <h2 className="text-2xl font-bold tracking-tighter">
-                    Distributed by design
-                  </h2>
-                  <p className="text-muted-foreground max-w-[500px] mx-auto">
-                    Our MPC technology distributes key fragments across multiple nodes, 
-                    ensuring no single point of failure while maintaining full control.
-                  </p>
-                </div>
-                <MpcVisualization />
-              </div>
-            </div>
+        <section className="py-20 md:py-32 relative overflow-hidden">
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/20 dark:via-indigo-950/20 dark:to-purple-950/20" />
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl" />
           </div>
-        </section>
-
-        {/* Why Choose Fystack Section */}
-        <section className="py-24 bg-muted/30 relative">
           <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
-                Why Web3 teams choose Fystack
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-[700px] mx-auto">
-                The only wallet infrastructure that gives you security, flexibility, and control
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Open Source */}
-              <div className="p-6 rounded-lg border bg-card hover:shadow-md transition-all duration-300">
-                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Github className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Open Source</h3>
-                <p className="text-muted-foreground mb-4">
-                  Full transparency with open-source MPC protocols. Audit our code, 
-                  contribute improvements, or fork for custom implementations.
+            <div className="text-center space-y-8">
+              {/* Main Headline */}
+              <div className="space-y-6">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
+                  <span className="bg-gradient-to-r from-blue-500 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                    Secure wallet infrastructure
+                  </span>
+                  <div className="mt-3 text-gray-900 dark:text-gray-100">
+                    for Web3 teams
+                  </div>
+                </h1>
+                
+                <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                  Powered by <span className="font-semibold bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">open-source MPC</span>. 
+                  Provide secure wallet solutions that scale with your business.
                 </p>
-                <Link 
-                  href="https://github.com/fystack" 
-                  target="_blank"
-                  className="text-primary hover:underline text-sm font-medium inline-flex items-center gap-1"
-                >
-                  View on GitHub <ExternalLink className="w-3 h-3" />
-                </Link>
               </div>
 
-              {/* Self-Hostable */}
-              <div className="p-6 rounded-lg border bg-card hover:shadow-md transition-all duration-300">
-                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Cloud className="h-6 w-6 text-primary" />
+              {/* Key Differentiators */}
+              {/* <div className="flex flex-col md:flex-row gap-6 justify-center items-center max-w-4xl mx-auto">
+                <div className="flex items-center gap-3 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-full px-6 py-3 border border-gray-200/50 dark:border-gray-700/50">
+                  <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center">
+                    <CheckCircle className="w-3 h-3 text-white" />
+                  </div>
+                  <span className="text-sm font-medium">No vendor lock-in • Run MPC nodes anywhere</span>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Self-Hostable</h3>
-                <p className="text-muted-foreground mb-4">
-                  Deploy MPC nodes in your own infrastructure. Essential for regulatory 
-                  compliance, data sovereignty, and meeting strict legal requirements in 
-                  financial services.
-                </p>
-                <Link 
-                  href="https://docs.fystack.io/mpcium" 
-                  target="_blank"
-                  className="text-primary hover:underline text-sm font-medium inline-flex items-center gap-1"
+                
+                <div className="flex items-center gap-3 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-full px-6 py-3 border border-gray-200/50 dark:border-gray-700/50">
+                  <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center">
+                    <CheckCircle className="w-3 h-3 text-white" />
+                  </div>
+                  <span className="text-sm font-medium">Built for builders • API-first</span>
+                </div>
+              </div> */}
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  asChild
                 >
-                  Self-host guide <ExternalLink className="w-3 h-3" />
-                </Link>
+                  <Link
+                    href="https://app.fystack.io"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Start Building →
+                  </Link>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 px-8 py-4 rounded-xl text-lg font-semibold bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm"
+                  asChild
+                >
+                  <Link
+                    href="https://docs.fystack.io/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Docs
+                  </Link>
+                </Button>
               </div>
 
-              {/* Developer First */}
-              <div className="p-6 rounded-lg border bg-card hover:shadow-md transition-all duration-300">
-                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Code className="h-6 w-6 text-primary" />
+              {/* Code Example */}
+              <div className="mt-16 max-w-4xl mx-auto">
+                <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 shadow-2xl">
+                  <div className="flex items-center gap-2 mb-6">
+                    <div className="flex gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div className="text-gray-400 text-sm ml-4">Create MPC Wallet</div>
+                  </div>
+                  <pre className="text-left text-sm leading-relaxed">
+                    <code className="text-gray-300">
+                      <span className="text-purple-400">import</span> <span className="text-blue-400">{'{ FystackSDK }'}</span> <span className="text-purple-400">from</span> <span className="text-green-400">'@fystack/sdk'</span>
+                      {'\n\n'}
+                      <span className="text-purple-400">const</span> <span className="text-blue-400">fystack</span> <span className="text-gray-400">=</span> <span className="text-purple-400">new</span> <span className="text-yellow-400">FystackSDK</span><span className="text-gray-400">(</span><span className="text-green-400">'your-api-key'</span><span className="text-gray-400">)</span>
+                      {'\n\n'}
+                      <span className="text-gray-500">// Create secure MPC wallet in seconds</span>
+                      {'\n'}
+                      <span className="text-purple-400">const</span> <span className="text-blue-400">wallet</span> <span className="text-gray-400">=</span> <span className="text-purple-400">await</span> <span className="text-blue-400">fystack</span><span className="text-gray-400">.</span><span className="text-yellow-400">createWallet</span><span className="text-gray-400">(</span><span className="text-green-400">'ethereum'</span><span className="text-gray-400">)</span>
+                      {'\n'}
+                      <span className="text-blue-400">console</span><span className="text-gray-400">.</span><span className="text-yellow-400">log</span><span className="text-gray-400">(</span><span className="text-green-400">'Wallet address:'</span><span className="text-gray-400">,</span> <span className="text-blue-400">wallet</span><span className="text-gray-400">.</span><span className="text-blue-400">address</span><span className="text-gray-400">)</span>
+                    </code>
+                  </pre>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Developer First</h3>
-                <p className="text-muted-foreground mb-4">
-                  RESTful APIs, comprehensive SDKs, and detailed documentation. 
-                  Integrate wallet functionality in minutes, not months.
-                </p>
-                <Link 
-                  href="https://docs.fystack.io/wallets" 
-                  target="_blank"
-                  className="text-primary hover:underline text-sm font-medium inline-flex items-center gap-1"
-                >
-                  API Reference <ExternalLink className="w-3 h-3" />
-                </Link>
               </div>
             </div>
           </div>
@@ -385,62 +312,157 @@ export default function Home() {
 
         {/* Dashboard Section */}
         <section className="py-24 relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-50/30 via-transparent to-transparent dark:from-blue-950/10 dark:via-transparent dark:to-transparent -z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 -z-10"></div>
           <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 text-sm rounded-full border bg-primary/5 text-primary border-primary/20">
+            <div className="text-center mb-20">
+              <div className="inline-flex items-center gap-2 bg-purple-50 dark:bg-purple-950/30 text-purple-600 dark:text-purple-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <Settings className="w-4 h-4" />
                 Dashboard
               </div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-2xl md:text-3xl lg:text-4xl">
-                Monitor and manage your wallets with ease
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+                Monitor and manage your wallets
+                <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent"> with ease</span>
               </h2>
-              <p className="mt-4 text-lg text-muted-foreground max-w-[700px] mx-auto">
-                Our intuitive dashboard gives you complete visibility and
-                control over all your crypto wallets and transactions.
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                Intuitive dashboard with complete visibility and control over all your crypto wallets and transactions
               </p>
             </div>
 
             {/* Dashboard Preview */}
-            <div className="max-w-[800px] mx-auto mb-16">
-              <DashboardPreview imageSrc={dashboardImage.src} />
+            <div className="max-w-[1200px] mx-auto mb-20">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 to-blue-400/20 rounded-3xl blur-3xl"></div>
+                <DashboardPreview imageSrc={dashboardImage.src} />
+              </div>
             </div>
 
             {/* Dashboard Features */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="p-6 rounded-lg border bg-card">
-                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <Shield className="h-5 w-5 text-primary" />
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="group">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 h-full">
+                  <div className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-center mb-6">
+                    <Shield className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Security Controls</h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Monitor and manage security settings for all your wallets from
+                    a single interface. Set spending limits, IP restrictions, and
+                    multi-signature requirements.
+                  </p>
                 </div>
-                <h3 className="text-lg font-bold mb-2">Security Controls</h3>
-                <p className="text-muted-foreground">
-                  Monitor and manage security settings for all your wallets from
-                  a single interface. Set spending limits, IP restrictions, and
-                  multi-signature requirements.
-                </p>
               </div>
 
-              <div className="p-6 rounded-lg border bg-card">
-                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <CircleDollarSign className="h-5 w-5 text-primary" />
+              <div className="group">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 h-full">
+                  <div className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-center mb-6">
+                    <CircleDollarSign className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Transaction Insights</h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Get detailed analytics on all your transactions across
+                    different chains. Track spending patterns and identify unusual
+                    activity.
+                  </p>
                 </div>
-                <h3 className="text-lg font-bold mb-2">Transaction Insights</h3>
-                <p className="text-muted-foreground">
-                  Get detailed analytics on all your transactions across
-                  different chains. Track spending patterns and identify unusual
-                  activity.
-                </p>
               </div>
 
-              <div className="p-6 rounded-lg border bg-card">
-                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <Users className="h-5 w-5 text-primary" />
+              <div className="group">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 h-full">
+                  <div className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-center mb-6">
+                    <Users className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Team Management</h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Assign different roles and permissions to team members.
+                    Control who can view, create, or approve transactions from
+                    specific wallets.
+                  </p>
                 </div>
-                <h3 className="text-lg font-bold mb-2">Team Management</h3>
-                <p className="text-muted-foreground">
-                  Assign different roles and permissions to team members.
-                  Control who can view, create, or approve transactions from
-                  specific wallets.
-                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="py-24 relative">
+          <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+            <div className="text-center mb-20">
+              <div className="inline-flex items-center gap-2 bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <Zap className="w-4 h-4" />
+                Why Fystack
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+                The only wallet infrastructure that gives you
+                <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent"> everything</span>
+              </h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                Security, flexibility, and control — without the complexity
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Open Source */}
+              <div className="group">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 h-full">
+                  <div className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-center mb-6">
+                    <Github className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Open Source</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                    Full transparency with open-source MPC protocols. Audit our code, 
+                    contribute improvements, or fork for custom implementations.
+                  </p>
+                  <Link 
+                    href="https://github.com/fystack" 
+                    target="_blank"
+                    className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium text-sm group-hover:gap-3 transition-all duration-200"
+                  >
+                    View on GitHub <ExternalLink className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Self-Hostable */}
+              <div className="group">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 h-full">
+                  <div className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-center mb-6">
+                    <Cloud className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Self-Hostable</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                    Deploy MPC nodes in your own infrastructure. Essential for regulatory 
+                    compliance, data sovereignty, and meeting strict legal requirements in 
+                    financial services.
+                  </p>
+                  <Link 
+                    href="https://docs.fystack.io/mpcium" 
+                    target="_blank"
+                    className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium text-sm group-hover:gap-3 transition-all duration-200"
+                  >
+                    Self-host guide <ExternalLink className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Developer First */}
+              <div className="group">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 h-full">
+                  <div className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-center mb-6">
+                    <Code className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Developer First</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                    RESTful APIs, comprehensive SDKs, and detailed documentation. 
+                    Integrate wallet functionality in minutes, not months.
+                  </p>
+                  <Link 
+                    href="https://docs.fystack.io/wallets" 
+                    target="_blank"
+                    className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-700 font-medium text-sm group-hover:gap-3 transition-all duration-200"
+                  >
+                    API Reference <ExternalLink className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -502,6 +524,7 @@ export default function Home() {
             <SecurityFeatures />
           </div>
         </section>
+
         {/* Features Section */}
         <section id="features" className="py-24 relative">
           <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-blue-100/20 to-transparent dark:from-blue-950/20 dark:via-blue-900/10 dark:to-transparent -z-10"></div>
@@ -1454,8 +1477,8 @@ export default function Home() {
                       For startups and growing businesses.
                     </p>
                     <div className="flex items-baseline gap-1">
-                      <span className="text-3xl font-bold">$19</span>
-                      <span className="text-muted-foreground line-through">$29</span>
+                      <span className="text-3xl font-bold">$59</span>
+                      <span className="text-muted-foreground line-through">$89</span>
                       <span className="text-muted-foreground">/month</span>
                     </div>
                   </div>
