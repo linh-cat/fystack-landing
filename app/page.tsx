@@ -270,7 +270,7 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Start Building →
+                    Get Started →
                   </Link>
                 </Button>
                 <Button
