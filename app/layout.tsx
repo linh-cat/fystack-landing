@@ -10,6 +10,7 @@ import { Analytics } from "@vercel/analytics/next";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://fystack.io'),
   title: "Fystack - Secure crypto wallet infrastructure for teams",
   description:
     "Secure MPC wallet platform for developers. Create hack-resistant wallets with enterprise-grade security. No private keys to compromise.",
