@@ -114,13 +114,13 @@ export const ghostAPI = {
       const posts = await api.posts.browse({
         limit,
         page,
-        include: include.join(','),
+        include: include as unknown as any,
         filter,
         order,
       });
 
       return {
-        posts: posts as GhostPost[],
+        posts: posts as unknown as GhostPost[],
         meta: (posts as any).meta
       };
     } catch (error) {
@@ -129,33 +129,37 @@ export const ghostAPI = {
     }
   },
 
+  // Get featured posts
+  async getFeaturedPosts(limit = 3): Promise<PostsResponse> {
+    try {
+      const posts = await api.posts.browse({
+        limit,
+        filter: 'featured:true',
+        include: ['tags', 'authors'] as unknown as any,
+        order: 'published_at DESC',
+      });
+
+      return {
+        posts: posts as unknown as GhostPost[],
+        meta: (posts as any).meta
+      };
+    } catch (error) {
+      console.error('Error fetching featured posts:', error);
+      throw new Error('Failed to fetch featured posts');
+    }
+  },
+
   // Get a single post by slug
   async getPostBySlug(slug: string): Promise<GhostPost | null> {
     try {
       const post = await api.posts.read(
         { slug },
-        { include: ['tags', 'authors'] }
+        { include: ['tags', 'authors'] as unknown as any }
       );
-      return post as GhostPost;
+      return post as unknown as GhostPost;
     } catch (error) {
       console.error('Error fetching post by slug:', error);
       return null;
-    }
-  },
-
-  // Get featured posts
-  async getFeaturedPosts(limit: number = 6): Promise<GhostPost[]> {
-    try {
-      const posts = await api.posts.browse({
-        limit,
-        filter: 'featured:true',
-        include: ['tags', 'authors'],
-        order: 'published_at DESC',
-      });
-      return posts as GhostPost[];
-    } catch (error) {
-      console.error('Error fetching featured posts:', error);
-      return [];
     }
   },
 
@@ -165,10 +169,10 @@ export const ghostAPI = {
       const posts = await api.posts.browse({
         limit,
         filter: `tag:${tagSlug}`,
-        include: ['tags', 'authors'],
+        include: ['tags', 'authors'] as unknown as any,
         order: 'published_at DESC',
       });
-      return posts as GhostPost[];
+      return posts as unknown as GhostPost[];
     } catch (error) {
       console.error('Error fetching posts by tag:', error);
       return [];
@@ -180,12 +184,12 @@ export const ghostAPI = {
     try {
       const tags = await api.tags.browse({
         limit: 'all',
-        order: 'name ASC',
+        include: ['count.posts'] as unknown as any,
       });
-      return tags as GhostTag[];
+      return tags as unknown as GhostTag[];
     } catch (error) {
       console.error('Error fetching tags:', error);
-      return [];
+      throw new Error('Failed to fetch tags');
     }
   },
 
