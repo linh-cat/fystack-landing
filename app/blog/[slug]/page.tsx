@@ -28,20 +28,24 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       };
     }
 
+    // Determine the best image for social sharing
+    const socialImage = post.twitter_image || post.og_image || post.feature_image;
+    const description = post.twitter_description || post.og_description || post.custom_excerpt || post.excerpt || `Read ${post.title} on the Fystack blog`;
+
     return {
       title: `${post.title} | Fystack Blog`,
-      description: post.excerpt || post.custom_excerpt || `Read ${post.title} on the Fystack blog`,
+      description: post.meta_description || description,
       keywords: post.tags?.map(tag => tag.name).join(', '),
       openGraph: {
-        title: post.title,
-        description: post.excerpt || post.custom_excerpt || undefined,
+        title: post.og_title || post.title,
+        description: post.og_description || description,
         type: 'article',
         publishedTime: post.published_at,
         authors: [post.primary_author.name],
         tags: post.tags?.map(tag => tag.name),
-        images: post.feature_image ? [
+        images: socialImage ? [
           {
-            url: post.feature_image,
+            url: socialImage,
             width: 1200,
             height: 630,
             alt: post.title,
@@ -50,9 +54,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       },
       twitter: {
         card: 'summary_large_image',
-        title: post.title,
-        description: post.excerpt || post.custom_excerpt || undefined,
-        images: post.feature_image ? [post.feature_image] : undefined,
+        title: post.twitter_title || post.title,
+        description: post.twitter_description || description,
+        images: socialImage ? [socialImage] : undefined,
       },
     };
   } catch (error) {
@@ -114,11 +118,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 {post.title}
               </h1>
               
-              {post.excerpt && (
-                <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-                  {post.excerpt}
-                </p>
-              )}
+              {/* Removed excerpt display from blog detail page - it should only be on blog listing */}
 
               {/* Author and Meta Info */}
               <div className="flex flex-wrap items-center gap-6 pb-8 border-b">
