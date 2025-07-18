@@ -114,8 +114,8 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
               <div className="mb-16">
                 <Link href={`/blog/${filteredPosts[0].slug}`} className="group">
                   <Card className="overflow-hidden border hover:shadow-lg transition-all duration-300">
-                    <div className="grid lg:grid-cols-2 gap-0">
-                      <div className="relative h-64 lg:h-80">
+                    <div className="grid lg:grid-cols-2 gap-0 min-h-[400px]">
+                      <div className="relative h-64 lg:h-auto">
                         {filteredPosts[0].feature_image ? (
                           <Image
                             src={filteredPosts[0].feature_image}
@@ -131,8 +131,8 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
                         )}
                       </div>
                       
-                      <CardContent className="p-8 lg:p-12 flex flex-col justify-center">
-                        <div className="space-y-4">
+                      <CardContent className="p-8 lg:p-12 flex flex-col justify-center min-h-[400px] lg:min-h-0">
+                        <div className="space-y-6">
                           <div className="flex flex-wrap gap-2">
                             {filteredPosts[0].tags.slice(0, 2).map((tag) => (
                               <span
