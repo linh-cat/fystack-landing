@@ -126,19 +126,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {/* Author and Meta Info */}
               <div className="flex flex-wrap items-center gap-6 pb-8 border-b">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center overflow-hidden">
                     {post.primary_author.profile_image ? (
                       <Image
                         src={post.primary_author.profile_image}
                         alt={post.primary_author.name}
                         width={48}
                         height={48}
-                        className="rounded-full"
+                        className="rounded-full object-cover w-full h-full"
                       />
                     ) : (
-                      <span className="text-muted-foreground text-lg font-bold">
-                        {post.primary_author.name.charAt(0)}
-                      </span>
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                        <span className="text-white text-lg font-bold">
+                          {post.primary_author.name.charAt(0).toUpperCase()}
+                        </span>
+                      </div>
                     )}
                   </div>
                   <div>

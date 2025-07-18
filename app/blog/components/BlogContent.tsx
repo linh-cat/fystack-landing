@@ -157,7 +157,23 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
                           
                           <div className="flex items-center gap-4 pt-4 text-sm text-muted-foreground">
                             <div className="flex items-center gap-2">
-                              <User className="w-4 h-4" />
+                              <div className="w-5 h-5 bg-muted rounded-full flex items-center justify-center overflow-hidden">
+                                {filteredPosts[0].primary_author.profile_image ? (
+                                  <Image
+                                    src={filteredPosts[0].primary_author.profile_image}
+                                    alt={filteredPosts[0].primary_author.name}
+                                    width={20}
+                                    height={20}
+                                    className="rounded-full object-cover w-full h-full"
+                                  />
+                                ) : (
+                                  <div className="w-5 h-5 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                                    <span className="text-white text-xs font-bold">
+                                      {filteredPosts[0].primary_author.name.charAt(0).toUpperCase()}
+                                    </span>
+                                  </div>
+                                )}
+                              </div>
                               <span>{filteredPosts[0].primary_author.name}</span>
                             </div>
                             <div className="flex items-center gap-2">
@@ -221,19 +237,21 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
                         
                         <div className="flex items-center justify-between pt-4 border-t">
                           <div className="flex items-center gap-2">
-                            <div className="w-6 h-6 bg-muted rounded-full flex items-center justify-center">
+                            <div className="w-6 h-6 bg-muted rounded-full flex items-center justify-center overflow-hidden">
                               {post.primary_author.profile_image ? (
                                 <Image
                                   src={post.primary_author.profile_image}
                                   alt={post.primary_author.name}
                                   width={24}
                                   height={24}
-                                  className="rounded-full"
+                                  className="rounded-full object-cover w-full h-full"
                                 />
                               ) : (
-                                <span className="text-muted-foreground text-xs font-bold">
-                                  {post.primary_author.name.charAt(0)}
-                                </span>
+                                <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                                  <span className="text-white text-xs font-bold">
+                                    {post.primary_author.name.charAt(0).toUpperCase()}
+                                  </span>
+                                </div>
                               )}
                             </div>
                             <span className="text-sm font-medium text-foreground">
