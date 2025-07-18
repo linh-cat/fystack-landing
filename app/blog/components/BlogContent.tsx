@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Clock, User, Tag } from "lucide-react";
 import { formatDate, getReadingTime, type GhostPost } from "@/lib/ghost";
@@ -14,7 +15,23 @@ interface BlogContentProps {
 }
 
 export default function BlogContent({ posts, categories, error }: BlogContentProps) {
-  const [selectedCategory, setSelectedCategory] = useState("All posts");
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const tagFromUrl = searchParams.get('tag');
+  
+  const [selectedCategory, setSelectedCategory] = useState(() => {
+    // Initialize with tag from URL if present and valid, otherwise "All posts"
+    return tagFromUrl && categories.includes(tagFromUrl) ? tagFromUrl : "All posts";
+  });
+
+  // Update selected category when URL changes
+  useEffect(() => {
+    if (tagFromUrl && categories.includes(tagFromUrl)) {
+      setSelectedCategory(tagFromUrl);
+    } else if (!tagFromUrl) {
+      setSelectedCategory("All posts");
+    }
+  }, [tagFromUrl, categories]);
 
   // Filter posts based on selected category
   const filteredPosts = selectedCategory === "All posts" 
@@ -22,6 +39,18 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
     : posts.filter(post => 
         post.tags.some(tag => tag.name === selectedCategory)
       );
+
+  // Handle category selection
+  const handleCategorySelect = (category: string) => {
+    setSelectedCategory(category);
+    
+    // Update URL to reflect the selected category
+    if (category === "All posts") {
+      router.push('/blog', { scroll: false });
+    } else {
+      router.push(`/blog?tag=${encodeURIComponent(category)}`, { scroll: false });
+    }
+  };
 
   return (
     <main className="py-16">
@@ -33,7 +62,10 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
               Blog
             </h1>
             <p className="text-sm text-muted-foreground">
-              Updates from the Fystack team
+              {selectedCategory === "All posts" 
+                ? "Updates from the Fystack team"
+                : `Posts tagged with "${selectedCategory}"`
+              }
             </p>
           </div>
 
@@ -42,7 +74,7 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
             {categories.slice(0, 7).map((category) => (
               <button
                 key={category}
-                onClick={() => setSelectedCategory(category)}
+                onClick={() => handleCategorySelect(category)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   category === selectedCategory
                     ? 'bg-foreground text-background'

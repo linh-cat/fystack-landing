@@ -104,12 +104,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.tags && post.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2 mb-6">
                   {post.tags.slice(0, 3).map((tag) => (
-                    <span
+                    <Link
                       key={tag.id}
-                      className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
+                      href={`/blog?tag=${encodeURIComponent(tag.name)}`}
+                      className="group"
                     >
-                      {tag.name}
-                    </span>
+                      <span className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full hover:bg-muted/80 transition-colors cursor-pointer group-hover:text-foreground">
+                        {tag.name}
+                      </span>
+                    </Link>
                   ))}
                 </div>
               )}
@@ -188,10 +191,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <h3 className="text-lg font-semibold mb-4 text-foreground">Tags</h3>
                 <div className="flex flex-wrap gap-2">
                   {post.tags.map((tag) => (
-                    <Badge key={tag.id} variant="outline" className="hover:bg-muted transition-colors cursor-pointer">
-                      <Tag className="w-3 h-3 mr-1" />
-                      {tag.name}
-                    </Badge>
+                    <Link
+                      key={tag.id}
+                      href={`/blog?tag=${encodeURIComponent(tag.name)}`}
+                      className="group"
+                    >
+                      <Badge variant="outline" className="hover:bg-muted transition-colors cursor-pointer group-hover:border-primary">
+                        <Tag className="w-3 h-3 mr-1" />
+                        {tag.name}
+                      </Badge>
+                    </Link>
                   ))}
                 </div>
               </div>

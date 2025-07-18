@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Clock, User, Tag } from "lucide-react";
 import { ghostAPI, formatDate, getReadingTime, type GhostPost } from "@/lib/ghost";
@@ -34,7 +35,9 @@ export default async function BlogPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <BlogContent posts={posts} categories={categories} error={error} />
+      <Suspense fallback={<div className="py-16"><div className="container px-4 md:px-6 max-w-7xl mx-auto text-center">Loading...</div></div>}>
+        <BlogContent posts={posts} categories={categories} error={error} />
+      </Suspense>
       <Footer />
     </div>
   );
