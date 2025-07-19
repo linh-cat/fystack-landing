@@ -224,40 +224,41 @@ export default function Home() {
         <section className="relative bg-white dark:bg-background py-12 md:py-16 lg:py-20 xl:py-24 border-b">
           <div className="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between max-w-7xl">
             {/* Left: Headline & CTA */}
-            <div className="flex-1 flex flex-col items-start justify-center py-8 md:py-0 w-full">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-gray-100 mb-6 break-words max-w-full">
-                Stablecoin wallet infrastructure
-                <br className="hidden sm:block" />
-                <span className="block">for every business.</span>
+            <div className="flex-1 flex flex-col items-start justify-center py-12 md:py-0 w-full">
+              <h1 className="text-4xl sm:text-6xl md:text-[50px] font-semibold tracking-tight mb-6 max-w-[22ch]">
+                <span className="flex flex-col leading-none space-y-1 sm:space-y-2">
+                  <span className="text-gray-700 dark:text-gray-100">Stablecoin wallet</span>
+                  <span className="text-gray-500 dark:text-gray-300">infrastructure</span>
+                  <span className="text-gray-700 dark:text-gray-100">for every business.</span>
+                </span>
               </h1>
-              <p className="text-base sm:text-lg md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-full sm:max-w-xl">
+
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-[50ch]">
                 Secure team portal for multi‑chain stablecoin wallets, approvals, and risk policies powered by MPC technology with no private key exposure.
               </p>
+
               <div className="flex flex-col sm:flex-row gap-4 w-full">
                 <Button
                   size="lg"
-                  className="rounded-full px-6 py-4 text-base sm:text-lg font-semibold shadow w-full sm:w-auto"
+                  className="rounded-full px-7 py-4 text-base sm:text-lg font-semibold shadow-md hover:shadow-lg
+                            focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500
+                            transition w-full sm:w-auto"
                   asChild
                 >
-                  <Link
-                    href="https://app.fystack.io"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <Link href="https://app.fystack.io" target="_blank" rel="noopener noreferrer">
                     Create MPC wallet for your team
                   </Link>
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full px-6 py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
+                  className="rounded-full px-7 py-4 text-base sm:text-lg font-semibold border-gray-300 dark:border-gray-600
+                            hover:bg-gray-100/70 dark:hover:bg-gray-800/60 transition
+                            focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500
+                            w-full sm:w-auto"
                   asChild
                 >
-                  <Link
-                    href="https://t.me/anhthind"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <Link href="https://t.me/anhthind" target="_blank" rel="noopener noreferrer">
                     Talk to founders
                   </Link>
                 </Button>
