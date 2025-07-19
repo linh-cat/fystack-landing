@@ -225,7 +225,8 @@ export default function Home() {
           <div className="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between max-w-7xl">
             {/* Left: Headline & CTA */}
             <div className="flex-1 flex flex-col items-start justify-center py-12 md:py-0 w-full">
-              <h1 className="text-4xl sm:text-6xl md:text-[50px] font-semibold tracking-tight mb-6 max-w-[22ch]">
+              <div className="pr-4 md:pr-8 lg:pr-16 xl:pr-24 w-full">
+                <h1 className="text-4xl sm:text-6xl md:text-[50px] font-semibold tracking-tight mb-6 max-w-[22ch]">
                 <span className="flex flex-col leading-none space-y-1 sm:space-y-2">
                   <span className="text-gray-700 dark:text-gray-100">Stablecoin wallet</span>
                   <span className="text-gray-500 dark:text-gray-300">infrastructure</span>
@@ -233,35 +234,36 @@ export default function Home() {
                 </span>
               </h1>
 
-              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-[50ch]">
-                Secure team portal for multi‑chain stablecoin wallets, approvals, and risk policies powered by MPC technology with no private key exposure.
-              </p>
+                <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-[50ch]">
+                  Secure team portal for multi‑chain stablecoin wallets, approvals, and risk policies powered by MPC technology with no private key exposure.
+                </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 w-full">
-                <Button
-                  size="lg"
-                  className="rounded-full px-7 py-4 text-base sm:text-lg font-semibold shadow-md hover:shadow-lg
-                            focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500
-                            transition w-full sm:w-auto"
-                  asChild
-                >
-                  <Link href="https://app.fystack.io" target="_blank" rel="noopener noreferrer">
-                    Create MPC wallet for your team
-                  </Link>
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-full px-7 py-4 text-base sm:text-lg font-semibold border-gray-300 dark:border-gray-600
-                            hover:bg-gray-100/70 dark:hover:bg-gray-800/60 transition
-                            focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500
-                            w-full sm:w-auto"
-                  asChild
-                >
-                  <Link href="https://t.me/anhthind" target="_blank" rel="noopener noreferrer">
-                    Talk to founders
-                  </Link>
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-4 w-full">
+                  <Button
+                    size="lg"
+                    className="rounded-full px-7 py-4 text-base sm:text-lg font-semibold shadow-md hover:shadow-lg
+                              focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500
+                              transition w-full sm:w-auto"
+                    asChild
+                  >
+                    <Link href="https://app.fystack.io" target="_blank" rel="noopener noreferrer">
+                      Create MPC wallet for your team
+                    </Link>
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full px-7 py-4 text-base sm:text-lg font-semibold border-gray-300 dark:border-gray-600
+                              hover:bg-gray-100/70 dark:hover:bg-gray-800/60 transition
+                              focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500
+                              w-full sm:w-auto"
+                    asChild
+                  >
+                    <Link href="https://t.me/anhthind" target="_blank" rel="noopener noreferrer">
+                      Talk to founders
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </div>
             {/* Right: Dashboard Preview Image */}
@@ -284,29 +286,45 @@ export default function Home() {
         </section>
 
         {/* Dashboard Section */}
-        <section className="py-24 relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 -z-10"></div>
-          <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6">
-                Powered by highly secure{" "}
-                <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
-                  MPC technology
-                </span>
-              </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                Your wallets and transactions are protected by advanced
-                Multi-Party Computation, ensuring no single point of failure and
-                no private key exposure.
-              </p>
-            </div>
-            <div className="flex items-center justify-center">
-              <div className="w-full max-w-4xl">
-                <MpcVisualization />
-              </div>
-            </div>
-          </div>
-        </section>
+        <section className="relative py-24">
+  <div className="absolute inset-0 -z-10 bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900" />
+
+  <div className="container mx-auto px-4 max-w-6xl">
+    <div className="grid gap-16 md:grid-cols-2 md:items-center">
+
+      {/* Right: Visualization */}
+      <div className="relative">
+        <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-blue-400/10 via-cyan-400/10 to-transparent blur-xl" />
+        <div className="relative rounded-3xl bg-white/60 dark:bg-gray-900/60 backdrop-blur-md p-6 shadow-[0_0_0_1px_rgba(0,0,0,0.04)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.08)]">
+          <MpcVisualization />
+        </div>
+      </div>
+      <div className="pr-4 md:pr-8 lg:pr-12 xl:pr-16">
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+          Powered by secure <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">MPC technology</span>
+        </h2>
+
+        <div className="mt-6 h-1 w-24 bg-gradient-to-r from-blue-500/70 to-cyan-400/70 rounded-full" />
+
+        <ul className="mt-8 space-y-4">
+          {[
+            "No single point of failure",
+            "Key is split into shares and stored on different nodes",
+            "Private key never exists whole",
+            "Threshold signing across independent nodes",
+          ].map((item) => (
+            <li key={item} className="flex gap-3">
+              <span className="mt-1 inline-flex h-6 w-6 flex-none items-center justify-center rounded-full bg-blue-50 dark:bg-blue-900/30">
+                <Lock className="h-3.5 w-3.5 text-blue-600 dark:text-cyan-300" />
+              </span>
+              <span className="text-lg text-gray-700 dark:text-gray-300">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
         <Solution />
         {/* Features Section */}
