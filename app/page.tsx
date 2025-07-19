@@ -221,23 +221,22 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Silicon Valley Style Hero Section */}
-        <section className="relative bg-white dark:bg-background py-24 border-b">
+        <section className="relative bg-white dark:bg-background py-12 md:py-16 lg:py-20 xl:py-24 border-b">
           <div className="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between max-w-7xl">
             {/* Left: Headline & CTA */}
-            <div className="flex-1 flex flex-col items-start justify-center py-8 md:py-0">
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight text-gray-900 dark:text-gray-100 mb-6">
-                Stablecoin wallet infrastructure{" "}
-                <br className="hidden md:block" /> for every business.
+            <div className="flex-1 flex flex-col items-start justify-center py-8 md:py-0 w-full">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-gray-100 mb-6 break-words max-w-full">
+                Stablecoin wallet infrastructure
+                <br className="hidden sm:block" />
+                <span className="block">for every business.</span>
               </h1>
-              <p className="text-lg md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-xl">
-                Secure team portal for multi‑chain stablecoin wallets,
-                approvals, and risk policies powered by MPC technology with no
-                private key exposure.
+              <p className="text-base sm:text-lg md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-full sm:max-w-xl">
+                Secure team portal for multi‑chain stablecoin wallets, approvals, and risk policies powered by MPC technology with no private key exposure.
               </p>
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 w-full">
                 <Button
                   size="lg"
-                  className="rounded-full px-8 py-4 text-lg font-semibold shadow"
+                  className="rounded-full px-6 py-4 text-base sm:text-lg font-semibold shadow w-full sm:w-auto"
                   asChild
                 >
                   <Link
@@ -251,7 +250,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full px-8 py-4 text-lg font-semibold"
+                  className="rounded-full px-6 py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
                   asChild
                 >
                   <Link
@@ -265,19 +264,19 @@ export default function Home() {
               </div>
             </div>
             {/* Right: Dashboard Preview Image */}
-            <div className="flex-1 flex items-center justify-center mt-12 md:mt-0">
-              <div className="relative w-full h-[700px] max-w-none bg-transparent flex items-center justify-center">
-                <Image
-                  src={dashboardImage}
-                  alt="Dashboard preview"
-                  width={1400}
-                  height={700}
-                  className="rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 object-cover"
-                  style={{
-                    boxShadow: "0 8px 32px 0 rgba(60, 120, 200, 0.12)",
-                    background: "none",
-                  }}
-                />
+            <div className="flex-1 flex items-center justify-center mt-6 md:mt-0">
+              <div className="relative w-full flex items-center justify-center px-0 md:px-4 lg:px-8 xl:px-0">
+                <div className="w-full max-w-[1200px] 2xl:max-w-[1400px] mx-auto">
+                  <Image
+                    src={dashboardImage}
+                    alt="Dashboard preview"
+                    // Let Next optimize size; remove forced height
+                    className="block w-full rounded-2xl shadow-2xl"
+                    // If you want it to scale responsively with intrinsic ratio:
+                    sizes="(min-width: 1280px) 1200px, 100vw"
+                    priority
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -1355,7 +1354,7 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
               {/* Developer (Free) Plan */}
-              <Card className="flex flex-col hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30">
+              <Card className="flex flex-col hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30 w-full min-w-0">
                 <CardContent className="p-6 flex-1">
                   <div className="space-y-2">
                     <h3 className="text-xl font-bold">Developer</h3>
@@ -1411,7 +1410,7 @@ export default function Home() {
               </Card>
 
               {/* Starter Plan - New */}
-              <Card className="flex flex-col hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30">
+              <Card className="flex flex-col hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30 w-full min-w-0">
                 <CardContent className="p-6 flex-1">
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
@@ -1489,7 +1488,7 @@ export default function Home() {
               </Card>
 
               {/* Team Plan */}
-              <Card className="flex flex-col border-primary relative hover:shadow-xl transition-all duration-300">
+              <Card className="flex flex-col border-primary relative hover:shadow-xl transition-all duration-300 w-full min-w-0">
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground text-xs font-medium py-1 px-3 rounded-full">
                   Most Popular
                 </div>
@@ -1571,7 +1570,7 @@ export default function Home() {
               </Card>
 
               {/* Enterprise Plan */}
-              <Card className="md:col-span-3 flex flex-col hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30 mt-8">
+              <Card className="md:col-span-3 flex flex-col hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30 mt-8 w-full min-w-0">
                 <CardContent className="p-6 flex-1">
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
