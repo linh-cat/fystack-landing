@@ -261,8 +261,8 @@ export default function Home() {
                               w-full sm:w-auto"
                     asChild
                   >
-                    <Link href="https://t.me/anhthind" target="_blank" rel="noopener noreferrer">
-                      Talk to founders
+                    <Link href="https://docs.fystack.io/" target="_blank" rel="noopener noreferrer">
+                      Documentation
                     </Link>
                   </Button>
                 </div>

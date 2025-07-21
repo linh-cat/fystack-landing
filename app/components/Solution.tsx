@@ -160,11 +160,11 @@ export function Solution() {
           <div className="flex gap-4">
             <Button size="sm" asChild>
               <Link
-                href="https://t.me/anhthind"
+                href="https://docs.fystack.io/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Talk to founders
+                Documentation
               </Link>
             </Button>
             <Button size="sm" variant="outline" asChild>
