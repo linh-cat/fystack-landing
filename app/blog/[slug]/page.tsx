@@ -53,8 +53,14 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     }
 
     // Determine the best image for social sharing
-    const socialImage = post.twitter_image || post.og_image || post.feature_image;
+    const socialImage = post.twitter_image || post.og_image || post.feature_image || '/Fystack_logo.png';
     const description = post.twitter_description || post.og_description || post.custom_excerpt || post.excerpt || `Read ${post.title} on the Fystack blog`;
+    const fullImageUrl = socialImage.startsWith('http') ? socialImage : `https://fystack.io${socialImage}`;
+
+    // Default dimensions - adjust if Fystack_logo.png has different dimensions
+    const imageSize = socialImage === '/Fystack_logo.png' 
+      ? { width: 1200, height: 1200 }  // Logo dimensions
+      : { width: 1200, height: 630 };   // Blog post image dimensions
 
     return {
       title: `${post.title} | Fystack Blog`,
@@ -67,21 +73,24 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         publishedTime: post.published_at,
         authors: [post.primary_author.name],
         tags: post.tags?.map(tag => tag.name),
-        images: socialImage ? [
+        images: [
           {
-            url: socialImage,
-            width: 1200,
-            height: 630,
+            url: fullImageUrl,
+            width: imageSize.width,
+            height: imageSize.height,
             alt: post.title,
+            type: socialImage.endsWith('.png') ? 'image/png' : 'image/jpeg',
           }
-        ] : undefined,
+        ],
         url: `https://fystack.io/blog/${post.slug}`,
       },
       twitter: {
         card: 'summary_large_image',
+        site: '@fystack',
+        creator: '@fystack',
         title: post.twitter_title || post.title,
         description: post.twitter_description || description,
-        images: socialImage ? [socialImage] : undefined,
+        images: [fullImageUrl],
       },
       alternates: {
         canonical: `https://fystack.io/blog/${post.slug}`,

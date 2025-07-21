@@ -29,7 +29,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `https://fystack.io/blog/${post.slug}`,
       lastModified: new Date(post.updated_at || post.published_at),
       changeFrequency: 'weekly' as const,
-      priority: 0.8,
+      priority: 0.9, // Increased from 0.8 to 0.9 for better indexing
     }));
 
     // Add static pages
@@ -38,31 +38,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         url: 'https://fystack.io',
         lastModified: new Date(),
         changeFrequency: 'monthly' as const,
-        priority: 1,
+        priority: 1, // Homepage stays at 1.0
       },
       {
         url: 'https://fystack.io/blog',
         lastModified: new Date(),
         changeFrequency: 'daily' as const,
-        priority: 0.9,
+        priority: 0.95, // Blog index increased to 0.95
       },
       {
         url: 'https://fystack.io/#pricing',
         lastModified: new Date(),
         changeFrequency: 'monthly' as const,
-        priority: 0.8,
+        priority: 0.85, // Slightly increased for important section
       },
       {
         url: 'https://fystack.io/#chains',
         lastModified: new Date(),
         changeFrequency: 'monthly' as const,
-        priority: 0.8,
+        priority: 0.85, // Slightly increased for important section
       },
       {
         url: 'https://fystack.io/#security',
         lastModified: new Date(),
         changeFrequency: 'monthly' as const,
-        priority: 0.8,
+        priority: 0.85, // Slightly increased for important section
       },
       // Add other static pages here
     ];
