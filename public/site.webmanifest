@@ -1,0 +1,23 @@
+{
+  "name": "Fystack",
+  "short_name": "Fystack",
+  "description": "Secure team portal for multi-chain stablecoin wallets, approvals, and risk policies powered by MPC technology",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/Fystack_logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Fystack_logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+} 

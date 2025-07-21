@@ -121,10 +121,23 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <head>
-        {/* Favicon and app icons - Updated paths */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/Fystack_logo.png" />
+        {/* Web App Manifest and Icons */}
         <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#3b82f6" />
+        <meta name="application-name" content="Fystack" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Fystack" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="msapplication-TileColor" content="#3b82f6" />
+        <meta name="msapplication-tap-highlight" content="no" />
+
+        {/* Icons */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/Fystack_logo.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/Fystack_logo.png" />
+        <link rel="apple-touch-icon" href="/Fystack_logo.png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         {/* For better browser compatibility */}
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
