@@ -10,10 +10,34 @@ import ShareButton from "./components/ShareButton";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+// This page will be statically generated at build time
+// and revalidated every 1 hour (3600 seconds)
+export const revalidate = 3600;
+
 interface BlogPostPageProps {
   params: {
     slug: string;
   };
+}
+
+// Generate static paths for all blog posts
+export async function generateStaticParams() {
+  try {
+    // Get all posts (increase limit if you have more posts)
+    const response = await ghostAPI.getPosts({
+      limit: 100,
+      include: ['tags', 'authors'],
+      order: 'published_at DESC'
+    });
+
+    // Return an array of slugs for static generation
+    return response.posts.map((post) => ({
+      slug: post.slug,
+    }));
+  } catch (error) {
+    console.error('Error generating static paths:', error);
+    return []; // Return empty array if fetch fails
+  }
 }
 
 // Generate metadata for SEO
@@ -51,6 +75,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
             alt: post.title,
           }
         ] : undefined,
+        url: `https://fystack.io/blog/${post.slug}`,
       },
       twitter: {
         card: 'summary_large_image',
@@ -58,8 +83,12 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         description: post.twitter_description || description,
         images: socialImage ? [socialImage] : undefined,
       },
+      alternates: {
+        canonical: `https://fystack.io/blog/${post.slug}`,
+      },
     };
   } catch (error) {
+    console.error('Error generating metadata:', error);
     return {
       title: 'Error | Fystack Blog',
       description: 'An error occurred while loading this blog post.',

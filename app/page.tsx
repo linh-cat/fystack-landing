@@ -127,6 +127,8 @@ export default function Home() {
             <Link
               href="/blog"
               className="text-sm font-medium hover:underline underline-offset-4"
+              aria-label="Read our blog posts"
+              title="Fystack Blog - Latest Updates and Insights"
             >
               Blog
             </Link>
