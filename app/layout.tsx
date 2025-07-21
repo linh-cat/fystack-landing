@@ -11,107 +11,38 @@ import NextTopLoader from 'nextjs-toploader';
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
+  title: 'Fystack - Stablecoin wallet infrastructure for every business',
+  description: 'Secure team portal for multi-chain stablecoin wallets, approvals, and risk policies powered by MPC technology with no private key exposure.',
   metadataBase: new URL('https://fystack.io'),
-  title: "Fystack - Secure crypto wallet infrastructure for teams",
-  description:
-    "Secure MPC wallet platform for developers. Create hack-resistant wallets with enterprise-grade security. No private keys to compromise.",
-  keywords: [
-    "MPC",
-    "wallet",
-    "crypto",
-    "blockchain",
-    "security",
-    "developers",
-    "multi-party computation",
-    "enterprise wallet",
-  ],
-  authors: [{ name: "Fystack Team" }],
-
-  // Enhanced Open Graph for Facebook, WhatsApp, Messenger
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://fystack.io",
-    siteName: "Fystack",
-    title: "Fystack - Secure crypto wallet infrastructure for teams",
-    description:
-      "Secure MPC wallet platform for developers. Create hack-resistant wallets with enterprise-grade security. No private keys to compromise.",
-    images: [
-      {
-        // url: "https://fystack.io/og-banner.png", // Placeholder - replace with actual banner
-        url: "https://fystack.io/Fystack_logo.png", // Placeholder - replace with actual banner
-        width: 1200,
-        height: 630,
-        alt: "Fystack - Secure crypto wallet infrastructure for teams",
-        type: "image/png",
-      },
-      {
-        url: "https://fystack.io/Fystack_logo.png", // banner sqaure
-        width: 1080,
-        height: 1080,
-        alt: "Fystack - Secure crypto wallet infrastructure for teams",
-        type: "image/png",
-      },
-    ],
-  },
-
-  // Enhanced Twitter Card
-  twitter: {
-    card: "summary_large_image",
-    site: "@fystack",
-    creator: "@fystack",
-    title: "Fystack - Hack-Resistant Crypto Wallet Infrastructure",
-    description:
-      "Secure MPC wallet platform for developers. Create hack-resistant wallets with enterprise-grade security. No private keys to compromise.",
-    images: ["https://fystack.io/Fystack_logo.png"], // banner
-  },
-
-  // Additional metadata for better social sharing
   alternates: {
-    canonical: "https://fystack.io",
+    canonical: 'https://fystack.io'
   },
-
-  // Robots and indexing
+  openGraph: {
+    type: 'website',
+    url: 'https://fystack.io',
+    title: 'Fystack - Stablecoin wallet infrastructure for every business',
+    description: 'Secure team portal for multi-chain stablecoin wallets, approvals, and risk policies powered by MPC technology',
+    siteName: 'Fystack'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@fystack',
+    creator: '@fystack',
+    title: 'Fystack - Secure Wallet Infrastructure',
+    description: 'Secure team portal for multi-chain stablecoin wallets, approvals, and risk policies powered by MPC technology'
+  },
   robots: {
     index: true,
     follow: true,
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
-  },
-
-  // Additional meta tags
-  other: {
-    // For Telegram
-    "telegram:channel": "@fystack",
-
-    // For WhatsApp and general sharing
-    "og:image:secure_url": "https://fystack.io/Fystack_logo.png", // Banner
-    "og:image:type": "image/png",
-    "og:image:width": "1200",
-    "og:image:height": "630",
-
-    // Theme color for mobile browsers
-    "theme-color": "#3b82f6",
-    "msapplication-TileColor": "#3b82f6",
-
-    // Apple specific
-    "apple-mobile-web-app-capable": "yes",
-    "apple-mobile-web-app-status-bar-style": "default",
-    "apple-mobile-web-app-title": "Fystack",
-
-    // Microsoft specific
-    "msapplication-TileImage": "https://fystack.io/Fystack_logo.png",
-
-    // Additional social tags
-    "article:author": "Fystack Team",
-    "article:publisher": "https://fystack.io",
-  },
-};
+  }
+}
 
 export default function RootLayout({
   children,
@@ -234,45 +165,15 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "BreadcrumbList",
-              itemListElement: [
+              "itemListElement": [
                 {
                   "@type": "ListItem",
-                  position: 1,
-                  name: "Home",
-                  item: "https://fystack.io",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 2,
-                  name: "Features",
-                  item: "https://fystack.io#features",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 3,
-                  name: "Security",
-                  item: "https://fystack.io#security",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 4,
-                  name: "SDK",
-                  item: "https://fystack.io#sdk",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 5,
-                  name: "Pricing",
-                  item: "https://fystack.io#pricing",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 6,
-                  name: "Documentation",
-                  item: "https://docs.fystack.io",
-                },
-              ],
-            }),
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://fystack.io"
+                }
+              ]
+            })
           }}
         />
         {/* Additional meta tags for better social sharing */}

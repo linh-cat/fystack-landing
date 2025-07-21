@@ -9,6 +9,7 @@ import type { Metadata } from "next";
 import ShareButton from "./components/ShareButton";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Script from "next/script";
 
 // This page will be statically generated at build time
 // and revalidated every 1 hour (3600 seconds)
@@ -40,7 +41,7 @@ export async function generateStaticParams() {
   }
 }
 
-// Generate metadata for SEO
+// Update the generateMetadata function
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   try {
     const post = await ghostAPI.getPostBySlug(params.slug);
@@ -95,6 +96,11 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       alternates: {
         canonical: `https://fystack.io/blog/${post.slug}`,
       },
+      other: {
+        'article:published_time': post.published_at,
+        'article:author': post.primary_author.name,
+        'article:section': post.primary_tag?.name || 'Blog',
+      }
     };
   } catch (error) {
     console.error('Error generating metadata:', error);
@@ -103,6 +109,58 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       description: 'An error occurred while loading this blog post.',
     };
   }
+}
+
+function generateBlogPostSchema(post: GhostPost) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt || post.meta_description,
+    image: post.feature_image || '/Fystack_logo.png',
+    datePublished: post.published_at,
+    dateModified: post.updated_at || post.published_at,
+    author: {
+      '@type': 'Person',
+      name: post.primary_author.name,
+      url: `https://fystack.io/author/${post.primary_author.slug}`
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Fystack',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://fystack.io/Fystack_logo.png'
+      }
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://fystack.io/blog/${post.slug}`
+    },
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://fystack.io'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Blog',
+          item: 'https://fystack.io/blog'
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: post.title,
+          item: `https://fystack.io/blog/${post.slug}`
+        }
+      ]
+    }
+  };
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -120,9 +178,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   });
   const relatedPosts = relatedPostsResponse.posts.filter(p => p.id !== post.id).slice(0, 3);
 
+  const blogPostSchema = generateBlogPostSchema(post);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <Script
+        id="blog-post-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostSchema) }}
+      />
       
       <main className="py-16">
         <div className="container px-4 md:px-6 max-w-4xl mx-auto">
