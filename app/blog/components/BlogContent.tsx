@@ -168,16 +168,13 @@ export default function BlogContent({
                               : filteredPosts[0].excerpt}
                           </p>
 
-                          <div className="flex items-center gap-4 pt-4 text-sm text-muted-foreground">
+                          {/* Meta Info Section - Featured Post */}
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-4 text-sm text-muted-foreground">
                             <div className="flex items-center gap-2">
                               <div className="w-5 h-5 bg-muted rounded-full flex items-center justify-center overflow-hidden">
-                                {filteredPosts[0].primary_author
-                                  .profile_image ? (
+                                {filteredPosts[0].primary_author.profile_image ? (
                                   <Image
-                                    src={
-                                      filteredPosts[0].primary_author
-                                        .profile_image
-                                    }
+                                    src={filteredPosts[0].primary_author.profile_image}
                                     alt={filteredPosts[0].primary_author.name}
                                     width={20}
                                     height={20}
@@ -186,28 +183,22 @@ export default function BlogContent({
                                 ) : (
                                   <div className="w-5 h-5 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
                                     <span className="text-white text-xs font-bold">
-                                      {filteredPosts[0].primary_author.name
-                                        .charAt(0)
-                                        .toUpperCase()}
+                                      {filteredPosts[0].primary_author.name.charAt(0).toUpperCase()}
                                     </span>
                                   </div>
                                 )}
                               </div>
-                              <span>
-                                {filteredPosts[0].primary_author.name}
-                              </span>
+                              <span>{filteredPosts[0].primary_author.name}</span>
                             </div>
-                            <div className="flex items-center gap-2">
-                              <Calendar className="w-4 h-4" />
-                              <span>
-                                {formatDate(filteredPosts[0].published_at)}
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <Clock className="w-4 h-4" />
-                              <span>
-                                {getReadingTime(filteredPosts[0].reading_time)}
-                              </span>
+                            <div className="flex flex-wrap gap-4">
+                              <div className="flex items-center gap-2">
+                                <Calendar className="w-4 h-4 flex-shrink-0" />
+                                <span>{formatDate(filteredPosts[0].published_at)}</span>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <Clock className="w-4 h-4 flex-shrink-0" />
+                                <span>{getReadingTime(filteredPosts[0].reading_time)}</span>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -264,7 +255,8 @@ export default function BlogContent({
                           {post.excerpt}
                         </p>
 
-                        <div className="flex items-center justify-between pt-4 border-t">
+                        {/* Grid Post Meta Info */}
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between pt-4 border-t gap-3">
                           <div className="flex items-center gap-2">
                             <div className="w-6 h-6 bg-muted rounded-full flex items-center justify-center overflow-hidden">
                               {post.primary_author.profile_image ? (
@@ -278,9 +270,7 @@ export default function BlogContent({
                               ) : (
                                 <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
                                   <span className="text-white text-xs font-bold">
-                                    {post.primary_author.name
-                                      .charAt(0)
-                                      .toUpperCase()}
+                                    {post.primary_author.name.charAt(0).toUpperCase()}
                                   </span>
                                 </div>
                               )}
@@ -289,8 +279,15 @@ export default function BlogContent({
                               {post.primary_author.name}
                             </span>
                           </div>
-                          <div className="text-xs text-muted-foreground">
-                            {formatDate(post.published_at)}
+                          <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                            <div className="flex items-center gap-2">
+                              <Calendar className="w-3 h-3 flex-shrink-0" />
+                              <span>{formatDate(post.published_at)}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <Clock className="w-3 h-3 flex-shrink-0" />
+                              <span>{getReadingTime(post.reading_time)}</span>
+                            </div>
                           </div>
                         </div>
                       </div>
