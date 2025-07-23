@@ -273,20 +273,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             {/* Featured Image */}
             {post.feature_image && (
-              <div className="relative h-80 md:h-96 mb-12 rounded-lg overflow-hidden">
-                <Image
-                  src={post.feature_image}
-                  alt={post.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 75vw"
-                />
+              <div className="relative w-full mb-12">
+                <div className="relative w-full">
+                  <Image
+                    src={post.feature_image}
+                    alt={post.title}
+                    width={1200}
+                    height={630}
+                    className="w-full h-auto rounded-lg"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 1200px"
+                    priority
+                  />
+                </div>
               </div>
             )}
 
             {/* Article Content */}
             <div 
-              className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-code:bg-muted prose-code:px-2 prose-code:py-1 prose-code:rounded prose-pre:bg-muted prose-pre:border prose-img:rounded-lg prose-img:shadow-sm"
+              className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-code:bg-muted prose-code:px-2 prose-code:py-1 prose-code:rounded prose-pre:bg-muted prose-pre:border prose-img:rounded-lg prose-img:shadow-sm prose-img:w-full prose-img:max-h-[600px] prose-img:object-contain"
               dangerouslySetInnerHTML={{ __html: post.html }}
             />
 
