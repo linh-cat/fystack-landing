@@ -14,14 +14,20 @@ interface BlogContentProps {
   error: string | null;
 }
 
-export default function BlogContent({ posts, categories, error }: BlogContentProps) {
+export default function BlogContent({
+  posts,
+  categories,
+  error,
+}: BlogContentProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const tagFromUrl = searchParams.get('tag');
-  
+  const tagFromUrl = searchParams.get("tag");
+
   const [selectedCategory, setSelectedCategory] = useState(() => {
     // Initialize with tag from URL if present and valid, otherwise "All posts"
-    return tagFromUrl && categories.includes(tagFromUrl) ? tagFromUrl : "All posts";
+    return tagFromUrl && categories.includes(tagFromUrl)
+      ? tagFromUrl
+      : "All posts";
   });
 
   // Update selected category when URL changes
@@ -34,21 +40,24 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
   }, [tagFromUrl, categories]);
 
   // Filter posts based on selected category
-  const filteredPosts = selectedCategory === "All posts" 
-    ? posts 
-    : posts.filter(post => 
-        post.tags.some(tag => tag.name === selectedCategory)
-      );
+  const filteredPosts =
+    selectedCategory === "All posts"
+      ? posts
+      : posts.filter((post) =>
+          post.tags.some((tag) => tag.name === selectedCategory)
+        );
 
   // Handle category selection
   const handleCategorySelect = (category: string) => {
     setSelectedCategory(category);
-    
+
     // Update URL to reflect the selected category
     if (category === "All posts") {
-      router.push('/blog', { scroll: false });
+      router.push("/blog", { scroll: false });
     } else {
-      router.push(`/blog?tag=${encodeURIComponent(category)}`, { scroll: false });
+      router.push(`/blog?tag=${encodeURIComponent(category)}`, {
+        scroll: false,
+      });
     }
   };
 
@@ -62,10 +71,9 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
               Blog
             </h1>
             <p className="text-sm text-muted-foreground">
-              {selectedCategory === "All posts" 
+              {selectedCategory === "All posts"
                 ? "Updates from the Fystack team"
-                : `Posts tagged with "${selectedCategory}"`
-              }
+                : `Posts tagged with "${selectedCategory}"`}
             </p>
           </div>
 
@@ -77,8 +85,8 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
                 onClick={() => handleCategorySelect(category)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   category === selectedCategory
-                    ? 'bg-foreground text-background'
-                    : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                    ? "bg-foreground text-background"
+                    : "bg-muted text-muted-foreground hover:bg-muted/80"
                 }`}
               >
                 {category}
@@ -97,13 +105,14 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
           <div className="text-center py-20">
             <div className="bg-muted rounded-lg p-12 max-w-md mx-auto">
               <h3 className="text-xl font-semibold text-foreground mb-2">
-                {selectedCategory === "All posts" ? "No posts yet" : `No posts found for "${selectedCategory}"`}
+                {selectedCategory === "All posts"
+                  ? "No posts yet"
+                  : `No posts found for "${selectedCategory}"`}
               </h3>
               <p className="text-muted-foreground">
-                {selectedCategory === "All posts" 
+                {selectedCategory === "All posts"
                   ? "Check back soon for our latest insights and updates."
-                  : "Try selecting a different category or check back later."
-                }
+                  : "Try selecting a different category or check back later."}
               </p>
             </div>
           </div>
@@ -115,14 +124,15 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
                 <Link href={`/blog/${filteredPosts[0].slug}`} className="group">
                   <Card className="overflow-hidden border hover:shadow-lg transition-all duration-300">
                     <div className="grid lg:grid-cols-2 gap-0 min-h-[400px]">
-                      <div className="relative h-64 lg:h-auto">
+                      <div className="relative w-full h-[300px] lg:h-full">
                         {filteredPosts[0].feature_image ? (
                           <Image
                             src={filteredPosts[0].feature_image}
                             alt={filteredPosts[0].title}
                             fill
-                            className="object-cover transition-transform duration-300"
+                            className="object-contain"
                             sizes="(max-width: 1024px) 100vw, 50vw"
+                            priority
                           />
                         ) : (
                           <div className="w-full h-full bg-muted flex items-center justify-center">
@@ -130,7 +140,7 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
                           </div>
                         )}
                       </div>
-                      
+
                       <CardContent className="p-8 lg:p-12 flex flex-col justify-center min-h-[400px] lg:min-h-0">
                         <div className="space-y-6">
                           <div className="flex flex-wrap gap-2">
@@ -143,24 +153,31 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
                               </span>
                             ))}
                           </div>
-                          
+
                           <h2 className="text-3xl font-bold leading-tight text-foreground group-hover:text-primary transition-colors">
                             {filteredPosts[0].title}
                           </h2>
-                          
+
                           <p className="text-lg text-muted-foreground leading-relaxed line-clamp-3">
-                            {filteredPosts[0].excerpt && filteredPosts[0].excerpt.length > 200 
-                              ? `${filteredPosts[0].excerpt.substring(0, 200)}...`
-                              : filteredPosts[0].excerpt
-                            }
+                            {filteredPosts[0].excerpt &&
+                            filteredPosts[0].excerpt.length > 200
+                              ? `${filteredPosts[0].excerpt.substring(
+                                  0,
+                                  200
+                                )}...`
+                              : filteredPosts[0].excerpt}
                           </p>
-                          
+
                           <div className="flex items-center gap-4 pt-4 text-sm text-muted-foreground">
                             <div className="flex items-center gap-2">
                               <div className="w-5 h-5 bg-muted rounded-full flex items-center justify-center overflow-hidden">
-                                {filteredPosts[0].primary_author.profile_image ? (
+                                {filteredPosts[0].primary_author
+                                  .profile_image ? (
                                   <Image
-                                    src={filteredPosts[0].primary_author.profile_image}
+                                    src={
+                                      filteredPosts[0].primary_author
+                                        .profile_image
+                                    }
                                     alt={filteredPosts[0].primary_author.name}
                                     width={20}
                                     height={20}
@@ -169,20 +186,28 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
                                 ) : (
                                   <div className="w-5 h-5 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
                                     <span className="text-white text-xs font-bold">
-                                      {filteredPosts[0].primary_author.name.charAt(0).toUpperCase()}
+                                      {filteredPosts[0].primary_author.name
+                                        .charAt(0)
+                                        .toUpperCase()}
                                     </span>
                                   </div>
                                 )}
                               </div>
-                              <span>{filteredPosts[0].primary_author.name}</span>
+                              <span>
+                                {filteredPosts[0].primary_author.name}
+                              </span>
                             </div>
                             <div className="flex items-center gap-2">
                               <Calendar className="w-4 h-4" />
-                              <span>{formatDate(filteredPosts[0].published_at)}</span>
+                              <span>
+                                {formatDate(filteredPosts[0].published_at)}
+                              </span>
                             </div>
                             <div className="flex items-center gap-2">
                               <Clock className="w-4 h-4" />
-                              <span>{getReadingTime(filteredPosts[0].reading_time)}</span>
+                              <span>
+                                {getReadingTime(filteredPosts[0].reading_time)}
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -196,7 +221,11 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
             {/* All Posts Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPosts.slice(1).map((post) => (
-                <Link key={post.id} href={`/blog/${post.slug}`} className="group">
+                <Link
+                  key={post.id}
+                  href={`/blog/${post.slug}`}
+                  className="group"
+                >
                   <Card className="overflow-hidden border hover:shadow-lg transition-all duration-300">
                     <div className="relative h-48">
                       {post.feature_image ? (
@@ -213,7 +242,7 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
                         </div>
                       )}
                     </div>
-                    
+
                     <CardContent className="p-6">
                       <div className="space-y-4">
                         <div className="flex flex-wrap gap-2">
@@ -226,15 +255,15 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
                             </span>
                           ))}
                         </div>
-                        
+
                         <h3 className="text-xl font-bold leading-tight text-foreground group-hover:text-primary transition-colors line-clamp-2">
                           {post.title}
                         </h3>
-                        
+
                         <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
                           {post.excerpt}
                         </p>
-                        
+
                         <div className="flex items-center justify-between pt-4 border-t">
                           <div className="flex items-center gap-2">
                             <div className="w-6 h-6 bg-muted rounded-full flex items-center justify-center overflow-hidden">
@@ -249,7 +278,9 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
                               ) : (
                                 <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
                                   <span className="text-white text-xs font-bold">
-                                    {post.primary_author.name.charAt(0).toUpperCase()}
+                                    {post.primary_author.name
+                                      .charAt(0)
+                                      .toUpperCase()}
                                   </span>
                                 </div>
                               )}
@@ -273,4 +304,5 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
       </div>
     </main>
   );
-} 
+}
+
