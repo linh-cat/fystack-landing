@@ -261,3 +261,184 @@ html {
     opacity: 0.7;
   }
 }
+
+/* Ghost CMS Bookmark Card Styles */
+.kg-card {
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.kg-bookmark-card {
+  width: 100%;
+}
+
+.kg-bookmark-container {
+  display: flex;
+  align-items: stretch;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  background: hsl(var(--card));
+}
+
+.kg-bookmark-container:hover {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transform: translateY(-2px);
+  border-color: hsl(var(--primary));
+}
+
+.kg-bookmark-content {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem;
+  justify-content: space-between;
+}
+
+.kg-bookmark-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: hsl(var(--foreground));
+  margin-bottom: 0.75rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kg-bookmark-description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+}
+
+.kg-bookmark-metadata {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+
+.kg-bookmark-icon {
+  width: 1rem !important;
+  height: 1rem !important;
+  border-radius: 0.125rem;
+  flex-shrink: 0;
+  object-fit: cover;
+  background: hsl(var(--muted));
+  display: inline-block;
+}
+
+.kg-bookmark-icon[src=""],
+.kg-bookmark-icon:not([src]) {
+  display: none;
+}
+
+.kg-bookmark-author,
+.kg-bookmark-publisher {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.kg-bookmark-author::after {
+  content: " • ";
+  margin: 0 0.25rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.kg-bookmark-thumbnail {
+  width: 35%;
+  min-width: 35%;
+  height: 100%;
+  padding-right: 1.25rem;
+}
+
+.kg-bookmark-thumbnail img {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.2s ease;
+  display: block;
+  flex: 1;
+}
+
+/* Responsive design for bookmark cards */
+@media (max-width: 640px) {
+  .kg-bookmark-container {
+    flex-direction: column;
+  }
+
+  .kg-bookmark-content {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .kg-bookmark-thumbnail {
+    width: 100%;
+    min-width: unset;
+    height: 100%;
+    order: -1;
+    padding: 0.5rem
+  }
+  
+  .kg-bookmark-content {
+    min-height: unset;
+    padding: 1rem;
+  }
+  
+  .kg-bookmark-title {
+    font-size: 1rem;
+  }
+  
+  .kg-bookmark-author,
+  .kg-bookmark-publisher {
+    max-width: none;
+  }
+}
+
+/* Dark mode styles for bookmark cards */
+.dark .kg-bookmark-container {
+  border-color: hsl(var(--border));
+  background: hsl(var(--card));
+}
+
+.dark .kg-bookmark-title {
+  color: hsl(var(--card-foreground));
+}
+
+.dark .kg-bookmark-description {
+  color: hsl(var(--muted-foreground));
+}
+
+.dark .kg-bookmark-metadata {
+  color: hsl(var(--muted-foreground));
+}
+
+.dark .kg-bookmark-thumbnail {
+  background: hsl(var(--muted));
+}
+
+.dark .kg-bookmark-icon {
+  background: hsl(var(--muted));
+}
