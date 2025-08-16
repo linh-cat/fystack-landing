@@ -1489,9 +1489,12 @@ export default function Home() {
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">3 chains</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
                         <span className="text-sm">Basic support</span>
                       </li>
-
                       {/* Advanced Security Features Section */}
                       <li className="pt-2">
                         <span className="text-sm font-semibold text-primary">
@@ -1560,6 +1563,10 @@ export default function Home() {
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
                         <span className="text-sm">200,000 API calls/month</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">5 chains</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
@@ -1651,6 +1658,10 @@ export default function Home() {
                             <span className="text-sm">
                               Unlimited crypto payments
                             </span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary" />
+                            <span className="text-sm">Unlimited chains</span>
                           </li>
                           <li className="flex items-center gap-2">
                             <CheckCircle className="h-4 w-4 text-primary" />
