@@ -229,15 +229,23 @@ export default function Home() {
             <div className="flex-1 flex flex-col items-start justify-center py-12 md:py-0 w-full">
               <div className="pr-4 md:pr-8 lg:pr-16 xl:pr-24 w-full">
                 <h1 className="text-4xl sm:text-6xl md:text-[50px] font-semibold tracking-tight mb-6 max-w-[22ch]">
-                <span className="flex flex-col leading-none space-y-1 sm:space-y-2">
-                  <span className="text-gray-700 dark:text-gray-100">Stablecoin wallet</span>
-                  <span className="text-gray-500 dark:text-gray-300">infrastructure</span>
-                  <span className="text-gray-700 dark:text-gray-100">for every business.</span>
-                </span>
-              </h1>
+                  <span className="flex flex-col leading-none space-y-1 sm:space-y-2">
+                    <span className="text-gray-700 dark:text-gray-100">
+                      Stablecoin wallet
+                    </span>
+                    <span className="text-gray-500 dark:text-gray-300">
+                      infrastructure
+                    </span>
+                    <span className="text-gray-700 dark:text-gray-100">
+                      for every business.
+                    </span>
+                  </span>
+                </h1>
 
                 <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-[50ch]">
-                  Secure team portal for multi‑chain stablecoin wallets, approvals, and risk policies powered by MPC technology with no private key exposure.
+                  Secure team portal for multi‑chain stablecoin wallets,
+                  approvals, and risk policies powered by MPC technology with no
+                  private key exposure.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 w-full">
@@ -248,7 +256,11 @@ export default function Home() {
                               transition w-full sm:w-auto"
                     asChild
                   >
-                    <Link href="https://app.fystack.io" target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href="https://app.fystack.io"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Create MPC wallet for your team
                     </Link>
                   </Button>
@@ -261,7 +273,11 @@ export default function Home() {
                               w-full sm:w-auto"
                     asChild
                   >
-                    <Link href="https://docs.fystack.io/" target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href="https://docs.fystack.io/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Documentation
                     </Link>
                   </Button>
@@ -289,44 +305,48 @@ export default function Home() {
 
         {/* Dashboard Section */}
         <section className="relative py-24">
-  <div className="absolute inset-0 -z-10 bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900" />
 
-  <div className="container mx-auto px-4 max-w-6xl">
-    <div className="grid gap-16 md:grid-cols-2 md:items-center">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <div className="grid gap-16 md:grid-cols-2 md:items-center">
+              {/* Right: Visualization */}
+              <div className="relative">
+                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-blue-400/10 via-cyan-400/10 to-transparent blur-xl" />
+                <div className="relative rounded-3xl bg-white/60 dark:bg-gray-900/60 backdrop-blur-md p-6 shadow-[0_0_0_1px_rgba(0,0,0,0.04)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.08)]">
+                  <MpcVisualization />
+                </div>
+              </div>
+              <div className="pr-4 md:pr-8 lg:pr-12 xl:pr-16">
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+                  Powered by secure{" "}
+                  <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
+                    MPC technology
+                  </span>
+                </h2>
 
-      {/* Right: Visualization */}
-      <div className="relative">
-        <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-blue-400/10 via-cyan-400/10 to-transparent blur-xl" />
-        <div className="relative rounded-3xl bg-white/60 dark:bg-gray-900/60 backdrop-blur-md p-6 shadow-[0_0_0_1px_rgba(0,0,0,0.04)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.08)]">
-          <MpcVisualization />
-        </div>
-      </div>
-      <div className="pr-4 md:pr-8 lg:pr-12 xl:pr-16">
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
-          Powered by secure <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">MPC technology</span>
-        </h2>
+                <div className="mt-6 h-1 w-24 bg-gradient-to-r from-blue-500/70 to-cyan-400/70 rounded-full" />
 
-        <div className="mt-6 h-1 w-24 bg-gradient-to-r from-blue-500/70 to-cyan-400/70 rounded-full" />
-
-        <ul className="mt-8 space-y-4">
-          {[
-            "No single point of failure",
-            "Key is split into shares and stored on different nodes",
-            "Private key never exists whole",
-            "Threshold signing across independent nodes",
-          ].map((item) => (
-            <li key={item} className="flex gap-3">
-              <span className="mt-1 inline-flex h-6 w-6 flex-none items-center justify-center rounded-full bg-blue-50 dark:bg-blue-900/30">
-                <Lock className="h-3.5 w-3.5 text-blue-600 dark:text-cyan-300" />
-              </span>
-              <span className="text-lg text-gray-700 dark:text-gray-300">{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+                <ul className="mt-8 space-y-4">
+                  {[
+                    "No single point of failure",
+                    "Key is split into shares and stored on different nodes",
+                    "Private key never exists whole",
+                    "Threshold signing across independent nodes",
+                  ].map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-1 inline-flex h-6 w-6 flex-none items-center justify-center rounded-full bg-blue-50 dark:bg-blue-900/30">
+                        <Lock className="h-3.5 w-3.5 text-blue-600 dark:text-cyan-300" />
+                      </span>
+                      <span className="text-lg text-gray-700 dark:text-gray-300">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <Solution />
         {/* Features Section */}
@@ -1469,9 +1489,7 @@ export default function Home() {
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
-                        <span className="text-sm">
-                          Priority Telegram support
-                        </span>
+                        <span className="text-sm">Basic support</span>
                       </li>
 
                       {/* Advanced Security Features Section */}
