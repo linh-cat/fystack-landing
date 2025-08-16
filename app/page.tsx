@@ -1476,7 +1476,7 @@ export default function Home() {
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
                         <span className="text-sm">
-                          Up to 10 MPC wallets - 5,000 Hyper wallets
+                          Up to 3 MPC wallets - 3,000 Hyper wallets
                         </span>
                       </li>
                       <li className="flex items-center gap-2">
