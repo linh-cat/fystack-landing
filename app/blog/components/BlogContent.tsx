@@ -169,35 +169,38 @@ export default function BlogContent({
                           </p>
 
                           {/* Meta Info Section - Featured Post */}
-                          <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-4 text-sm text-muted-foreground">
-                            <div className="flex items-center gap-2">
-                              <div className="w-5 h-5 bg-muted rounded-full flex items-center justify-center overflow-hidden">
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-6 border-t border-muted/50">
+                            <div className="flex items-center gap-3">
+                              <div className="w-8 h-8 bg-muted rounded-full flex items-center justify-center overflow-hidden ring-2 ring-background shadow-sm">
                                 {filteredPosts[0].primary_author.profile_image ? (
                                   <Image
                                     src={filteredPosts[0].primary_author.profile_image}
                                     alt={filteredPosts[0].primary_author.name}
-                                    width={20}
-                                    height={20}
+                                    width={32}
+                                    height={32}
                                     className="rounded-full object-cover w-full h-full"
                                   />
                                 ) : (
-                                  <div className="w-5 h-5 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                                    <span className="text-white text-xs font-bold">
+                                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                                    <span className="text-white text-sm font-semibold">
                                       {filteredPosts[0].primary_author.name.charAt(0).toUpperCase()}
                                     </span>
                                   </div>
                                 )}
                               </div>
-                              <span>{filteredPosts[0].primary_author.name}</span>
+                              <div className="flex flex-col">
+                                <span className="text-sm font-medium text-foreground">{filteredPosts[0].primary_author.name}</span>
+                                <span className="text-xs text-muted-foreground">Author</span>
+                              </div>
                             </div>
-                            <div className="flex flex-wrap gap-4">
+                            <div className="flex items-center gap-6 text-sm text-muted-foreground">
                               <div className="flex items-center gap-2">
-                                <Calendar className="w-4 h-4 flex-shrink-0" />
-                                <span>{formatDate(filteredPosts[0].published_at)}</span>
+                                <Calendar className="w-4 h-4 flex-shrink-0 text-primary/60" />
+                                <span className="font-medium">{formatDate(filteredPosts[0].published_at)}</span>
                               </div>
                               <div className="flex items-center gap-2">
-                                <Clock className="w-4 h-4 flex-shrink-0" />
-                                <span>{getReadingTime(filteredPosts[0].reading_time)}</span>
+                                <Clock className="w-4 h-4 flex-shrink-0 text-primary/60" />
+                                <span className="font-medium">{getReadingTime(filteredPosts[0].reading_time)}</span>
                               </div>
                             </div>
                           </div>
@@ -256,38 +259,38 @@ export default function BlogContent({
                         </p>
 
                         {/* Grid Post Meta Info */}
-                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between pt-4 border-t gap-3">
-                          <div className="flex items-center gap-2">
-                            <div className="w-6 h-6 bg-muted rounded-full flex items-center justify-center overflow-hidden">
-                              {post.primary_author.profile_image ? (
-                                <Image
-                                  src={post.primary_author.profile_image}
-                                  alt={post.primary_author.name}
-                                  width={24}
-                                  height={24}
-                                  className="rounded-full object-cover w-full h-full"
-                                />
-                              ) : (
-                                <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                                  <span className="text-white text-xs font-bold">
-                                    {post.primary_author.name.charAt(0).toUpperCase()}
-                                  </span>
-                                </div>
-                              )}
-                            </div>
-                            <span className="text-sm font-medium text-foreground">
-                              {post.primary_author.name}
-                            </span>
-                          </div>
-                          <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                        <div className="pt-4 space-y-3">
+                          <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
-                              <Calendar className="w-3 h-3 flex-shrink-0" />
-                              <span>{formatDate(post.published_at)}</span>
+                              <div className="w-7 h-7 bg-muted rounded-full flex items-center justify-center overflow-hidden ring-1 ring-muted-foreground/10">
+                                {post.primary_author.profile_image ? (
+                                  <Image
+                                    src={post.primary_author.profile_image}
+                                    alt={post.primary_author.name}
+                                    width={28}
+                                    height={28}
+                                    className="rounded-full object-cover w-full h-full"
+                                  />
+                                ) : (
+                                  <div className="w-7 h-7 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                                    <span className="text-white text-xs font-semibold">
+                                      {post.primary_author.name.charAt(0).toUpperCase()}
+                                    </span>
+                                  </div>
+                                )}
+                              </div>
+                              <span className="text-sm font-medium text-foreground truncate">
+                                {post.primary_author.name}
+                              </span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-1 text-xs text-muted-foreground bg-muted/50 px-2 py-1 rounded-full">
                               <Clock className="w-3 h-3 flex-shrink-0" />
-                              <span>{getReadingTime(post.reading_time)}</span>
+                              <span className="font-medium">{getReadingTime(post.reading_time)}</span>
                             </div>
+                          </div>
+                          <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                            <Calendar className="w-3 h-3 flex-shrink-0 text-primary/60" />
+                            <span className="font-medium">{formatDate(post.published_at)}</span>
                           </div>
                         </div>
                       </div>

@@ -227,45 +227,50 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {/* Removed excerpt display from blog detail page - it should only be on blog listing */}
 
               {/* Author and Meta Info */}
-              <div className="flex flex-wrap items-center gap-6 pb-8 border-b">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center overflow-hidden">
-                    {post.primary_author.profile_image ? (
-                      <Image
-                        src={post.primary_author.profile_image}
-                        alt={post.primary_author.name}
-                        width={48}
-                        height={48}
-                        className="rounded-full object-cover w-full h-full"
-                      />
-                    ) : (
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                        <span className="text-white text-lg font-bold">
-                          {post.primary_author.name.charAt(0).toUpperCase()}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">
-                      {post.primary_author.name}
-                    </p>
-                    {post.primary_author.bio && (
-                      <p className="text-sm text-muted-foreground">
-                        {post.primary_author.bio}
+              <div className="bg-muted/30 rounded-xl p-6 mb-8">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center overflow-hidden ring-4 ring-background shadow-lg">
+                      {post.primary_author.profile_image ? (
+                        <Image
+                          src={post.primary_author.profile_image}
+                          alt={post.primary_author.name}
+                          width={64}
+                          height={64}
+                          className="rounded-full object-cover w-full h-full"
+                        />
+                      ) : (
+                        <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xl font-bold">
+                            {post.primary_author.name.charAt(0).toUpperCase()}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    <div>
+                      <p className="text-lg font-bold text-foreground mb-1">
+                        {post.primary_author.name}
                       </p>
-                    )}
+                      <p className="text-sm text-muted-foreground">
+                        Author
+                      </p>
+                      {post.primary_author.bio && (
+                        <p className="text-sm text-muted-foreground mt-2 max-w-md">
+                          {post.primary_author.bio}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                </div>
-                
-                <div className="flex items-center gap-4 text-muted-foreground">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
-                    <span className="text-sm">{formatDate(post.published_at)}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4" />
-                    <span className="text-sm">{getReadingTime(post.reading_time)}</span>
+                  
+                  <div className="flex flex-col sm:items-end gap-3">
+                    <div className="flex items-center gap-2 bg-background px-4 py-2 rounded-full shadow-sm">
+                      <Calendar className="w-4 h-4 text-primary" />
+                      <span className="text-sm font-medium text-foreground">{formatDate(post.published_at)}</span>
+                    </div>
+                    <div className="flex items-center gap-2 bg-background px-4 py-2 rounded-full shadow-sm">
+                      <Clock className="w-4 h-4 text-primary" />
+                      <span className="text-sm font-medium text-foreground">{getReadingTime(post.reading_time)}</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -378,10 +383,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                             {relatedPost.excerpt}
                           </p>
                           
-                          <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                            <span>{formatDate(relatedPost.published_at)}</span>
-                            <span>•</span>
-                            <span>{getReadingTime(relatedPost.reading_time)}</span>
+                          <div className="flex items-center justify-between pt-3 border-t border-muted/50">
+                            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                              <Calendar className="w-3 h-3 text-primary/60" />
+                              <span className="font-medium">{formatDate(relatedPost.published_at)}</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/50 px-2 py-1 rounded-full">
+                              <Clock className="w-3 h-3" />
+                              <span className="font-medium">{getReadingTime(relatedPost.reading_time)}</span>
+                            </div>
                           </div>
                         </div>
                       </div>
