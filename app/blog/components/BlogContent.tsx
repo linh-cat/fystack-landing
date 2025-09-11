@@ -221,7 +221,7 @@ export default function BlogContent({
                   className="group"
                 >
                   <Card className="overflow-hidden border hover:shadow-lg transition-all duration-300">
-                    <div className="relative h-48">
+                    <div className="relative h-64">
                       {post.feature_image ? (
                         <Image
                           src={post.feature_image}
