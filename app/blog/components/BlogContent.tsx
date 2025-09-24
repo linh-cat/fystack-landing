@@ -221,13 +221,13 @@ export default function BlogContent({
                   className="group"
                 >
                   <Card className="overflow-hidden border hover:shadow-lg transition-all duration-300">
-                    <div className="relative h-64">
+                    <div className="relative h-64 bg-muted/30">
                       {post.feature_image ? (
                         <Image
                           src={post.feature_image}
                           alt={post.title}
                           fill
-                          className="object-cover transition-transform duration-300"
+                          className="object-contain transition-transform duration-300"
                           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         />
                       ) : (
