@@ -230,4 +230,72 @@ export function getExcerpt(html: string, maxLength: number = 150): string {
   // Strip HTML tags and get plain text
   const plainText = html.replace(/<[^>]*>/g, '').trim();
   return truncateText(plainText, maxLength);
+}
+
+/**
+ * Transform Ghost image URLs to use the local proxy
+ * This allows images to be served from fystack.io instead of ghost.fystack.io
+ * Better for SEO and works even if Ghost is password-protected
+ * Uses /mpc-wallet/ path for SEO optimization with relevant keywords
+ * Also copies figcaption to empty alt attributes for better accessibility
+ */
+export function transformGhostImageUrls(html: string, ghostUrl?: string): string {
+  const ghostDomain = ghostUrl || process.env.GHOST_URL || 'https://ghost.fystack.io';
+
+  // Extract the base domain without protocol
+  const ghostDomainWithoutProtocol = ghostDomain.replace(/^https?:\/\//, '');
+
+  // Replace all Ghost image URLs with proxy URLs
+  // Matches: https://ghost.fystack.io/content/images/...
+  const imageUrlPattern = new RegExp(
+    `(https?:)?//${ghostDomainWithoutProtocol.replace(/\./g, '\\.')}/content/images/([^"'\\s)]+)`,
+    'g'
+  );
+
+  let transformed = html.replace(imageUrlPattern, '/mpc-wallet/$2');
+
+  // Copy figcaption text to empty alt attributes for better SEO and accessibility
+  // Ghost keeps them separate, but for SEO/accessibility they should match
+  const figurePattern = /<figure[^>]*>(.*?)<\/figure>/gs;
+
+  transformed = transformed.replace(figurePattern, (figureMatch) => {
+    // Extract figcaption text if present
+    const captionMatch = figureMatch.match(/<figcaption[^>]*>(.*?)<\/figcaption>/s);
+
+    if (captionMatch) {
+      const captionText = captionMatch[1].replace(/<[^>]+>/g, '').trim(); // Strip HTML tags
+
+      // Find images with empty alt and add the caption as alt text
+      return figureMatch.replace(/(<img[^>]*?)alt=""([^>]*?>)/g, (imgMatch, before, after) => {
+        return `${before}alt="${captionText}"${after}`;
+      });
+    }
+
+    return figureMatch;
+  });
+
+  return transformed;
+}
+
+/**
+ * Transform a single Ghost image URL (for feature_image, og_image, etc.)
+ * Uses /mpc-wallet/ path for SEO optimization with relevant keywords
+ */
+export function transformGhostImageUrl(url: string | null, ghostUrl?: string): string | null {
+  if (!url) return null;
+
+  const ghostDomain = ghostUrl || process.env.GHOST_URL || 'https://ghost.fystack.io';
+  const ghostDomainWithoutProtocol = ghostDomain.replace(/^https?:\/\//, '');
+
+  // Check if URL is a Ghost image
+  const imageUrlPattern = new RegExp(
+    `^(https?:)?//${ghostDomainWithoutProtocol.replace(/\./g, '\\.')}/content/images/(.+)$`
+  );
+
+  const match = url.match(imageUrlPattern);
+  if (match) {
+    return `/mpc-wallet/${match[2]}`;
+  }
+
+  return url;
 } 
