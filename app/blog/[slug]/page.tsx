@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, User, ArrowLeft, Tag, BookOpen } from "lucide-react";
-import { ghostAPI, formatDate, getReadingTime, transformGhostImageUrls, transformGhostImageUrl, type GhostPost } from "@/lib/ghost";
+import { ghostAPI, formatDate, getReadingTime, type GhostPost } from "@/lib/ghost";
 import type { Metadata } from "next";
 import ShareButton from "./components/ShareButton";
 import Navbar from "@/components/Navbar";
@@ -170,10 +170,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  // Transform Ghost image URLs to use local proxy
-  const transformedHtml = transformGhostImageUrls(post.html);
-  const transformedFeatureImage = transformGhostImageUrl(post.feature_image);
-
   // Get related posts (excluding current post)
   const relatedPostsResponse = await ghostAPI.getPosts({
     limit: 3,
@@ -281,11 +277,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </header>
 
             {/* Featured Image */}
-            {transformedFeatureImage && (
+            {post.feature_image && (
               <div className="relative w-full mb-12">
                 <div className="relative w-full">
                   <Image
-                    src={transformedFeatureImage}
+                    src={post.feature_image}
                     alt={post.title}
                     width={1200}
                     height={630}
@@ -298,9 +294,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             )}
 
             {/* Article Content */}
-            <div
+            <div 
               className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-code:bg-gray-900 prose-code:text-white prose-code:px-2 prose-code:py-1 prose-code:rounded prose-pre:bg-gray-900 prose-pre:text-white prose-pre:border prose-pre:border-gray-700 prose-pre:overflow-auto prose-pre:p-4 prose-img:rounded-lg prose-img:shadow-sm prose-img:w-full prose-img:max-h-[600px] prose-img:object-contain prose-iframe:w-full prose-iframe:aspect-video prose-iframe:rounded-lg prose-iframe:shadow-sm"
-              dangerouslySetInnerHTML={{ __html: transformedHtml }}
+              dangerouslySetInnerHTML={{ __html: post.html }}
             />
 
             {/* Tags Section */}
@@ -348,30 +344,28 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {relatedPosts.map((relatedPost) => {
-                  const transformedRelatedImage = transformGhostImageUrl(relatedPost.feature_image);
-                  return (
-                    <Link
-                      key={relatedPost.id}
-                      href={`/blog/${relatedPost.slug}`}
-                      className="group"
-                    >
-                      <div className="bg-background rounded-lg overflow-hidden border hover:shadow-lg transition-all duration-300">
-                        <div className="relative h-48 overflow-hidden">
-                          {transformedRelatedImage ? (
-                            <Image
-                              src={transformedRelatedImage}
-                              alt={relatedPost.title}
-                              fill
-                              className="object-cover group-hover:scale-105 transition-transform duration-300"
-                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            />
-                          ) : (
-                            <div className="w-full h-full bg-muted flex items-center justify-center">
-                              <BookOpen className="w-12 h-12 text-muted-foreground" />
-                            </div>
-                          )}
-                        </div>
+                {relatedPosts.map((relatedPost) => (
+                  <Link
+                    key={relatedPost.id}
+                    href={`/blog/${relatedPost.slug}`}
+                    className="group"
+                  >
+                    <div className="bg-background rounded-lg overflow-hidden border hover:shadow-lg transition-all duration-300">
+                      <div className="relative h-48 overflow-hidden">
+                        {relatedPost.feature_image ? (
+                          <Image
+                            src={relatedPost.feature_image}
+                            alt={relatedPost.title}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-muted flex items-center justify-center">
+                            <BookOpen className="w-12 h-12 text-muted-foreground" />
+                          </div>
+                        )}
+                      </div>
                       
                       <div className="p-6">
                         <div className="space-y-4">
@@ -403,8 +397,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                       </div>
                     </div>
                   </Link>
-                  );
-                })}
+                ))}
               </div>
             </div>
           </section>

@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Clock, User, Tag } from "lucide-react";
-import { formatDate, getReadingTime, transformGhostImageUrl, type GhostPost } from "@/lib/ghost";
+import { formatDate, getReadingTime, type GhostPost } from "@/lib/ghost";
 
 interface BlogContentProps {
   posts: GhostPost[];
@@ -119,29 +119,27 @@ export default function BlogContent({
         ) : (
           <>
             {/* Featured Post */}
-            {filteredPosts[0] && (() => {
-              const featuredImageUrl = transformGhostImageUrl(filteredPosts[0].feature_image);
-              return (
-                <div className="mb-16">
-                  <Link href={`/blog/${filteredPosts[0].slug}`} className="group">
-                    <Card className="overflow-hidden border hover:shadow-lg transition-all duration-300">
-                      <div className="grid lg:grid-cols-2 gap-0 min-h-[400px]">
-                        <div className="relative w-full h-[300px] lg:h-full">
-                          {featuredImageUrl ? (
-                            <Image
-                              src={featuredImageUrl}
-                              alt={filteredPosts[0].title}
-                              fill
-                              className="object-contain"
-                              sizes="(max-width: 1024px) 100vw, 50vw"
-                              priority
-                            />
-                          ) : (
-                            <div className="w-full h-full bg-muted flex items-center justify-center">
-                              <Tag className="w-16 h-16 text-muted-foreground" />
-                            </div>
-                          )}
-                        </div>
+            {filteredPosts[0] && (
+              <div className="mb-16">
+                <Link href={`/blog/${filteredPosts[0].slug}`} className="group">
+                  <Card className="overflow-hidden border hover:shadow-lg transition-all duration-300">
+                    <div className="grid lg:grid-cols-2 gap-0 min-h-[400px]">
+                      <div className="relative w-full h-[300px] lg:h-full">
+                        {filteredPosts[0].feature_image ? (
+                          <Image
+                            src={filteredPosts[0].feature_image}
+                            alt={filteredPosts[0].title}
+                            fill
+                            className="object-contain"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            priority
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-muted flex items-center justify-center">
+                            <Tag className="w-16 h-16 text-muted-foreground" />
+                          </div>
+                        )}
+                      </div>
 
                       <CardContent className="p-8 lg:p-12 flex flex-col justify-center min-h-[400px] lg:min-h-0">
                         <div className="space-y-6">
@@ -212,35 +210,32 @@ export default function BlogContent({
                   </Card>
                 </Link>
               </div>
-              );
-            })()}
+            )}
 
             {/* All Posts Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.slice(1).map((post) => {
-                const gridImageUrl = transformGhostImageUrl(post.feature_image);
-                return (
-                  <Link
-                    key={post.id}
-                    href={`/blog/${post.slug}`}
-                    className="group"
-                  >
-                    <Card className="overflow-hidden border hover:shadow-lg transition-all duration-300">
-                      <div className="relative h-64 bg-muted/30">
-                        {gridImageUrl ? (
-                          <Image
-                            src={gridImageUrl}
-                            alt={post.title}
-                            fill
-                            className="object-contain transition-transform duration-300"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          />
-                        ) : (
-                          <div className="w-full h-full bg-muted flex items-center justify-center">
-                            <Tag className="w-12 h-12 text-muted-foreground" />
-                          </div>
-                        )}
-                      </div>
+              {filteredPosts.slice(1).map((post) => (
+                <Link
+                  key={post.id}
+                  href={`/blog/${post.slug}`}
+                  className="group"
+                >
+                  <Card className="overflow-hidden border hover:shadow-lg transition-all duration-300">
+                    <div className="relative h-64 bg-muted/30">
+                      {post.feature_image ? (
+                        <Image
+                          src={post.feature_image}
+                          alt={post.title}
+                          fill
+                          className="object-contain transition-transform duration-300"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-muted flex items-center justify-center">
+                          <Tag className="w-12 h-12 text-muted-foreground" />
+                        </div>
+                      )}
+                    </div>
 
                     <CardContent className="p-6">
                       <div className="space-y-4">
@@ -302,8 +297,7 @@ export default function BlogContent({
                     </CardContent>
                   </Card>
                 </Link>
-                );
-              })}
+              ))}
             </div>
           </>
         )}
