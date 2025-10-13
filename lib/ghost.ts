@@ -102,7 +102,7 @@ export interface PostsResponse {
 export const ghostAPI = {
   // Get all posts with pagination
   async getPosts(options: {
-    limit?: number;
+    limit?: number | 'all';
     page?: number;
     include?: string[];
     filter?: string;
@@ -110,14 +110,19 @@ export const ghostAPI = {
   } = {}): Promise<PostsResponse> {
     try {
       const { limit = 15, page = 1, include = ['tags', 'authors'], filter, order = 'published_at DESC' } = options;
-      
-      const posts = await api.posts.browse({
+
+      const browseOptions: Record<string, unknown> = {
         limit,
-        page,
         include: include as unknown as any,
         filter,
         order,
-      });
+      };
+
+      if (limit !== 'all') {
+        browseOptions.page = page;
+      }
+
+      const posts = await api.posts.browse(browseOptions);
 
       return {
         posts: posts as unknown as GhostPost[],

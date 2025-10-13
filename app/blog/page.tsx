@@ -83,7 +83,7 @@ export async function generateMetadata() {
 async function fetchBlogData() {
   try {
     const response = await ghostAPI.getPosts({
-      limit: 20,
+      limit: 'all',
       include: ['tags', 'authors'],
       order: 'published_at DESC'
     });
