@@ -44,6 +44,7 @@ import { DashboardPreview } from "@/components/DashboardPreview";
 import dashboardImage from "@/app/images/dashboard.png";
 import Hosting from "./components/Hosting"; // Add this import
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 import {
   DropdownMenu,
@@ -87,217 +88,73 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="border-b sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
-          <div className="flex items-center gap-2">
-            <Image
-              src={appLogo}
-              alt="App Logo"
-              priority
-              width={170}
-              height={50}
-              className="h-auto w-[120px] sm:w-[150px] md:w-[170px]"
-            />
+      <Navbar />
+
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="relative bg-white dark:bg-background py-16 md:py-20 lg:py-24 xl:py-32 border-b overflow-hidden">
+          {/* Background Image - Blended */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="relative w-full h-full max-w-7xl mx-auto">
+              <Image
+                src={dashboardImage}
+                alt="Dashboard preview"
+                className="w-full h-full object-contain opacity-5 dark:opacity-[0.03]"
+                sizes="100vw"
+                priority
+              />
+            </div>
           </div>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link
-              href="#features"
-              className="text-sm font-medium hover:underline underline-offset-4"
-            >
-              Features
-            </Link>
-            <Link
-              href="#security"
-              className="text-sm font-medium hover:underline underline-offset-4"
-            >
-              Security
-            </Link>
-            <Link
-              href="#sdk"
-              className="text-sm font-medium hover:underline underline-offset-4"
-            >
-              SDK
-            </Link>
-            <Link
-              href="#chains"
-              className="text-sm font-medium hover:underline underline-offset-4"
-            >
-              Chains
-            </Link>
-            <Link
-              href="/blog"
-              className="text-sm font-medium hover:underline underline-offset-4"
-              aria-label="Read our blog posts"
-              title="Fystack Blog - Latest Updates and Insights"
-            >
-              Blog
-            </Link>
-            <Link
-              href="#pricing"
-              className="text-sm font-medium hover:underline underline-offset-4"
-            >
-              Pricing
-            </Link>
-            <Link
-              href="https://t.me/anhthind"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium hover:underline underline-offset-4"
-            >
-              Contact
-            </Link>
-            <DropdownMenu>
-              <DropdownMenuTrigger className="text-sm font-medium hover:underline underline-offset-4 cursor-pointer hover:cursor-pointer flex items-center">
-                Tools <ChevronDown className="inline h-4 w-4 ml-1" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start">
-                <DropdownMenuItem asChild>
+
+          <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
+            {/* Centered Content */}
+            <div className="flex flex-col items-center text-center">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 max-w-[20ch]">
+                <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-gray-100 dark:via-gray-200 dark:to-gray-100 bg-clip-text text-transparent">
+                  Digital Asset Infrastructure for Multi-chain Applications
+                </span>
+              </h1>
+
+              <p className="text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-4 max-w-[50ch]">
+                Automate digital asset workflows across multiple chains securely at scale.
+              </p>
+
+              <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-[45ch]">
+                Save time and costs, launch on Web3 faster.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  size="lg"
+                  className="rounded-full px-8 py-6 text-base sm:text-lg font-semibold shadow-md hover:shadow-lg
+                            focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500
+                            transition"
+                  asChild
+                >
                   <Link
-                    href="https://risk-dashboard.fystack.io/"
+                    href="https://app.fystack.io"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Wallet risk analyzer
+                    Get Started Free
                   </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </nav>
-          <div className="flex items-center gap-2 md:gap-4">
-            <Button
-              variant="outline"
-              size="sm"
-              asChild
-              className="hidden sm:flex gap-2"
-            >
-              <Link
-                href="https://github.com/fystack"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className="bg-gray-900 dark:bg-gray-800 p-1 rounded-full">
-                  <Github className="h-3 w-3 text-white fill-white" />
-                </div>
-                GitHub
-              </Link>
-            </Button>
-
-            <Button
-              variant="ghost"
-              size="icon"
-              asChild
-              className="flex sm:hidden"
-            >
-              <Link
-                href="https://github.com/fystack"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className="bg-gray-900 dark:bg-gray-800 p-1 rounded-full">
-                  <Github className="h-4 w-4 text-white fill-white" />
-                </div>
-              </Link>
-            </Button>
-
-            <Button variant="outline" size="sm" asChild>
-              <Link
-                href="https://app.fystack.io"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Log in
-              </Link>
-            </Button>
-            <Button size="sm" asChild>
-              <Link
-                href="https://app.fystack.io"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Sign up
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </header>
-
-      <main className="flex-1">
-        {/* Silicon Valley Style Hero Section */}
-        <section className="relative bg-white dark:bg-background py-12 md:py-16 lg:py-20 xl:py-24 border-b">
-          <div className="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between max-w-7xl">
-            {/* Left: Headline & CTA */}
-            <div className="flex-1 flex flex-col items-start justify-center py-12 md:py-0 w-full">
-              <div className="pr-4 md:pr-8 lg:pr-16 xl:pr-24 w-full">
-                <h1 className="text-4xl sm:text-6xl md:text-[50px] font-semibold tracking-tight mb-6 max-w-[22ch]">
-                  <span className="flex flex-col leading-none space-y-1 sm:space-y-2">
-                    <span className="text-gray-700 dark:text-gray-100">
-                      Stablecoin wallet
-                    </span>
-                    <span className="text-gray-500 dark:text-gray-300">
-                      infrastructure
-                    </span>
-                    <span className="text-gray-700 dark:text-gray-100">
-                      for every business.
-                    </span>
-                  </span>
-                </h1>
-
-                <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-[50ch]">
-                  Secure team portal for multi‑chain stablecoin wallets,
-                  approvals, and risk policies powered by MPC technology with no
-                  private key exposure.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-4 w-full">
-                  <Button
-                    size="lg"
-                    className="rounded-full px-7 py-4 text-base sm:text-lg font-semibold shadow-md hover:shadow-lg
-                              focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500
-                              transition w-full sm:w-auto"
-                    asChild
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-8 py-6 text-base sm:text-lg font-semibold border-gray-300 dark:border-gray-600
+                            hover:bg-gray-100/70 dark:hover:bg-gray-800/60 transition
+                            focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                  asChild
+                >
+                  <Link
+                    href="https://docs.fystack.io/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <Link
-                      href="https://app.fystack.io"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Create MPC wallet for your team
-                    </Link>
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="rounded-full px-7 py-4 text-base sm:text-lg font-semibold border-gray-300 dark:border-gray-600
-                              hover:bg-gray-100/70 dark:hover:bg-gray-800/60 transition
-                              focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500
-                              w-full sm:w-auto"
-                    asChild
-                  >
-                    <Link
-                      href="https://docs.fystack.io/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Documentation
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-            {/* Right: Dashboard Preview Image */}
-            <div className="flex-1 flex items-center justify-center mt-6 md:mt-0">
-              <div className="relative w-full flex items-center justify-center px-0 md:px-4 lg:px-8 xl:px-0">
-                <div className="w-full max-w-[1200px] 2xl:max-w-[1400px] mx-auto">
-                  <Image
-                    src={dashboardImage}
-                    alt="Dashboard preview"
-                    // Let Next optimize size; remove forced height
-                    className="block w-full rounded-2xl shadow-2xl"
-                    // If you want it to scale responsively with intrinsic ratio:
-                    sizes="(min-width: 1280px) 1200px, 100vw"
-                    priority
-                  />
-                </div>
+                    View Documentation
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
