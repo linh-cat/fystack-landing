@@ -93,24 +93,32 @@ export default function Home() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative bg-white dark:bg-background py-16 md:py-20 lg:py-24 xl:py-32 border-b overflow-hidden">
-          {/* Background Image - Blended */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="relative w-full h-full max-w-7xl mx-auto">
-              <Image
-                src={dashboardImage}
-                alt="Dashboard preview"
-                className="w-full h-full object-contain opacity-5 dark:opacity-[0.03]"
-                sizes="100vw"
-                priority
-              />
-            </div>
+          {/* Animated Gradient Mesh Background */}
+          <div className="absolute inset-0 pointer-events-none">
+            {/* Gradient Orbs */}
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float"></div>
+            <div className="absolute top-20 right-1/4 w-96 h-96 bg-purple-500/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float" style={{ animationDelay: '2s', animationDuration: '7s' }}></div>
+            <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-cyan-500/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float" style={{ animationDelay: '4s', animationDuration: '9s' }}></div>
+
+            {/* Dark mode gradient orbs */}
+            <div className="absolute top-10 right-1/3 w-80 h-80 bg-blue-600/20 dark:bg-blue-400/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-60 animate-float" style={{ animationDelay: '1s', animationDuration: '8s' }}></div>
+            <div className="absolute bottom-20 left-1/2 w-80 h-80 bg-indigo-600/20 dark:bg-indigo-400/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-60 animate-float" style={{ animationDelay: '3s', animationDuration: '10s' }}></div>
+
+            {/* Floating Geometric Shapes */}
+            <div className="absolute top-20 left-10 w-16 h-16 border-2 border-blue-500/20 rotate-45 animate-float" style={{ animationDelay: '0s', animationDuration: '6s' }}></div>
+            <div className="absolute top-40 right-20 w-12 h-12 border-2 border-purple-500/20 rounded-full animate-float" style={{ animationDelay: '1.5s', animationDuration: '7s' }}></div>
+            <div className="absolute bottom-40 left-20 w-20 h-20 border-2 border-cyan-500/20 rotate-12 animate-float" style={{ animationDelay: '2.5s', animationDuration: '8s' }}></div>
+            <div className="absolute bottom-20 right-32 w-14 h-14 border-2 border-indigo-500/20 rounded-full animate-float" style={{ animationDelay: '3.5s', animationDuration: '9s' }}></div>
+
+            {/* Grid Pattern Overlay */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
           </div>
 
           <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
             {/* Centered Content */}
             <div className="flex flex-col items-center text-center">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 max-w-[20ch]">
-                <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-gray-100 dark:via-gray-200 dark:to-gray-100 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700 dark:from-gray-100 dark:via-gray-200 dark:to-gray-100 bg-clip-text text-transparent">
                   Digital Asset Infrastructure for Multi-chain Applications
                 </span>
               </h1>
@@ -160,52 +168,316 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Dashboard Section */}
-        <section className="relative py-24">
-          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900" />
+        {/* MPC Technology Section */}
+        <section className="relative py-32 bg-white dark:bg-background">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <div className="grid lg:grid-cols-2 gap-20 items-center">
+              {/* Left: Content */}
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <div className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-400">
+                    <div className="w-8 h-px bg-gray-300 dark:bg-gray-600"></div>
+                    SECURITY
+                  </div>
+                  <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900 dark:text-gray-100 leading-tight">
+                    Powered by secure
+                    <br />
+                    MPC technology
+                  </h2>
+                  <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Multi-Party Computation ensures your private keys never exist in one place, eliminating single points of failure.
+                  </p>
+                </div>
 
-          <div className="container mx-auto px-4 max-w-6xl">
-            <div className="grid gap-16 md:grid-cols-2 md:items-center">
-              {/* Right: Visualization */}
-              <div className="relative">
-                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-blue-400/10 via-cyan-400/10 to-transparent blur-xl" />
-                <div className="relative rounded-3xl bg-white/60 dark:bg-gray-900/60 backdrop-blur-md p-6 shadow-[0_0_0_1px_rgba(0,0,0,0.04)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.08)]">
-                  <MpcVisualization />
+                <div className="space-y-6 pt-4">
+                  {[
+                    {
+                      title: "No single point of failure",
+                      desc: "Distributed architecture across independent nodes"
+                    },
+                    {
+                      title: "Split key shares",
+                      desc: "Keys divided and stored on different nodes"
+                    },
+                    {
+                      title: "Private key never exists whole",
+                      desc: "Complete key never assembled in memory"
+                    },
+                    {
+                      title: "Threshold signing",
+                      desc: "Cryptographic signatures without key reconstruction"
+                    },
+                  ].map((item) => (
+                    <div key={item.title} className="flex gap-4 group">
+                      <div className="mt-1 flex-none">
+                        <div className="w-1.5 h-1.5 rounded-full bg-gray-900 dark:bg-gray-100"></div>
+                      </div>
+                      <div className="space-y-1">
+                        <div className="text-base font-medium text-gray-900 dark:text-gray-100">
+                          {item.title}
+                        </div>
+                        <div className="text-sm text-gray-500 dark:text-gray-400">
+                          {item.desc}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div className="pr-4 md:pr-8 lg:pr-12 xl:pr-16">
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
-                  Powered by secure{" "}
-                  <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
-                    MPC technology
-                  </span>
-                </h2>
 
-                <div className="mt-6 h-1 w-24 bg-gradient-to-r from-blue-500/70 to-cyan-400/70 rounded-full" />
-
-                <ul className="mt-8 space-y-4">
-                  {[
-                    "No single point of failure",
-                    "Key is split into shares and stored on different nodes",
-                    "Private key never exists whole",
-                    "Threshold signing across independent nodes",
-                  ].map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span className="mt-1 inline-flex h-6 w-6 flex-none items-center justify-center rounded-full bg-blue-50 dark:bg-blue-900/30">
-                        <Lock className="h-3.5 w-3.5 text-blue-600 dark:text-cyan-300" />
-                      </span>
-                      <span className="text-lg text-gray-700 dark:text-gray-300">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+              {/* Right: Visualization */}
+              <div className="relative lg:pl-12">
+                <div className="relative rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-8 shadow-sm">
+                  <MpcVisualization />
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <Solution />
+        {/* Developer First Platform Section */}
+        <section className="relative py-32 bg-gray-50 dark:bg-gray-950">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <div className="grid lg:grid-cols-2 gap-20 items-center">
+              {/* Left: Chain Visualization */}
+              <div className="relative lg:pr-12">
+                <div className="space-y-6">
+                  <div className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-8">
+                    SUPPORTED CHAINS
+                  </div>
+
+                  {/* Chain Cards */}
+                  <div className="space-y-4">
+                    {/* Ethereum */}
+                    <div className="group relative rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-200">
+                      <div className="flex items-center gap-4">
+                        <div className="flex-none">
+                          <Image
+                            src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/info/logo.png"
+                            alt="Ethereum"
+                            width={48}
+                            height={48}
+                            className="rounded-full"
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                            Ethereum
+                          </div>
+                          <div className="text-sm text-gray-500 dark:text-gray-400">
+                            EVM Compatible
+                          </div>
+                        </div>
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                          <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Base */}
+                    <div className="group relative rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-200">
+                      <div className="flex items-center gap-4">
+                        <div className="flex-none">
+                          <Image
+                            src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/base/info/logo.png"
+                            alt="Base"
+                            width={48}
+                            height={48}
+                            className="rounded-full"
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                            Base
+                          </div>
+                          <div className="text-sm text-gray-500 dark:text-gray-400">
+                            Layer 2
+                          </div>
+                        </div>
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                          <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Solana */}
+                    <div className="group relative rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-200">
+                      <div className="flex items-center gap-4">
+                        <div className="flex-none">
+                          <Image
+                            src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/solana/info/logo.png"
+                            alt="Solana"
+                            width={48}
+                            height={48}
+                            className="rounded-full"
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                            Solana
+                          </div>
+                          <div className="text-sm text-gray-500 dark:text-gray-400">
+                            High Performance
+                          </div>
+                        </div>
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                          <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Tron */}
+                    <div className="group relative rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-200">
+                      <div className="flex items-center gap-4">
+                        <div className="flex-none">
+                          <Image
+                            src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/tron/info/logo.png"
+                            alt="Tron"
+                            width={48}
+                            height={48}
+                            className="rounded-full"
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                            Tron
+                          </div>
+                          <div className="text-sm text-gray-500 dark:text-gray-400">
+                            Low Cost
+                          </div>
+                        </div>
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                          <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Footer Note */}
+                  <div className="pt-4">
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      + 10 more chains supported
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: Code Editor & Content */}
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <div className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-400">
+                    <div className="w-8 h-px bg-gray-300 dark:bg-gray-600"></div>
+                    DEVELOPER EXPERIENCE
+                  </div>
+                  <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900 dark:text-gray-100 leading-tight">
+                    Developer first platform.
+                    <br />
+                    One unified API, multiple chains.
+                  </h2>
+                  <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Write once, deploy everywhere. A single SDK that works across all major blockchains.
+                  </p>
+                </div>
+
+                {/* Code Editor */}
+                <div className="relative rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden shadow-sm">
+                  {/* Editor Header */}
+                  <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
+                    <div className="flex gap-1.5">
+                      <div className="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+                      <div className="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+                      <div className="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+                    </div>
+                    <div className="ml-4 text-xs text-gray-500 dark:text-gray-400 font-mono">
+                      wallet.ts
+                    </div>
+                  </div>
+
+                  {/* Code Content */}
+                  <div className="p-6 font-mono text-sm leading-relaxed">
+                    <div className="space-y-2">
+                      <div className="flex">
+                        <span className="text-gray-400 dark:text-gray-600 select-none w-8 text-right mr-4">1</span>
+                        <span className="text-gray-600 dark:text-gray-400">
+                          <span className="text-purple-600 dark:text-purple-400">import</span>
+                          {" { "}
+                          <span className="text-blue-600 dark:text-blue-400">FystackSDK</span>
+                          {" } "}
+                          <span className="text-purple-600 dark:text-purple-400">from</span>
+                          {" "}
+                          <span className="text-green-600 dark:text-green-400">"@fystack/sdk"</span>
+                        </span>
+                      </div>
+                      <div className="flex">
+                        <span className="text-gray-400 dark:text-gray-600 select-none w-8 text-right mr-4">2</span>
+                        <span></span>
+                      </div>
+                      <div className="flex">
+                        <span className="text-gray-400 dark:text-gray-600 select-none w-8 text-right mr-4">3</span>
+                        <span className="text-gray-600 dark:text-gray-400">
+                          <span className="text-purple-600 dark:text-purple-400">const</span>
+                          {" "}
+                          <span className="text-blue-600 dark:text-blue-400">sdk</span>
+                          {" = "}
+                          <span className="text-purple-600 dark:text-purple-400">new</span>
+                          {" "}
+                          <span className="text-blue-600 dark:text-blue-400">FystackSDK</span>
+                          {"({ "}
+                          <span className="text-blue-600 dark:text-blue-400">apiKey</span>
+                          {": "}
+                          <span className="text-green-600 dark:text-green-400">"your-key"</span>
+                          {" })"}
+                        </span>
+                      </div>
+                      <div className="flex">
+                        <span className="text-gray-400 dark:text-gray-600 select-none w-8 text-right mr-4">4</span>
+                        <span></span>
+                      </div>
+                      <div className="flex">
+                        <span className="text-gray-400 dark:text-gray-600 select-none w-8 text-right mr-4">5</span>
+                        <span className="text-gray-600 dark:text-gray-400">
+                          <span className="text-purple-600 dark:text-purple-400">await</span>
+                          {" "}
+                          <span className="text-blue-600 dark:text-blue-400">sdk</span>
+                          {"."}
+                          <span className="text-yellow-600 dark:text-yellow-400">createWallet</span>
+                          {"({"}
+                        </span>
+                      </div>
+                      <div className="flex">
+                        <span className="text-gray-400 dark:text-gray-600 select-none w-8 text-right mr-4">6</span>
+                        <span className="text-gray-600 dark:text-gray-400 pl-6">
+                          <span className="text-blue-600 dark:text-blue-400">name</span>
+                          {": "}
+                          <span className="text-green-600 dark:text-green-400">"Team Wallet"</span>
+                          {","}
+                        </span>
+                      </div>
+                      <div className="flex">
+                        <span className="text-gray-400 dark:text-gray-600 select-none w-8 text-right mr-4">7</span>
+                        <span className="text-gray-600 dark:text-gray-400 pl-6">
+                          <span className="text-blue-600 dark:text-blue-400">walletType</span>
+                          {": "}
+                          <span className="text-blue-600 dark:text-blue-400">WalletType</span>
+                          {"."}
+                          <span className="text-blue-600 dark:text-blue-400">MPC</span>
+                          {","}
+                        </span>
+                      </div>
+                      <div className="flex">
+                        <span className="text-gray-400 dark:text-gray-600 select-none w-8 text-right mr-4">8</span>
+                        <span className="text-gray-600 dark:text-gray-400">
+                          {"})"}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Features Section */}
         <section className="py-24 relative">
           <div className="container px-4 md:px-6 max-w-7xl mx-auto">
