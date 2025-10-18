@@ -26,12 +26,8 @@ export default function Hosting() {
               Deployment Options
             </Badge>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Choose your implementation
+              Deployment Options
             </h2>
-            <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto">
-              Select the deployment model that best fits your security needs and
-              regulatory requirements
-            </p>
           </div>
         </div>
 
