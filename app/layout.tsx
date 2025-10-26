@@ -217,7 +217,12 @@ export default function RootLayout({
             <div class="spinner" role="spinner"><div class="spinner-icon"></div></div>'
           zIndex={1600}
         />
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          forcedTheme="light"
+        >
           {children}
           <Analytics />
           <Toaster />

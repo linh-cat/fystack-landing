@@ -7,6 +7,7 @@ import { Calendar, Clock, User, ArrowLeft, Tag, BookOpen } from "lucide-react";
 import { ghostAPI, formatDate, getReadingTime, type GhostPost } from "@/lib/ghost";
 import type { Metadata } from "next";
 import ShareButton from "./components/ShareButton";
+import BlogContentWithTOC from "./components/BlogContentWithTOC";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Script from "next/script";
@@ -190,7 +191,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       />
       
       <main className="py-16">
-        <div className="container px-4 md:px-6 max-w-4xl mx-auto">
+        <div className="container px-4 md:px-6 max-w-5xl mx-auto">
           {/* Back Button */}
           <Link
             href="/blog"
@@ -294,10 +295,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             )}
 
             {/* Article Content */}
-            <div 
-              className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-code:bg-gray-900 prose-code:text-white prose-code:px-2 prose-code:py-1 prose-code:rounded prose-pre:bg-gray-900 prose-pre:text-white prose-pre:border prose-pre:border-gray-700 prose-pre:overflow-auto prose-pre:p-4 prose-img:rounded-lg prose-img:shadow-sm prose-img:w-full prose-img:max-h-[600px] prose-img:object-contain prose-iframe:w-full prose-iframe:aspect-video prose-iframe:rounded-lg prose-iframe:shadow-sm"
-              dangerouslySetInnerHTML={{ __html: post.html }}
-            />
+            <BlogContentWithTOC html={post.html} />
 
             {/* Tags Section */}
             {post.tags && post.tags.length > 0 && (
