@@ -158,9 +158,9 @@ export default function Home() {
               <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 mb-3 max-w-[45ch]">
                 Focus on{" "}
                 <span className="inline-flex items-center px-3 py-1 rounded-full border border-blue-200 bg-blue-100 text-blue-700 shadow-sm dark:border-blue-400/50 dark:bg-blue-500/20 dark:text-blue-100">
-                  your wallet
+                  your product
                 </span>
-                , not your wallet infra.
+                , not wallet infra.
               </p>
 
               <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 mt-0 mb-6 max-w-[48ch]">
