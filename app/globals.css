@@ -442,3 +442,13 @@ html {
 .dark .kg-bookmark-icon {
   background: hsl(var(--muted));
 }
+
+@layer components {
+  .prose .twitter-tweet {
+    @apply mx-auto my-10;
+  }
+  .prose .twitter-tweet iframe {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}

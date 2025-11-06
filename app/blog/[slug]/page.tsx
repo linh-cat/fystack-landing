@@ -189,6 +189,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostSchema) }}
       />
+      {post.html?.includes("twitter-tweet") && (
+        <Script
+          id="twitter-widgets-loader"
+          src="https://platform.twitter.com/widgets.js"
+          strategy="afterInteractive"
+        />
+      )}
       
       <main className="py-16">
         <div className="container px-4 md:px-6 max-w-5xl mx-auto">
