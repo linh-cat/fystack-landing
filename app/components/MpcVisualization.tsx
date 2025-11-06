@@ -1,5 +1,5 @@
-import { Key } from "lucide-react";
-
+import { Key, Github } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
 
 export default function MpcVisualization() {
@@ -138,6 +138,22 @@ export default function MpcVisualization() {
           {/* Background Glow Effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 animate-pulse"></div>
         </div>
+      </div>
+
+      {/* GitHub Open Source Button */}
+      <div className="absolute bottom-4 right-4 z-20">
+        <Link
+          href="https://github.com/fystack/mpcium"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-3 px-4 py-3 rounded-lg bg-background/95 backdrop-blur-sm border border-primary/20 hover:border-primary/40 shadow-lg hover:shadow-xl transition-all duration-300"
+        >
+          <Github className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
+          <div className="flex flex-col items-start">
+            <span className="text-sm font-semibold text-foreground">MPC Library on GitHub</span>
+            <span className="text-xs text-muted-foreground">Community-driven roadmap</span>
+          </div>
+        </Link>
       </div>
     </div>
   );

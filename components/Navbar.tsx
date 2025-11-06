@@ -448,9 +448,25 @@ export default function Navbar() {
 
             <SolutionsDropdown />
 
-            <DevelopersDropdown />
+            {/* <DevelopersDropdown /> */}
 
-            <ResourcesDropdown />
+            {/* <ResourcesDropdown /> */}
+
+            <Link
+              href="https://docs.fystack.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Documentation
+            </Link>
+
+            <Link
+              href="/buy"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Pricing
+            </Link>
 
             <Link
               href="/blog"
@@ -463,7 +479,18 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2 md:gap-3">
           <Button
-            variant="ghost"
+            size="sm"
+            variant="default"
+            asChild
+            className="lg:hidden"
+          >
+            <Link href="/buy">
+              Pricing
+            </Link>
+          </Button>
+
+          <Button
+            variant="outline"
             size="sm"
             asChild
             className="hidden md:flex gap-2"
@@ -474,6 +501,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
             >
               <Github className="h-4 w-4" />
+              <span>GitHub</span>
             </Link>
           </Button>
 

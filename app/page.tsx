@@ -34,14 +34,18 @@ import {
   Settings,
   Code2,
   Box,
+  Play,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import qrCode from "@/app/images/qr.png";
 import appLogo from "@/app/images/app-logo.svg"; // Updated logo import
 import MpcVisualization from "./components/MpcVisualization";
+import SecurityTabs from "./components/SecurityTabs";
 import { DashboardPreview } from "@/components/DashboardPreview";
 import dashboardImage from "@/app/images/dashboard.png";
+import multichainTreasuryImage from "@/app/images/multichain-treasury.png";
+import paymentImage from "@/app/images/payment.png";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
@@ -91,13 +95,13 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative bg-white dark:bg-background py-16 md:py-20 lg:py-24 xl:py-32 border-b overflow-hidden">
+        <section className="relative bg-[linear-gradient(135deg,#ffffff_0%,#e8f4ff_100%)] dark:bg-background py-16 md:py-20 lg:py-24 xl:py-32 border-b overflow-hidden">
           {/* Animated Gradient Mesh Background */}
           <div className="absolute inset-0 pointer-events-none">
             {/* Gradient Orbs */}
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float"></div>
             <div
-              className="absolute top-20 right-1/4 w-96 h-96 bg-purple-500/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float"
+              className="absolute top-20 right-1/4 w-96 h-96 bg-emerald-400/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float"
               style={{ animationDelay: "2s", animationDuration: "7s" }}
             ></div>
             <div
@@ -111,7 +115,7 @@ export default function Home() {
               style={{ animationDelay: "1s", animationDuration: "8s" }}
             ></div>
             <div
-              className="absolute bottom-20 left-1/2 w-80 h-80 bg-indigo-600/20 dark:bg-indigo-400/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-60 animate-float"
+              className="absolute bottom-20 left-1/2 w-80 h-80 bg-emerald-500/20 dark:bg-emerald-400/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-60 animate-float"
               style={{ animationDelay: "3s", animationDuration: "10s" }}
             ></div>
 
@@ -121,7 +125,7 @@ export default function Home() {
               style={{ animationDelay: "0s", animationDuration: "6s" }}
             ></div>
             <div
-              className="absolute top-40 right-20 w-12 h-12 border-2 border-purple-500/20 rounded-full animate-float"
+              className="absolute top-40 right-20 w-12 h-12 border-2 border-emerald-500/20 rounded-full animate-float"
               style={{ animationDelay: "1.5s", animationDuration: "7s" }}
             ></div>
             <div
@@ -151,16 +155,19 @@ export default function Home() {
                 scale.
               </p>
 
-              <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 max-w-[45ch]">
-                Save time and costs, launch on Web3 faster.
+              <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 mb-3 max-w-[45ch]">
+                Focus on{" "}
+                <span className="inline-flex items-center px-3 py-1 rounded-full border border-blue-200 bg-blue-100 text-blue-700 shadow-sm dark:border-blue-400/50 dark:bg-blue-500/20 dark:text-blue-100">
+                  your wallet
+                </span>
+                , not your wallet infra.
               </p>
 
-              <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-[45ch]">
-                Focus on{" "}
-                <span className="inline-flex items-center px-3 py-1 rounded-full border border-gray-300 bg-white text-gray-700 shadow-sm dark:bg-gray-900 dark:text-gray-100 dark:border-gray-700">
-                  your product
-                </span>
-                , not your infra.
+              <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 mt-0 mb-6 max-w-[48ch]">
+                <span className="inline-flex items-center px-3 py-1 rounded-full border border-blue-200 bg-blue-100 text-blue-700 shadow-sm dark:border-blue-400/50 dark:bg-blue-500/20 dark:text-blue-100">
+                  100%
+                </span>{" "}
+                control of your data, your keys.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -172,11 +179,9 @@ export default function Home() {
                   asChild
                 >
                   <Link
-                    href="https://app.fystack.io"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/buy"
                   >
-                    Get Started Free
+                    Buy One-Time License
                   </Link>
                 </Button>
                 <Button
@@ -188,24 +193,95 @@ export default function Home() {
                   asChild
                 >
                   <Link
-                    href="https://docs.fystack.io/"
+                    href="https://app.fystack.io"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    View Documentation
+                    Try For Free
                   </Link>
                 </Button>
               </div>
 
               <div className="relative mt-12 w-full max-w-4xl">
                 <div className="relative rounded-3xl border border-gray-200/70 dark:border-gray-700/60 bg-white/80 dark:bg-gray-900/60 shadow-2xl backdrop-blur-sm overflow-hidden">
-                  <div className="pointer-events-none absolute -inset-4 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-indigo-500/20 blur-3xl"></div>
+                  <div className="pointer-events-none absolute -inset-4 bg-gradient-to-br from-blue-500/20 via-emerald-500/20 to-cyan-500/20 blur-3xl"></div>
                   <Image
                     src={dashboardImage}
                     alt="Fystack dashboard preview"
                     className="relative w-full h-auto rounded-3xl"
                     priority
                   />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Button
+                      size="lg"
+                      className="rounded-full bg-white/95 text-gray-900 px-6 py-3 shadow-lg transition-colors transition-opacity duration-150 ease-out
+                                 hover:bg-blue-500 hover:text-white hover:opacity-95 dark:hover:bg-blue-500 dark:hover:text-white
+                                 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-900"
+                      asChild
+                    >
+                      <Link
+                        href="https://www.youtube.com/watch?v=TeyoKqYy_Ls"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Watch the dashboard demo on YouTube"
+                      >
+                        <Play className="mr-2 h-5 w-5" />
+                        Watch Demo
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Cost Savings Section */}
+        <section className="relative py-32 bg-white dark:bg-background">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-20">
+                <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">
+                  Ship faster. Save money.
+                </h2>
+                <p className="text-xl text-gray-500 dark:text-gray-400">
+                  Focus on your product while we handle the infrastructure
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Cost Savings Card */}
+                <div className="relative h-full rounded-2xl border border-gray-200 dark:border-gray-800 bg-gradient-to-br from-blue-100 via-cyan-50 to-white dark:from-blue-950/50 dark:via-cyan-950/30 dark:to-gray-900 p-10 hover:border-gray-300 dark:hover:border-gray-700 transition-colors">
+                  <div className="flex flex-col h-full">
+                    <div className="mb-6">
+                      <div className="text-5xl font-bold text-gray-700 dark:text-gray-100 mb-2">
+                        $30K–50K
+                      </div>
+                      <div className="text-lg text-gray-600 dark:text-gray-400">
+                        Annual engineering cost savings
+                      </div>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                      Eliminate the need to build and maintain wallet infrastructure, security protocols, and blockchain integrations in-house.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Time to Market Card */}
+                <div className="relative h-full rounded-2xl border border-gray-200 dark:border-gray-800 bg-gradient-to-br from-emerald-100 via-teal-50 to-white dark:from-emerald-950/50 dark:via-teal-950/30 dark:to-gray-900 p-10 hover:border-gray-300 dark:hover:border-gray-700 transition-colors">
+                  <div className="flex flex-col h-full">
+                    <div className="mb-6">
+                      <div className="text-5xl font-bold text-gray-700 dark:text-gray-100 mb-2">
+                        3–6 months
+                      </div>
+                      <div className="text-lg text-gray-600 dark:text-gray-400">
+                        Faster time to market
+                      </div>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                      Skip months of development and go live faster with our production-ready infrastructure and comprehensive SDKs.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -213,7 +289,7 @@ export default function Home() {
         </section>
 
         {/* MPC Technology Section */}
-        <section className="relative py-32 bg-white dark:bg-background">
+        <section className="relative py-32 bg-gray-50 dark:bg-gray-950">
           <div className="container mx-auto px-4 max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-20 items-center">
               {/* Left: Content */}
@@ -234,36 +310,36 @@ export default function Home() {
                   </p>
                 </div>
 
-                <ul className="space-y-8 pt-4">
-                  <li className="space-y-2">
-                    <div className="text-lg font-medium text-gray-900 dark:text-gray-100">
-                      • No single point of failure
+                <ul className="space-y-6 pt-4">
+                  <li className="space-y-3">
+                    <div className="inline-flex items-center px-3 py-1.5 rounded-full border border-blue-200 bg-blue-50 text-blue-700 text-sm font-medium dark:border-blue-400/50 dark:bg-blue-500/20 dark:text-blue-100">
+                      No single point of failure
                     </div>
-                    <p className="text-base text-gray-600 dark:text-gray-400 pl-5">
+                    <p className="text-base text-gray-600 dark:text-gray-400">
                       Distributed architecture across independent nodes
                     </p>
                   </li>
-                  <li className="space-y-2">
-                    <div className="text-lg font-medium text-gray-900 dark:text-gray-100">
-                      • Split key shares
+                  <li className="space-y-3">
+                    <div className="inline-flex items-center px-3 py-1.5 rounded-full border border-blue-200 bg-blue-50 text-blue-700 text-sm font-medium dark:border-blue-400/50 dark:bg-blue-500/20 dark:text-blue-100">
+                      Split key shares
                     </div>
-                    <p className="text-base text-gray-600 dark:text-gray-400 pl-5">
+                    <p className="text-base text-gray-600 dark:text-gray-400">
                       Keys divided and stored on different nodes
                     </p>
                   </li>
-                  <li className="space-y-2">
-                    <div className="text-lg font-medium text-gray-900 dark:text-gray-100">
-                      • Private key never exists whole
+                  <li className="space-y-3">
+                    <div className="inline-flex items-center px-3 py-1.5 rounded-full border border-blue-200 bg-blue-50 text-blue-700 text-sm font-medium dark:border-blue-400/50 dark:bg-blue-500/20 dark:text-blue-100">
+                      Private key never exists whole
                     </div>
-                    <p className="text-base text-gray-600 dark:text-gray-400 pl-5">
+                    <p className="text-base text-gray-600 dark:text-gray-400">
                       Complete key never assembled in memory
                     </p>
                   </li>
-                  <li className="space-y-2">
-                    <div className="text-lg font-medium text-gray-900 dark:text-gray-100">
-                      • Threshold signing
+                  <li className="space-y-3">
+                    <div className="inline-flex items-center px-3 py-1.5 rounded-full border border-blue-200 bg-blue-50 text-blue-700 text-sm font-medium dark:border-blue-400/50 dark:bg-blue-500/20 dark:text-blue-100">
+                      Threshold signing
                     </div>
-                    <p className="text-base text-gray-600 dark:text-gray-400 pl-5">
+                    <p className="text-base text-gray-600 dark:text-gray-400">
                       Cryptographic signatures without key reconstruction
                     </p>
                   </li>
@@ -277,6 +353,13 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Security Tabs Section */}
+        <section className="relative py-32 bg-gray-50 dark:bg-gray-950">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <SecurityTabs />
           </div>
         </section>
 
@@ -730,7 +813,8 @@ export default function Home() {
                 Enterprise-grade compliance
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                Meet regulatory requirements with comprehensive controls and full transparency
+                Meet regulatory requirements with comprehensive controls and
+                full transparency
               </p>
             </div>
 
@@ -750,7 +834,8 @@ export default function Home() {
                         User Management
                       </h3>
                       <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-                        Role-based access control with granular permissions for team members and workspaces
+                        Role-based access control with granular permissions for
+                        team members and workspaces
                       </p>
                       <ul className="space-y-2 text-sm">
                         <li className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
@@ -782,7 +867,8 @@ export default function Home() {
                         Approval Groups
                       </h3>
                       <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-                        Multi-signature approval workflows for sensitive operations and large transactions
+                        Multi-signature approval workflows for sensitive
+                        operations and large transactions
                       </p>
                       <ul className="space-y-2 text-sm">
                         <li className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
@@ -814,7 +900,8 @@ export default function Home() {
                         Audit Trails
                       </h3>
                       <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-                        Complete immutable logs of all actions, changes, and transactions for compliance reporting
+                        Complete immutable logs of all actions, changes, and
+                        transactions for compliance reporting
                       </p>
                       <ul className="space-y-2 text-sm">
                         <li className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
@@ -846,7 +933,8 @@ export default function Home() {
                         Transaction Policies
                       </h3>
                       <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-                        Set spending limits, whitelists, and custom rules to control transaction behavior
+                        Set spending limits, whitelists, and custom rules to
+                        control transaction behavior
                       </p>
                       <ul className="space-y-2 text-sm">
                         <li className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
@@ -872,425 +960,490 @@ export default function Home() {
             <div className="text-center mb-20">
               <div className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-400 mb-6">
                 <div className="w-8 h-px bg-gray-300 dark:bg-gray-600"></div>
-                DEPLOYMENT OPTIONS
+                DEPLOYMENT
                 <div className="w-8 h-px bg-gray-300 dark:bg-gray-600"></div>
               </div>
               <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900 dark:text-gray-100 mb-6">
-                Deploy your way
+                Deploy on your own infrastructure
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                Select the deployment model that best fits your security needs and regulatory requirements
+                Complete control over your private keys and data with self-hosted deployment
               </p>
             </div>
 
-            <Tabs defaultValue="managed" className="max-w-5xl mx-auto">
-              <TabsList className="grid w-full grid-cols-2 mb-12">
+            <Tabs defaultValue="self-hosted" className="max-w-5xl mx-auto">
+              {/* <TabsList className="grid w-full grid-cols-1 mb-12">
                 <TabsTrigger value="managed" className="text-base">
                   Managed Service
                 </TabsTrigger>
                 <TabsTrigger value="self-hosted" className="text-base">
                   Self-Hosted
                 </TabsTrigger>
-              </TabsList>
+              </TabsList> */}
 
               {/* Managed Service Tab */}
               <TabsContent value="managed">
                 <div className="group relative">
-                <div className="relative rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-10 h-full hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400 text-sm font-medium mb-6">
-                    <Cloud className="w-4 h-4" />
-                    Recommended
-                  </div>
-
-                  <h3 className="text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-                    Managed Service
-                  </h3>
-
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
-                    Get started instantly with our fully managed infrastructure. We handle security, updates, and scaling so you can focus on building.
-                  </p>
-
-                  {/* Co-sign Visualization */}
-                  <div className="mb-8 p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
-                    <div className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">
-                      Flexible Security with Co-signing
+                  <div className="relative rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-10 h-full hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400 text-sm font-medium mb-6">
+                      <Cloud className="w-4 h-4" />
+                      Recommended
                     </div>
 
-                    <div className="flex items-center gap-3">
-                      {/* Step 1: Initiate */}
-                      <div className="flex-1">
-                        <div className="flex flex-col items-center gap-2">
-                          <div className="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
-                            <Users className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                          </div>
-                          <div className="text-xs text-center text-gray-600 dark:text-gray-400">
-                            Initiate
-                          </div>
-                        </div>
-                      </div>
+                    <h3 className="text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                      Managed Service
+                    </h3>
 
-                      {/* Arrow */}
-                      <div className="flex-none">
-                        <ChevronRight className="w-5 h-5 text-gray-400" />
-                      </div>
-
-                      {/* Step 2: Co-sign */}
-                      <div className="flex-1">
-                        <div className="flex flex-col items-center gap-2">
-                          <div className="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                            <CheckCircle className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-                          </div>
-                          <div className="text-xs text-center text-gray-600 dark:text-gray-400">
-                            Co-sign
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Arrow */}
-                      <div className="flex-none">
-                        <ChevronRight className="w-5 h-5 text-gray-400" />
-                      </div>
-
-                      {/* Step 3: Verify */}
-                      <div className="flex-1">
-                        <div className="flex flex-col items-center gap-2">
-                          <div className="w-12 h-12 rounded-xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
-                            <Shield className="w-6 h-6 text-orange-600 dark:text-orange-400" />
-                          </div>
-                          <div className="text-xs text-center text-gray-600 dark:text-gray-400">
-                            Verify
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Arrow */}
-                      <div className="flex-none">
-                        <ChevronRight className="w-5 h-5 text-gray-400" />
-                      </div>
-
-                      {/* Step 4: Execute */}
-                      <div className="flex-1">
-                        <div className="flex flex-col items-center gap-2">
-                          <div className="w-12 h-12 rounded-xl bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                            <Zap className="w-6 h-6 text-green-600 dark:text-green-400" />
-                          </div>
-                          <div className="text-xs text-center text-gray-600 dark:text-gray-400">
-                            Execute
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
-                      Customers can co-sign and verify transactions before execution
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
+                      Get started instantly with our fully managed
+                      infrastructure. We handle security, updates, and scaling
+                      so you can focus on building.
                     </p>
-                  </div>
 
-                  <ul className="space-y-4 mb-8">
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-none" />
-                      <span className="text-gray-700 dark:text-gray-300">
-                        <strong>Flexible security:</strong> Co-sign and verify every transaction
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-none" />
-                      <span className="text-gray-700 dark:text-gray-300">Enterprise-grade infrastructure with 99.9% uptime SLA</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-none" />
-                      <span className="text-gray-700 dark:text-gray-300">Automatic security updates and patches</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-none" />
-                      <span className="text-gray-700 dark:text-gray-300">24/7 monitoring and support</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-none" />
-                      <span className="text-gray-700 dark:text-gray-300">Start free, pay as you grow</span>
-                    </li>
-                  </ul>
+                    {/* Co-sign Visualization */}
+                    <div className="mb-8 p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
+                      <div className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">
+                        Flexible Security with Co-signing
+                      </div>
 
-                  <Button className="w-full" size="lg" asChild>
-                    <Link href="https://app.fystack.io" target="_blank" rel="noopener noreferrer">
-                      Get Started Free
+                      <div className="flex items-center gap-3">
+                        {/* Step 1: Initiate */}
+                        <div className="flex-1">
+                          <div className="flex flex-col items-center gap-2">
+                            <div className="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                              <Users className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                            </div>
+                            <div className="text-xs text-center text-gray-600 dark:text-gray-400">
+                              Initiate
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Arrow */}
+                        <div className="flex-none">
+                          <ChevronRight className="w-5 h-5 text-gray-400" />
+                        </div>
+
+                        {/* Step 2: Co-sign */}
+                        <div className="flex-1">
+                          <div className="flex flex-col items-center gap-2">
+                            <div className="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
+                              <CheckCircle className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                            </div>
+                            <div className="text-xs text-center text-gray-600 dark:text-gray-400">
+                              Co-sign
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Arrow */}
+                        <div className="flex-none">
+                          <ChevronRight className="w-5 h-5 text-gray-400" />
+                        </div>
+
+                        {/* Step 3: Verify */}
+                        <div className="flex-1">
+                          <div className="flex flex-col items-center gap-2">
+                            <div className="w-12 h-12 rounded-xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
+                              <Shield className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+                            </div>
+                            <div className="text-xs text-center text-gray-600 dark:text-gray-400">
+                              Verify
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Arrow */}
+                        <div className="flex-none">
+                          <ChevronRight className="w-5 h-5 text-gray-400" />
+                        </div>
+
+                        {/* Step 4: Execute */}
+                        <div className="flex-1">
+                          <div className="flex flex-col items-center gap-2">
+                            <div className="w-12 h-12 rounded-xl bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                              <Zap className="w-6 h-6 text-green-600 dark:text-green-400" />
+                            </div>
+                            <div className="text-xs text-center text-gray-600 dark:text-gray-400">
+                              Execute
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
+                        Customers can co-sign and verify transactions before
+                        execution
+                      </p>
+                    </div>
+
+                    <ul className="space-y-4 mb-8">
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-none" />
+                        <span className="text-gray-700 dark:text-gray-300">
+                          <strong>Flexible security:</strong> Co-sign and verify
+                          every transaction
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-none" />
+                        <span className="text-gray-700 dark:text-gray-300">
+                          Enterprise-grade infrastructure with technical support SLA
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-none" />
+                        <span className="text-gray-700 dark:text-gray-300">
+                          Automatic security updates and patches
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-none" />
+                        <span className="text-gray-700 dark:text-gray-300">
+                          24/7 monitoring and support
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-none" />
+                        <span className="text-gray-700 dark:text-gray-300">
+                          Start free, pay as you grow
+                        </span>
+                      </li>
+                    </ul>
+
+                    <Button className="w-full" size="lg" asChild>
+                    <Link
+                      href="/buy"
+                    >
+                      Buy One-Time License
                     </Link>
                   </Button>
-                </div>
+                  </div>
                 </div>
               </TabsContent>
 
               {/* Self-Hosted Tab */}
               <TabsContent value="self-hosted">
                 <div className="group relative">
-                <div className="relative rounded-2xl border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 p-10 h-full hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300">
-                  <div className="flex items-start justify-between mb-6">
-                    <div>
-                      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-50 dark:bg-purple-950/30 text-purple-600 dark:text-purple-400 text-sm font-medium mb-4">
-                        <Server className="w-4 h-4" />
-                        Enterprise
+                  <div className="relative rounded-2xl border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 p-10 h-full hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300">
+                    <div className="flex items-start justify-between mb-6">
+                      <div>
+                        <h3 className="text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                          Self-Hosted
+                        </h3>
+
+                        <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 max-w-2xl">
+                          Deploy our MPC infrastructure within your own
+                          environment for complete control over your private
+                          keys and data.
+                        </p>
+
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-50 dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-300 mb-8">
+                          Your keys, your coins
+                        </div>
                       </div>
+                    </div>
 
-                      <h3 className="text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-                        Self-Hosted
-                      </h3>
+                    <Tabs defaultValue="systemd" className="mb-8">
+                      <TabsList className="mb-6">
+                        <TabsTrigger value="systemd">Systemd</TabsTrigger>
+                        <TabsTrigger value="docker">Docker</TabsTrigger>
+                        <TabsTrigger value="kubernetes">Kubernetes</TabsTrigger>
+                      </TabsList>
 
-                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 max-w-2xl">
-                        Deploy our MPC infrastructure within your own environment for complete control over your private keys and data.
+                      {/* Systemd Tab */}
+                      <TabsContent value="systemd" className="space-y-4">
+                        <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-[#1e1e1e] p-6 overflow-hidden">
+                          <div className="flex items-center gap-2 mb-4">
+                            <div className="flex gap-1.5">
+                              <div className="w-3 h-3 rounded-full bg-gray-600"></div>
+                              <div className="w-3 h-3 rounded-full bg-gray-600"></div>
+                              <div className="w-3 h-3 rounded-full bg-gray-600"></div>
+                            </div>
+                            <div className="text-xs text-gray-400 font-mono">
+                              terminal
+                            </div>
+                          </div>
+                          <div className="font-mono text-sm space-y-2">
+                            <div className="flex">
+                              <span className="text-gray-500 select-none mr-4">
+                                $
+                              </span>
+                              <span className="text-[#9cdcfe]">
+                                sudo systemctl start mpc
+                              </span>
+                            </div>
+                            <div className="flex">
+                              <span className="text-gray-500 select-none mr-4">
+                                $
+                              </span>
+                              <span className="text-[#9cdcfe]">
+                                sudo systemctl status mpc
+                              </span>
+                            </div>
+                            <div className="text-[#4ec9b0] mt-4">
+                              ● mpc.service - Fystack MPC Node
+                            </div>
+                            <div className="text-gray-400 ml-4">
+                              Loaded: loaded (/lib/systemd/system/mpc.service)
+                            </div>
+                            <div className="text-[#6adc6a] ml-4">
+                              Active: active (running)
+                            </div>
+                          </div>
+                        </div>
+                      </TabsContent>
+
+                      {/* Docker Tab */}
+                      <TabsContent value="docker" className="space-y-4">
+                        <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-[#1e1e1e] p-6 overflow-hidden">
+                          <div className="flex items-center gap-2 mb-4">
+                            <div className="flex gap-1.5">
+                              <div className="w-3 h-3 rounded-full bg-gray-600"></div>
+                              <div className="w-3 h-3 rounded-full bg-gray-600"></div>
+                              <div className="w-3 h-3 rounded-full bg-gray-600"></div>
+                            </div>
+                            <div className="text-xs text-gray-400 font-mono">
+                              terminal
+                            </div>
+                          </div>
+                          <div className="font-mono text-sm space-y-2">
+                            <div className="flex">
+                              <span className="text-gray-500 select-none mr-4">
+                                $
+                              </span>
+                              <span className="text-[#9cdcfe]">
+                                docker run -d \
+                              </span>
+                            </div>
+                            <div className="text-[#9cdcfe] ml-4">
+                              --name fystack-mpc \
+                            </div>
+                            <div className="text-[#9cdcfe] ml-4">
+                              fystack/mpc:latest
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800">
+                          <div className="flex gap-2">
+                            <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                              <div className="w-8 h-8 rounded bg-blue-500/40"></div>
+                            </div>
+                            <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center -ml-3">
+                              <div className="w-8 h-8 rounded bg-blue-500/40"></div>
+                            </div>
+                            <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center -ml-3">
+                              <div className="w-8 h-8 rounded bg-blue-500/40"></div>
+                            </div>
+                          </div>
+                          <div className="flex-1">
+                            <div className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                              Container-based Deployment
+                            </div>
+                            <div className="text-xs text-gray-600 dark:text-gray-400">
+                              Isolated, portable MPC nodes
+                            </div>
+                          </div>
+                        </div>
+                      </TabsContent>
+
+                      {/* Kubernetes Tab */}
+                      <TabsContent value="kubernetes" className="space-y-4">
+                        {/* Deploy Command */}
+                        <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-[#1e1e1e] p-6">
+                          <div className="font-mono text-sm space-y-3">
+                            <div className="flex">
+                              <span className="text-gray-500 select-none mr-4">
+                                $
+                              </span>
+                              <span className="text-[#9cdcfe]">
+                                kubectl apply -f https://fystack.io/deploy/k8s
+                              </span>
+                            </div>
+                            <div className="text-gray-400 text-xs">
+                              statefulset.apps/fystack-mpc-node created
+                            </div>
+                            <div className="text-gray-400 text-xs">
+                              service/mpc-node created
+                            </div>
+                            <div className="flex mt-4">
+                              <span className="text-gray-500 select-none mr-4">
+                                $
+                              </span>
+                              <span className="text-[#9cdcfe]">
+                                kubectl get pods
+                              </span>
+                            </div>
+                            <div className="text-gray-400 text-xs space-y-1 mt-2">
+                              <div>NAME READY STATUS RESTARTS AGE</div>
+                              <div>fystack-mpc-node-0 1/1 Running 0 2m</div>
+                              <div>fystack-mpc-node-1 1/1 Running 0 2m</div>
+                              <div>fystack-mpc-node-2 1/1 Running 0 2m</div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Pod Visualization */}
+                        <div className="p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
+                          <div className="flex items-center gap-3 mb-6">
+                            <Box className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                            <div>
+                              <div className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                                Kubernetes Cluster
+                              </div>
+                              <div className="text-xs text-gray-600 dark:text-gray-400">
+                                3 MPC nodes running
+                              </div>
+                            </div>
+                          </div>
+                          <div className="space-y-3">
+                            {/* Pod 0 */}
+                            <div className="flex items-center gap-3 p-4 rounded-lg bg-white dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700">
+                              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                              <div className="flex-1">
+                                <div className="text-sm font-mono text-gray-900 dark:text-gray-100">
+                                  fystack-mpc-node-0
+                                </div>
+                                <div className="text-xs text-gray-600 dark:text-gray-400">
+                                  10.244.0.5 • Running
+                                </div>
+                              </div>
+                              <div className="flex gap-2 text-xs text-gray-500 dark:text-gray-400">
+                                <span>API :8080</span>
+                                <span>P2P :9090</span>
+                              </div>
+                            </div>
+                            {/* Pod 1 */}
+                            <div className="flex items-center gap-3 p-4 rounded-lg bg-white dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700">
+                              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                              <div className="flex-1">
+                                <div className="text-sm font-mono text-gray-900 dark:text-gray-100">
+                                  fystack-mpc-node-1
+                                </div>
+                                <div className="text-xs text-gray-600 dark:text-gray-400">
+                                  10.244.1.8 • Running
+                                </div>
+                              </div>
+                              <div className="flex gap-2 text-xs text-gray-500 dark:text-gray-400">
+                                <span>API :8080</span>
+                                <span>P2P :9090</span>
+                              </div>
+                            </div>
+                            {/* Pod 2 */}
+                            <div className="flex items-center gap-3 p-4 rounded-lg bg-white dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700">
+                              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                              <div className="flex-1">
+                                <div className="text-sm font-mono text-gray-900 dark:text-gray-100">
+                                  fystack-mpc-node-2
+                                </div>
+                                <div className="text-xs text-gray-600 dark:text-gray-400">
+                                  10.244.2.3 • Running
+                                </div>
+                              </div>
+                              <div className="flex gap-2 text-xs text-gray-500 dark:text-gray-400">
+                                <span>API :8080</span>
+                                <span>P2P :9090</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </TabsContent>
+                    </Tabs>
+
+                    {/* KMS Integration */}
+                    <div className="mb-8">
+                      <h4 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                        KMS Integration
+                      </h4>
+                      <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm">
+                        Integrate with cloud-based KMS signers to enhance the
+                        security of your MPC cluster setup
                       </p>
-
-                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-50 dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-300 mb-8">
-                        Your keys, your coins
-                      </div>
-                    </div>
-                  </div>
-
-                  <Tabs defaultValue="systemd" className="mb-8">
-                    <TabsList className="mb-6">
-                      <TabsTrigger value="systemd">Systemd</TabsTrigger>
-                      <TabsTrigger value="docker">Docker</TabsTrigger>
-                      <TabsTrigger value="kubernetes">Kubernetes</TabsTrigger>
-                    </TabsList>
-
-                    {/* Systemd Tab */}
-                    <TabsContent value="systemd" className="space-y-4">
-                      <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-[#1e1e1e] p-6 overflow-hidden">
-                        <div className="flex items-center gap-2 mb-4">
-                          <div className="flex gap-1.5">
-                            <div className="w-3 h-3 rounded-full bg-gray-600"></div>
-                            <div className="w-3 h-3 rounded-full bg-gray-600"></div>
-                            <div className="w-3 h-3 rounded-full bg-gray-600"></div>
-                          </div>
-                          <div className="text-xs text-gray-400 font-mono">terminal</div>
-                        </div>
-                        <div className="font-mono text-sm space-y-2">
-                          <div className="flex">
-                            <span className="text-gray-500 select-none mr-4">$</span>
-                            <span className="text-[#9cdcfe]">sudo systemctl start mpc</span>
-                          </div>
-                          <div className="flex">
-                            <span className="text-gray-500 select-none mr-4">$</span>
-                            <span className="text-[#9cdcfe]">sudo systemctl status mpc</span>
-                          </div>
-                          <div className="text-[#4ec9b0] mt-4">● mpc.service - Fystack MPC Node</div>
-                          <div className="text-gray-400 ml-4">Loaded: loaded (/lib/systemd/system/mpc.service)</div>
-                          <div className="text-[#6adc6a] ml-4">Active: active (running)</div>
-                        </div>
-                      </div>
-                    </TabsContent>
-
-                    {/* Docker Tab */}
-                    <TabsContent value="docker" className="space-y-4">
-                      <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-[#1e1e1e] p-6 overflow-hidden">
-                        <div className="flex items-center gap-2 mb-4">
-                          <div className="flex gap-1.5">
-                            <div className="w-3 h-3 rounded-full bg-gray-600"></div>
-                            <div className="w-3 h-3 rounded-full bg-gray-600"></div>
-                            <div className="w-3 h-3 rounded-full bg-gray-600"></div>
-                          </div>
-                          <div className="text-xs text-gray-400 font-mono">terminal</div>
-                        </div>
-                        <div className="font-mono text-sm space-y-2">
-                          <div className="flex">
-                            <span className="text-gray-500 select-none mr-4">$</span>
-                            <span className="text-[#9cdcfe]">docker run -d \</span>
-                          </div>
-                          <div className="text-[#9cdcfe] ml-4">--name fystack-mpc \</div>
-                          <div className="text-[#9cdcfe] ml-4">fystack/mpc:latest</div>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800">
-                        <div className="flex gap-2">
-                          <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                            <div className="w-8 h-8 rounded bg-blue-500/40"></div>
-                          </div>
-                          <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center -ml-3">
-                            <div className="w-8 h-8 rounded bg-blue-500/40"></div>
-                          </div>
-                          <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center -ml-3">
-                            <div className="w-8 h-8 rounded bg-blue-500/40"></div>
-                          </div>
-                        </div>
-                        <div className="flex-1">
-                          <div className="text-sm font-medium text-gray-900 dark:text-gray-100">Container-based Deployment</div>
-                          <div className="text-xs text-gray-600 dark:text-gray-400">Isolated, portable MPC nodes</div>
-                        </div>
-                      </div>
-                    </TabsContent>
-
-                    {/* Kubernetes Tab */}
-                    <TabsContent value="kubernetes" className="space-y-4">
-                      {/* Deploy Command */}
-                      <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-[#1e1e1e] p-6">
-                        <div className="font-mono text-sm space-y-3">
-                          <div className="flex">
-                            <span className="text-gray-500 select-none mr-4">$</span>
-                            <span className="text-[#9cdcfe]">kubectl apply -f https://fystack.io/deploy/k8s</span>
-                          </div>
-                          <div className="text-gray-400 text-xs">
-                            statefulset.apps/fystack-mpc-node created
-                          </div>
-                          <div className="text-gray-400 text-xs">
-                            service/mpc-node created
-                          </div>
-                          <div className="flex mt-4">
-                            <span className="text-gray-500 select-none mr-4">$</span>
-                            <span className="text-[#9cdcfe]">kubectl get pods</span>
-                          </div>
-                          <div className="text-gray-400 text-xs space-y-1 mt-2">
-                            <div>NAME                    READY   STATUS    RESTARTS   AGE</div>
-                            <div>fystack-mpc-node-0      1/1     Running   0          2m</div>
-                            <div>fystack-mpc-node-1      1/1     Running   0          2m</div>
-                            <div>fystack-mpc-node-2      1/1     Running   0          2m</div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Pod Visualization */}
-                      <div className="p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
-                        <div className="flex items-center gap-3 mb-6">
-                          <Box className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      <div className="flex items-center gap-4">
+                        <div className="flex-1 p-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50 flex items-center gap-3">
+                          <Cloud className="w-8 h-8 text-orange-500" />
                           <div>
-                            <div className="text-sm font-medium text-gray-900 dark:text-gray-100">Kubernetes Cluster</div>
-                            <div className="text-xs text-gray-600 dark:text-gray-400">3 MPC nodes running</div>
-                          </div>
-                        </div>
-                        <div className="space-y-3">
-                          {/* Pod 0 */}
-                          <div className="flex items-center gap-3 p-4 rounded-lg bg-white dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700">
-                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                            <div className="flex-1">
-                              <div className="text-sm font-mono text-gray-900 dark:text-gray-100">fystack-mpc-node-0</div>
-                              <div className="text-xs text-gray-600 dark:text-gray-400">10.244.0.5 • Running</div>
+                            <div className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                              AWS KMS
                             </div>
-                            <div className="flex gap-2 text-xs text-gray-500 dark:text-gray-400">
-                              <span>API :8080</span>
-                              <span>P2P :9090</span>
-                            </div>
-                          </div>
-                          {/* Pod 1 */}
-                          <div className="flex items-center gap-3 p-4 rounded-lg bg-white dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700">
-                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                            <div className="flex-1">
-                              <div className="text-sm font-mono text-gray-900 dark:text-gray-100">fystack-mpc-node-1</div>
-                              <div className="text-xs text-gray-600 dark:text-gray-400">10.244.1.8 • Running</div>
-                            </div>
-                            <div className="flex gap-2 text-xs text-gray-500 dark:text-gray-400">
-                              <span>API :8080</span>
-                              <span>P2P :9090</span>
-                            </div>
-                          </div>
-                          {/* Pod 2 */}
-                          <div className="flex items-center gap-3 p-4 rounded-lg bg-white dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700">
-                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                            <div className="flex-1">
-                              <div className="text-sm font-mono text-gray-900 dark:text-gray-100">fystack-mpc-node-2</div>
-                              <div className="text-xs text-gray-600 dark:text-gray-400">10.244.2.3 • Running</div>
-                            </div>
-                            <div className="flex gap-2 text-xs text-gray-500 dark:text-gray-400">
-                              <span>API :8080</span>
-                              <span>P2P :9090</span>
+                            <div className="text-xs text-gray-600 dark:text-gray-400">
+                              Amazon Key Management
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </TabsContent>
-                  </Tabs>
-
-                  {/* KMS Integration */}
-                  <div className="mb-8">
-                    <h4 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-                      KMS Integration
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm">
-                      Integrate with cloud-based KMS signers to enhance the security of your MPC cluster setup
-                    </p>
-                    <div className="flex items-center gap-4">
-                      <div className="flex-1 p-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50 flex items-center gap-3">
-                        <Cloud className="w-8 h-8 text-orange-500" />
-                        <div>
-                          <div className="text-sm font-medium text-gray-900 dark:text-gray-100">AWS KMS</div>
-                          <div className="text-xs text-gray-600 dark:text-gray-400">Amazon Key Management</div>
-                        </div>
-                      </div>
-                      <div className="flex-1 p-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50 flex items-center gap-3">
-                        <Cloud className="w-8 h-8 text-blue-500" />
-                        <div>
-                          <div className="text-sm font-medium text-gray-900 dark:text-gray-100">Google Cloud KMS</div>
-                          <div className="text-xs text-gray-600 dark:text-gray-400">Cloud Key Management</div>
+                        <div className="flex-1 p-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50 flex items-center gap-3">
+                          <Cloud className="w-8 h-8 text-blue-500" />
+                          <div>
+                            <div className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                              Google Cloud KMS
+                            </div>
+                            <div className="text-xs text-gray-600 dark:text-gray-400">
+                              Cloud Key Management
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Reliable Backups */}
-                  <div className="mb-8">
-                    <h4 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-                      Reliable Backups
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm">
-                      Encrypted, redundant backups safeguard your custody infrastructure against failures and data loss, meeting enterprise standards for business continuity (ISO 27001, SOC2)
-                    </p>
-                    <div className="space-y-3">
-                      <div className="p-4 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
-                        <div className="flex items-center gap-2 text-xs mb-2">
-                          <CheckCircle className="w-4 h-4 text-green-600" />
-                          <span className="text-gray-700 dark:text-gray-300">Encrypted at rest with AES-256</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-xs mb-2">
-                          <CheckCircle className="w-4 h-4 text-green-600" />
-                          <span className="text-gray-700 dark:text-gray-300">Automatic daily backups with versioning</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-xs mb-2">
-                          <CheckCircle className="w-4 h-4 text-green-600" />
-                          <span className="text-gray-700 dark:text-gray-300">Multi-region geo-redundant storage</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-xs">
-                          <CheckCircle className="w-4 h-4 text-green-600" />
-                          <span className="text-gray-700 dark:text-gray-300">Point-in-time recovery capabilities</span>
+                    {/* Reliable Backups */}
+                    <div className="mb-8">
+                      <h4 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                        Reliable Backups
+                      </h4>
+                      <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm">
+                        Encrypted, redundant backups safeguard your custody
+                        infrastructure against failures and data loss, meeting
+                        enterprise standards for business continuity (ISO 27001,
+                        SOC2)
+                      </p>
+                      <div className="space-y-3">
+                        <div className="p-4 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
+                          <div className="flex items-center gap-2 text-xs mb-2">
+                            <CheckCircle className="w-4 h-4 text-green-600" />
+                            <span className="text-gray-700 dark:text-gray-300">
+                              Encrypted at rest with AES-256
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-2 text-xs mb-2">
+                            <CheckCircle className="w-4 h-4 text-green-600" />
+                            <span className="text-gray-700 dark:text-gray-300">
+                              Automatic daily backups with versioning
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-2 text-xs mb-2">
+                            <CheckCircle className="w-4 h-4 text-green-600" />
+                            <span className="text-gray-700 dark:text-gray-300">
+                              Multi-region geo-redundant storage
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-2 text-xs">
+                            <CheckCircle className="w-4 h-4 text-green-600" />
+                            <span className="text-gray-700 dark:text-gray-300">
+                              Point-in-time recovery capabilities
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  <Button variant="outline" className="w-full" size="lg" asChild>
-                    <Link href="https://docs.fystack.io/mpcium" target="_blank" rel="noopener noreferrer">
-                      Explore Self-Hosted Options
-                    </Link>
-                  </Button>
-                </div>
+                    <Button
+                      variant="outline"
+                      className="w-full"
+                      size="lg"
+                      asChild
+                    >
+                      <Link
+                        href="https://docs.fystack.io/mpcium"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Explore Self-Hosted Options
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </TabsContent>
             </Tabs>
-          </div>
-        </section>
-
-        {/* Video Section */}
-        <section className="py-16 relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-50/30 via-transparent to-transparent dark:from-blue-950/10 dark:via-transparent dark:to-transparent -z-10"></div>
-          <div className="container px-4 md:px-6 max-w-5xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl mb-4">
-                See Fystack in Action
-              </h2>
-              <p className="text-muted-foreground max-w-[600px] mx-auto">
-                Watch how easy it is to create secure MPC wallets and integrate
-                them into your applications
-              </p>
-            </div>
-
-            <div className="relative w-full max-w-4xl mx-auto">
-              <div className="relative aspect-video rounded-xl overflow-hidden border bg-background/50 shadow-2xl">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/TeyoKqYy_Ls"
-                  title="Fystack Demo Video"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
-              </div>
-            </div>
           </div>
         </section>
 
@@ -1319,111 +1472,27 @@ export default function Home() {
                 <div className="p-2 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                   <Key className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-2xl font-bold">Cross chain treasury management</h3>
+                <h3 className="text-2xl font-bold">
+                  Cross chain treasury management
+                </h3>
                 <p className="text-muted-foreground">
-                  Manage digital assets across multiple blockchain networks from a single unified interface.
-                  Automate treasury operations, execute cross-chain transactions, and maintain complete visibility
-                  over your multi-chain portfolio.
+                  Manage digital assets across multiple blockchain networks from
+                  a single unified interface. No need to use different apps like Safe, Squads.
+                  Automate treasury operations and maintain complete visibility over your multi-chain portfolio.
                 </p>
 
-                {/* Treasury Highlight Box */}
-                <div className="mt-4 p-4 border border-primary/20 rounded-xl bg-primary/5">
-                  <h4 className="text-base font-semibold text-primary mb-2">
-                    Unified Multi-Chain Asset Management
-                  </h4>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span>Real-time balance tracking across all chains</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span>Automated cross-chain rebalancing</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span>Multi-signature approval workflows</span>
-                    </div>
-                  </div>
+                <div className="mt-6 inline-flex items-center px-4 py-2 rounded-lg border border-primary/30 bg-primary/10 text-primary font-medium">
+                  One wallet, operate multiple chains
                 </div>
+
               </div>
-              {/* Cross-Chain Treasury Visualization */}
-              <div className="relative h-[400px] rounded-xl border bg-background/50 p-6">
-                <div className="space-y-4">
-                  {/* Treasury Dashboard Header */}
-                  <div className="flex items-center justify-between pb-4 border-b border-border/50">
-                    <div className="flex items-center gap-2">
-                      <Wallet className="h-5 w-5 text-primary" />
-                      <span className="font-semibold">Treasury Dashboard</span>
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      Total Value: $2,450,000
-                    </div>
-                  </div>
-
-                  {/* Chain Balances */}
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between p-3 rounded-lg bg-blue-500/5 border border-blue-500/20 animate-fade-in">
-                      <div className="flex items-center gap-3">
-                        <div className="h-8 w-8 rounded-full bg-blue-500/10 flex items-center justify-center">
-                          <Globe className="h-4 w-4 text-blue-500" />
-                        </div>
-                        <div>
-                          <div className="font-medium text-sm">Ethereum</div>
-                          <div className="text-xs text-muted-foreground">125.5 ETH</div>
-                        </div>
-                      </div>
-                      <div className="text-sm font-semibold">$850,000</div>
-                    </div>
-
-                    <div className="flex items-center justify-between p-3 rounded-lg bg-purple-500/5 border border-purple-500/20 animate-fade-in" style={{ animationDelay: "0.1s" }}>
-                      <div className="flex items-center gap-3">
-                        <div className="h-8 w-8 rounded-full bg-purple-500/10 flex items-center justify-center">
-                          <Globe className="h-4 w-4 text-purple-500" />
-                        </div>
-                        <div>
-                          <div className="font-medium text-sm">Polygon</div>
-                          <div className="text-xs text-muted-foreground">2.5M MATIC</div>
-                        </div>
-                      </div>
-                      <div className="text-sm font-semibold">$650,000</div>
-                    </div>
-
-                    <div className="flex items-center justify-between p-3 rounded-lg bg-green-500/5 border border-green-500/20 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-                      <div className="flex items-center gap-3">
-                        <div className="h-8 w-8 rounded-full bg-green-500/10 flex items-center justify-center">
-                          <Globe className="h-4 w-4 text-green-500" />
-                        </div>
-                        <div>
-                          <div className="font-medium text-sm">Solana</div>
-                          <div className="text-xs text-muted-foreground">15,200 SOL</div>
-                        </div>
-                      </div>
-                      <div className="text-sm font-semibold">$500,000</div>
-                    </div>
-
-                    <div className="flex items-center justify-between p-3 rounded-lg bg-orange-500/5 border border-orange-500/20 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-                      <div className="flex items-center gap-3">
-                        <div className="h-8 w-8 rounded-full bg-orange-500/10 flex items-center justify-center">
-                          <Globe className="h-4 w-4 text-orange-500" />
-                        </div>
-                        <div>
-                          <div className="font-medium text-sm">Avalanche</div>
-                          <div className="text-xs text-muted-foreground">18,750 AVAX</div>
-                        </div>
-                      </div>
-                      <div className="text-sm font-semibold">$450,000</div>
-                    </div>
-                  </div>
-
-                  {/* Quick Actions */}
-                  <div className="pt-4 flex gap-2">
-                    <Button variant="outline" size="sm" className="text-xs">
-                      <ArrowRight className="h-3 w-3 mr-1" />
-                      Transfer
-                    </Button>
-                  </div>
-                </div>
+              {/* Cross-Chain Treasury Image */}
+              <div className="relative rounded-xl border bg-background/50 overflow-hidden">
+                <Image
+                  src={multichainTreasuryImage}
+                  alt="Cross-chain Treasury Management Dashboard"
+                  className="w-full h-auto"
+                />
               </div>
             </div>
 
@@ -1609,97 +1678,12 @@ export default function Home() {
 
             {/* Crypto Payment - Left visualization */}
             <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
-              <div className="relative h-[400px] rounded-xl border bg-background/50 p-6 overflow-hidden">
-                {" "}
-                {/* Increased height */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative w-full h-full">
-                    {/* Checkout Card */}
-                    <div className="absolute left-[20%] top-1/2 -translate-y-1/2">
-                      {" "}
-                      {/* Moved further left */}
-                      <div className="p-4 rounded-lg bg-background border border-primary/20 backdrop-blur-sm">
-                        <div className="flex items-center gap-2 mb-2">
-                          <ShoppingCart className="h-5 w-5 text-blue-500" />
-                          <span className="font-medium">Checkout</span>
-                        </div>
-                        <div className="text-muted-foreground">
-                          Total: $99.99
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Curved Connection */}
-                    <div className="absolute inset-0 top-1/2 -translate-y-1/2 pointer-events-none">
-                      <svg
-                        width="100%"
-                        height="100%"
-                        className="absolute inset-0"
-                      >
-                        <path
-                          d="M 30% 50% Q 50% 35%, 70% 50%"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeDasharray="4 4"
-                          className="text-blue-500/20"
-                        />
-                        {/* Animated Dot along the path */}
-                        <circle
-                          r="4"
-                          fill="currentColor"
-                          className="text-blue-500 animate-move-along-path"
-                        >
-                          <animateMotion
-                            dur="2s"
-                            repeatCount="indefinite"
-                            path="M 30% 50% Q 50% 35%, 70% 50%"
-                          />
-                        </circle>
-                      </svg>
-                    </div>
-
-                    {/* QR Code */}
-                    <div className="absolute right-[20%] top-1/2 -translate-y-1/2">
-                      <div className="p-4 rounded-lg bg-background border border-primary/20 backdrop-blur-sm">
-                        <div className="flex flex-col items-center gap-3">
-                          <div className="w-32 h-32 bg-white rounded-lg relative flex items-center justify-center">
-                            {" "}
-                            {/* Removed p-2 */}
-                            <Image
-                              src={qrCode}
-                              alt="Payment QR Code"
-                              width={96}
-                              height={96}
-                              className="rounded"
-                              priority
-                              style={{ objectFit: "contain" }}
-                            />
-                            {/* Scanning Effect */}
-                            <div className="absolute inset-0 bg-gradient-to-b from-blue-500/0 via-blue-500/10 to-blue-500/0 animate-scan rounded-lg"></div>
-                          </div>
-                          <span className="text-sm text-muted-foreground">
-                            Scan to pay with crypto
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Background Particles */}
-                    {[...Array(20)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="absolute w-1 h-1 bg-blue-500/20 rounded-full animate-float"
-                        style={{
-                          left: `${Math.random() * 100}%`,
-                          top: `${Math.random() * 100}%`,
-                          animationDelay: `${Math.random() * 3}s`,
-                          animationDuration: `${3 + Math.random() * 2}s`,
-                        }}
-                      />
-                    ))}
-                  </div>
-                </div>
+              <div className="relative rounded-xl border bg-background/50 overflow-hidden">
+                <Image
+                  src={paymentImage}
+                  alt="Crypto Payment"
+                  className="w-full h-auto"
+                />
               </div>
               <div className="space-y-4">
                 <div className="p-2 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -1719,11 +1703,14 @@ export default function Home() {
                 <div className="p-2 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                   <Shield className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-2xl font-bold">Trading agents with approval</h3>
+                <h3 className="text-2xl font-bold">
+                  Trading agents with approval
+                </h3>
                 <p className="text-muted-foreground">
-                  Prevent unauthorized access or bad trades with multi-layer approval workflows.
-                  Ensure every automated trading action is reviewed and approved before execution,
-                  eliminating security risks.
+                  Prevent unauthorized access or bad trades with multi-layer
+                  approval workflows. Ensure every automated trading action is
+                  reviewed and approved before execution, eliminating security
+                  risks.
                 </p>
 
                 {/* Security Highlight */}
@@ -1771,9 +1758,12 @@ export default function Home() {
                         style={{ animationDelay: "0.5s" }}
                       >
                         <div className="p-2 rounded bg-yellow-500/10 border border-yellow-500/20 max-w-[90%]">
-                          <p className="text-sm font-medium mb-1">⚠️ Approval Required</p>
+                          <p className="text-sm font-medium mb-1">
+                            ⚠️ Approval Required
+                          </p>
                           <p className="text-xs mb-2">
-                            Swap 10 ETH → USDC<br/>
+                            Swap 10 ETH → USDC
+                            <br />
                             Est. $25,400
                           </p>
                           <div className="flex gap-1">
@@ -1803,7 +1793,7 @@ export default function Home() {
                       <div className="p-3 rounded-lg bg-background border border-blue-500/20">
                         <div className="flex items-center gap-2">
                           <Wallet className="h-5 w-5 text-blue-500" />
-                          <span className="text-sm">Wallet 1</span>
+                          <span className="text-sm">Deposit Wallet 1</span>
                         </div>
                       </div>
                     </div>
@@ -1812,7 +1802,7 @@ export default function Home() {
                       <div className="p-3 rounded-lg bg-background border border-blue-500/20">
                         <div className="flex items-center gap-2">
                           <Wallet className="h-5 w-5 text-blue-500" />
-                          <span className="text-sm">Wallet 2</span>
+                          <span className="text-sm">Deposit Wallet 2</span>
                         </div>
                       </div>
                     </div>
@@ -1823,19 +1813,19 @@ export default function Home() {
                       <div className="p-3 rounded-lg bg-background border border-blue-500/20">
                         <div className="flex items-center gap-2">
                           <Wallet className="h-5 w-5 text-blue-500" />
-                          <span className="text-sm">Wallet 3</span>
+                          <span className="text-sm">Deposit Wallet 3</span>
                         </div>
                       </div>
                     </div>
 
-                    {/* Main Wallet */}
+                    {/* Hot Wallet */}
                     <div className="absolute top-1/2 left-[65%] -translate-y-1/2">
                       {" "}
                       {/* Moved from 75% to 65% */}
                       <div className="p-4 rounded-lg bg-background border border-green-500/20">
                         <div className="flex items-center gap-2">
                           <Wallet className="h-6 w-6 text-green-500" />
-                          <span>Main Wallet</span>
+                          <span>Hot Wallet</span>
                         </div>
                       </div>
                     </div>
@@ -1913,11 +1903,11 @@ export default function Home() {
                 <div className="p-2 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                   <CircleDollarSign className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-2xl font-bold">Centralized Exchange</h3>
+                <h3 className="text-2xl font-bold">Centralized Exchange & Payment Integration</h3>
                 <p className="text-muted-foreground">
                   Automatically sweep and consolidate funds from multiple
-                  wallets into a central exchange wallet with customizable rules and
-                  schedules for efficient liquidity management.
+                  wallets into a central exchange wallet with customizable rules
+                  and schedules for efficient liquidity management.
                 </p>
 
                 {/* CEX Highlight Box */}
@@ -1943,113 +1933,31 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Stablecoin & RWA - Right visualization */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-4">
-                <div className="p-2 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <CircleDollarSign className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold">Stablecoin & RWA Issuance</h3>
-                <p className="text-muted-foreground">
-                  Issue and manage stablecoins and real-world asset (RWA) tokens with built-in
-                  compliance controls, multi-signature governance, and automated treasury management
-                  for regulated digital assets.
-                </p>
-
-                {/* RWA Highlight Box */}
-                <div className="mt-4 p-4 border border-primary/20 rounded-xl bg-primary/5">
-                  <h4 className="text-base font-semibold text-primary mb-2">
-                    Compliance-Ready Infrastructure
-                  </h4>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span>Multi-sig minting and burning controls</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span>Automated reserve management</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span>Audit trail and reporting</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* RWA Visualization */}
-              <div className="relative h-[400px] rounded-xl border bg-background/50 p-6">
-                <div className="space-y-4">
-                  {/* Token Issuance Header */}
-                  <div className="flex items-center justify-between pb-4 border-b border-border/50">
-                    <div className="flex items-center gap-2">
-                      <CircleDollarSign className="h-5 w-5 text-primary" />
-                      <span className="font-semibold">Token Management</span>
-                    </div>
-                    <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">Live</span>
-                  </div>
-
-                  {/* Token Stats */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="p-3 rounded-lg bg-blue-500/5 border border-blue-500/20">
-                      <div className="text-xs text-muted-foreground mb-1">Total Supply</div>
-                      <div className="font-semibold">$125M USDF</div>
-                    </div>
-                    <div className="p-3 rounded-lg bg-green-500/5 border border-green-500/20">
-                      <div className="text-xs text-muted-foreground mb-1">Reserves</div>
-                      <div className="font-semibold">$126.2M</div>
-                    </div>
-                  </div>
-
-                  {/* Recent Activity */}
-                  <div className="space-y-2">
-                    <div className="text-xs font-semibold text-muted-foreground">Recent Activity</div>
-                    <div className="p-3 rounded-lg bg-background border border-border/50">
-                      <div className="flex items-center justify-between text-sm mb-1">
-                        <span className="font-medium">Mint Request</span>
-                        <span className="text-green-600 font-semibold">+$2.5M</span>
-                      </div>
-                      <div className="text-xs text-muted-foreground">Pending approval (2/3 signatures)</div>
-                    </div>
-                    <div className="p-3 rounded-lg bg-background border border-border/50">
-                      <div className="flex items-center justify-between text-sm mb-1">
-                        <span className="font-medium">Burn Completed</span>
-                        <span className="text-red-600 font-semibold">-$1.2M</span>
-                      </div>
-                      <div className="text-xs text-muted-foreground flex items-center gap-1">
-                        <CheckCircle className="h-3 w-3 text-green-600" />
-                        Executed 5m ago
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
-        {/* Pricing Section */}
-        <section id="pricing" className="py-24 bg-muted/50">
-          <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <Badge
-                  variant="outline"
-                  className="w-fit mx-auto bg-primary/10 text-primary border-primary/20"
-                >
-                  Pricing
-                </Badge>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Simple, transparent pricing
-                </h2>
-                <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto">
-                  Choose the plan that fits your needs. All plans include our
-                  core security features.
-                </p>
+        {/* Pricing Section (legacy hidden) */}
+        {false && (
+          <section id="pricing" className="py-24 bg-muted/50">
+            <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+              <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                <div className="space-y-2">
+                  <Badge
+                    variant="outline"
+                    className="w-fit mx-auto bg-primary/10 text-primary border-primary/20"
+                  >
+                    Pricing
+                  </Badge>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                    Simple, transparent pricing
+                  </h2>
+                  <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto">
+                    Choose the plan that fits your needs. All plans include our
+                    core security features.
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
               {/* Developer (Free) Plan */}
               <Card className="flex flex-col hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30 w-full min-w-0">
                 <CardContent className="p-6 flex-1">
@@ -2389,7 +2297,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Contact Sales
+                      Talk to founders
                     </Link>
                   </Button>
                 </div>
@@ -2397,6 +2305,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        )}
 
         {/* Testimonials Section */}
         {/* <section className="py-24 relative">
@@ -2495,8 +2404,8 @@ export default function Home() {
                   Ready to get started?
                 </h2>
                 <p className="text-primary-foreground/80 md:text-xl">
-                  Join thousands of developers building secure wallet solutions
-                  with our platform.
+                  Start building secure wallet solutions with confidence using
+                  our platform.
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Link
@@ -2518,7 +2427,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Contact Sales
+                      Talk to founders
                     </Link>
                   </Button>
                 </div>
@@ -2538,8 +2447,8 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="bg-primary-foreground/10 p-4 rounded-lg hover:bg-primary-foreground/15 transition-colors duration-300">
-                    <h3 className="text-2xl font-bold">99.9%</h3>
-                    <p className="text-primary-foreground/80">Uptime SLA</p>
+                    <h3 className="text-2xl font-bold">&lt;1hr</h3>
+                    <p className="text-primary-foreground/80">Response time</p>
                   </div>
                   <div className="bg-primary-foreground/10 p-4 rounded-lg hover:bg-primary-foreground/15 transition-colors duration-300">
                     <h3 className="text-2xl font-bold">24/7</h3>
