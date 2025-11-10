@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: 'Fystack - Stablecoin wallet infrastructure for every business',
-  description: 'Secure team portal for multi-chain stablecoin wallets, approvals, and risk policies powered by MPC technology with no private key exposure.',
+  description: 'Fystack helps Web3 projects, fintechs & stablecoin issuers automate stablecoin workflows across multiple chains at scale — secure, compliant, self-hosted.',
   metadataBase: new URL('https://fystack.io'),
   alternates: {
     canonical: 'https://fystack.io'
@@ -21,15 +21,24 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://fystack.io',
     title: 'Fystack - Stablecoin wallet infrastructure for every business',
-    description: 'Secure team portal for multi-chain stablecoin wallets, approvals, and risk policies powered by MPC technology',
-    siteName: 'Fystack'
+    description: 'Fystack helps Web3 projects, fintechs & stablecoin issuers automate stablecoin workflows across multiple chains at scale — secure, compliant, self-hosted.',
+    siteName: 'Fystack',
+    images: [
+      {
+        url: '/self_custody.jpeg',
+        width: 1200,
+        height: 630,
+        alt: 'Fystack - Stablecoin wallet infrastructure'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
     site: '@fystack',
     creator: '@fystack',
     title: 'Fystack - Secure Wallet Infrastructure',
-    description: 'Secure team portal for multi-chain stablecoin wallets, approvals, and risk policies powered by MPC technology'
+    description: 'Fystack helps Web3 projects, fintechs & stablecoin issuers automate stablecoin workflows across multiple chains at scale — secure, compliant, self-hosted.',
+    images: ['/self_custody.jpeg']
   },
   robots: {
     index: true,
