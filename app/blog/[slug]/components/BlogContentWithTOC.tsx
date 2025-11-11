@@ -50,6 +50,11 @@ export default function BlogContentWithTOC({ html }: BlogContentWithTOCProps) {
     const generatedHeadings: Heading[] = [];
 
     headingElements.forEach((heading, index) => {
+      // Skip headings that are inside FAQ toggle cards
+      if (heading.closest('.kg-toggle-card')) {
+        return;
+      }
+
       const text = heading.textContent?.trim() ?? "";
       if (!text) return;
 
@@ -76,6 +81,77 @@ export default function BlogContentWithTOC({ html }: BlogContentWithTOCProps) {
     if (generatedHeadings.length > 0) {
       setActiveId(generatedHeadings[0].id);
     }
+
+    // Initialize Ghost toggle cards (FAQ collapsibles) - set initial state
+    const toggleCards = container.querySelectorAll<HTMLElement>('.kg-toggle-card');
+
+    toggleCards.forEach((card) => {
+      const button = card.querySelector<HTMLButtonElement>('.kg-toggle-card-icon');
+      const content = card.querySelector<HTMLElement>('.kg-toggle-content');
+      const heading = card.querySelector<HTMLElement>('.kg-toggle-heading');
+
+      if (button && content && heading) {
+        // Always start collapsed
+        card.setAttribute('data-kg-toggle-state', 'close');
+        content.style.maxHeight = '0';
+        content.style.opacity = '0';
+        content.style.paddingTop = '0';
+        content.style.paddingBottom = '0';
+        button.style.transform = 'rotate(0deg)';
+        button.style.transition = 'transform 0.3s ease';
+
+        // Style the heading to be clickable
+        heading.style.cursor = 'pointer';
+        heading.style.userSelect = 'none';
+      }
+    });
+
+    // Use event delegation on the container
+    const handleContainerClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+
+      // Find if we clicked inside a toggle heading
+      const toggleHeading = target.closest('.kg-toggle-heading');
+      if (!toggleHeading) return;
+
+      // Find the parent card
+      const card = toggleHeading.closest('.kg-toggle-card') as HTMLElement;
+      if (!card) return;
+
+      const button = card.querySelector<HTMLButtonElement>('.kg-toggle-card-icon');
+      const content = card.querySelector<HTMLElement>('.kg-toggle-content');
+
+      if (!button || !content) return;
+
+      const currentState = card.getAttribute('data-kg-toggle-state');
+      const isOpen = currentState === 'open';
+
+      // Toggle state
+      card.setAttribute('data-kg-toggle-state', isOpen ? 'close' : 'open');
+
+      if (isOpen) {
+        // Closing
+        content.style.maxHeight = '0';
+        content.style.opacity = '0';
+        content.style.paddingTop = '0';
+        content.style.paddingBottom = '0';
+        button.style.transform = 'rotate(0deg)';
+      } else {
+        // Opening - use a large value to ensure full content is shown
+        content.style.maxHeight = '2000px';
+        content.style.opacity = '1';
+        content.style.paddingTop = '1rem';
+        content.style.paddingBottom = '1rem';
+        button.style.transform = 'rotate(180deg)';
+      }
+    };
+
+    container.addEventListener('click', handleContainerClick);
+
+    // Cleanup
+    return () => {
+      container.removeEventListener('click', handleContainerClick);
+    };
   }, [html]);
 
   useEffect(() => {
