@@ -58,6 +58,7 @@ import {
 import AnimatedStat, { Highlight } from "./components/AnimatedStat"; // Updated import
 import { SecurityFeatures } from "./components/security-features";
 import { Solution } from "./components/Solution";
+import ClientPartners from "./components/ClientPartners";
 
 export default function Home() {
   const evmChains = [
@@ -144,9 +145,9 @@ export default function Home() {
           <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
             {/* Centered Content */}
             <div className="flex flex-col items-center text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 max-w-[20ch]">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 max-w-[25ch]">
                 <span className="bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700 dark:from-gray-100 dark:via-gray-200 dark:to-gray-100 bg-clip-text text-transparent">
-                  Self-hosted stablecoin custody infrastructure
+                  Seamless enterprise-grade stablecoin custody for teams
                 </span>
               </h1>
 
@@ -179,9 +180,11 @@ export default function Home() {
                   asChild
                 >
                   <Link
-                    href="/buy"
+                    href="https://app.fystack.io"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    Buy One-Time License
+                    Start Free Trial
                   </Link>
                 </Button>
                 <Button
@@ -193,11 +196,9 @@ export default function Home() {
                   asChild
                 >
                   <Link
-                    href="https://app.fystack.io"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/buy"
                   >
-                    Try For Free
+                    Self-Host
                   </Link>
                 </Button>
               </div>
@@ -235,6 +236,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Client Partners Section */}
+        <ClientPartners />
 
         {/* Cost Savings Section */}
         <section className="relative py-32 bg-white dark:bg-background">
