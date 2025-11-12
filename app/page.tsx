@@ -196,7 +196,7 @@ export default function Home() {
                   asChild
                 >
                   <Link
-                    href="/buy"
+                    href="/pricing"
                   >
                     Self-Host
                   </Link>
@@ -1117,7 +1117,7 @@ export default function Home() {
 
                     <Button className="w-full" size="lg" asChild>
                     <Link
-                      href="/buy"
+                      href="/pricing"
                     >
                       Buy One-Time License
                     </Link>
@@ -1940,9 +1940,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pricing Section (legacy hidden) */}
-        {false && (
-          <section id="pricing" className="py-24 bg-muted/50">
+        {/* Pricing Section */}
+        <section id="pricing" className="py-24 bg-muted/50">
             <div className="container px-4 md:px-6 max-w-7xl mx-auto">
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
@@ -1961,7 +1960,17 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+
+              {/* Pricing Tabs */}
+              <Tabs defaultValue="saas" className="mt-12">
+                <TabsList className="grid w-full max-w-md mx-auto grid-cols-2">
+                  <TabsTrigger value="saas">Cloud (SaaS)</TabsTrigger>
+                  <TabsTrigger value="self-hosted">Self-Hosted</TabsTrigger>
+                </TabsList>
+
+                {/* SaaS Pricing */}
+                <TabsContent value="saas">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
               {/* Developer (Free) Plan */}
               <Card className="flex flex-col hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30 w-full min-w-0">
                 <CardContent className="p-6 flex-1">
@@ -2307,9 +2316,115 @@ export default function Home() {
                 </div>
               </Card>
             </div>
+                </TabsContent>
+
+                {/* Self-Hosted Pricing */}
+                <TabsContent value="self-hosted">
+                  <div className="max-w-4xl mx-auto mt-8">
+                    <Card className="border-primary/20 bg-gradient-to-br from-blue-50/50 to-cyan-50/50 dark:from-blue-950/20 dark:to-cyan-950/20">
+                      <CardContent className="p-8">
+                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                          <div className="flex-1">
+                            <Badge className="mb-4 bg-sky-100 text-sky-700 border-sky-200 dark:bg-sky-900/50 dark:text-sky-300">
+                              2025 Limited Offer
+                            </Badge>
+                            <h3 className="text-3xl font-bold mb-2">One-Time License</h3>
+                            <p className="text-muted-foreground mb-4">
+                              Deploy on your own infrastructure with lifetime access
+                            </p>
+                            <div className="flex items-center gap-4 mb-6">
+                              <div>
+                                <div className="text-sm text-muted-foreground line-through">$14,000</div>
+                                <div className="text-4xl font-bold">$10,000</div>
+                              </div>
+                              <Badge className="bg-green-500 text-white border-0">
+                                Save $4,000
+                              </Badge>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-4 mb-6">
+                              <div className="space-y-3">
+                                <div className="flex items-start gap-2">
+                                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-none" />
+                                  <div>
+                                    <div className="font-medium text-sm">Lifetime License</div>
+                                    <div className="text-xs text-muted-foreground">No recurring fees</div>
+                                  </div>
+                                </div>
+                                <div className="flex items-start gap-2">
+                                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-none" />
+                                  <div>
+                                    <div className="font-medium text-sm">MPC Technology</div>
+                                    <div className="text-xs text-muted-foreground">Secure infrastructure</div>
+                                  </div>
+                                </div>
+                                <div className="flex items-start gap-2">
+                                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-none" />
+                                  <div>
+                                    <div className="font-medium text-sm">Multi-Chain Support</div>
+                                    <div className="text-xs text-muted-foreground">10+ blockchains</div>
+                                  </div>
+                                </div>
+                                <div className="flex items-start gap-2">
+                                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-none" />
+                                  <div>
+                                    <div className="font-medium text-sm">Self-Hosted</div>
+                                    <div className="text-xs text-muted-foreground">Your infrastructure</div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="space-y-3">
+                                <div className="flex items-start gap-2">
+                                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-none" />
+                                  <div>
+                                    <div className="font-medium text-sm">7-Day Deployment Support</div>
+                                    <div className="text-xs text-muted-foreground">Guided onboarding</div>
+                                  </div>
+                                </div>
+                                <div className="flex items-start gap-2">
+                                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-none" />
+                                  <div>
+                                    <div className="font-medium text-sm">Updates & Security Patches</div>
+                                    <div className="text-xs text-muted-foreground">1 year included</div>
+                                  </div>
+                                </div>
+                                <div className="flex items-start gap-2">
+                                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-none" />
+                                  <div>
+                                    <div className="font-medium text-sm">Commercial Use</div>
+                                    <div className="text-xs text-muted-foreground">Unlimited projects</div>
+                                  </div>
+                                </div>
+                                <div className="flex items-start gap-2">
+                                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-none" />
+                                  <div>
+                                    <div className="font-medium text-sm">Documentation</div>
+                                    <div className="text-xs text-muted-foreground">Complete guides & APIs</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="md:w-auto flex flex-col gap-3">
+                            <Button size="lg" className="text-lg px-8" asChild>
+                              <Link href="/pricing">
+                                View Details
+                              </Link>
+                            </Button>
+                            <Button size="lg" variant="outline" asChild>
+                              <Link href="https://t.me/anhthind" target="_blank" rel="noopener noreferrer">
+                                Talk to Founders
+                              </Link>
+                            </Button>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </TabsContent>
+              </Tabs>
           </div>
         </section>
-        )}
 
         {/* Testimonials Section */}
         {/* <section className="py-24 relative">

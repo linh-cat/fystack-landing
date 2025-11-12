@@ -462,7 +462,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/buy"
+              href="/pricing"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Pricing
@@ -484,7 +484,7 @@ export default function Navbar() {
             asChild
             className="lg:hidden"
           >
-            <Link href="/buy">
+            <Link href="/pricing">
               Pricing
             </Link>
           </Button>
