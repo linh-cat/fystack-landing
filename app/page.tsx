@@ -197,7 +197,7 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Start Free Trial
+                    Start for free
                   </Link>
                 </Button>
                 <Button
@@ -211,7 +211,7 @@ export default function Home() {
                   <Link
                     href="/pricing"
                   >
-                    Self-Host
+                    Deploy Self-Hosted
                   </Link>
                 </Button>
               </div>
