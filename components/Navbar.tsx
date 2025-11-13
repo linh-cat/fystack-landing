@@ -431,7 +431,7 @@ export default function Navbar() {
   return (
     <header className="border-b sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-4 md:gap-8">
           <Link href="/">
             <Image
               src={appLogo}
@@ -441,6 +441,19 @@ export default function Navbar() {
               height={50}
               className="h-auto w-[120px] sm:w-[150px] md:w-[170px]"
             />
+          </Link>
+
+          {/* Version Announcement Button */}
+          <Link
+            href="https://docs.fystack.io/changelog/v0.1.8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 group"
+          >
+            <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Fystack v0.1.8 is here!
+            </span>
+            <span className="text-blue-600 group-hover:translate-x-0.5 transition-transform duration-300">→</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6">
