@@ -488,7 +488,7 @@ export default function Home() {
                             Tron
                           </div>
                           <div className="text-sm text-gray-500 dark:text-gray-400">
-                            Low Cost
+                            USDT Powerhouse
                           </div>
                         </div>
                         <div className="opacity-0 group-hover:opacity-100 transition-opacity">
