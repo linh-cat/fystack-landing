@@ -138,6 +138,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="https://fystack.io/blog/fystack-vs-fireblocks-self-hosted-vs-saas-what-is-the-future-of-crypto-asset-custody-for-businesses"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                >
+                  Fireblocks vs Fystack
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/#careers"
                   className="text-muted-foreground hover:text-foreground transition-colors duration-200"
                 >
