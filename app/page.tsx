@@ -145,6 +145,19 @@ export default function Home() {
           <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
             {/* Centered Content */}
             <div className="flex flex-col items-center text-center">
+              {/* Version Announcement Button */}
+              <Link
+                href="https://docs.fystack.io/changelog/v0.1.8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 group"
+              >
+                <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  Fystack v0.1.8 is here!
+                </span>
+                <span className="text-blue-600 group-hover:translate-x-0.5 transition-transform duration-300">→</span>
+              </Link>
+
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 max-w-[25ch]">
                 <span className="bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700 dark:from-gray-100 dark:via-gray-200 dark:to-gray-100 bg-clip-text text-transparent">
                   Seamless enterprise-grade stablecoin custody for teams
