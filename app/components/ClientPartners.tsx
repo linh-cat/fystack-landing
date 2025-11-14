@@ -30,12 +30,6 @@ const partners: Partner[] = [
     url: "https://vn.superteam.fun/",
   },
   {
-    name: "WannaPlay",
-    logo: "/clientpartners/wanna_play.png",
-    darkBg: true, // This logo works on dark background
-    url: "",
-  },
-  {
     name: "Minepath",
     logo: "/clientpartners/minepath.svg",
     darkBg: false, // This logo works on light background
