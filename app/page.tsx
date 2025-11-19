@@ -209,7 +209,9 @@ export default function Home() {
                   asChild
                 >
                   <Link
-                    href="/pricing"
+                    href="https://docs.fystack.io/mpcium"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Deploy Self-Hosted
                   </Link>
