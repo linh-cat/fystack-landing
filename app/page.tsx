@@ -2012,6 +2012,10 @@ export default function Home() {
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">$100,000 monthly volume</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
                         <span className="text-sm">1 workspace, 3 users</span>
                       </li>
                       <li className="flex items-center gap-2">
@@ -2074,6 +2078,10 @@ export default function Home() {
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
                         <span className="text-sm">500 crypto payments</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">$200,000 monthly volume</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
@@ -2147,6 +2155,10 @@ export default function Home() {
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
                         <span className="text-sm">2000 crypto payments</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span className="text-sm">$500,000 monthly volume</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
@@ -2249,6 +2261,12 @@ export default function Home() {
                             <CheckCircle className="h-4 w-4 text-primary" />
                             <span className="text-sm">
                               Unlimited crypto payments
+                            </span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary" />
+                            <span className="text-sm">
+                              Flexible volume
                             </span>
                           </li>
                           <li className="flex items-center gap-2">
