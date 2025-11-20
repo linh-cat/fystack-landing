@@ -46,11 +46,11 @@ export default function ClientPartners() {
       {/* Animated Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div
-          className="absolute top-10 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full filter blur-3xl opacity-70 animate-float"
+          className="absolute top-10 left-1/4 w-64 h-64 bg-blue-500/5 rounded-full filter blur-2xl opacity-50"
           style={{ animationDuration: "8s" }}
         ></div>
         <div
-          className="absolute bottom-10 right-1/4 w-64 h-64 bg-emerald-500/10 rounded-full filter blur-3xl opacity-70 animate-float"
+          className="absolute bottom-10 right-1/4 w-64 h-64 bg-emerald-500/5 rounded-full filter blur-2xl opacity-50"
           style={{ animationDelay: "2s", animationDuration: "10s" }}
         ></div>
       </div>
@@ -75,46 +75,32 @@ export default function ClientPartners() {
           <div className="flex gap-8 md:gap-12 lg:gap-16 animate-scroll-infinite hover:[animation-play-state:paused]">
             {duplicatedPartners.map((partner, index) => {
               const content = (
-                <>
-                  {/* Glow effect on hover */}
-                  <div
-                    className={`
-                      absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl
-                      ${
-                        partner.darkBg
-                          ? "bg-blue-500/20"
-                          : "bg-emerald-500/20"
-                      }
-                    `}
-                  ></div>
-
-                  <div
-                    className={`
-                      relative rounded-xl p-4 md:p-6 transition-all duration-300
-                      transform group-hover:-translate-y-1
-                      ${
-                        partner.darkBg
-                          ? // Dark background for logos with white text
-                            "bg-gray-900 dark:bg-gray-800 hover:bg-gray-800 dark:hover:bg-gray-700"
-                          : // Light/neutral background for other logos
-                            "bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800"
-                      }
-                      border border-gray-200 dark:border-gray-700
-                      hover:border-gray-300 dark:hover:border-gray-600
-                      hover:shadow-2xl
-                    `}
-                  >
-                    <div className="relative h-10 md:h-12 w-24 md:w-32 flex items-center justify-center">
-                      <Image
-                        src={partner.logo}
-                        alt={`${partner.name} logo`}
-                        fill
-                        className="object-contain transition-all duration-300 group-hover:scale-110"
-                        sizes="(max-width: 768px) 96px, 128px"
-                      />
-                    </div>
+                <div
+                  className={`
+                    relative rounded-xl p-4 md:p-6 transition-all duration-200
+                    will-change-transform
+                    ${
+                      partner.darkBg
+                        ? // Dark background for logos with white text
+                          "bg-gray-900 dark:bg-gray-800 hover:bg-gray-800 dark:hover:bg-gray-700"
+                        : // Light/neutral background for other logos
+                          "bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    }
+                    border border-gray-200 dark:border-gray-700
+                    hover:border-gray-300 dark:hover:border-gray-600
+                    hover:shadow-lg
+                  `}
+                >
+                  <div className="relative h-10 md:h-12 w-24 md:w-32 flex items-center justify-center">
+                    <Image
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      fill
+                      className="object-contain transition-opacity duration-200 group-hover:opacity-80"
+                      sizes="(max-width: 768px) 96px, 128px"
+                    />
                   </div>
-                </>
+                </div>
               );
 
               return partner.url ? (
@@ -143,15 +129,22 @@ export default function ClientPartners() {
       <style jsx>{`
         @keyframes scroll-infinite {
           0% {
-            transform: translateX(0);
+            transform: translate3d(0, 0, 0);
           }
           100% {
-            transform: translateX(calc(-100% / 3));
+            transform: translate3d(calc(-100% / 3), 0, 0);
           }
         }
 
         .animate-scroll-infinite {
-          animation: scroll-infinite 12s linear infinite;
+          animation: scroll-infinite 20s linear infinite;
+          will-change: transform;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .animate-scroll-infinite {
+            animation: none;
+          }
         }
       `}</style>
     </section>
