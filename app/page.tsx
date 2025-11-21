@@ -2621,7 +2621,7 @@ export default function Home() {
       {/* Floating Telegram Button */}
       <div className="fixed bottom-6 right-6 z-50">
         <Link
-          href="https://t.me/+IsRhPyWuOFxmNmM9"
+          href="https://t.me/+9AtC0z8sS79iZjFl"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center bg-[#389BFF] hover:bg-[#2D8EF4] text-white px-7 py-4 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl"

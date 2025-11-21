@@ -322,7 +322,7 @@ const DevelopersDropdown = () => {
     { icon: <ListChecks className="h-5 w-5" />, label: "Changelog", href: "#changelog" },
     { icon: <FileCode className="h-5 w-5" />, label: "Examples", href: "https://docs.fystack.io/examples" },
     { icon: <Library className="h-5 w-5" />, label: "SDKs", href: "https://docs.fystack.io/sdks" },
-    { icon: <Send className="h-5 w-5" />, label: "Telegram Forum", href: "https://t.me/anhthind" },
+    { icon: <Send className="h-5 w-5" />, label: "Telegram Forum", href: "https://t.me/+9AtC0z8sS79iZjFl" },
     { icon: <HeadphonesIcon className="h-5 w-5" />, label: "Support", href: "https://t.me/anhthind" },
   ];
 

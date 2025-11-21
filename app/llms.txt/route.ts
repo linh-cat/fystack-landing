@@ -113,7 +113,6 @@ ${blogLinks}
 
 - [Application](https://app.fystack.io): Sign up and start building
 - [Live Demo](https://sandbox.fystack.io): Try Fystack without signing up
-- [Telegram Community](https://t.me/+IsRhPyWuOFxmNmM9): Join our developer community
 - [Sales Contact](https://t.me/anhthind): Contact for enterprise solutions
 - Email support (Developer plan), Basic support (Starter), Priority Telegram support (Team), Dedicated support (Enterprise)
 
