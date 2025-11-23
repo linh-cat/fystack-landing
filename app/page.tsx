@@ -62,6 +62,24 @@ import ClientPartners from "./components/ClientPartners";
 
 export default function Home() {
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("monthly");
+  const [typedText, setTypedText] = useState("");
+  const [isTypingDone, setIsTypingDone] = useState(false);
+  const fullText = "Stablecoins";
+
+  useEffect(() => {
+    let currentIndex = 0;
+    const typingInterval = setInterval(() => {
+      if (currentIndex <= fullText.length) {
+        setTypedText(fullText.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(typingInterval);
+        setIsTypingDone(true);
+      }
+    }, 150);
+
+    return () => clearInterval(typingInterval);
+  }, []);
 
   const evmChains = [
     {
@@ -135,7 +153,10 @@ export default function Home() {
                   Enterprise-grade
                 </span>
                 <br />
-                <span className="text-[#155dfc]">Stablecoins</span>
+                <span className="text-[#155dfc]">
+                  {typedText}
+                  {!isTypingDone && <span className="animate-pulse">|</span>}
+                </span>
                 <br />
                 <span className="text-slate-700 dark:text-slate-200">
                   custody for teams
