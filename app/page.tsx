@@ -64,22 +64,30 @@ export default function Home() {
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("monthly");
   const [typedText, setTypedText] = useState("");
   const [isTypingDone, setIsTypingDone] = useState(false);
-  const fullText = "Stablecoin";
+  const words = ["Stablecoin", "Digital Asset"];
+  const [wordIndex, setWordIndex] = useState(0);
 
   useEffect(() => {
     let currentIndex = 0;
+    const currentWord = words[wordIndex];
+
     const typingInterval = setInterval(() => {
-      if (currentIndex <= fullText.length) {
-        setTypedText(fullText.slice(0, currentIndex));
+      if (currentIndex <= currentWord.length) {
+        setTypedText(currentWord.slice(0, currentIndex));
+        setIsTypingDone(false);
         currentIndex++;
       } else {
-        clearInterval(typingInterval);
+        // Done typing, move to next word immediately
         setIsTypingDone(true);
+        clearInterval(typingInterval);
+        setTimeout(() => {
+          setWordIndex((prev) => (prev + 1) % words.length);
+        }, 2000);
       }
     }, 150);
 
     return () => clearInterval(typingInterval);
-  }, []);
+  }, [wordIndex]);
 
   const evmChains = [
     {
@@ -112,20 +120,6 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Builder Grant Banner */}
-      <Link
-        href="/builder-grants"
-        className="fixed top-0 left-0 right-0 z-[60] block bg-[#155dfc] text-white text-center py-2 px-4 text-xs sm:text-sm font-medium hover:bg-[#155dfc]/90 transition-colors"
-      >
-        <span className="inline-flex items-center gap-1 sm:gap-2">
-          <span className="hidden sm:inline">Builder Grant Program for Startups — Up to $30,000 API credits in total</span>
-          <span className="sm:hidden">Builder Grants — $30K API credits</span>
-          <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
-        </span>
-      </Link>
-      {/* Spacer for fixed banner */}
-      <div className="h-8 sm:h-9"></div>
-
       <Navbar />
 
       <main className="flex-1">
@@ -2470,7 +2464,7 @@ export default function Home() {
           href="https://t.me/+9AtC0z8sS79iZjFl"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center bg-[#389BFF] hover:bg-[#2D8EF4] text-white px-7 py-4 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl"
+          className="flex items-center justify-center bg-[#155dfc] hover:bg-[#155dfc]/90 text-white px-7 py-4 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

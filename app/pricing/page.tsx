@@ -385,91 +385,19 @@ export default function BuyPage() {
                               </div>
                             </div>
                           </div>
+                          <div className="flex items-start gap-3">
+                            <Check className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                            <div>
+                              <div className="font-medium text-slate-900 dark:text-white">Docker & K8s Deployment</div>
+                              <div className="text-sm text-slate-500 dark:text-slate-400">
+                                Ready-to-use Docker and Kubernetes configs
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </CardContent>
                   </Card>
-
-                  {/* Support Packages */}
-                  <div className="mb-12">
-                    <div className="text-center mb-8">
-                      <Badge className="mb-3 bg-[#155dfc] hover:bg-[#155dfc] text-white text-xs">
-                        Optional Add-on
-                      </Badge>
-                      <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
-                        Add Technical Support
-                      </h2>
-                      <p className="text-slate-600 dark:text-slate-400">
-                        Choose a support package only if you need ongoing help—the license works without it.
-                      </p>
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-6">
-                      {supportPackages.map((pkg) => {
-                        const Icon = pkg.icon;
-                        const isSelected = selectedSupport === pkg.id;
-
-                        return (
-                          <Card
-                            key={pkg.id}
-                            className={`relative cursor-pointer transition-all bg-white dark:bg-gray-900 rounded-2xl ${
-                              isSelected
-                                ? "border-2 border-[#155dfc] shadow-lg"
-                                : "border-gray-200 dark:border-gray-800 hover:border-gray-300"
-                            }`}
-                            onClick={() => setSelectedSupport(isSelected ? null : pkg.id)}
-                          >
-                            {pkg.popular && (
-                              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                                <Badge className="bg-[#155dfc] hover:bg-[#155dfc] text-white px-4 py-1 text-xs">
-                                  Most Popular
-                                </Badge>
-                              </div>
-                            )}
-                            <CardContent className="p-8">
-                              <div className="flex items-center gap-3 mb-4">
-                                <div className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800">
-                                  <Icon className="w-5 h-5 text-slate-600 dark:text-slate-400" />
-                                </div>
-                                {isSelected && (
-                                  <Check className="w-5 h-5 text-[#155dfc] ml-auto" />
-                                )}
-                              </div>
-                              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-                                {pkg.name}
-                              </h3>
-                              <div className="flex items-baseline gap-1 mb-2">
-                                {typeof pkg.price === "number" ? (
-                                  <>
-                                    <span className="text-3xl font-bold text-slate-900 dark:text-white">
-                                      ${pkg.price}
-                                    </span>
-                                    <span className="text-slate-500">/month</span>
-                                  </>
-                                ) : (
-                                  <span className="text-3xl font-bold text-slate-900 dark:text-white">
-                                    {pkg.price} Pricing
-                                  </span>
-                                )}
-                              </div>
-                              <div className="flex items-center gap-2 text-sm text-slate-500 mb-6">
-                                <Clock className="w-4 h-4" />
-                                <span>SLA: {pkg.sla}</span>
-                              </div>
-                              <ul className="space-y-3">
-                                {pkg.features.map((feature, idx) => (
-                                  <li key={idx} className="flex items-start gap-2 text-sm">
-                                    <Check className="w-4 h-4 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                                    <span className="text-slate-700 dark:text-slate-300">{feature}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </CardContent>
-                          </Card>
-                        );
-                      })}
-                    </div>
-                  </div>
 
                   {/* Contact CTA */}
                   <div className="max-w-md mx-auto text-center space-y-4">
