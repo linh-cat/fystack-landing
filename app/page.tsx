@@ -94,104 +94,62 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Builder Grant Banner */}
+      <Link
+        href="/builder-grants"
+        className="fixed top-0 left-0 right-0 z-[60] block bg-[#155dfc] text-white text-center py-2 px-4 text-xs sm:text-sm font-medium hover:bg-[#155dfc]/90 transition-colors"
+      >
+        <span className="inline-flex items-center gap-1 sm:gap-2">
+          <span className="hidden sm:inline">Builder Grant Program for Startups — Up to $30,000 API credits in total</span>
+          <span className="sm:hidden">Builder Grants — $30K API credits</span>
+          <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
+        </span>
+      </Link>
+      {/* Spacer for fixed banner */}
+      <div className="h-8 sm:h-9"></div>
+
       <Navbar />
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative bg-[linear-gradient(135deg,#ffffff_0%,#e8f4ff_100%)] dark:bg-background py-16 md:py-20 lg:py-24 xl:py-32 border-b overflow-hidden">
-          {/* Animated Gradient Mesh Background */}
-          <div className="absolute inset-0 pointer-events-none">
-            {/* Gradient Orbs */}
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float"></div>
-            <div
-              className="absolute top-20 right-1/4 w-96 h-96 bg-emerald-400/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float"
-              style={{ animationDelay: "2s", animationDuration: "7s" }}
-            ></div>
-            <div
-              className="absolute -bottom-32 left-1/3 w-96 h-96 bg-cyan-500/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float"
-              style={{ animationDelay: "4s", animationDuration: "9s" }}
-            ></div>
-
-            {/* Dark mode gradient orbs */}
-            <div
-              className="absolute top-10 right-1/3 w-80 h-80 bg-blue-600/20 dark:bg-blue-400/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-60 animate-float"
-              style={{ animationDelay: "1s", animationDuration: "8s" }}
-            ></div>
-            <div
-              className="absolute bottom-20 left-1/2 w-80 h-80 bg-emerald-500/20 dark:bg-emerald-400/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-60 animate-float"
-              style={{ animationDelay: "3s", animationDuration: "10s" }}
-            ></div>
-
-            {/* Floating Geometric Shapes */}
-            <div
-              className="absolute top-20 left-10 w-16 h-16 border-2 border-blue-500/20 rotate-45 animate-float"
-              style={{ animationDelay: "0s", animationDuration: "6s" }}
-            ></div>
-            <div
-              className="absolute top-40 right-20 w-12 h-12 border-2 border-emerald-500/20 rounded-full animate-float"
-              style={{ animationDelay: "1.5s", animationDuration: "7s" }}
-            ></div>
-            <div
-              className="absolute bottom-40 left-20 w-20 h-20 border-2 border-cyan-500/20 rotate-12 animate-float"
-              style={{ animationDelay: "2.5s", animationDuration: "8s" }}
-            ></div>
-            <div
-              className="absolute bottom-20 right-32 w-14 h-14 border-2 border-indigo-500/20 rounded-full animate-float"
-              style={{ animationDelay: "3.5s", animationDuration: "9s" }}
-            ></div>
-
-            {/* Grid Pattern Overlay */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-          </div>
+        <section className="relative bg-gradient-to-b from-white via-blue-50/50 to-blue-100/80 dark:from-background dark:via-blue-950/20 dark:to-blue-900/30 pt-12 md:pt-20 lg:pt-28 pb-12 md:pb-16 overflow-hidden">
+          {/* Blue gradient blobs on sides */}
+          <div className="absolute top-1/3 -left-32 w-[500px] h-[500px] bg-blue-200/50 dark:bg-blue-900/30 rounded-full blur-[120px] pointer-events-none"></div>
+          <div className="absolute top-1/3 -right-32 w-[500px] h-[500px] bg-blue-200/50 dark:bg-blue-900/30 rounded-full blur-[120px] pointer-events-none"></div>
+          {/* Bottom center gradient */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-200/60 dark:bg-blue-950/40 rounded-full blur-[100px] pointer-events-none"></div>
 
           <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
             {/* Centered Content */}
             <div className="flex flex-col items-center text-center">
-              {/* Version Announcement Button */}
-              <Link
-                href="https://docs.fystack.io/changelog/v0.1.8"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 group"
-              >
-                <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Fystack v0.1.8 is here!
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 md:mb-8 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <Wallet className="w-4 h-4 text-[#155dfc]" />
+                <span className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
+                  Stablecoin Wallet Infrastructure
                 </span>
-                <span className="text-blue-600 group-hover:translate-x-0.5 transition-transform duration-300">→</span>
-              </Link>
+              </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 max-w-[25ch]">
-                <span className="bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700 dark:from-gray-100 dark:via-gray-200 dark:to-gray-100 bg-clip-text text-transparent">
-                  Seamless enterprise-grade stablecoin custody for teams
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-4 md:mb-6 leading-loose lg:leading-[1.5]">
+                <span className="text-slate-700 dark:text-slate-200">
+                  Enterprise-grade
+                </span>
+                <br />
+                <span className="text-[#155dfc]">Stablecoins</span>
+                <br />
+                <span className="text-slate-700 dark:text-slate-200">
+                  custody for teams
                 </span>
               </h1>
 
-              <p className="text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-4 max-w-[50ch]">
-                Automate stablecoin workflows across multiple chains securely at
-                scale.
-              </p>
-
-              <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 mb-3 max-w-[45ch]">
-                Focus on{" "}
-                <span className="inline-flex items-center px-3 py-1 rounded-full border border-blue-200 bg-blue-100 text-blue-700 shadow-sm dark:border-blue-400/50 dark:bg-blue-500/20 dark:text-blue-100">
-                  your product
-                </span>
-                , not wallet infra.
-              </p>
-
-              <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 mt-0 mb-6 max-w-[48ch]">
-                Launch on blockchains in{" "}
-                <span className="inline-flex items-center px-3 py-1 rounded-full border border-blue-200 bg-blue-100 text-blue-700 shadow-sm dark:border-blue-400/50 dark:bg-blue-500/20 dark:text-blue-100">
-                  days, not months
-                </span>
+              <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-8 md:mb-10 max-w-2xl px-4">
+                Automate stablecoin workflows across multiple chains securely at scale with actionable insights.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
-                  className="rounded-full px-8 py-6 text-base sm:text-lg font-semibold shadow-md hover:shadow-lg
-                            focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500
-                            transition"
+                  className="rounded-full px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold bg-[#155dfc] hover:bg-[#155dfc]/90 shadow-lg hover:shadow-xl transition-all"
                   asChild
                 >
                   <Link
@@ -199,15 +157,13 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Start for free
+                    Get Started
                   </Link>
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full px-8 py-6 text-base sm:text-lg font-semibold border-gray-300 dark:border-gray-600
-                            hover:bg-gray-100/70 dark:hover:bg-gray-800/60 transition
-                            focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                  className="rounded-full px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
                   asChild
                 >
                   <Link
@@ -219,36 +175,28 @@ export default function Home() {
                   </Link>
                 </Button>
               </div>
+            </div>
+          </div>
 
-              <div className="relative mt-12 w-full max-w-4xl">
-                <div className="relative rounded-3xl border border-gray-200/70 dark:border-gray-700/60 bg-white/80 dark:bg-gray-900/60 shadow-2xl backdrop-blur-sm overflow-hidden">
-                  <div className="pointer-events-none absolute -inset-4 bg-gradient-to-br from-blue-500/20 via-emerald-500/20 to-cyan-500/20 blur-3xl"></div>
-                  <Image
-                    src={dashboardImage}
-                    alt="Fystack dashboard preview"
-                    className="relative w-full h-auto rounded-3xl"
-                    priority
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Button
-                      size="lg"
-                      className="rounded-full bg-white/95 text-gray-900 px-6 py-3 shadow-lg transition-colors transition-opacity duration-150 ease-out
-                                 hover:bg-blue-500 hover:text-white hover:opacity-95 dark:hover:bg-blue-500 dark:hover:text-white
-                                 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-900"
-                      asChild
-                    >
-                      <Link
-                        href="https://www.youtube.com/watch?v=TeyoKqYy_Ls"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Watch the dashboard demo on YouTube"
-                      >
-                        <Play className="mr-2 h-5 w-5" />
-                        Watch Demo
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
+          {/* Dashboard Preview */}
+          <div className="container mx-auto px-4 md:px-8 max-w-6xl mt-12 md:mt-16">
+            <div className="relative rounded-xl md:rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-2xl overflow-hidden">
+              <Image
+                src={dashboardImage}
+                alt="Fystack dashboard preview"
+                className="w-full h-auto"
+                priority
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Link
+                  href="https://www.youtube.com/watch?v=TeyoKqYy_Ls"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-full bg-white/95 text-slate-900 px-5 py-3 shadow-lg hover:bg-[#155dfc] hover:text-white transition-all duration-200"
+                >
+                  <Play className="w-5 h-5" />
+                  <span className="font-medium">Watch Demo</span>
+                </Link>
               </div>
             </div>
           </div>
