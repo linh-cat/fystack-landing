@@ -64,7 +64,7 @@ export default function Home() {
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("monthly");
   const [typedText, setTypedText] = useState("");
   const [isTypingDone, setIsTypingDone] = useState(false);
-  const fullText = "Stablecoins";
+  const fullText = "Stablecoin";
 
   useEffect(() => {
     let currentIndex = 0;
