@@ -180,6 +180,20 @@ export default function Home() {
 
           {/* Dashboard Preview */}
           <div className="container mx-auto px-4 md:px-8 max-w-6xl mt-12 md:mt-16">
+            {/* Version Announcement Button */}
+            <div className="flex justify-center mb-6">
+              <Link
+                href="https://docs.fystack.io/changelog/v0.1.8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 group"
+              >
+                <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  Fystack v0.1.8 is here!
+                </span>
+                <span className="text-blue-600 group-hover:translate-x-0.5 transition-transform duration-300">→</span>
+              </Link>
+            </div>
             <div className="relative rounded-xl md:rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-2xl overflow-hidden">
               <Image
                 src={dashboardImage}
