@@ -502,6 +502,13 @@ export default function Navbar() {
             </Link>
 
             <Link
+              href="/#case-studies"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Case Studies
+            </Link>
+
+            <Link
               href="/pricing"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
