@@ -1,7 +1,22 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import Script from "next/script";
 import clsx from "clsx";
+
+// Declare window.twttr type
+declare global {
+  interface Window {
+    twttr?: {
+      widgets: {
+        load: (element?: HTMLElement) => void;
+      };
+      events?: {
+        bind: (event: string, callback: (...args: any[]) => void) => void;
+      };
+    };
+  }
+}
 
 type Heading = {
   id: string;
@@ -37,6 +52,73 @@ export default function BlogContentWithTOC({ html }: BlogContentWithTOCProps) {
   const contentRef = useRef<HTMLDivElement | null>(null);
   const [headings, setHeadings] = useState<Heading[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [twitterScriptLoaded, setTwitterScriptLoaded] = useState(false);
+  
+  // Load script unconditionally
+  useLayoutEffect(() => {
+    setTwitterScriptLoaded(!!window.twttr);
+  }, []);
+
+  const loadTwitterWidgets = useCallback(() => {
+    const container = contentRef.current;
+    if (!container) return;
+
+    const embeds = container.querySelectorAll('.twitter-tweet');
+    if (embeds.length === 0) return;
+
+    let retryInterval: NodeJS.Timeout | null = null;
+
+    const attemptLoad = () => {
+      if (window.twttr?.widgets) {
+        try {
+          window.twttr.widgets.load(container);
+          console.info('[Twitter] Widgets loaded');
+          return true;
+        } catch (error) {
+          console.error('[Twitter] Load error:', error);
+          return false;
+        }
+      }
+      return false;
+    };
+
+    // Immediate attempt
+    if (attemptLoad()) return;
+
+    // Fast retry with shorter timeout
+    let retries = 0;
+    retryInterval = setInterval(() => {
+      if (attemptLoad() || ++retries >= 10) {
+        if (retryInterval) clearInterval(retryInterval);
+      }
+    }, 100);
+
+    return () => {
+      if (retryInterval) clearInterval(retryInterval);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (twitterScriptLoaded) {
+      loadTwitterWidgets();
+    }
+  }, [twitterScriptLoaded, loadTwitterWidgets]);
+   
+  useEffect(() => {
+    const container = contentRef.current;
+    if (!container || !twitterScriptLoaded) return;
+
+    const observer = new MutationObserver(() => {
+      const newEmbeds = container.querySelectorAll('.twitter-tweet');
+      if (newEmbeds.length > 0) {
+        console.info('[Twitter] New embeds detected, reloading...');
+        loadTwitterWidgets();
+      }
+    });
+
+    observer.observe(container, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, [twitterScriptLoaded, loadTwitterWidgets]);
 
   useEffect(() => {
     const container = contentRef.current;
@@ -227,55 +309,68 @@ export default function BlogContentWithTOC({ html }: BlogContentWithTOCProps) {
   }, [headings]);
 
   return (
-    <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_16rem] lg:gap-12">
-      <div
-        ref={contentRef}
-        className="prose prose-lg font-sans prose-headings:font-sans max-w-none dark:prose-invert prose-headings:font-bold prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-code:bg-gray-900 prose-code:text-white prose-code:px-2 prose-code:py-1 prose-code:rounded prose-pre:bg-gray-900 prose-pre:text-white prose-pre:border prose-pre:border-gray-700 prose-pre:overflow-auto prose-pre:p-4 prose-img:rounded-lg prose-img:shadow-sm prose-img:w-full prose-img:max-h-[600px] prose-img:object-contain prose-iframe:w-full prose-iframe:aspect-video prose-iframe:rounded-lg prose-iframe:shadow-sm"
-        dangerouslySetInnerHTML={{ __html: html }}
+    <>
+      {/* Load Twitter script unconditionally */}
+      <Script
+        src="https://platform.twitter.com/widgets.js"
+        strategy="afterInteractive"
+        onLoad={() => {
+          console.info('[Twitter Script] Loaded');
+          setTwitterScriptLoaded(true);
+        }}
+        onError={(e) => console.error('[Twitter Script] Error:', e)}
       />
 
-      {numberedHeadings.length > 0 && (
-        <nav
-          aria-label="Table of contents"
-          className="hidden lg:block self-start sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto text-sm text-muted-foreground border-l border-border/40 pl-4"
-        >
-          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground/80 mb-3">
-            On this page
-          </p>
-          <ul className="space-y-2">
-            {numberedHeadings.map((heading) => (
-              <li
-                key={heading.id}
-                className={INDENT_BY_LEVEL[heading.level] ?? "pl-6"}
-              >
-                <a
-                  href={`#${heading.id}`}
-                  className={clsx(
-                    "flex gap-2 items-start rounded-md px-2 py-1 transition-colors leading-snug",
-                    activeId === heading.id
-                      ? "bg-primary/10 text-primary font-semibold"
-                      : "text-muted-foreground hover:text-foreground"
-                  )}
-                  aria-current={activeId === heading.id ? "true" : undefined}
-                  onClick={() => setActiveId(heading.id)}
+      <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_16rem] lg:gap-12">
+        <div
+          ref={contentRef}
+          className="prose prose-lg font-sans prose-headings:font-sans max-w-none dark:prose-invert prose-headings:font-bold prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-code:bg-gray-900 prose-code:text-white prose-code:px-2 prose-code:py-1 prose-code:rounded prose-pre:bg-gray-900 prose-pre:text-white prose-pre:border prose-pre:border-gray-700 prose-pre:overflow-auto prose-pre:p-4 prose-img:rounded-lg prose-img:shadow-sm prose-img:w-full prose-img:max-h-[600px] prose-img:object-contain prose-iframe:w-full prose-iframe:aspect-video prose-iframe:rounded-lg prose-iframe:shadow-sm"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+
+        {numberedHeadings.length > 0 && (
+          <nav
+            aria-label="Table of contents"
+            className="hidden lg:block self-start sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto text-sm text-muted-foreground border-l border-border/40 pl-4"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground/80 mb-3">
+              On this page
+            </p>
+            <ul className="space-y-2">
+              {numberedHeadings.map((heading) => (
+                <li
+                  key={heading.id}
+                  className={INDENT_BY_LEVEL[heading.level] ?? "pl-6"}
                 >
-                  <span
+                  <a
+                    href={`#${heading.id}`}
                     className={clsx(
-                      "min-w-[2.25rem] text-right tabular-nums",
+                      "flex gap-2 items-start rounded-md px-2 py-1 transition-colors leading-snug",
                       activeId === heading.id
-                        ? "text-primary font-semibold"
-                        : "text-muted-foreground/80"
+                        ? "bg-primary/10 text-primary font-semibold"
+                        : "text-muted-foreground hover:text-foreground"
                     )}
+                    aria-current={activeId === heading.id ? "true" : undefined}
+                    onClick={() => setActiveId(heading.id)}
                   >
-                    {heading.number}
-                  </span>
-                  {heading.text}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      )}
-    </div>
+                    <span
+                      className={clsx(
+                        "min-w-[2.25rem] text-right tabular-nums",
+                        activeId === heading.id
+                          ? "text-primary font-semibold"
+                          : "text-muted-foreground/80"
+                      )}
+                    >
+                      {heading.number}
+                    </span>
+                    {heading.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
+      </div>
+    </>
   );
 }
