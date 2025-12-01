@@ -452,8 +452,8 @@ export default function Navbar() {
               href="/builder-grants"
               className="inline-flex items-center gap-1 sm:gap-2 hover:opacity-90 transition-opacity"
             >
-              <span className="hidden sm:inline">Builder Grant Program for Startups — Up to $30,000 API credits in total</span>
-              <span className="sm:hidden">Builder Grants — $30K API credits</span>
+              <span className="hidden sm:inline">Builder Grant Program for Startups — Up to $15,000 API credits in total</span>
+              <span className="sm:hidden">Builder Grants — $15K API credits</span>
               <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
             <button

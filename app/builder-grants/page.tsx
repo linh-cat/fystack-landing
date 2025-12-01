@@ -73,7 +73,7 @@ export default function BuilderGrantsPage() {
         {/* Header Section */}
         <div className="mb-16 text-center">
           <div className="mb-4 flex flex-col items-center justify-center gap-2">
-            <h1 className="text-6xl font-bold text-white sm:text-7xl lg:text-8xl">$30,000</h1>
+            <h1 className="text-6xl font-bold text-white sm:text-7xl lg:text-8xl">$15,000</h1>
             <span className="text-3xl font-semibold uppercase tracking-[0.2em] text-blue-200">API Credits</span>
           </div>
           <h2 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
