@@ -153,13 +153,26 @@ export default function Home() {
                 </span>
                 <br />
                 <span className="text-slate-700 dark:text-slate-200">
-                  custody for teams
+                  For Web3 and Fintechs
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-8 md:mb-10 max-w-2xl px-4">
-                Automate stablecoin workflows across multiple chains securely at scale with actionable insights.
+              <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-6 max-w-2xl px-4">
+                Help fintechs, web3 team automate stablecoin, digital asset workflows across multiple chains securely at scale with maximum security.
               </p>
+
+              {/* Badges */}
+              <div className="flex flex-wrap items-center justify-center gap-3 mb-8 md:mb-10 px-4">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/50">
+                  <span className="text-sm font-medium text-blue-700 dark:text-blue-300">Save time</span>
+                </div>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/50">
+                  <span className="text-sm font-medium text-blue-700 dark:text-blue-300">Save cost</span>
+                </div>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/50">
+                  <span className="text-sm font-medium text-blue-700 dark:text-blue-300">Prevent key breaches</span>
+                </div>
+              </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -284,6 +297,252 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Case Studies Section */}
+        <section id="case-studies" className="py-20 md:py-28 bg-white dark:bg-background">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <div className="text-center mb-12">
+              <Badge className="mb-4 bg-[#155dfc]/10 text-[#155dfc] hover:bg-[#155dfc]/10 border-0">
+                Use Cases
+              </Badge>
+              <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">
+                Trusted by innovative teams
+              </h2>
+              <p className="text-xl text-gray-500 dark:text-gray-400">
+                See how companies are building with Fystack
+              </p>
+            </div>
+
+            <Tabs defaultValue="gaian" className="w-full">
+              <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-4 mb-12 bg-slate-100 dark:bg-slate-800 p-1 rounded-full">
+                <TabsTrigger value="gaian" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700">
+                  Payment Platform
+                </TabsTrigger>
+                <TabsTrigger value="apescreener" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700">
+                  Treasury
+                </TabsTrigger>
+                <TabsTrigger value="otc" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700">
+                  OTC Exchange
+                </TabsTrigger>
+                <TabsTrigger value="minepath" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700">
+                  Gaming Wallet
+                </TabsTrigger>
+              </TabsList>
+
+              {/* Gaian - Payment Platform */}
+              <TabsContent value="gaian">
+                <div className="grid md:grid-cols-2 gap-12 items-start">
+                  <div className="min-h-[320px]">
+                    <Link
+                      href="https://gaian.network/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-[#155dfc] transition-colors"
+                    >
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 hover:text-[#155dfc] transition-colors">
+                        Gaian
+                      </h3>
+                    </Link>
+                    <p className="text-[#155dfc] font-medium mb-6">Payment Platform</p>
+                    <ul className="space-y-4">
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">Automated MPC wallet sweeps for seamless fund management</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">Multi-chain deposit collection across EVM, Solana</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">Real-time webhook notifications for payment events</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">Enterprise-grade security with threshold signatures</span>
+                      </li>
+                    </ul>
+                    <Link
+                      href="https://fystack.io/blog/automating-mpc-wallet-sweeps-for-gaian-a-fystack-use-case"
+                      target="_blank"
+                      className="inline-flex items-center gap-2 mt-8 text-[#155dfc] font-medium hover:underline"
+                    >
+                      Read case study <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                  <Link
+                    href="https://gaian.network/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <div className="bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden aspect-video">
+                      <Image
+                        src="/case_studies/gaian_pay.jpeg"
+                        alt="Gaian Payment Platform"
+                        width={600}
+                        height={338}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  </Link>
+                </div>
+              </TabsContent>
+
+              {/* Apescreener - Treasury */}
+              <TabsContent value="apescreener">
+                <div className="grid md:grid-cols-2 gap-12 items-start">
+                  <div className="min-h-[320px]">
+                    <Link
+                      href="https://apescreener.xyz/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-[#155dfc] transition-colors"
+                    >
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 hover:text-[#155dfc] transition-colors">
+                        Apescreener
+                      </h3>
+                    </Link>
+                    <p className="text-[#155dfc] font-medium mb-6">All-Chain Treasury Management</p>
+                    <ul className="space-y-4">
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">Unified treasury view across multiple blockchains</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">Multi-sig approvals for large fund movements</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">Real-time portfolio analytics and reporting</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">Automated treasury operations and alerts</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <Link
+                    href="https://apescreener.xyz/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <div className="bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden aspect-video">
+                      <Image
+                        src="/case_studies/apes_screenshot.png"
+                        alt="Apescreener Treasury Management"
+                        width={600}
+                        height={338}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  </Link>
+                </div>
+              </TabsContent>
+
+              {/* OTC Exchange */}
+              <TabsContent value="otc">
+                <div className="grid md:grid-cols-2 gap-12 items-start">
+                  <div className="min-h-[320px]">
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                      OTC Exchange
+                    </h3>
+                    <p className="text-[#155dfc] font-medium mb-6">Over-the-Counter Trading Platform</p>
+                    <ul className="space-y-4">
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">Secure custody for high-value OTC transactions</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">Quorum approval workflows for large trades</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">Auto sweep user's deposit wallet into hot wallets</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">Compliance-ready audit trails and reporting</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden aspect-video">
+                    <Image
+                      src="/case_studies/otc.webp"
+                      alt="OTC Exchange Platform"
+                      width={600}
+                      height={338}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                </div>
+              </TabsContent>
+
+              {/* Minepath - Gaming Infra */}
+              <TabsContent value="minepath">
+                <div className="grid md:grid-cols-2 gap-12 items-start">
+                  <div className="min-h-[320px]">
+                    <Link
+                      href="https://play.minepath.fun/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-[#155dfc] transition-colors"
+                    >
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 hover:text-[#155dfc] transition-colors">
+                        Minepath
+                      </h3>
+                    </Link>
+                    <p className="text-[#155dfc] font-medium mb-6">Gaming Infrastructure</p>
+                    <ul className="space-y-4">
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">On-chain Minecraft server built on Solana</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">Wallet infrastructure for gamers to deposit tokens, SOL and play games</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">Scalable wallet creation for thousands of players</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">Low-latency transaction processing for gaming UX</span>
+                      </li>
+                    </ul>
+                    <Link
+                      href="https://fystack.io/blog/fystack-x-minepath-wallet-infrastructure-for-the-mine-to-earn-model-in-minecraft"
+                      target="_blank"
+                      className="inline-flex items-center gap-2 mt-8 text-[#155dfc] font-medium hover:underline"
+                    >
+                      Read case study <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                  <Link
+                    href="https://play.minepath.fun/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <div className="bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden aspect-video">
+                      <Image
+                        src="/case_studies/minepaht_game.jpg"
+                        alt="Minepath Gaming Infrastructure"
+                        width={600}
+                        height={338}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  </Link>
+                </div>
+              </TabsContent>
+            </Tabs>
           </div>
         </section>
 
@@ -1984,210 +2243,6 @@ export default function Home() {
               </div>
             </div>
 
-          </div>
-        </section>
-
-        {/* Case Studies Section */}
-        <section id="case-studies" className="py-20 md:py-28 bg-white dark:bg-background">
-          <div className="container mx-auto px-4 max-w-6xl">
-            <div className="text-center mb-12">
-              <Badge className="mb-4 bg-[#155dfc]/10 text-[#155dfc] hover:bg-[#155dfc]/10 border-0">
-                Case Studies
-              </Badge>
-              <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">
-                Trusted by innovative teams
-              </h2>
-              <p className="text-xl text-gray-500 dark:text-gray-400">
-                See how companies are building with Fystack
-              </p>
-            </div>
-
-            <Tabs defaultValue="gaian" className="w-full">
-              <TabsList className="grid w-full max-w-xl mx-auto grid-cols-3 mb-12 bg-slate-100 dark:bg-slate-800 p-1 rounded-full">
-                <TabsTrigger value="gaian" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700">
-                  Payment Platform
-                </TabsTrigger>
-                <TabsTrigger value="apescreener" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700">
-                  Treasury
-                </TabsTrigger>
-                <TabsTrigger value="minepath" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700">
-                  Gaming Infra
-                </TabsTrigger>
-              </TabsList>
-
-              {/* Gaian - Payment Platform */}
-              <TabsContent value="gaian">
-                <div className="grid md:grid-cols-2 gap-12 items-start">
-                  <div className="min-h-[320px]">
-                    <Link
-                      href="https://gaian.network/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-[#155dfc] transition-colors"
-                    >
-                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 hover:text-[#155dfc] transition-colors">
-                        Gaian
-                      </h3>
-                    </Link>
-                    <p className="text-[#155dfc] font-medium mb-6">Payment Platform</p>
-                    <ul className="space-y-4">
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Automated MPC wallet sweeps for seamless fund management</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Multi-chain deposit collection across EVM, Solana</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Real-time webhook notifications for payment events</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Enterprise-grade security with threshold signatures</span>
-                      </li>
-                    </ul>
-                    <Link
-                      href="https://fystack.io/blog/automating-mpc-wallet-sweeps-for-gaian-a-fystack-use-case"
-                      target="_blank"
-                      className="inline-flex items-center gap-2 mt-8 text-[#155dfc] font-medium hover:underline"
-                    >
-                      Read case study <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                  <Link
-                    href="https://gaian.network/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <div className="bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden aspect-video">
-                      <Image
-                        src="/case_studies/gaian_pay.jpeg"
-                        alt="Gaian Payment Platform"
-                        width={600}
-                        height={338}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                  </Link>
-                </div>
-              </TabsContent>
-
-              {/* Apescreener - Treasury */}
-              <TabsContent value="apescreener">
-                <div className="grid md:grid-cols-2 gap-12 items-start">
-                  <div className="min-h-[320px]">
-                    <Link
-                      href="https://apescreener.xyz/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-[#155dfc] transition-colors"
-                    >
-                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 hover:text-[#155dfc] transition-colors">
-                        Apescreener
-                      </h3>
-                    </Link>
-                    <p className="text-[#155dfc] font-medium mb-6">All-Chain Treasury Management</p>
-                    <ul className="space-y-4">
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Unified treasury view across multiple blockchains</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Multi-sig approvals for large fund movements</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Real-time portfolio analytics and reporting</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Automated treasury operations and alerts</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <Link
-                    href="https://apescreener.xyz/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <div className="bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden aspect-video">
-                      <Image
-                        src="/case_studies/apes_screenshot.png"
-                        alt="Apescreener Treasury Management"
-                        width={600}
-                        height={338}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                  </Link>
-                </div>
-              </TabsContent>
-
-              {/* Minepath - Gaming Infra */}
-              <TabsContent value="minepath">
-                <div className="grid md:grid-cols-2 gap-12 items-start">
-                  <div className="min-h-[320px]">
-                    <Link
-                      href="https://play.minepath.fun/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-[#155dfc] transition-colors"
-                    >
-                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 hover:text-[#155dfc] transition-colors">
-                        Minepath
-                      </h3>
-                    </Link>
-                    <p className="text-[#155dfc] font-medium mb-6">Gaming Infrastructure</p>
-                    <ul className="space-y-4">
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">On-chain Minecraft server built on Solana</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Wallet infrastructure for gamers to deposit tokens, SOL and play games</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Scalable wallet creation for thousands of players</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Low-latency transaction processing for gaming UX</span>
-                      </li>
-                    </ul>
-                    <Link
-                      href="https://fystack.io/blog/fystack-x-minepath-wallet-infrastructure-for-the-mine-to-earn-model-in-minecraft"
-                      target="_blank"
-                      className="inline-flex items-center gap-2 mt-8 text-[#155dfc] font-medium hover:underline"
-                    >
-                      Read case study <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                  <Link
-                    href="https://play.minepath.fun/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <div className="bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden aspect-video">
-                      <Image
-                        src="/case_studies/minepaht_game.jpg"
-                        alt="Minepath Gaming Infrastructure"
-                        width={600}
-                        height={338}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                  </Link>
-                </div>
-              </TabsContent>
-            </Tabs>
           </div>
         </section>
 
