@@ -153,7 +153,7 @@ export default function Home() {
                 </span>
                 <br />
                 <span className="text-slate-700 dark:text-slate-200">
-                  For Web3 and Fintechs
+                  Custody For Teams
                 </span>
               </h1>
 
