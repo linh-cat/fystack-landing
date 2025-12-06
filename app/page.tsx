@@ -303,30 +303,88 @@ export default function Home() {
         {/* Case Studies Section */}
         <section id="case-studies" className="py-20 md:py-28 bg-white dark:bg-background">
           <div className="container mx-auto px-4 max-w-6xl">
-            <div className="text-center mb-12">
-              <Badge className="mb-4 bg-[#155dfc]/10 text-[#155dfc] hover:bg-[#155dfc]/10 border-0">
-                Use Cases
-              </Badge>
+            <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">
-                Trusted by innovative teams
+                One platform, unlimited use cases
               </h2>
-              <p className="text-xl text-gray-500 dark:text-gray-400">
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-12">
+                Built for every digital asset workflow
+              </p>
+
+              {/* Use Case Icons Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 md:gap-6 max-w-6xl mx-auto mt-12">
+                <div className="flex flex-col items-center gap-3 p-4 md:p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                    <span className="text-2xl">💳</span>
+                  </div>
+                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">Stablecoin Payments</span>
+                </div>
+
+                <div className="flex flex-col items-center gap-3 p-4 md:p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                    <span className="text-2xl">🏦</span>
+                  </div>
+                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">Treasury Management</span>
+                </div>
+
+                <div className="flex flex-col items-center gap-3 p-4 md:p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
+                    <span className="text-2xl">💱</span>
+                  </div>
+                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">OTC Exchange</span>
+                </div>
+
+                <div className="flex flex-col items-center gap-3 p-4 md:p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
+                    <span className="text-2xl">🎮</span>
+                  </div>
+                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">Gaming Wallets</span>
+                </div>
+
+                <div className="flex flex-col items-center gap-3 p-4 md:p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center">
+                    <span className="text-2xl">🪙</span>
+                  </div>
+                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">Tokenization</span>
+                </div>
+
+                <div className="flex flex-col items-center gap-3 p-4 md:p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center">
+                    <span className="text-2xl">💰</span>
+                  </div>
+                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">Payroll</span>
+                </div>
+
+                <div className="flex flex-col items-center gap-3 p-4 md:p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
+                    <span className="text-2xl">📊</span>
+                  </div>
+                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">On-chain Accounting</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center mb-12">
+              <h3 className="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">
+                Trusted by innovative teams
+              </h3>
+              <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400">
                 See how companies are building with Fystack
               </p>
             </div>
 
             <Tabs defaultValue="gaian" className="w-full">
-              <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-4 mb-12 bg-slate-100 dark:bg-slate-800 p-1 rounded-full">
-                <TabsTrigger value="gaian" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700">
+              <TabsList className="grid w-full max-w-xl mx-auto grid-cols-2 md:grid-cols-4 mb-12 bg-slate-100 dark:bg-slate-800 p-1 rounded-full">
+                <TabsTrigger value="gaian" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700 text-sm">
                   Payment Platform
                 </TabsTrigger>
-                <TabsTrigger value="apescreener" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700">
+                <TabsTrigger value="apescreener" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700 text-sm">
                   Treasury
                 </TabsTrigger>
-                <TabsTrigger value="otc" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700">
+                <TabsTrigger value="otc" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700 text-sm">
                   OTC Exchange
                 </TabsTrigger>
-                <TabsTrigger value="minepath" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700">
+                <TabsTrigger value="minepath" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700 text-sm">
                   Gaming Wallet
                 </TabsTrigger>
               </TabsList>
