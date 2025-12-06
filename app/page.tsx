@@ -61,7 +61,9 @@ import { Solution } from "./components/Solution";
 import ClientPartners from "./components/ClientPartners";
 
 export default function Home() {
-  const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("monthly");
+  const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">(
+    "monthly"
+  );
   const [typedText, setTypedText] = useState("");
   const [isTypingDone, setIsTypingDone] = useState(false);
   const words = ["Stablecoin", "Digital Asset"];
@@ -158,19 +160,27 @@ export default function Home() {
               </h1>
 
               <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-6 max-w-2xl px-4">
-                Help fintechs, web3 team automate stablecoin, digital asset workflows across multiple chains securely at scale with maximum security.
+                Help fintechs, web3 team automate stablecoin, digital asset
+                workflows across multiple chains securely at scale with maximum
+                security.
               </p>
 
               {/* Badges */}
               <div className="flex flex-wrap items-center justify-center gap-3 mb-8 md:mb-10 px-4">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/50">
-                  <span className="text-sm font-medium text-blue-700 dark:text-blue-300">Save time</span>
+                  <span className="text-sm font-medium text-blue-700 dark:text-blue-300">
+                    Save time
+                  </span>
                 </div>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/50">
-                  <span className="text-sm font-medium text-blue-700 dark:text-blue-300">Save cost</span>
+                  <span className="text-sm font-medium text-blue-700 dark:text-blue-300">
+                    Save cost
+                  </span>
                 </div>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/50">
-                  <span className="text-sm font-medium text-blue-700 dark:text-blue-300">Prevent key breaches</span>
+                  <span className="text-sm font-medium text-blue-700 dark:text-blue-300">
+                    Prevent key breaches
+                  </span>
                 </div>
               </div>
 
@@ -219,7 +229,9 @@ export default function Home() {
                 <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   Fystack v0.1.8 is here!
                 </span>
-                <span className="text-blue-600 group-hover:translate-x-0.5 transition-transform duration-300">→</span>
+                <span className="text-blue-600 group-hover:translate-x-0.5 transition-transform duration-300">
+                  →
+                </span>
               </Link>
             </div>
             <div className="relative rounded-xl md:rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-2xl overflow-hidden">
@@ -264,7 +276,8 @@ export default function Home() {
                     Startups
                   </h3>
                   <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                    Launch your crypto product fast with enterprise-grade wallet infrastructure. No need to build from scratch.
+                    Launch your crypto product fast with enterprise-grade wallet
+                    infrastructure. No need to build from scratch.
                   </p>
                 </div>
               </div>
@@ -278,7 +291,8 @@ export default function Home() {
                     Mid-size companies
                   </h3>
                   <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                    Scale your operations with multi-chain treasury management, automated workflows, and team controls.
+                    Scale your operations with multi-chain treasury management,
+                    automated workflows, and team controls.
                   </p>
                 </div>
               </div>
@@ -292,7 +306,8 @@ export default function Home() {
                     Enterprises
                   </h3>
                   <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                    Self-hosted deployment with full compliance controls, audit trails, and dedicated support for your team.
+                    Self-hosted deployment with full compliance controls, audit
+                    trails, and dedicated support for your team.
                   </p>
                 </div>
               </div>
@@ -301,7 +316,10 @@ export default function Home() {
         </section>
 
         {/* Case Studies Section */}
-        <section id="case-studies" className="py-20 md:py-28 bg-white dark:bg-background">
+        <section
+          id="case-studies"
+          className="py-20 md:py-28 bg-white dark:bg-background"
+        >
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">
@@ -317,49 +335,63 @@ export default function Home() {
                   <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
                     <span className="text-2xl">💳</span>
                   </div>
-                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">Stablecoin Payments</span>
+                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">
+                    Stablecoin Payments
+                  </span>
                 </div>
 
                 <div className="flex flex-col items-center gap-3 p-4 md:p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
                   <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
                     <span className="text-2xl">🏦</span>
                   </div>
-                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">Treasury Management</span>
+                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">
+                    Treasury Management
+                  </span>
                 </div>
 
                 <div className="flex flex-col items-center gap-3 p-4 md:p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
                   <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
                     <span className="text-2xl">💱</span>
                   </div>
-                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">OTC Exchange</span>
+                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">
+                    OTC Exchange
+                  </span>
                 </div>
 
                 <div className="flex flex-col items-center gap-3 p-4 md:p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
                   <div className="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
                     <span className="text-2xl">🎮</span>
                   </div>
-                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">Gaming Wallets</span>
+                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">
+                    Gaming Wallets
+                  </span>
                 </div>
 
                 <div className="flex flex-col items-center gap-3 p-4 md:p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
                   <div className="w-12 h-12 rounded-full bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center">
                     <span className="text-2xl">🪙</span>
                   </div>
-                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">Tokenization</span>
+                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">
+                    Tokenization
+                  </span>
                 </div>
 
                 <div className="flex flex-col items-center gap-3 p-4 md:p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
                   <div className="w-12 h-12 rounded-full bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center">
                     <span className="text-2xl">💰</span>
                   </div>
-                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">Payroll</span>
+                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">
+                    Payroll
+                  </span>
                 </div>
 
                 <div className="flex flex-col items-center gap-3 p-4 md:p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
                   <div className="w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
                     <span className="text-2xl">📊</span>
                   </div>
-                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">On-chain Accounting</span>
+                  <span className="text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 text-center">
+                    On-chain Accounting
+                  </span>
                 </div>
               </div>
             </div>
@@ -415,23 +447,34 @@ export default function Home() {
                         Gaian
                       </h3>
                     </Link>
-                    <p className="text-[#155dfc] font-medium mb-6">Payment Platform</p>
+                    <p className="text-[#155dfc] font-medium mb-6">
+                      Payment Platform
+                    </p>
                     <ul className="space-y-4">
                       <li className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Automated MPC wallet sweeps for seamless fund management</span>
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Automated MPC wallet sweeps for seamless fund
+                          management
+                        </span>
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Multi-chain deposit collection across EVM, Solana</span>
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Multi-chain deposit collection across EVM, Solana
+                        </span>
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Real-time webhook notifications for payment events</span>
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Real-time webhook notifications for payment events
+                        </span>
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Enterprise-grade security with threshold signatures</span>
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Enterprise-grade security with threshold signatures
+                        </span>
                       </li>
                     </ul>
                     <Link
@@ -475,23 +518,33 @@ export default function Home() {
                         Apescreener
                       </h3>
                     </Link>
-                    <p className="text-[#155dfc] font-medium mb-6">All-Chain Treasury Management</p>
+                    <p className="text-[#155dfc] font-medium mb-6">
+                      All-Chain Treasury Management
+                    </p>
                     <ul className="space-y-4">
                       <li className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Unified treasury view across multiple blockchains</span>
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Unified treasury view across multiple blockchains
+                        </span>
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Multi-sig approvals for large fund movements</span>
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Multi-sig approvals for large fund movements
+                        </span>
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Real-time portfolio analytics and reporting</span>
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Real-time portfolio analytics and reporting
+                        </span>
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Automated treasury operations and alerts</span>
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Automated treasury operations and alerts
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -503,7 +556,7 @@ export default function Home() {
                   >
                     <div className="bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden aspect-video">
                       <Image
-                        src="/case_studies/apes_screenshot.png"
+                        src="/case_studies/apes_screenshot_final.png"
                         alt="Apescreener Treasury Management"
                         width={600}
                         height={338}
@@ -521,23 +574,33 @@ export default function Home() {
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
                       OTC Exchange
                     </h3>
-                    <p className="text-[#155dfc] font-medium mb-6">Over-the-Counter Trading Platform</p>
+                    <p className="text-[#155dfc] font-medium mb-6">
+                      Over-the-Counter Trading Platform
+                    </p>
                     <ul className="space-y-4">
                       <li className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Secure custody for high-value OTC transactions</span>
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Secure custody for high-value OTC transactions
+                        </span>
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Quorum approval workflows for large trades</span>
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Quorum approval workflows for large trades
+                        </span>
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Auto sweep user's deposit wallet into hot wallets</span>
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Auto sweep user's deposit wallet into hot wallets
+                        </span>
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Compliance-ready audit trails and reporting</span>
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Compliance-ready audit trails and reporting
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -567,23 +630,34 @@ export default function Home() {
                         Minepath
                       </h3>
                     </Link>
-                    <p className="text-[#155dfc] font-medium mb-6">Gaming Infrastructure</p>
+                    <p className="text-[#155dfc] font-medium mb-6">
+                      Gaming Infrastructure
+                    </p>
                     <ul className="space-y-4">
                       <li className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">On-chain Minecraft server built on Solana</span>
+                        <span className="text-slate-600 dark:text-slate-400">
+                          On-chain Minecraft server built on Solana
+                        </span>
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Wallet infrastructure for gamers to deposit tokens, SOL and play games</span>
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Wallet infrastructure for gamers to deposit tokens,
+                          SOL and play games
+                        </span>
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Scalable wallet creation for thousands of players</span>
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Scalable wallet creation for thousands of players
+                        </span>
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
-                        <span className="text-slate-600 dark:text-slate-400">Low-latency transaction processing for gaming UX</span>
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Low-latency transaction processing for gaming UX
+                        </span>
                       </li>
                     </ul>
                     <Link
@@ -642,7 +716,9 @@ export default function Home() {
                       </div>
                     </div>
                     <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                      Eliminate the need to build and maintain wallet infrastructure, security protocols, and blockchain integrations in-house.
+                      Eliminate the need to build and maintain wallet
+                      infrastructure, security protocols, and blockchain
+                      integrations in-house.
                     </p>
                   </div>
                 </div>
@@ -659,7 +735,8 @@ export default function Home() {
                       </div>
                     </div>
                     <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                      Skip months of development and go live faster with our production-ready infrastructure and comprehensive SDKs.
+                      Skip months of development and go live faster with our
+                      production-ready infrastructure and comprehensive SDKs.
                     </p>
                   </div>
                 </div>
@@ -1347,7 +1424,8 @@ export default function Home() {
                 Deploy on your own infrastructure
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                Complete control over your private keys and data with self-hosted deployment
+                Complete control over your private keys and data with
+                self-hosted deployment
               </p>
             </div>
 
@@ -1468,7 +1546,8 @@ export default function Home() {
                       <li className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-none" />
                         <span className="text-gray-700 dark:text-gray-300">
-                          Enterprise-grade infrastructure with technical support SLA
+                          Enterprise-grade infrastructure with technical support
+                          SLA
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
@@ -1492,12 +1571,8 @@ export default function Home() {
                     </ul>
 
                     <Button className="w-full" size="lg" asChild>
-                    <Link
-                      href="/pricing"
-                    >
-                      Buy One-Time License
-                    </Link>
-                  </Button>
+                      <Link href="/pricing">Buy One-Time License</Link>
+                    </Button>
                   </div>
                 </div>
               </TabsContent>
@@ -1857,14 +1932,14 @@ export default function Home() {
                 </h3>
                 <p className="text-muted-foreground">
                   Manage digital assets across multiple blockchain networks from
-                  a single unified interface. No need to use different apps like Safe, Squads.
-                  Automate treasury operations and maintain complete visibility over your multi-chain portfolio.
+                  a single unified interface. No need to use different apps like
+                  Safe, Squads. Automate treasury operations and maintain
+                  complete visibility over your multi-chain portfolio.
                 </p>
 
                 <div className="mt-6 inline-flex items-center px-4 py-2 rounded-lg border border-primary/30 bg-primary/10 text-primary font-medium">
                   One wallet, operate multiple chains
                 </div>
-
               </div>
               {/* Cross-Chain Treasury Image */}
               <div className="relative rounded-xl border bg-background/50 overflow-hidden">
@@ -2283,7 +2358,9 @@ export default function Home() {
                 <div className="p-2 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                   <CircleDollarSign className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-2xl font-bold">Centralized Exchange & Payment Integration</h3>
+                <h3 className="text-2xl font-bold">
+                  Centralized Exchange & Payment Integration
+                </h3>
                 <p className="text-muted-foreground">
                   Automatically sweep and consolidate funds from multiple
                   wallets into a central exchange wallet with customizable rules
@@ -2312,372 +2389,501 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
           </div>
         </section>
 
         {/* Pricing Section */}
         <section id="pricing" className="py-24 bg-gray-50 dark:bg-gray-950">
-            <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-              <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                <div className="space-y-2">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-slate-900 dark:text-white">
-                    Simple, transparent pricing
-                  </h2>
-                  <p className="max-w-[700px] text-slate-600 dark:text-slate-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto">
-                    Choose the plan that fits your needs. All plans include our
-                    core security features.
-                  </p>
-                </div>
+          <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-slate-900 dark:text-white">
+                  Simple, transparent pricing
+                </h2>
+                <p className="max-w-[700px] text-slate-600 dark:text-slate-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto">
+                  Choose the plan that fits your needs. All plans include our
+                  core security features.
+                </p>
               </div>
+            </div>
 
-              {/* Pricing Tabs */}
-              <Tabs defaultValue="saas" className="mt-12">
-                <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
-                  <TabsTrigger value="saas">Cloud (SaaS)</TabsTrigger>
-                  <TabsTrigger value="self-hosted">Self-Hosted</TabsTrigger>
-                </TabsList>
+            {/* Pricing Tabs */}
+            <Tabs defaultValue="saas" className="mt-12">
+              <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
+                <TabsTrigger value="saas">Cloud (SaaS)</TabsTrigger>
+                <TabsTrigger value="self-hosted">Self-Hosted</TabsTrigger>
+              </TabsList>
 
-                {/* SaaS Pricing */}
-                <TabsContent value="saas">
-                  {/* Billing Toggle */}
-                  <div className="flex items-center justify-center gap-2 mb-10">
-                    <div className="flex items-center bg-gray-100 dark:bg-gray-800 rounded-full p-1">
-                      <button
-                        onClick={() => setBillingPeriod("monthly")}
-                        className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
-                          billingPeriod === "monthly"
-                            ? "bg-white dark:bg-gray-700 text-slate-900 dark:text-white shadow-sm"
-                            : "text-slate-500 dark:text-slate-400"
-                        }`}
-                      >
-                        Monthly
-                      </button>
-                      <button
-                        onClick={() => setBillingPeriod("yearly")}
-                        className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
-                          billingPeriod === "yearly"
-                            ? "bg-white dark:bg-gray-700 text-slate-900 dark:text-white shadow-sm"
-                            : "text-slate-500 dark:text-slate-400"
-                        }`}
-                      >
-                        Yearly
-                      </button>
-                    </div>
-                    <span className="text-[#155dfc] text-sm font-medium">
-                      -20%
-                    </span>
+              {/* SaaS Pricing */}
+              <TabsContent value="saas">
+                {/* Billing Toggle */}
+                <div className="flex items-center justify-center gap-2 mb-10">
+                  <div className="flex items-center bg-gray-100 dark:bg-gray-800 rounded-full p-1">
+                    <button
+                      onClick={() => setBillingPeriod("monthly")}
+                      className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+                        billingPeriod === "monthly"
+                          ? "bg-white dark:bg-gray-700 text-slate-900 dark:text-white shadow-sm"
+                          : "text-slate-500 dark:text-slate-400"
+                      }`}
+                    >
+                      Monthly
+                    </button>
+                    <button
+                      onClick={() => setBillingPeriod("yearly")}
+                      className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+                        billingPeriod === "yearly"
+                          ? "bg-white dark:bg-gray-700 text-slate-900 dark:text-white shadow-sm"
+                          : "text-slate-500 dark:text-slate-400"
+                      }`}
+                    >
+                      Yearly
+                    </button>
                   </div>
+                  <span className="text-[#155dfc] text-sm font-medium">
+                    -20%
+                  </span>
+                </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                    {/* Developer (Free) Plan */}
-                    <Card className="relative flex flex-col bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 w-full min-w-0">
-                      <CardContent className="p-8 flex-1 flex flex-col">
-                        <div className="mb-6">
-                          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Developer</h3>
-                          <div className="flex items-baseline gap-1 mb-3">
-                            <span className="text-4xl font-bold text-slate-900 dark:text-white">Free</span>
-                          </div>
-                          <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                            Perfect for individual developers starting with Fystack wallet infrastructure.
-                          </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                  {/* Developer (Free) Plan */}
+                  <Card className="relative flex flex-col bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 w-full min-w-0">
+                    <CardContent className="p-8 flex-1 flex flex-col">
+                      <div className="mb-6">
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                          Developer
+                        </h3>
+                        <div className="flex items-baseline gap-1 mb-3">
+                          <span className="text-4xl font-bold text-slate-900 dark:text-white">
+                            Free
+                          </span>
                         </div>
-
-                        <Button
-                          className="w-full mb-8 rounded-full py-6 text-sm font-medium bg-[#155dfc] hover:bg-[#1350d9] text-white"
-                          asChild
-                        >
-                          <Link href="https://app.fystack.io" target="_blank" rel="noopener noreferrer">
-                            Get started <ArrowRight className="w-4 h-4 ml-2" />
-                          </Link>
-                        </Button>
-
-                        <ul className="space-y-4 flex-1">
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">Up to 2 MPC wallets</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">1,000 Hyper wallets</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">100 crypto payments</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">1 workspace, 3 users</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">Email support</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">Community access</span>
-                          </li>
-                        </ul>
-                      </CardContent>
-                    </Card>
-
-                    {/* Starter Plan */}
-                    <Card className="relative flex flex-col bg-white dark:bg-gray-900 rounded-2xl shadow-lg border-2 border-[#155dfc] w-full min-w-0">
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                        <Badge className="bg-[#155dfc] hover:bg-[#155dfc] text-white px-4 py-1 text-xs font-medium">
-                          Most Popular
-                        </Badge>
+                        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                          Perfect for individual developers starting with
+                          Fystack wallet infrastructure.
+                        </p>
                       </div>
-                      <CardContent className="p-8 flex-1 flex flex-col">
-                        <div className="mb-6">
-                          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Starter</h3>
-                          <div className="flex items-baseline gap-1 mb-3">
-                            <span className="text-4xl font-bold text-slate-900 dark:text-white">${billingPeriod === "monthly" ? 74 : 59}</span>
-                            <span className="text-slate-500 dark:text-slate-400">/month</span>
-                          </div>
-                          <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                            Ideal for startups looking to scale their crypto payment infrastructure.
-                          </p>
-                        </div>
 
-                        <Button
-                          className="w-full mb-8 rounded-full py-6 text-sm font-medium bg-[#155dfc] hover:bg-[#1350d9] text-white"
-                          asChild
+                      <Button
+                        className="w-full mb-8 rounded-full py-6 text-sm font-medium bg-[#155dfc] hover:bg-[#1350d9] text-white"
+                        asChild
+                      >
+                        <Link
+                          href="https://app.fystack.io"
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
-                          <Link href="https://app.fystack.io" target="_blank" rel="noopener noreferrer">
-                            Get started <ArrowRight className="w-4 h-4 ml-2" />
-                          </Link>
-                        </Button>
+                          Get started <ArrowRight className="w-4 h-4 ml-2" />
+                        </Link>
+                      </Button>
 
-                        <ul className="space-y-4 flex-1">
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">All Developer features</span>
+                      <ul className="space-y-4 flex-1">
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            Up to 2 MPC wallets
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            1,000 Hyper wallets
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            100 crypto payments
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            1 workspace, 3 users
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            Email support
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            Community access
+                          </span>
+                        </li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  {/* Starter Plan */}
+                  <Card className="relative flex flex-col bg-white dark:bg-gray-900 rounded-2xl shadow-lg border-2 border-[#155dfc] w-full min-w-0">
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                      <Badge className="bg-[#155dfc] hover:bg-[#155dfc] text-white px-4 py-1 text-xs font-medium">
+                        Most Popular
+                      </Badge>
+                    </div>
+                    <CardContent className="p-8 flex-1 flex flex-col">
+                      <div className="mb-6">
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                          Starter
+                        </h3>
+                        <div className="flex items-baseline gap-1 mb-3">
+                          <span className="text-4xl font-bold text-slate-900 dark:text-white">
+                            ${billingPeriod === "monthly" ? 74 : 59}
+                          </span>
+                          <span className="text-slate-500 dark:text-slate-400">
+                            /month
+                          </span>
+                        </div>
+                        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                          Ideal for startups looking to scale their crypto
+                          payment infrastructure.
+                        </p>
+                      </div>
+
+                      <Button
+                        className="w-full mb-8 rounded-full py-6 text-sm font-medium bg-[#155dfc] hover:bg-[#1350d9] text-white"
+                        asChild
+                      >
+                        <Link
+                          href="https://app.fystack.io"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Get started <ArrowRight className="w-4 h-4 ml-2" />
+                        </Link>
+                      </Button>
+
+                      <ul className="space-y-4 flex-1">
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            All Developer features
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            Up to 3 MPC wallets
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            3,000 Hyper wallets
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            500 crypto payments
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            2 workspaces, 5 users
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            3 blockchain networks
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            Advanced security features
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            Basic support
+                          </span>
+                        </li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  {/* Team Plan */}
+                  <Card className="relative flex flex-col bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 w-full min-w-0">
+                    <CardContent className="p-8 flex-1 flex flex-col">
+                      <div className="mb-6">
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                          Team
+                        </h3>
+                        <div className="flex items-baseline gap-1 mb-3">
+                          <span className="text-4xl font-bold text-slate-900 dark:text-white">
+                            ${billingPeriod === "monthly" ? 118 : 94}
+                          </span>
+                          <span className="text-slate-500 dark:text-slate-400">
+                            /month
+                          </span>
+                        </div>
+                        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                          Complete solution for growing teams wanting to
+                          maximize their wallet operations.
+                        </p>
+                      </div>
+
+                      <Button
+                        className="w-full mb-8 rounded-full py-6 text-sm font-medium bg-[#155dfc] hover:bg-[#1350d9] text-white"
+                        asChild
+                      >
+                        <Link
+                          href="https://app.fystack.io"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Get started <ArrowRight className="w-4 h-4 ml-2" />
+                        </Link>
+                      </Button>
+
+                      <ul className="space-y-4 flex-1">
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            All Starter features
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            Up to 20 MPC wallets
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            10,000 Hyper wallets
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            2,000 crypto payments
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            5 workspaces, unlimited users
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            5 blockchain networks
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            Priority Telegram support
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                            Advanced analytics
+                          </span>
+                        </li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Enterprise Plan */}
+                <Card className="mt-8 bg-gradient-to-br from-slate-50 to-blue-50/50 dark:from-slate-900 dark:to-blue-950/20 rounded-2xl border border-gray-200 dark:border-gray-800">
+                  <CardContent className="p-8">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                      <div className="flex-1">
+                        <Badge className="mb-4 bg-blue-600 hover:bg-blue-600 text-white text-xs">
+                          Custom Solution
+                        </Badge>
+                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                          Enterprise
+                        </h3>
+                        <p className="text-slate-600 dark:text-slate-400 mb-4">
+                          For large organizations with custom requirements
+                        </p>
+                        <div className="text-3xl font-bold text-slate-900 dark:text-white mb-6">
+                          Custom pricing
+                        </div>
+                        <ul className="grid md:grid-cols-2 gap-3">
+                          <li className="flex items-center gap-2">
+                            <CheckCircle className="w-5 h-5 text-slate-400 flex-shrink-0" />
+                            <span className="text-sm text-slate-700 dark:text-slate-300">
+                              Unlimited everything
+                            </span>
                           </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">Up to 3 MPC wallets</span>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle className="w-5 h-5 text-slate-400 flex-shrink-0" />
+                            <span className="text-sm text-slate-700 dark:text-slate-300">
+                              Dedicated support
+                            </span>
                           </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">3,000 Hyper wallets</span>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle className="w-5 h-5 text-slate-400 flex-shrink-0" />
+                            <span className="text-sm text-slate-700 dark:text-slate-300">
+                              Custom integrations
+                            </span>
                           </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">500 crypto payments</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">2 workspaces, 5 users</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">3 blockchain networks</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">Advanced security features</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">Basic support</span>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle className="w-5 h-5 text-slate-400 flex-shrink-0" />
+                            <span className="text-sm text-slate-700 dark:text-slate-300">
+                              SLA guarantees
+                            </span>
                           </li>
                         </ul>
-                      </CardContent>
-                    </Card>
-
-                    {/* Team Plan */}
-                    <Card className="relative flex flex-col bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 w-full min-w-0">
-                      <CardContent className="p-8 flex-1 flex flex-col">
-                        <div className="mb-6">
-                          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Team</h3>
-                          <div className="flex items-baseline gap-1 mb-3">
-                            <span className="text-4xl font-bold text-slate-900 dark:text-white">${billingPeriod === "monthly" ? 118 : 94}</span>
-                            <span className="text-slate-500 dark:text-slate-400">/month</span>
-                          </div>
-                          <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                            Complete solution for growing teams wanting to maximize their wallet operations.
-                          </p>
-                        </div>
-
+                      </div>
+                      <div className="md:w-auto">
                         <Button
-                          className="w-full mb-8 rounded-full py-6 text-sm font-medium bg-[#155dfc] hover:bg-[#1350d9] text-white"
+                          size="lg"
+                          className="bg-[#155dfc] hover:bg-[#1350d9] text-white rounded-full px-8"
                           asChild
                         >
-                          <Link href="https://app.fystack.io" target="_blank" rel="noopener noreferrer">
-                            Get started <ArrowRight className="w-4 h-4 ml-2" />
-                          </Link>
-                        </Button>
-
-                        <ul className="space-y-4 flex-1">
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">All Starter features</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">Up to 20 MPC wallets</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">10,000 Hyper wallets</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">2,000 crypto payments</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">5 workspaces, unlimited users</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">5 blockchain networks</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">Priority Telegram support</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-slate-700 dark:text-slate-300">Advanced analytics</span>
-                          </li>
-                        </ul>
-                      </CardContent>
-                    </Card>
-                  </div>
-
-                  {/* Enterprise Plan */}
-                  <Card className="mt-8 bg-gradient-to-br from-slate-50 to-blue-50/50 dark:from-slate-900 dark:to-blue-950/20 rounded-2xl border border-gray-200 dark:border-gray-800">
-                    <CardContent className="p-8">
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                        <div className="flex-1">
-                          <Badge className="mb-4 bg-blue-600 hover:bg-blue-600 text-white text-xs">
-                            Custom Solution
-                          </Badge>
-                          <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
-                            Enterprise
-                          </h3>
-                          <p className="text-slate-600 dark:text-slate-400 mb-4">
-                            For large organizations with custom requirements
-                          </p>
-                          <div className="text-3xl font-bold text-slate-900 dark:text-white mb-6">
-                            Custom pricing
-                          </div>
-                          <ul className="grid md:grid-cols-2 gap-3">
-                            <li className="flex items-center gap-2">
-                              <CheckCircle className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                              <span className="text-sm text-slate-700 dark:text-slate-300">Unlimited everything</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <CheckCircle className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                              <span className="text-sm text-slate-700 dark:text-slate-300">Dedicated support</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <CheckCircle className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                              <span className="text-sm text-slate-700 dark:text-slate-300">Custom integrations</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <CheckCircle className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                              <span className="text-sm text-slate-700 dark:text-slate-300">SLA guarantees</span>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="md:w-auto">
-                          <Button
-                            size="lg"
-                            className="bg-[#155dfc] hover:bg-[#1350d9] text-white rounded-full px-8"
-                            asChild
+                          <Link
+                            href="https://t.me/anhthind"
+                            target="_blank"
+                            rel="noopener noreferrer"
                           >
-                            <Link href="https://t.me/anhthind" target="_blank" rel="noopener noreferrer">
-                              Talk to Founders <ArrowRight className="w-4 h-4 ml-2" />
-                            </Link>
-                          </Button>
+                            Talk to Founders{" "}
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+
+              {/* Self-Hosted Pricing */}
+              <TabsContent value="self-hosted">
+                <div className="max-w-4xl mx-auto mt-8">
+                  <Card className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm">
+                    <CardContent className="p-8">
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                        What's Included
+                      </h3>
+                      <p className="text-slate-600 dark:text-slate-400 mb-8">
+                        Everything you need to build secure wallet
+                        infrastructure
+                      </p>
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
+                          <div>
+                            <div className="font-semibold text-slate-900 dark:text-white">
+                              7-Day Deployment Support
+                            </div>
+                            <div className="text-sm text-slate-500">
+                              Guided onboarding to launch your infrastructure
+                              fast
+                            </div>
+                          </div>
                         </div>
+                        <div className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
+                          <div>
+                            <div className="font-semibold text-slate-900 dark:text-white">
+                              MPC Technology
+                            </div>
+                            <div className="text-sm text-slate-500">
+                              Secure multi-party computation infrastructure
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
+                          <div>
+                            <div className="font-semibold text-slate-900 dark:text-white">
+                              Multi-Chain Support
+                            </div>
+                            <div className="text-sm text-slate-500">
+                              10+ blockchain networks supported
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
+                          <div>
+                            <div className="font-semibold text-slate-900 dark:text-white">
+                              Self-Hosted
+                            </div>
+                            <div className="text-sm text-slate-500">
+                              Deploy on your own infrastructure
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
+                          <div>
+                            <div className="font-semibold text-slate-900 dark:text-white">
+                              Updates & Security Patches
+                            </div>
+                            <div className="text-sm text-slate-500">
+                              Regular updates included for 1 year
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
+                          <div>
+                            <div className="font-semibold text-slate-900 dark:text-white">
+                              Documentation
+                            </div>
+                            <div className="text-sm text-slate-500">
+                              Comprehensive guides and API docs
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
+                          <div>
+                            <div className="font-semibold text-slate-900 dark:text-white">
+                              Commercial Use
+                            </div>
+                            <div className="text-sm text-slate-500">
+                              Use in unlimited commercial projects
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex flex-col sm:flex-row gap-3 mt-8">
+                        <Button
+                          size="lg"
+                          className="text-base px-8 bg-[#155dfc] hover:bg-[#1350d9] text-white rounded-full"
+                          asChild
+                        >
+                          <Link href="/pricing">
+                            View Details <ArrowRight className="w-4 h-4 ml-2" />
+                          </Link>
+                        </Button>
+                        <Button
+                          size="lg"
+                          className="bg-white hover:bg-gray-50 text-slate-700 border border-gray-300 rounded-full dark:bg-transparent dark:text-white dark:border-gray-600"
+                          asChild
+                        >
+                          <Link
+                            href="https://t.me/anhthind"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Talk to Founders
+                          </Link>
+                        </Button>
                       </div>
                     </CardContent>
                   </Card>
-                </TabsContent>
-
-                {/* Self-Hosted Pricing */}
-                <TabsContent value="self-hosted">
-                  <div className="max-w-4xl mx-auto mt-8">
-                    <Card className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm">
-                      <CardContent className="p-8">
-                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
-                          What's Included
-                        </h3>
-                        <p className="text-slate-600 dark:text-slate-400 mb-8">
-                          Everything you need to build secure wallet infrastructure
-                        </p>
-                        <div className="grid md:grid-cols-2 gap-6">
-                          <div className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
-                            <div>
-                              <div className="font-semibold text-slate-900 dark:text-white">7-Day Deployment Support</div>
-                              <div className="text-sm text-slate-500">Guided onboarding to launch your infrastructure fast</div>
-                            </div>
-                          </div>
-                          <div className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
-                            <div>
-                              <div className="font-semibold text-slate-900 dark:text-white">MPC Technology</div>
-                              <div className="text-sm text-slate-500">Secure multi-party computation infrastructure</div>
-                            </div>
-                          </div>
-                          <div className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
-                            <div>
-                              <div className="font-semibold text-slate-900 dark:text-white">Multi-Chain Support</div>
-                              <div className="text-sm text-slate-500">10+ blockchain networks supported</div>
-                            </div>
-                          </div>
-                          <div className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
-                            <div>
-                              <div className="font-semibold text-slate-900 dark:text-white">Self-Hosted</div>
-                              <div className="text-sm text-slate-500">Deploy on your own infrastructure</div>
-                            </div>
-                          </div>
-                          <div className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
-                            <div>
-                              <div className="font-semibold text-slate-900 dark:text-white">Updates & Security Patches</div>
-                              <div className="text-sm text-slate-500">Regular updates included for 1 year</div>
-                            </div>
-                          </div>
-                          <div className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
-                            <div>
-                              <div className="font-semibold text-slate-900 dark:text-white">Documentation</div>
-                              <div className="text-sm text-slate-500">Comprehensive guides and API docs</div>
-                            </div>
-                          </div>
-                          <div className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
-                            <div>
-                              <div className="font-semibold text-slate-900 dark:text-white">Commercial Use</div>
-                              <div className="text-sm text-slate-500">Use in unlimited commercial projects</div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="flex flex-col sm:flex-row gap-3 mt-8">
-                          <Button size="lg" className="text-base px-8 bg-[#155dfc] hover:bg-[#1350d9] text-white rounded-full" asChild>
-                            <Link href="/pricing">
-                              View Details <ArrowRight className="w-4 h-4 ml-2" />
-                            </Link>
-                          </Button>
-                          <Button size="lg" className="bg-white hover:bg-gray-50 text-slate-700 border border-gray-300 rounded-full dark:bg-transparent dark:text-white dark:border-gray-600" asChild>
-                            <Link href="https://t.me/anhthind" target="_blank" rel="noopener noreferrer">
-                              Talk to Founders
-                            </Link>
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </TabsContent>
-              </Tabs>
+                </div>
+              </TabsContent>
+            </Tabs>
           </div>
         </section>
 
