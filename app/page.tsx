@@ -374,17 +374,29 @@ export default function Home() {
             </div>
 
             <Tabs defaultValue="gaian" className="w-full">
-              <TabsList className="grid w-full max-w-xl mx-auto grid-cols-2 md:grid-cols-4 mb-12 bg-slate-100 dark:bg-slate-800 p-1 rounded-full">
-                <TabsTrigger value="gaian" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700 text-sm">
+              <TabsList className="!h-auto flex w-fit flex-wrap justify-center gap-2 sm:gap-3 mx-auto mb-12 bg-slate-50/90 dark:bg-slate-900/40 px-2 py-2 sm:px-4 sm:py-3 rounded-[2.5rem] border border-slate-200/70 dark:border-slate-800/80 shadow-sm backdrop-blur text-center">
+                <TabsTrigger
+                  value="gaian"
+                  className="flex-1 min-w-[140px] sm:flex-none sm:min-w-0 rounded-full border border-transparent px-5 py-2 text-sm font-medium text-slate-500 dark:text-slate-300 transition-all duration-200 hover:text-slate-900 dark:hover:text-white data-[state=active]:bg-white data-[state=active]:text-slate-900 dark:data-[state=active]:bg-slate-900 dark:data-[state=active]:text-white data-[state=active]:border-blue-500 data-[state=active]:shadow-sm"
+                >
                   Payment Platform
                 </TabsTrigger>
-                <TabsTrigger value="apescreener" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700 text-sm">
+                <TabsTrigger
+                  value="apescreener"
+                  className="flex-1 min-w-[140px] sm:flex-none sm:min-w-0 rounded-full border border-transparent px-5 py-2 text-sm font-medium text-slate-500 dark:text-slate-300 transition-all duration-200 hover:text-slate-900 dark:hover:text-white data-[state=active]:bg-white data-[state=active]:text-slate-900 dark:data-[state=active]:bg-slate-900 dark:data-[state=active]:text-white data-[state=active]:border-blue-500 data-[state=active]:shadow-sm"
+                >
                   Treasury
                 </TabsTrigger>
-                <TabsTrigger value="otc" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700 text-sm">
+                <TabsTrigger
+                  value="otc"
+                  className="flex-1 min-w-[140px] sm:flex-none sm:min-w-0 rounded-full border border-transparent px-5 py-2 text-sm font-medium text-slate-500 dark:text-slate-300 transition-all duration-200 hover:text-slate-900 dark:hover:text-white data-[state=active]:bg-white data-[state=active]:text-slate-900 dark:data-[state=active]:bg-slate-900 dark:data-[state=active]:text-white data-[state=active]:border-blue-500 data-[state=active]:shadow-sm"
+                >
                   OTC Exchange
                 </TabsTrigger>
-                <TabsTrigger value="minepath" className="rounded-full data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700 text-sm">
+                <TabsTrigger
+                  value="minepath"
+                  className="flex-1 min-w-[140px] sm:flex-none sm:min-w-0 rounded-full border border-transparent px-5 py-2 text-sm font-medium text-slate-500 dark:text-slate-300 transition-all duration-200 hover:text-slate-900 dark:hover:text-white data-[state=active]:bg-white data-[state=active]:text-slate-900 dark:data-[state=active]:bg-slate-900 dark:data-[state=active]:text-white data-[state=active]:border-blue-500 data-[state=active]:shadow-sm"
+                >
                   Gaming Wallet
                 </TabsTrigger>
               </TabsList>
