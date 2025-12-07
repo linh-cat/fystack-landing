@@ -741,6 +741,81 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+
+              {/* Developer Experience Section */}
+              <div className="mt-20 pt-20 border-t border-gray-200 dark:border-gray-800">
+                <div className="text-center mb-16">
+                  <h3 className="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">
+                    Focus on your product, not third-party integration
+                  </h3>
+                  <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-3">
+                    Like Stripe for payments, Fystack for digital asset custody.
+                  </p>
+                  <p className="text-lg font-medium text-gray-900 dark:text-gray-100 max-w-2xl mx-auto">
+                    While others take weeks to months, we get you live in days.
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                  {/* Fystack - Fast */}
+                  <div className="relative p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/30 dark:to-cyan-950/30 border-2 border-blue-500/20 dark:border-blue-500/30">
+                    <div className="absolute -top-3 left-6">
+                      <span className="px-3 py-1 bg-blue-500 text-white text-xs font-semibold rounded-full">Fystack</span>
+                    </div>
+                    <div className="text-center pt-2">
+                      <div className="text-6xl font-bold text-blue-600 dark:text-blue-400 mb-3">Days</div>
+                      <div className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">to integrate</div>
+                      <ul className="text-left space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                        <li className="flex items-start gap-2">
+                          <span className="text-blue-500 mt-0.5">✓</span>
+                          <span>Simple REST API</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-blue-500 mt-0.5">✓</span>
+                          <span>Clear documentation</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-blue-500 mt-0.5">✓</span>
+                          <span>Ready-to-use SDKs</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-blue-500 mt-0.5">✓</span>
+                          <span>Responsive support</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Competitors - Slow */}
+                  <div className="relative p-8 rounded-2xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700">
+                    <div className="absolute -top-3 left-6">
+                      <span className="px-3 py-1 bg-gray-400 text-white text-xs font-semibold rounded-full">Fireblocks, Cobo, Utila, Safeheron</span>
+                    </div>
+                    <div className="text-center pt-2">
+                      <div className="text-6xl font-bold text-gray-500 dark:text-gray-400 mb-3">Weeks</div>
+                      <div className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">to months</div>
+                      <ul className="text-left space-y-2 text-sm text-gray-500 dark:text-gray-500">
+                        <li className="flex items-start gap-2">
+                          <span className="mt-0.5">✗</span>
+                          <span>Complex APIs</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="mt-0.5">✗</span>
+                          <span>Fragmented docs</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="mt-0.5">✗</span>
+                          <span>Custom integration work</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="mt-0.5">✗</span>
+                          <span>Slow support cycles</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
