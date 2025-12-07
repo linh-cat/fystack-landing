@@ -516,6 +516,13 @@ export default function Navbar() {
             </Link>
 
             <Link
+              href="/compare"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Compare
+            </Link>
+
+            <Link
               href="/blog"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
