@@ -204,11 +204,7 @@ export default function Home() {
                   className="rounded-full px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
                   asChild
                 >
-                  <Link
-                    href="https://docs.fystack.io/mpcium"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <Link href="/compare">
                     Deploy Self-Hosted
                   </Link>
                 </Button>
