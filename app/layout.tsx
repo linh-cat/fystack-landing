@@ -11,8 +11,8 @@ import NextTopLoader from 'nextjs-toploader';
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: 'Fystack - Stablecoin wallet infrastructure for every business',
-  description: 'Fystack helps Web3 projects, fintechs & stablecoin issuers automate stablecoin workflows across multiple chains at scale — secure, compliant, self-hosted.',
+  title: 'Fystack - Enterprise-grade Stablecoin and digital asset Custody For Teams',
+  description: 'The fastest way to go on-chain. Fystack help fintechs, web3 teams automate stablecoin, digital asset workflows across chains securely.',
   metadataBase: new URL('https://fystack.io'),
   alternates: {
     canonical: 'https://fystack.io'
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://fystack.io',
-    title: 'Fystack - Stablecoin wallet infrastructure for every business',
-    description: 'Fystack helps Web3 projects, fintechs & stablecoin issuers automate stablecoin workflows across multiple chains at scale — secure, compliant, self-hosted.',
+    title: 'Fystack - Enterprise-grade Stablecoin and digital asset Custody For Teams',
+    description: 'The fastest way to go on-chain. Fystack help fintechs, web3 teams automate stablecoin, digital asset workflows across chains securely.',
     siteName: 'Fystack',
     images: [
       {
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@fystack',
     creator: '@fystack',
-    title: 'Fystack - Secure Wallet Infrastructure',
-    description: 'Fystack helps Web3 projects, fintechs & stablecoin issuers automate stablecoin workflows across multiple chains at scale — secure, compliant, self-hosted.',
+    title: 'Fystack - Enterprise-grade Stablecoin and digital asset Custody For Teams',
+    description: 'The fastest way to go on-chain. We help fintechs, web3 teams automate stablecoin and digital asset workflows across multiple chains securely at scale.',
     images: ['/self_custody.jpeg']
   },
   robots: {
