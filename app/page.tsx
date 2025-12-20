@@ -2570,19 +2570,19 @@ export default function Home() {
                         <li className="flex items-start gap-3">
                           <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
                           <span className="text-sm text-slate-700 dark:text-slate-300">
+                            Max Outbound Volume: $20,000/month
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-700 dark:text-slate-300">
                             1 workspace, 3 users
                           </span>
                         </li>
                         <li className="flex items-start gap-3">
                           <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
                           <span className="text-sm text-slate-700 dark:text-slate-300">
-                            Email support
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-slate-700 dark:text-slate-300">
-                            Community access
+                            Community support
                           </span>
                         </li>
                       </ul>
@@ -2603,10 +2603,10 @@ export default function Home() {
                         </h3>
                         <div className="flex items-baseline gap-1 mb-3">
                           <span className="text-4xl font-bold text-slate-900 dark:text-white">
-                            ${billingPeriod === "monthly" ? 74 : 59}
+                            ${billingPeriod === "monthly" ? 99 : 950}
                           </span>
                           <span className="text-slate-500 dark:text-slate-400">
-                            /month
+                            /{billingPeriod === "monthly" ? "month" : "year"}
                           </span>
                         </div>
                         <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -2656,13 +2656,13 @@ export default function Home() {
                         <li className="flex items-start gap-3">
                           <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
                           <span className="text-sm text-slate-700 dark:text-slate-300">
-                            2 workspaces, 5 users
+                            Max Outbound Volume: $100,000/month
                           </span>
                         </li>
                         <li className="flex items-start gap-3">
                           <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
                           <span className="text-sm text-slate-700 dark:text-slate-300">
-                            3 blockchain networks
+                            2 workspaces, 3 users
                           </span>
                         </li>
                         <li className="flex items-start gap-3">
@@ -2681,19 +2681,19 @@ export default function Home() {
                     </CardContent>
                   </Card>
 
-                  {/* Team Plan */}
+                  {/* Growth Plan */}
                   <Card className="relative flex flex-col bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 w-full min-w-0">
                     <CardContent className="p-8 flex-1 flex flex-col">
                       <div className="mb-6">
                         <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-                          Team
+                          Growth
                         </h3>
                         <div className="flex items-baseline gap-1 mb-3">
                           <span className="text-4xl font-bold text-slate-900 dark:text-white">
-                            ${billingPeriod === "monthly" ? 118 : 94}
+                            ${billingPeriod === "monthly" ? 299 : 2870}
                           </span>
                           <span className="text-slate-500 dark:text-slate-400">
-                            /month
+                            /{billingPeriod === "monthly" ? "month" : "year"}
                           </span>
                         </div>
                         <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -2743,19 +2743,19 @@ export default function Home() {
                         <li className="flex items-start gap-3">
                           <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
                           <span className="text-sm text-slate-700 dark:text-slate-300">
-                            5 workspaces, unlimited users
+                            Max Outbound Volume: $500,000/month
                           </span>
                         </li>
                         <li className="flex items-start gap-3">
                           <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
                           <span className="text-sm text-slate-700 dark:text-slate-300">
-                            5 blockchain networks
+                            5 workspaces, 10 users
                           </span>
                         </li>
                         <li className="flex items-start gap-3">
                           <CheckCircle className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
                           <span className="text-sm text-slate-700 dark:text-slate-300">
-                            Priority Telegram support
+                            Priority support
                           </span>
                         </li>
                         <li className="flex items-start gap-3">

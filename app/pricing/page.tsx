@@ -31,16 +31,16 @@ export default function BuyPage() {
         { text: "Up to 2 MPC wallets", hasInfo: true },
         { text: "1,000 Hyper wallets", hasInfo: true },
         { text: "100 crypto payments", hasInfo: false },
+        { text: "Max Outbound Volume: $20,000/month", hasInfo: false },
         { text: "1 workspace", hasInfo: false },
         { text: "3 team members", hasInfo: false },
-        { text: "Email support", hasInfo: true },
-        { text: "Community access", hasInfo: false },
+        { text: "Community support", hasInfo: false },
       ],
     },
     {
       name: "Starter",
-      monthlyPrice: 74,
-      yearlyPrice: 59,
+      monthlyPrice: 99,
+      yearlyPrice: 950,
       popular: true,
       description: "Ideal for startups looking to scale their crypto payment infrastructure.",
       features: [
@@ -48,27 +48,27 @@ export default function BuyPage() {
         { text: "Up to 3 MPC wallets", hasInfo: true },
         { text: "3,000 Hyper wallets", hasInfo: true },
         { text: "500 crypto payments", hasInfo: false },
+        { text: "Max Outbound Volume: $100,000/month", hasInfo: false },
         { text: "2 workspaces", hasInfo: false },
-        { text: "5 team members", hasInfo: false },
-        { text: "3 blockchain networks", hasInfo: true },
+        { text: "3 team members", hasInfo: false },
         { text: "Advanced security features", hasInfo: true },
         { text: "Basic support", hasInfo: true },
       ],
     },
     {
-      name: "Team",
-      monthlyPrice: 118,
-      yearlyPrice: 94,
+      name: "Growth",
+      monthlyPrice: 299,
+      yearlyPrice: 2870,
       description: "Complete solution for growing teams wanting to maximize their wallet operations.",
       features: [
         { text: "All Starter features", hasInfo: false },
         { text: "Up to 20 MPC wallets", hasInfo: true },
         { text: "10,000 Hyper wallets", hasInfo: true },
         { text: "2,000 crypto payments", hasInfo: false },
+        { text: "Max Outbound Volume: $500,000/month", hasInfo: false },
         { text: "5 workspaces", hasInfo: false },
-        { text: "Unlimited team members", hasInfo: false },
-        { text: "5 blockchain networks", hasInfo: true },
-        { text: "Priority Telegram support", hasInfo: true },
+        { text: "10 team members", hasInfo: false },
+        { text: "Priority support", hasInfo: true },
         { text: "Advanced analytics", hasInfo: true },
       ],
     },
@@ -218,7 +218,9 @@ export default function BuyPage() {
                                   <span className="text-4xl font-bold text-slate-900 dark:text-white">
                                     ${getPrice(plan.monthlyPrice, plan.yearlyPrice)}
                                   </span>
-                                  <span className="text-slate-500 dark:text-slate-400">/month</span>
+                                  <span className="text-slate-500 dark:text-slate-400">
+                                    /{billingPeriod === "monthly" ? "month" : "year"}
+                                  </span>
                                 </>
                               )}
                             </div>
