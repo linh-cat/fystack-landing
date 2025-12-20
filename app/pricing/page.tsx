@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Check, ArrowRight, MessageCircle, Clock, Shield, Zap, Info } from "lucide-react";
+import { Check, ArrowRight, MessageCircle, Clock, Shield, Zap, Info, Server, Lock, ShieldCheck, Cloud, Globe, AlertTriangle } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -311,7 +311,138 @@ export default function BuyPage() {
 
               {/* Self-Hosted Tab */}
               <TabsContent value="self-hosted">
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-6xl mx-auto">
+                  {/* Comparison Visualization */}
+                  <div className="mb-12 text-center">
+                    <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-3xl mx-auto">
+                      Control your uptime, your data, your keys. Deploy on your infrastructure with complete sovereignty.
+                    </p>
+                    <Button
+                      className="bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-slate-900 rounded-lg px-8 py-6 text-base font-medium mb-12"
+                      asChild
+                    >
+                      <Link href="https://github.com/fystack/fystack-selfhost-scripts" target="_blank" rel="noopener noreferrer">
+                        <Shield className="w-5 h-5 mr-2" />
+                        Deploy pilot with one single command
+                      </Link>
+                    </Button>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      {/* Fystack Self-Hosted */}
+                      <Card className="relative border-2 border-emerald-500 bg-white dark:bg-gray-900 rounded-2xl overflow-hidden">
+                        <CardContent className="p-8">
+                          <div className="flex items-center justify-center mb-6">
+                            <ShieldCheck className="w-12 h-12 text-emerald-600" />
+                          </div>
+                          <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+                            Fystack Self-Hosted
+                          </h3>
+
+                          <div className="mb-8">
+                            <Badge className="bg-emerald-500 hover:bg-emerald-500 text-white px-4 py-2 text-sm font-medium mb-6">
+                              🔒 Private Network
+                            </Badge>
+                          </div>
+
+                          <div className="space-y-4 mb-8 border-2 border-dashed border-emerald-300 dark:border-emerald-700 rounded-xl p-6 bg-emerald-50/50 dark:bg-emerald-950/20">
+                            <div className="flex items-center gap-3 bg-white dark:bg-gray-800 p-4 rounded-lg">
+                              <Server className="w-5 h-5 text-slate-600 dark:text-slate-400" />
+                              <span className="text-slate-900 dark:text-white font-medium">Your Infrastructure</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-white dark:bg-gray-800 p-4 rounded-lg">
+                              <Lock className="w-5 h-5 text-slate-600 dark:text-slate-400" />
+                              <span className="text-slate-900 dark:text-white font-medium">Your Keys</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-white dark:bg-gray-800 p-4 rounded-lg">
+                              <ShieldCheck className="w-5 h-5 text-slate-600 dark:text-slate-400" />
+                              <span className="text-slate-900 dark:text-white font-medium">Your Control</span>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center justify-center gap-2 text-emerald-600 dark:text-emerald-400 font-medium">
+                            <Check className="w-5 h-5" />
+                            <span>Isolated from Internet</span>
+                          </div>
+                        </CardContent>
+                      </Card>
+
+                      {/* Others Cloud-based */}
+                      <Card className="relative border-2 border-orange-500 bg-white dark:bg-gray-900 rounded-2xl overflow-hidden">
+                        <CardContent className="p-8">
+                          <div className="flex items-center justify-center mb-6">
+                            <AlertTriangle className="w-12 h-12 text-orange-600" />
+                          </div>
+                          <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+                            Others (Cloud-based)
+                          </h3>
+
+                          <div className="mb-8">
+                            <Badge className="bg-orange-500 hover:bg-orange-500 text-white px-4 py-2 text-sm font-medium mb-6">
+                              🌐 Public Internet
+                            </Badge>
+                          </div>
+
+                          <div className="space-y-4 mb-8 border-2 border-dashed border-orange-300 dark:border-orange-700 rounded-xl p-6 bg-orange-50/50 dark:bg-orange-950/20">
+                            <div className="flex items-center gap-3 bg-white dark:bg-gray-800 p-4 rounded-lg">
+                              <Cloud className="w-5 h-5 text-slate-600 dark:text-slate-400" />
+                              <span className="text-slate-900 dark:text-white font-medium">Vendor Infrastructure</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-white dark:bg-gray-800 p-4 rounded-lg">
+                              <Globe className="w-5 h-5 text-slate-600 dark:text-slate-400" />
+                              <span className="text-slate-900 dark:text-white font-medium">Shared Keys</span>
+                            </div>
+                            <div className="flex items-center gap-3 bg-white dark:bg-gray-800 p-4 rounded-lg">
+                              <AlertTriangle className="w-5 h-5 text-slate-600 dark:text-slate-400" />
+                              <span className="text-slate-900 dark:text-white font-medium">Limited Control</span>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center justify-center gap-2 text-orange-600 dark:text-orange-400 font-medium">
+                            <AlertTriangle className="w-5 h-5" />
+                            <span>Exposed Attack Surface</span>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </div>
+
+                  {/* Why Self-Hosted Benefits */}
+                  <div className="grid md:grid-cols-3 gap-6 mb-12">
+                    <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 rounded-2xl border border-blue-200 dark:border-blue-800">
+                      <CardContent className="p-8 text-center">
+                        <Shield className="w-10 h-10 text-blue-600 mx-auto mb-4" />
+                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                          Full Control & Compliance
+                        </h3>
+                        <p className="text-sm text-slate-600 dark:text-slate-400">
+                          Complete sovereignty over your infrastructure, data, and private keys. Self-hosted matters for compliance with regulatory requirements and data residency laws.
+                        </p>
+                      </CardContent>
+                    </Card>
+                    <Card className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20 rounded-2xl border border-emerald-200 dark:border-emerald-800">
+                      <CardContent className="p-8 text-center">
+                        <Zap className="w-10 h-10 text-emerald-600 mx-auto mb-4" />
+                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                          Unlimited Wallets
+                        </h3>
+                        <p className="text-sm text-slate-600 dark:text-slate-400">
+                          No limits on the number of wallets you can create. Scale infinitely with your business needs.
+                        </p>
+                      </CardContent>
+                    </Card>
+                    <Card className="bg-gradient-to-br from-violet-50 to-purple-50 dark:from-violet-950/20 dark:to-purple-950/20 rounded-2xl border border-violet-200 dark:border-violet-800">
+                      <CardContent className="p-8 text-center">
+                        <ArrowRight className="w-10 h-10 text-violet-600 mx-auto mb-4" />
+                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                          Unlimited Volume
+                        </h3>
+                        <p className="text-sm text-slate-600 dark:text-slate-400">
+                          No transaction volume restrictions. Process millions of transactions without additional fees.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </div>
+
                   <Card className="mb-12 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
                     <CardContent className="p-8">
                       <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
