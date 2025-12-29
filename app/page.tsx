@@ -401,13 +401,19 @@ export default function Home() {
               </p>
             </div>
 
-            <Tabs defaultValue="gaian" className="w-full">
+            <Tabs defaultValue="exchange" className="w-full">
               <TabsList className="!h-auto flex w-fit flex-wrap justify-center gap-2 sm:gap-3 mx-auto mb-12 bg-slate-50/90 dark:bg-slate-900/40 px-2 py-2 sm:px-4 sm:py-3 rounded-[2.5rem] border border-slate-200/70 dark:border-slate-800/80 shadow-sm backdrop-blur text-center">
+                <TabsTrigger
+                  value="exchange"
+                  className="flex-1 min-w-[140px] sm:flex-none sm:min-w-0 rounded-full border border-transparent px-5 py-2 text-sm font-medium text-slate-500 dark:text-slate-300 transition-all duration-200 hover:text-slate-900 dark:hover:text-white data-[state=active]:bg-white data-[state=active]:text-slate-900 dark:data-[state=active]:bg-slate-900 dark:data-[state=active]:text-white data-[state=active]:border-blue-500 data-[state=active]:shadow-sm"
+                >
+                  Exchange
+                </TabsTrigger>
                 <TabsTrigger
                   value="gaian"
                   className="flex-1 min-w-[140px] sm:flex-none sm:min-w-0 rounded-full border border-transparent px-5 py-2 text-sm font-medium text-slate-500 dark:text-slate-300 transition-all duration-200 hover:text-slate-900 dark:hover:text-white data-[state=active]:bg-white data-[state=active]:text-slate-900 dark:data-[state=active]:bg-slate-900 dark:data-[state=active]:text-white data-[state=active]:border-blue-500 data-[state=active]:shadow-sm"
                 >
-                  Payment Platform
+                  Stablecoin payment rail
                 </TabsTrigger>
                 <TabsTrigger
                   value="apescreener"
@@ -419,7 +425,13 @@ export default function Home() {
                   value="otc"
                   className="flex-1 min-w-[140px] sm:flex-none sm:min-w-0 rounded-full border border-transparent px-5 py-2 text-sm font-medium text-slate-500 dark:text-slate-300 transition-all duration-200 hover:text-slate-900 dark:hover:text-white data-[state=active]:bg-white data-[state=active]:text-slate-900 dark:data-[state=active]:bg-slate-900 dark:data-[state=active]:text-white data-[state=active]:border-blue-500 data-[state=active]:shadow-sm"
                 >
-                  OTC Exchange
+                  OTC Desk
+                </TabsTrigger>
+                <TabsTrigger
+                  value="tradingagents"
+                  className="flex-1 min-w-[140px] sm:flex-none sm:min-w-0 rounded-full border border-transparent px-5 py-2 text-sm font-medium text-slate-500 dark:text-slate-300 transition-all duration-200 hover:text-slate-900 dark:hover:text-white data-[state=active]:bg-white data-[state=active]:text-slate-900 dark:data-[state=active]:bg-slate-900 dark:data-[state=active]:text-white data-[state=active]:border-blue-500 data-[state=active]:shadow-sm"
+                >
+                  Trading Agents
                 </TabsTrigger>
                 <TabsTrigger
                   value="minepath"
@@ -429,22 +441,69 @@ export default function Home() {
                 </TabsTrigger>
               </TabsList>
 
-              {/* Gaian - Payment Platform */}
+              {/* Exchange Custody Infrastructure */}
+              <TabsContent value="exchange">
+                <div className="grid md:grid-cols-2 gap-12 items-start">
+                  <div className="min-h-[320px]">
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                      Exchange Custody Infrastructure
+                    </h3>
+                    <p className="text-[#155dfc] font-medium mb-6">
+                      Built for regulated and high-volume exchanges
+                    </p>
+                    <ul className="space-y-4">
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">
+                          <strong>Full key and data ownership</strong> – Self-hosted custody with no vendor lock-in
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">
+                          <strong>Jurisdiction-safe by design</strong> – Keys never leave their country of operation
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">
+                          <strong>Flexible security architecture</strong> – MPC and HSM-enforced signing (FIPS 140-3 Level 3)
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">
+                          <strong>Faster than in-house builds</strong> – Deploy in weeks, not months, at lower cost
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 rounded-2xl overflow-hidden aspect-video flex items-center justify-center p-8">
+                    <div className="text-center">
+                      <div className="relative inline-block mb-6">
+                        <div className="w-24 h-24 rounded-2xl bg-slate-200 dark:bg-slate-700 flex items-center justify-center shadow-lg">
+                          <span className="text-5xl">🖥️</span>
+                        </div>
+                        <div className="absolute -bottom-2 -right-2 w-12 h-12 rounded-full bg-blue-500 dark:bg-blue-600 flex items-center justify-center shadow-lg border-4 border-white dark:border-slate-800">
+                          <span className="text-2xl">🛡️</span>
+                        </div>
+                      </div>
+                      <p className="text-sm font-medium text-slate-600 dark:text-slate-400">Secure Exchange Infrastructure</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-500 mt-1">Self-hosted custody solution</p>
+                    </div>
+                  </div>
+                </div>
+              </TabsContent>
+
+              {/* Stablecoin payment rail */}
               <TabsContent value="gaian">
                 <div className="grid md:grid-cols-2 gap-12 items-start">
                   <div className="min-h-[320px]">
-                    <Link
-                      href="https://gaian.network/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-[#155dfc] transition-colors"
-                    >
-                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 hover:text-[#155dfc] transition-colors">
-                        Gaian
-                      </h3>
-                    </Link>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                      Stablecoin payment rail
+                    </h3>
                     <p className="text-[#155dfc] font-medium mb-6">
-                      Payment Platform
+                      Seamlessly integrate cryptocurrency payments
                     </p>
                     <ul className="space-y-4">
                       <li className="flex items-start gap-3">
@@ -473,30 +532,16 @@ export default function Home() {
                         </span>
                       </li>
                     </ul>
-                    <Link
-                      href="https://fystack.io/blog/automating-mpc-wallet-sweeps-for-gaian-a-fystack-use-case"
-                      target="_blank"
-                      className="inline-flex items-center gap-2 mt-8 text-[#155dfc] font-medium hover:underline"
-                    >
-                      Read case study <ArrowRight className="w-4 h-4" />
-                    </Link>
                   </div>
-                  <Link
-                    href="https://gaian.network/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <div className="bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden aspect-video">
-                      <Image
-                        src="/case_studies/gaian_pay.jpeg"
-                        alt="Gaian Payment Platform"
-                        width={600}
-                        height={338}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                  </Link>
+                  <div className="bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden aspect-video">
+                    <Image
+                      src="/case_studies/gaian_pay.jpeg"
+                      alt="Stablecoin payment rail"
+                      width={600}
+                      height={338}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
                 </div>
               </TabsContent>
 
@@ -563,12 +608,12 @@ export default function Home() {
                 </div>
               </TabsContent>
 
-              {/* OTC Exchange */}
+              {/* OTC Desk */}
               <TabsContent value="otc">
                 <div className="grid md:grid-cols-2 gap-12 items-start">
                   <div className="min-h-[320px]">
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
-                      OTC Exchange
+                      OTC Desk
                     </h3>
                     <p className="text-[#155dfc] font-medium mb-6">
                       Over-the-Counter Trading Platform
@@ -603,7 +648,7 @@ export default function Home() {
                   <div className="bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden aspect-video">
                     <Image
                       src="/case_studies/otc.webp"
-                      alt="OTC Exchange Platform"
+                      alt="OTC Desk Platform"
                       width={600}
                       height={338}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
@@ -612,20 +657,99 @@ export default function Home() {
                 </div>
               </TabsContent>
 
-              {/* Minepath - Gaming Infra */}
+              {/* Trading Agents with Approval */}
+              <TabsContent value="tradingagents">
+                <div className="grid md:grid-cols-2 gap-12 items-start">
+                  <div className="min-h-[320px]">
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                      Trading agents with approval
+                    </h3>
+                    <p className="text-[#155dfc] font-medium mb-6">
+                      Prevent unauthorized access or bad trades with multi-layer approval workflows
+                    </p>
+                    <ul className="space-y-4">
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Multi-signature approval required
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Transaction limits and guardrails
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Real-time monitoring and alerts
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-600 dark:text-slate-400">
+                          Ensure every automated trading action is reviewed and approved before execution
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="relative h-[300px] rounded-xl border bg-background/50 p-6 overflow-hidden">
+                    {/* Bot Interface */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="relative w-[280px] h-[400px] bg-background rounded-xl border-2 border-primary/20 overflow-hidden scale-90">
+                        {/* Bot Header */}
+                        <div className="p-4 border-b bg-primary/5">
+                          <div className="flex items-center gap-3">
+                            <Bot className="h-6 w-6 text-primary" />
+                            <span className="font-medium">Trading Bot</span>
+                          </div>
+                        </div>
+
+                        {/* Chat Messages */}
+                        <div className="p-4 space-y-4">
+                          <div className="flex items-start gap-2 animate-slide-left">
+                            <div className="p-2 rounded bg-primary/10 max-w-[80%]">
+                              <p className="text-sm">/swap 10 ETH to USDC</p>
+                            </div>
+                          </div>
+                          <div
+                            className="flex items-start gap-2 justify-end animate-slide-left"
+                            style={{ animationDelay: "0.5s" }}
+                          >
+                            <div className="p-2 rounded bg-yellow-500/10 border border-yellow-500/20 max-w-[90%]">
+                              <p className="text-sm font-medium mb-1">
+                                ⚠️ Approval Required
+                              </p>
+                              <p className="text-xs mb-2">
+                                Swap 10 ETH → USDC
+                                <br />
+                                Est. $25,400
+                              </p>
+                              <div className="flex gap-1">
+                                <button className="px-2 py-1 text-xs bg-green-600 text-white rounded">
+                                  ✓ Approve
+                                </button>
+                                <button className="px-2 py-1 text-xs bg-red-600 text-white rounded">
+                                  ✗ Reject
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </TabsContent>
+
+              {/* Gaming Wallet */}
               <TabsContent value="minepath">
                 <div className="grid md:grid-cols-2 gap-12 items-start">
                   <div className="min-h-[320px]">
-                    <Link
-                      href="https://play.minepath.fun/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-[#155dfc] transition-colors"
-                    >
-                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 hover:text-[#155dfc] transition-colors">
-                        Minepath
-                      </h3>
-                    </Link>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                      Gaming Wallet
+                    </h3>
                     <p className="text-[#155dfc] font-medium mb-6">
                       Gaming Infrastructure
                     </p>
@@ -656,30 +780,16 @@ export default function Home() {
                         </span>
                       </li>
                     </ul>
-                    <Link
-                      href="https://fystack.io/blog/fystack-x-minepath-wallet-infrastructure-for-the-mine-to-earn-model-in-minecraft"
-                      target="_blank"
-                      className="inline-flex items-center gap-2 mt-8 text-[#155dfc] font-medium hover:underline"
-                    >
-                      Read case study <ArrowRight className="w-4 h-4" />
-                    </Link>
                   </div>
-                  <Link
-                    href="https://play.minepath.fun/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <div className="bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden aspect-video">
-                      <Image
-                        src="/case_studies/minepaht_game.jpg"
-                        alt="Minepath Gaming Infrastructure"
-                        width={600}
-                        height={338}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                  </Link>
+                  <div className="bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden aspect-video">
+                    <Image
+                      src="/case_studies/minepaht_game.jpg"
+                      alt="Gaming Wallet Infrastructure"
+                      width={600}
+                      height={338}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
                 </div>
               </TabsContent>
             </Tabs>
@@ -1200,30 +1310,111 @@ export default function Home() {
               {/* Automation */}
               <div className="group relative">
                 <div className="relative rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-8 h-full overflow-hidden hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300">
-                  {/* Visual placeholder */}
-                  <div className="aspect-[4/3] rounded-lg bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20 mb-8 flex items-center justify-center border border-gray-100 dark:border-gray-800">
-                    <div className="relative w-full h-full p-8">
-                      {/* Automation icon animation visual */}
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                        <div className="w-16 h-16 rounded-xl bg-blue-500/10 dark:bg-blue-500/20 flex items-center justify-center">
-                          <Zap className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+                  {/* Wallet Sweep Visualization */}
+                  <div className="aspect-[4/3] rounded-lg bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20 mb-8 flex items-center justify-center border border-gray-100 dark:border-gray-800 overflow-hidden">
+                    <div className="relative w-full h-full">
+                      {/* Deposit Wallets */}
+                      <div className="absolute top-[20%] left-[10%] flex items-center gap-2">
+                        <div className="p-1.5 rounded bg-white dark:bg-gray-800 border border-blue-500/30 shadow-sm">
+                          <Wallet className="h-3 w-3 text-blue-500" />
+                        </div>
+                        <span className="text-[10px] font-medium text-gray-600 dark:text-gray-400">Deposit Wallet</span>
+                      </div>
+
+                      <div className="absolute top-[45%] left-[10%] flex items-center gap-2">
+                        <div className="p-1.5 rounded bg-white dark:bg-gray-800 border border-blue-500/30 shadow-sm">
+                          <Wallet className="h-3 w-3 text-blue-500" />
+                        </div>
+                        <span className="text-[10px] font-medium text-gray-600 dark:text-gray-400">Deposit Wallet</span>
+                      </div>
+
+                      <div className="absolute top-[70%] left-[10%] flex items-center gap-2">
+                        <div className="p-1.5 rounded bg-white dark:bg-gray-800 border border-blue-500/30 shadow-sm">
+                          <Wallet className="h-3 w-3 text-blue-500" />
+                        </div>
+                        <span className="text-[10px] font-medium text-gray-600 dark:text-gray-400">Deposit Wallet</span>
+                      </div>
+
+                      {/* Hot Wallet */}
+                      <div className="absolute top-1/2 right-[10%] -translate-y-1/2 flex items-center gap-2">
+                        <span className="text-[10px] font-medium text-green-600 dark:text-green-400">Hot Wallet</span>
+                        <div className="p-2 rounded bg-white dark:bg-gray-800 border-2 border-green-500/40 shadow-md">
+                          <Wallet className="h-4 w-4 text-green-500" />
                         </div>
                       </div>
-                      {/* Connecting lines */}
-                      <div className="absolute top-1/4 left-1/4 w-2 h-2 rounded-full bg-blue-400/40"></div>
-                      <div className="absolute top-1/4 right-1/4 w-2 h-2 rounded-full bg-blue-400/40"></div>
-                      <div className="absolute bottom-1/4 left-1/3 w-2 h-2 rounded-full bg-blue-400/40"></div>
-                      <div className="absolute bottom-1/4 right-1/3 w-2 h-2 rounded-full bg-blue-400/40"></div>
+
+                      {/* SVG Lines and Animated Dots */}
+                      <svg
+                        width="100%"
+                        height="100%"
+                        className="absolute inset-0"
+                        style={{ zIndex: 0 }}
+                        viewBox="0 0 300 200"
+                      >
+                        {/* Lines */}
+                        <g
+                          stroke="currentColor"
+                          strokeWidth="1"
+                          className="text-blue-400/30"
+                        >
+                          <path d="M 80 40 Q 160 40, 220 100" fill="none" />
+                          <path d="M 80 90 Q 160 90, 220 100" fill="none" />
+                          <path d="M 80 140 Q 160 140, 220 100" fill="none" />
+                        </g>
+
+                        {/* Animated Dots */}
+                        <g>
+                          <circle r="2" fill="#3B82F6">
+                            <animateMotion
+                              dur="2s"
+                              repeatCount="indefinite"
+                              path="M 80 40 Q 160 40, 220 100"
+                            />
+                          </circle>
+
+                          <circle r="2" fill="#3B82F6">
+                            <animateMotion
+                              dur="2s"
+                              repeatCount="indefinite"
+                              path="M 80 90 Q 160 90, 220 100"
+                              begin="0.6s"
+                            />
+                          </circle>
+
+                          <circle r="2" fill="#3B82F6">
+                            <animateMotion
+                              dur="2s"
+                              repeatCount="indefinite"
+                              path="M 80 140 Q 160 140, 220 100"
+                              begin="1.2s"
+                            />
+                          </circle>
+                        </g>
+                      </svg>
                     </div>
                   </div>
 
                   <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
                     Automation
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Automate wallet sweeps, fund consolidation, and multi-chain
-                    operations. Set rules once, let the system handle the rest.
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+                    Automatically move funds with safety and efficiency.
                   </p>
+
+                  <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                      <span>Scheduled & threshold-based sweeps</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                      <span>Multi-chain native automation</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                      <span>Gas-optimized batching</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
 
@@ -1257,11 +1448,24 @@ export default function Home() {
                   <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
                     Alerts & Monitoring
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Real-time notifications via Telegram and Slack. Monitor
-                    transactions, wallet balances, and suspicious activities
-                    instantly.
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+                    Real-time visibility across wallets and transactions.
                   </p>
+
+                  <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-purple-600 dark:text-purple-400 mt-0.5 flex-shrink-0" />
+                      <span>Telegram & Slack notifications</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-purple-600 dark:text-purple-400 mt-0.5 flex-shrink-0" />
+                      <span>Balance and transaction monitoring</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-purple-600 dark:text-purple-400 mt-0.5 flex-shrink-0" />
+                      <span>Suspicious activity alerts</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
 
@@ -1311,11 +1515,24 @@ export default function Home() {
                   <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
                     Analytics & Insights
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Comprehensive dashboard with transaction analytics, wallet
-                    performance metrics, and actionable insights for better
-                    decision-making.
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+                    Clear operational insights for treasury teams.
                   </p>
+
+                  <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                      <span>Wallet performance metrics</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                      <span>Transaction and volume analytics</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                      <span>Actionable operational insights</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -1970,496 +2187,6 @@ export default function Home() {
                 </div>
               </TabsContent>
             </Tabs>
-          </div>
-        </section>
-
-        {/* Features Section */}
-        <section id="features" className="py-24 relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-blue-100/20 to-transparent dark:from-blue-950/20 dark:via-blue-900/10 dark:to-transparent -z-10"></div>
-
-          <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-            {/* Header */}
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 text-sm rounded-full border bg-primary/5 text-primary border-primary/20">
-                Use Cases
-              </div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-2xl md:text-3xl lg:text-4xl">
-                Use Cases
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground max-w-[700px] mx-auto">
-                Our platform provides all the tools developers need to create
-                secure, scalable wallet solutions.
-              </p>
-            </div>
-
-            {/* Cross chain treasury management - Right visualization */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
-              <div className="space-y-4">
-                <div className="p-2 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Key className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold">
-                  Cross chain treasury management
-                </h3>
-                <p className="text-muted-foreground">
-                  Manage digital assets across multiple blockchain networks from
-                  a single unified interface. No need to use different apps like
-                  Safe, Squads. Automate treasury operations and maintain
-                  complete visibility over your multi-chain portfolio.
-                </p>
-
-                <div className="mt-6 inline-flex items-center px-4 py-2 rounded-lg border border-primary/30 bg-primary/10 text-primary font-medium">
-                  One wallet, operate multiple chains
-                </div>
-              </div>
-              {/* Cross-Chain Treasury Image */}
-              <div className="relative rounded-xl border bg-background/50 overflow-hidden">
-                <Image
-                  src={multichainTreasuryImage}
-                  alt="Cross-chain Treasury Management Dashboard"
-                  className="w-full h-auto"
-                />
-              </div>
-            </div>
-
-            {/* Secure Smart Contract Deployment - COMMENTED OUT */}
-            {/*
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
-              <div className="relative h-[400px] rounded-xl border bg-background/50 p-6">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative w-full h-full">
-                    <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[80%]">
-                      <div className="p-3 rounded-lg bg-background/90 border border-muted shadow-sm">
-                        <div className="grid grid-cols-2 gap-4">
-                          <div className="space-y-2">
-                            <div className="flex items-center gap-1.5">
-                              <XCircle className="h-4 w-4 text-red-500" />
-                              <span className="text-sm font-medium text-red-500">
-                                Insecure
-                              </span>
-                            </div>
-                            <div className="bg-red-50 p-2 rounded font-mono text-xs border border-red-100">
-                              <div className="text-red-500">
-                                PRIVATE_KEY=0xabc123...
-                              </div>
-                              <div className="text-red-400">
-                                // Exposed in .env file
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="space-y-2">
-                            <div className="flex items-center gap-1.5">
-                              <CheckCircle className="h-4 w-4 text-green-500" />
-                              <span className="text-sm font-medium text-green-500">
-                                Secure
-                              </span>
-                            </div>
-                            <div className="bg-green-50 p-2 rounded font-mono text-xs border border-green-100">
-                              <div className="text-green-500">
-                                await wallet.sign(tx);
-                              </div>
-                              <div className="text-green-400">
-                                // OIDC authentication
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-[60%]">
-                      <div className="p-3 rounded-lg bg-background/90 border border-blue-200 shadow-sm">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Server className="h-5 w-5 text-blue-500" />
-                          <span className="font-medium">
-                            Smart Contract Deployment
-                          </span>
-                        </div>
-                        <div className="bg-blue-50 p-2 rounded border border-blue-100">
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                              <Database className="h-4 w-4 text-blue-500" />
-                              <span className="text-xs font-medium">
-                                Contract deployed
-                              </span>
-                            </div>
-                            <Badge
-                              variant="outline"
-                              className="bg-blue-100 text-blue-700 text-xs border-blue-200"
-                            >
-                              0x1234...5678
-                            </Badge>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <svg
-                      width="100%"
-                      height="100%"
-                      className="absolute inset-0"
-                      style={{ zIndex: -1 }}
-                      viewBox="0 0 400 400"
-                    >
-                      <path
-                        d="M 250 100 C 270 250, 270 280, 220 380"
-                        stroke="#dcfce7"
-                        strokeWidth="2"
-                        fill="none"
-                        strokeDasharray="4 2"
-                      />
-
-                      <circle r="3" fill="#22c55e">
-                        <animateMotion
-                          dur="3s"
-                          repeatCount="indefinite"
-                          path="M 250 100 C 270 250, 270 280, 220 380"
-                        />
-                      </circle>
-                    </svg>
-
-                    <div className="absolute top-[50%] left-[30%] p-1.5 rounded-full bg-red-100 border border-red-300 animate-pulse">
-                      <Key className="h-4 w-4 text-red-500" />
-                    </div>
-
-                    <div className="absolute top-[50%] right-[30%] p-1.5 rounded-full bg-green-100 border border-green-300 animate-pulse">
-                      <Lock className="h-4 w-4 text-green-500" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                <div className="p-2 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Server className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold">
-                  Secure Smart Contract Deployment
-                </h3>
-                <p className="text-muted-foreground">
-                  Deploy smart contracts without exposing private keys in your
-                  codebase or CI/CD pipeline, using secure OpenID Connect (OIDC)
-                  authentication.
-                </p>
-
-                <div className="space-y-6 mt-2">
-                  <div>
-                    <h4 className="text-base font-semibold text-red-500 mb-3">
-                      The Problem: .env File Security Risk
-                    </h4>
-                    <ul className="space-y-2.5">
-                      <li className="flex items-start gap-2.5">
-                        <XCircle className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">
-                          Accidental commits of private keys to public
-                          repositories
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2.5">
-                        <XCircle className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">
-                          Unauthorized access to deployment environments
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2.5">
-                        <XCircle className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">
-                          Complete loss of funds if compromised
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="text-base font-semibold text-green-500 mb-3">
-                      The Solution: MPC wallet + OIDC Authentication
-                    </h4>
-                    <ul className="space-y-2.5">
-                      <li className="flex items-start gap-2.5">
-                        <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">
-                          No private keys in your codebase or CI/CD pipeline
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2.5">
-                        <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">
-                          Authenticate smart contract deployments using OIDC
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2.5">
-                        <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">
-                          Sign transactions securely through our API with proper
-                          access controls
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            */}
-
-            {/* Crypto Payment - Left visualization */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
-              <div className="relative rounded-xl border bg-background/50 overflow-hidden">
-                <Image
-                  src={paymentImage}
-                  alt="Crypto Payment"
-                  className="w-full h-auto"
-                />
-              </div>
-              <div className="space-y-4">
-                <div className="p-2 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Zap className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold">Crypto Payment</h3>
-                <p className="text-muted-foreground">
-                  Seamlessly integrate cryptocurrency payments into your
-                  applications with our simple API.
-                </p>
-              </div>
-            </div>
-
-            {/* Trading agents with approval - Right visualization */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
-              <div className="space-y-4">
-                <div className="p-2 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Shield className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold">
-                  Trading agents with approval
-                </h3>
-                <p className="text-muted-foreground">
-                  Prevent unauthorized access or bad trades with multi-layer
-                  approval workflows. Ensure every automated trading action is
-                  reviewed and approved before execution, eliminating security
-                  risks.
-                </p>
-
-                {/* Security Highlight */}
-                <div className="mt-4 p-4 border border-primary/20 rounded-xl bg-primary/5">
-                  <h4 className="text-base font-semibold text-primary mb-2">
-                    Enhanced Security Controls
-                  </h4>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span>Multi-signature approval required</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span>Transaction limits and guardrails</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span>Real-time monitoring and alerts</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="relative h-[300px] rounded-xl border bg-background/50 p-6 overflow-hidden">
-                {/* Bot Interface */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative w-[280px] h-[400px] bg-background rounded-xl border-2 border-primary/20 overflow-hidden scale-90">
-                    {/* Bot Header */}
-                    <div className="p-4 border-b bg-primary/5">
-                      <div className="flex items-center gap-3">
-                        <Bot className="h-6 w-6 text-primary" />
-                        <span className="font-medium">Trading Bot</span>
-                      </div>
-                    </div>
-
-                    {/* Chat Messages */}
-                    <div className="p-4 space-y-4">
-                      <div className="flex items-start gap-2 animate-slide-left">
-                        <div className="p-2 rounded bg-primary/10 max-w-[80%]">
-                          <p className="text-sm">/swap 10 ETH to USDC</p>
-                        </div>
-                      </div>
-                      <div
-                        className="flex items-start gap-2 justify-end animate-slide-left"
-                        style={{ animationDelay: "0.5s" }}
-                      >
-                        <div className="p-2 rounded bg-yellow-500/10 border border-yellow-500/20 max-w-[90%]">
-                          <p className="text-sm font-medium mb-1">
-                            ⚠️ Approval Required
-                          </p>
-                          <p className="text-xs mb-2">
-                            Swap 10 ETH → USDC
-                            <br />
-                            Est. $25,400
-                          </p>
-                          <div className="flex gap-1">
-                            <button className="px-2 py-1 text-xs bg-green-600 text-white rounded">
-                              ✓ Approve
-                            </button>
-                            <button className="px-2 py-1 text-xs bg-red-600 text-white rounded">
-                              ✗ Reject
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Centralized Exchange - Left visualization */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
-              {/* CEX Visualization */}
-              <div className="relative h-[400px] rounded-xl border bg-background/50 p-6 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative w-[900px] h-full mx-auto">
-                    {/* Source Wallets */}
-                    <div className="absolute top-[25%] left-[15%]">
-                      <div className="p-3 rounded-lg bg-background border border-blue-500/20">
-                        <div className="flex items-center gap-2">
-                          <Wallet className="h-5 w-5 text-blue-500" />
-                          <span className="text-sm">Deposit Wallet 1</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="absolute top-[45%] left-[15%]">
-                      <div className="p-3 rounded-lg bg-background border border-blue-500/20">
-                        <div className="flex items-center gap-2">
-                          <Wallet className="h-5 w-5 text-blue-500" />
-                          <span className="text-sm">Deposit Wallet 2</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="absolute top-[65%] left-[15%]">
-                      {" "}
-                      {/* Verified position */}
-                      <div className="p-3 rounded-lg bg-background border border-blue-500/20">
-                        <div className="flex items-center gap-2">
-                          <Wallet className="h-5 w-5 text-blue-500" />
-                          <span className="text-sm">Deposit Wallet 3</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Hot Wallet */}
-                    <div className="absolute top-1/2 left-[65%] -translate-y-1/2">
-                      {" "}
-                      {/* Moved from 75% to 65% */}
-                      <div className="p-4 rounded-lg bg-background border border-green-500/20">
-                        <div className="flex items-center gap-2">
-                          <Wallet className="h-6 w-6 text-green-500" />
-                          <span>Hot Wallet</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* SVG with converging paths */}
-                    <svg
-                      width="100%"
-                      height="100%"
-                      className="absolute inset-0"
-                      style={{ zIndex: -1 }}
-                      viewBox="0 0 900 400"
-                    >
-                      {/* Define the paths - all converging to the exact same point */}
-                      <g
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        className="text-blue-500/30"
-                      >
-                        <path d="M 135 100 Q 350 100, 585 200" fill="none" />
-                        <path d="M 135 180 Q 350 180, 585 200" fill="none" />
-                        <path
-                          d="M 135 290 Q 350 290, 585 200"
-                          fill="none"
-                        />{" "}
-                        {/* Adjusted Y coordinate to match Wallet 3 center */}
-                      </g>
-
-                      {/* Animated dots */}
-                      <g>
-                        <circle r="3" fill="#3B82F6">
-                          <animateMotion
-                            dur="2s"
-                            repeatCount="indefinite"
-                            path="M 135 100 Q 350 100, 585 200"
-                          />
-                        </circle>
-
-                        <circle r="3" fill="#3B82F6">
-                          <animateMotion
-                            dur="2s"
-                            repeatCount="indefinite"
-                            path="M 135 180 Q 350 180, 585 200"
-                            begin="0.6s"
-                          />
-                        </circle>
-
-                        <circle r="3" fill="#3B82F6">
-                          <animateMotion
-                            dur="2s"
-                            repeatCount="indefinite"
-                            path="M 135 290 Q 350 290, 585 200"
-                            begin="1.2s"
-                          />
-                        </circle>
-                      </g>
-                    </svg>
-
-                    {/* Background Particles */}
-                    {[...Array(15)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="absolute w-1 h-1 bg-blue-500/20 rounded-full animate-float"
-                        style={{
-                          left: `${Math.random() * 100}%`,
-                          top: `${Math.random() * 100}%`,
-                          animationDelay: `${Math.random() * 3}s`,
-                          animationDuration: `${3 + Math.random() * 2}s`,
-                        }}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="p-2 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <CircleDollarSign className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold">
-                  Centralized Exchange & Payment Integration
-                </h3>
-                <p className="text-muted-foreground">
-                  Automatically sweep and consolidate funds from multiple
-                  wallets into a central exchange wallet with customizable rules
-                  and schedules for efficient liquidity management.
-                </p>
-
-                {/* CEX Highlight Box */}
-                <div className="mt-4 p-4 border border-primary/20 rounded-xl bg-primary/5">
-                  <h4 className="text-base font-semibold text-primary mb-2">
-                    Optimized for High-Volume Trading
-                  </h4>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span>Automated fund consolidation</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span>Hot/cold wallet management</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      <span>Instant settlement processing</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
