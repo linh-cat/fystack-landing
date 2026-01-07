@@ -1,55 +1,57 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Metadata } from 'next'
-import logoLight from '@/../public/Logo_fystack_light.png'
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Metadata } from "next";
+import logoLight from "@/../public/Logo_fystack_light.png";
 
 export const metadata: Metadata = {
-  title: 'Builder Grants - Fystack',
-  description: 'Get up to $50k in credits to build on Fystack. Everything you need to grow your blockchain project.',
+  title: "Builder Grants - Fystack",
+  description:
+    "Get up to $50k in credits to build on Fystack. Everything you need to grow your blockchain project.",
   openGraph: {
-    title: 'Fystack Builder Grants - $50k Credit',
-    description: 'Join our builder grants program and get funding, technical support, and marketing boost for your project.',
-    images: ['/startup_program/startup_program.png'],
+    title: "Fystack Builder Grants - $50k Credit",
+    description:
+      "Join our builder grants program and get funding, technical support, and marketing boost for your project.",
+    images: ["/startup_program/startup_program.png"],
   },
-}
+};
 
 export default function BuilderGrantsPage() {
   const grantedProjects = [
-    { name: 'Minepath', logo: '/startup_program/minepath-logo.png' },
+    { name: "Minepath", logo: "/startup_program/minepath-logo.png" },
     // Add more projects as needed
-  ]
+  ];
 
   const benefits = [
     {
-      number: '01',
-      title: 'API Credits',
-      description: '$3,000 API Credits per Project',
+      number: "01",
+      title: "API Credits",
+      description: "+$1,000 API Credits per Project",
       details:
-        'Kickstart your build with credits covering MPC wallet creation, payments, automation, webhooks, and analytics across supported chains.',
+        "Kickstart your build with credits covering MPC wallet creation, payments, automation, webhooks, and analytics across supported chains.",
     },
     {
-      number: '02',
-      title: 'Multichain SDK',
-      description: 'Unified SDK for EVM, Solana & more',
+      number: "02",
+      title: "Multichain SDK",
+      description: "Unified SDK for EVM, Solana & more",
       details:
-        'One SDK for MPC signing, payments, treasury automation, and webhooks — making user onboarding seamless across all supported blockchains.',
+        "One SDK for MPC signing, payments, treasury automation, and webhooks — making user onboarding seamless across all supported blockchains.",
     },
     {
-      number: '03',
-      title: 'Technical Support',
-      description: 'Direct Engineering Support',
+      number: "03",
+      title: "Technical Support",
+      description: "Direct Engineering Support",
       details:
-        'Priority integration help, architecture guidance, troubleshooting, and Telegram access — including 1-on-1 engineering support directly from Fystack founders.',
+        "Priority integration help, architecture guidance, troubleshooting, and Telegram access — including 1-on-1 engineering support directly from Fystack founders.",
     },
     {
-      number: '04',
-      title: 'Growth & Marketing',
-      description: 'Marketing Boost',
+      number: "04",
+      title: "Growth & Marketing",
+      description: "Marketing Boost",
       details:
-        'Accelerate traction with co-marketing, case studies, community highlights, and Amplify features to help your product reach more users.',
+        "Accelerate traction with co-marketing, case studies, community highlights, and Amplify features to help your product reach more users.",
     },
-  ]
+  ];
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-black">
@@ -68,16 +70,27 @@ export default function BuilderGrantsPage() {
       {/* Content */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 py-20 sm:px-6 lg:px-8">
         <div className="absolute left-6 top-6 sm:left-10 sm:top-10">
-          <Image src={logoLight} alt="Fystack logo" width={120} height={40} className="h-10 w-auto object-contain" priority />
+          <Image
+            src={logoLight}
+            alt="Fystack logo"
+            width={120}
+            height={40}
+            className="h-10 w-auto object-contain"
+            priority
+          />
         </div>
         {/* Header Section */}
         <div className="mb-16 text-center">
           <div className="mb-4 flex flex-col items-center justify-center gap-2">
-            <h1 className="text-6xl font-bold text-white sm:text-7xl lg:text-8xl">$15,000</h1>
-            <span className="text-3xl font-semibold uppercase tracking-[0.2em] text-blue-200">API Credits</span>
+            <h1 className="text-6xl font-bold text-white sm:text-7xl lg:text-8xl">
+              $15,000
+            </h1>
+            <span className="text-3xl font-semibold uppercase tracking-[0.2em] text-blue-200">
+              API Credits
+            </span>
           </div>
           <h2 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
-            <span className="text-blue-400">Fystack</span>{' '}
+            <span className="text-blue-400">Fystack</span>{" "}
             <span className="text-white">Builder Grants</span>
           </h2>
         </div>
@@ -129,19 +142,39 @@ export default function BuilderGrantsPage() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { title: 'MPC Wallet Creation', desc: 'Secure key generation with threshold signatures' },
-              { title: 'Payment APIs', desc: 'Accept and send payments across chains' },
-              { title: 'Automation', desc: 'Auto-sweep, treasury ops & scheduled transfers' },
-              { title: 'Multichain Support', desc: 'EVM, Solana, and more chains supported' },
-              { title: 'Webhooks', desc: 'Real-time event notifications for your app' },
-              { title: 'Analytics & Alerts', desc: 'Advanced insights and custom alerts with Slack, Telegram' },
+              {
+                title: "MPC Wallet Creation",
+                desc: "Secure key generation with threshold signatures",
+              },
+              {
+                title: "Payment APIs",
+                desc: "Accept and send payments across chains",
+              },
+              {
+                title: "Automation",
+                desc: "Auto-sweep, treasury ops & scheduled transfers",
+              },
+              {
+                title: "Multichain Support",
+                desc: "EVM, Solana, and more chains supported",
+              },
+              {
+                title: "Webhooks",
+                desc: "Real-time event notifications for your app",
+              },
+              {
+                title: "Analytics & Alerts",
+                desc: "Advanced insights and custom alerts with Slack, Telegram",
+              },
             ].map((feature, i) => (
               <div
                 key={i}
                 className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.02] p-6 backdrop-blur-sm transition-all hover:border-blue-400/40 hover:from-white/[0.1] hover:to-white/[0.04]"
               >
                 <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-blue-500/10 blur-2xl transition-all group-hover:bg-blue-500/20" />
-                <h4 className="mb-2 text-lg font-semibold text-white">{feature.title}</h4>
+                <h4 className="mb-2 text-lg font-semibold text-white">
+                  {feature.title}
+                </h4>
                 <p className="text-sm text-gray-400">{feature.desc}</p>
               </div>
             ))}
@@ -160,11 +193,11 @@ export default function BuilderGrantsPage() {
           </div>
           <div className="flex flex-wrap justify-center gap-3">
             {[
-              'Payments & Payouts',
-              'Gaming Infrastructure',
-              'Tokenization Platforms',
-              'Cross-border Fintech',
-              'On-chain Treasury',
+              "Payments & Payouts",
+              "Gaming Infrastructure",
+              "Tokenization Platforms",
+              "Cross-border Fintech",
+              "On-chain Treasury",
             ].map((useCase, i) => (
               <div
                 key={i}
@@ -206,5 +239,5 @@ export default function BuilderGrantsPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
