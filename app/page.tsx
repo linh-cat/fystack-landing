@@ -239,7 +239,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <Link
-                  href="https://www.youtube.com/watch?v=TeyoKqYy_Ls"
+                  href="https://www.youtube.com/watch?v=Am206C2Grxo&list=PLU9E1W4GqwHGmFhSF2HXKYzbFZNYgBQBR"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 rounded-full bg-white/95 text-slate-900 px-5 py-3 shadow-lg hover:bg-[#155dfc] hover:text-white transition-all duration-200"
