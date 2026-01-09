@@ -172,13 +172,12 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          {/* Legal section - temporarily commented out
           <div>
             <h3 className="text-sm font-medium mb-4">Legal</h3>
             <ul className="space-y-3 text-sm">
               <li>
                 <Link
-                  href="#"
+                  href="/terms"
                   className="text-muted-foreground hover:text-foreground transition-colors duration-200"
                 >
                   Terms of Service
@@ -186,7 +185,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/privacy"
                   className="text-muted-foreground hover:text-foreground transition-colors duration-200"
                 >
                   Privacy Policy
@@ -194,50 +193,39 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/cookies"
                   className="text-muted-foreground hover:text-foreground transition-colors duration-200"
                 >
                   Cookie Policy
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="#"
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-                >
-                  Data Processing
-                </Link>
-              </li>
             </ul>
           </div>
-          */}
         </div>
         <div className="border-t mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
             © 2025 Fystack. All rights reserved.
           </p>
-          {/* Privacy, Terms, Cookies links - temporarily hidden
           <div className="flex gap-4 mt-4 md:mt-0">
             <Link
-              href="#"
+              href="/privacy"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
             >
               Privacy
             </Link>
             <Link
-              href="#"
+              href="/terms"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
             >
               Terms
             </Link>
             <Link
-              href="#"
+              href="/cookies"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
             >
               Cookies
             </Link>
           </div>
-          */}
         </div>
       </div>
     </footer>
