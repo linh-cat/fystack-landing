@@ -929,7 +929,7 @@ export default function Home() {
         {/* MPC Technology Section */}
         <section className="relative py-32 bg-gray-50 dark:bg-gray-950">
           <div className="container mx-auto px-4 max-w-7xl">
-            <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div className="grid lg:grid-cols-[0.9fr,1.1fr] gap-20 items-center">
               {/* Left: Content */}
               <div className="space-y-8">
                 <div className="space-y-4">
@@ -985,8 +985,8 @@ export default function Home() {
               </div>
 
               {/* Right: Visualization */}
-              <div className="relative lg:pl-12">
-                <div className="relative rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-8 shadow-sm">
+              <div className="relative">
+                <div className="relative rounded-[32px] border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-3 sm:p-4 lg:p-6 shadow-lg">
                   <MpcVisualization />
                 </div>
               </div>
@@ -1421,28 +1421,15 @@ export default function Home() {
               {/* Alert & Monitoring */}
               <div className="group relative">
                 <div className="relative rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-8 h-full overflow-hidden hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300">
-                  {/* Visual placeholder */}
-                  <div className="aspect-[4/3] rounded-lg bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 mb-8 flex items-center justify-center border border-gray-100 dark:border-gray-800">
-                    <div className="relative w-full h-full p-8">
-                      {/* Bell icon with notification badges */}
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                        <div className="w-16 h-16 rounded-xl bg-purple-500/10 dark:bg-purple-500/20 flex items-center justify-center relative">
-                          <Bell className="w-8 h-8 text-purple-600 dark:text-purple-400" />
-                          <div className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-500 animate-pulse"></div>
-                        </div>
-                      </div>
-                      {/* Integration logos */}
-                      <div className="absolute top-1/4 left-1/4 w-8 h-8 rounded-lg bg-white dark:bg-gray-800 shadow-sm flex items-center justify-center">
-                        <span className="text-xs font-semibold text-gray-600 dark:text-gray-400">
-                          TG
-                        </span>
-                      </div>
-                      <div className="absolute bottom-1/4 right-1/4 w-8 h-8 rounded-lg bg-white dark:bg-gray-800 shadow-sm flex items-center justify-center">
-                        <span className="text-xs font-semibold text-gray-600 dark:text-gray-400">
-                          #
-                        </span>
-                      </div>
-                    </div>
+                  <div className="aspect-[4/3] rounded-lg mb-8 flex items-center justify-center border border-gray-100 dark:border-gray-800 overflow-hidden bg-transparent">
+                    <Image
+                      src="/visualization/Alert.png"
+                      alt="Alerts and notifications visualization"
+                      width={378}
+                      height={314}
+                      className="max-w-[80%] w-full h-auto object-contain p-4"
+                      priority={false}
+                    />
                   </div>
 
                   <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
@@ -1472,44 +1459,15 @@ export default function Home() {
               {/* Analytics & Insights */}
               <div className="group relative">
                 <div className="relative rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-8 h-full overflow-hidden hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300">
-                  {/* Visual placeholder */}
-                  <div className="aspect-[4/3] rounded-lg bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20 mb-8 flex items-center justify-center border border-gray-100 dark:border-gray-800">
-                    <div className="relative w-full h-full p-8">
-                      {/* Chart representation */}
-                      <div className="absolute bottom-8 left-8 right-8">
-                        <div className="flex items-end gap-2 h-20">
-                          <div
-                            className="flex-1 bg-green-500/20 dark:bg-green-500/30 rounded-t"
-                            style={{ height: "40%" }}
-                          ></div>
-                          <div
-                            className="flex-1 bg-green-500/20 dark:bg-green-500/30 rounded-t"
-                            style={{ height: "70%" }}
-                          ></div>
-                          <div
-                            className="flex-1 bg-green-500/20 dark:bg-green-500/30 rounded-t"
-                            style={{ height: "50%" }}
-                          ></div>
-                          <div
-                            className="flex-1 bg-green-500/30 dark:bg-green-500/40 rounded-t"
-                            style={{ height: "90%" }}
-                          ></div>
-                          <div
-                            className="flex-1 bg-green-500/30 dark:bg-green-500/40 rounded-t"
-                            style={{ height: "60%" }}
-                          ></div>
-                        </div>
-                      </div>
-                      {/* Stats card */}
-                      <div className="absolute top-6 right-6 px-3 py-2 rounded-lg bg-white dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700">
-                        <div className="text-xs text-gray-500 dark:text-gray-400">
-                          Volume
-                        </div>
-                        <div className="text-sm font-semibold text-gray-900 dark:text-gray-100">
-                          +24.5%
-                        </div>
-                      </div>
-                    </div>
+                  <div className="aspect-[4/3] rounded-lg mb-8 flex items-center justify-center border border-gray-100 dark:border-gray-800 overflow-hidden bg-transparent">
+                    <Image
+                      src="/visualization/Analytics.png"
+                      alt="Analytics and insights visualization"
+                      width={485}
+                      height={318}
+                      className="w-full h-auto object-contain p-6"
+                      priority={false}
+                    />
                   </div>
 
                   <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
