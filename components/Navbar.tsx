@@ -325,7 +325,7 @@ export default function Navbar() {
       {isMounted && isBannerVisible && <div className="h-8 sm:h-9"></div>}
 
       <header className={`border-b sticky ${isMounted && isBannerVisible ? 'top-8 sm:top-9' : 'top-0'} z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60`}>
-      <div className="container flex h-16 items-center justify-between max-w-7xl mx-auto px-4">
+      <div className="container flex h-16 items-center justify-between max-w-[1440px] mx-auto px-4 lg:px-0">
         <div className="flex items-center gap-8">
           <Link href="/">
             <Image

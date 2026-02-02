@@ -1,14 +1,18 @@
 // app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, IBM_Plex_Sans } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import NextTopLoader from 'nextjs-toploader';
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const ibmPlexSans = IBM_Plex_Sans({ 
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-sans"
+});
 
 export const metadata: Metadata = {
   title: 'Fystack - Enterprise-grade Stablecoin and digital asset Custody For Teams',
@@ -59,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={inter.variable}>
+    <html lang="en" suppressHydrationWarning className={`${ibmPlexSans.className}`}>
       <head>
         {/* Web App Manifest and Icons */}
         <link rel="manifest" href="/site.webmanifest" />
@@ -209,7 +213,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${inter.className} antialiased`}
+        className={`${ibmPlexSans.className} antialiased`}
         suppressHydrationWarning
       >
         <NextTopLoader

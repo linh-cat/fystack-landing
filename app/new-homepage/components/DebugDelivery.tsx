@@ -11,7 +11,7 @@ export function DebugDelivery() {
 
   return (
     <section className="py-20 lg:py-28 bg-white px-4">
-      <div ref={ref} className={`container mx-auto max-w-7xl relative ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
+      <div ref={ref} className={`container mx-auto max-w-[1440px] relative ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Section Title */}
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-800 mb-16 lg:mb-24 px-4">
           Debug Delivery with Confidence

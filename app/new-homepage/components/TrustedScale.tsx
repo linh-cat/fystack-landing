@@ -330,7 +330,7 @@ export function TrustedScale() {
 
   return (
     <section className="py-16 lg:py-24 bg-white px-4">
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto max-w-[1440px]">
         {/* Top Section with decorative patterns */}
         <div className="relative border border-slate-200 mb-0">
           <div className="flex items-stretch">

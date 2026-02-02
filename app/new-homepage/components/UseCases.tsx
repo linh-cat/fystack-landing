@@ -179,7 +179,7 @@ export function UseCases() {
 
   return (
     <section id="use-cases" className="py-16 lg:py-24 bg-white px-4 scroll-mt-20">
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto max-w-[1440px]">
         {/* Wrapper */}
         <div className="relative">
           {/* Corner squares */}

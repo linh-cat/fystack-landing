@@ -34,7 +34,7 @@ export function EnterpriseCompliance() {
 
   return (
     <section id="compliance" className="pt-16 lg:pt-24 pb-0 bg-white px-4 scroll-mt-20">
-      <div ref={ref} className={`container mx-auto max-w-7xl ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
+      <div ref={ref} className={`container mx-auto max-w-[1440px] ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Wrapper */}
         <div className="relative">
           {/* Header Section with background */}

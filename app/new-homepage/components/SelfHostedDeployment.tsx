@@ -25,7 +25,7 @@ export function SelfHostedDeployment() {
 
   return (
     <section id="self-hosting" className="pb-16 lg:pb-24 bg-white px-4 scroll-mt-20">
-      <div ref={ref} className={`container mx-auto max-w-7xl ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
+      <div ref={ref} className={`container mx-auto max-w-[1440px] ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Wrapper */}
         <div className="relative">
           {/* Main content with striped sidebars */}
