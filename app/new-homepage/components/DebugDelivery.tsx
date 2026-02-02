@@ -1,0 +1,88 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useScrollReveal } from "../hooks/useScrollReveal";
+
+export function DebugDelivery() {
+  const { ref, isVisible } = useScrollReveal();
+
+  return (
+    <section className="py-20 lg:py-28 bg-white px-4">
+      <div ref={ref} className={`container mx-auto max-w-7xl relative ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
+        {/* Section Title */}
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-800 mb-16 lg:mb-24 px-4">
+          Debug Delivery with Confidence
+        </h2>
+
+        {/* Two Column Layout */}
+        <div className="flex items-center justify-center">
+          <div className="grid lg:grid-cols-2 items-center max-w-full w-full bg-slate-100/50">
+            {/* Left Column - Text Content */}
+            <div className="space-y-10 px-4 py-8">
+              {/* Automatic Retries */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-1 h-6 bg-[#3b82f6] rounded-full" />
+                  <h3 className="text-xl font-bold text-slate-800">
+                    Automatic Retries
+                  </h3>
+                </div>
+                <p className="text-slate-500 leading-relaxed pl-4">
+                  If your server is down, Fystack queues the alert and retries with exponential backoff. We ensure you never lose data.
+                </p>
+              </div>
+
+              {/* Full Visibility */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-1 h-6 bg-[#3b82f6] rounded-full" />
+                  <h3 className="text-xl font-bold text-slate-800">
+                    Full Visibility
+                  </h3>
+                </div>
+                <p className="text-slate-500 leading-relaxed pl-4">
+                  Dashboard lets you inspect the full JSON payload and response headers for easier debugging.
+                </p>
+              </div>
+
+              {/* CTA Button */}
+              <div className="pl-4 pt-4">
+                <Button
+                  size="lg"
+                  className="rounded-full px-8 py-6 text-sm font-semibold bg-[#3b82f6] hover:bg-[#3b82f6]/90 transition-all"
+                  asChild
+                >
+                  <Link
+                    href="https://sandbox.fystack.io"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Play Demo
+                    <ArrowUpRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+
+            {/* Right Column - Image */}
+            <div className="relative">
+              {/* Image container with shadow */}
+              <div className="relative overflow-hidden border border-slate-200">
+                <Image
+                  src="/svg/debug_delivery/debug-delivery.svg"
+                  alt="Debug Delivery Dashboard"
+                  width={600}
+                  height={450}
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

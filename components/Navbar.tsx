@@ -15,30 +15,13 @@ import {
   Users,
   FileText,
   Shield,
-  BookOpen,
-  Code2,
-  Puzzle,
-  FileCode,
-  Library,
-  Newspaper,
-  AlertCircle,
-  ListChecks,
-  HeadphonesIcon,
-  MessageSquare,
-  Briefcase,
-  Send,
   Building2,
   Coins,
   Bot,
   Smartphone,
   Server
 } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import appLogo from "@/app/images/app-logo.svg";
 
 interface ProductMenuItem {
@@ -70,31 +53,31 @@ const ProductDropdown = () => {
       icon: <Wallet className="h-5 w-5" />,
       title: "Wallet-as-a-Service",
       description: "Build, manage, and scale secure wallets across multiple chains without managing private keys.",
-      href: "#wallet",
+      href: "/new-homepage#wallet",
     },
     {
       icon: <CreditCard className="h-5 w-5" />,
       title: "Crypto Payments",
       description: "Accept and send crypto payments seamlessly across EVM, Tron, and Solana networks.",
-      href: "#payments",
+      href: "/new-homepage#use-cases",
     },
     {
       icon: <Zap className="h-5 w-5" />,
       title: "Automation",
       description: "Automate on-chain operations to save time and reduce manual risk.",
-      href: "#automation",
+      href: "/new-homepage#operations",
     },
     {
       icon: <Bell className="h-5 w-5" />,
       title: "Alerts & Monitoring",
       description: "Stay informed in real-time about every transaction and event across wallets.",
-      href: "#alerts",
+      href: "/new-homepage#operations",
     },
     {
       icon: <BarChart3 className="h-5 w-5" />,
       title: "Analytics & Insights",
       description: "Track transaction volumes, wallet activity, and user growth in one unified dashboard.",
-      href: "#analytics",
+      href: "/new-homepage#operations",
     },
   ];
 
@@ -103,19 +86,19 @@ const ProductDropdown = () => {
       icon: <Users className="h-5 w-5" />,
       title: "User Management",
       description: "Define roles and permissions for administrators, operators, and auditors.",
-      href: "#users",
+      href: "/new-homepage#compliance",
     },
     {
       icon: <FileText className="h-5 w-5" />,
       title: "Audit Trails",
       description: "Full transparency into every transaction, signature, and approval action.",
-      href: "#audit",
+      href: "/new-homepage#compliance",
     },
     {
       icon: <Shield className="h-5 w-5" />,
       title: "Transaction Policies",
       description: "Set programmable rules for spending and approvals with whitelist destinations and daily limits.",
-      href: "#policies",
+      href: "/new-homepage#compliance",
     },
   ];
 
@@ -222,37 +205,37 @@ const SolutionsDropdown = () => {
       icon: <Building2 className="h-5 w-5" />,
       title: "Multi-Chain Treasury Management",
       description: "Manage and automate crypto treasuries across Ethereum, BSC, Solana, and Tron with unified control.",
-      href: "#treasury",
+      href: "/new-homepage#use-cases",
     },
     {
       icon: <Coins className="h-5 w-5" />,
       title: "Stablecoin Operations",
       description: "Simplify cross-chain stablecoin flows for payments, settlements, and treasury movement.",
-      href: "#stablecoin",
+      href: "/new-homepage#use-cases",
     },
     {
       icon: <Bot className="h-5 w-5" />,
       title: "Trading Bots",
       description: "Build secure, automated trading bots powered by MPC wallets with no key exposure.",
-      href: "#trading-bots",
+      href: "/new-homepage#use-cases",
     },
     {
       icon: <Smartphone className="h-5 w-5" />,
       title: "Fintech & Payment Platforms",
       description: "Accept crypto payments, automate merchant payouts, and reconcile transactions seamlessly.",
-      href: "#fintech",
+      href: "/new-homepage#use-cases",
     },
     {
       icon: <Server className="h-5 w-5" />,
       title: "Self-Hosting & Data Residency",
       description: "Deploy Fystack on your own cloud or servers to maintain full control and regulatory compliance.",
-      href: "#self-hosting",
+      href: "/new-homepage#self-hosting",
     },
     {
       icon: <Shield className="h-5 w-5" />,
       title: "Whitelabel Custodian",
       description: "Launch your own branded custodian service with Fystack's secure infrastructure and compliance features.",
-      href: "#whitelabel",
+      href: "/new-homepage#wallet",
     },
   ];
 
@@ -289,134 +272,6 @@ const SolutionsDropdown = () => {
                       </div>
                     </div>
                   </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
-const DevelopersDropdown = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    setIsOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setIsOpen(false);
-    }, 150);
-  };
-
-  const developerItems = [
-    { icon: <BookOpen className="h-5 w-5" />, label: "Documentation", href: "https://docs.fystack.io" },
-    { icon: <Puzzle className="h-5 w-5" />, label: "Integrations", href: "https://docs.fystack.io/integrations" },
-    { icon: <ListChecks className="h-5 w-5" />, label: "Changelog", href: "#changelog" },
-    { icon: <FileCode className="h-5 w-5" />, label: "Examples", href: "https://docs.fystack.io/examples" },
-    { icon: <Library className="h-5 w-5" />, label: "SDKs", href: "https://docs.fystack.io/sdks" },
-    { icon: <Send className="h-5 w-5" />, label: "Telegram Forum", href: "https://t.me/+9AtC0z8sS79iZjFl" },
-    { icon: <HeadphonesIcon className="h-5 w-5" />, label: "Support", href: "https://t.me/anhthind" },
-  ];
-
-  return (
-    <div
-      className="relative"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <button className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
-        Developers <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
-      </button>
-
-      {isOpen && (
-        <div className="absolute left-0 top-full pt-2 animate-in fade-in-0 zoom-in-95 duration-200">
-          <div className="bg-background border rounded-lg shadow-xl p-2 w-[240px]">
-            <div className="space-y-1">
-              {developerItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  target={item.href.startsWith('http') ? "_blank" : undefined}
-                  rel={item.href.startsWith('http') ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-accent transition-colors group"
-                >
-                  <div className="text-muted-foreground group-hover:text-foreground transition-colors">
-                    {item.icon}
-                  </div>
-                  <span className="text-sm font-medium group-hover:text-foreground">{item.label}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
-const ResourcesDropdown = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    setIsOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setIsOpen(false);
-    }, 150);
-  };
-
-  const resourceItems = [
-    { icon: <Github className="h-5 w-5" />, label: "Open Source", href: "https://github.com/fystack" },
-    { icon: <MessageSquare className="h-5 w-5" />, label: "GitHub Discussions", href: "https://github.com/fystack/discussions" },
-    { icon: <Briefcase className="h-5 w-5" />, label: "Become a Partner", href: "#partner" },
-    { icon: <Users className="h-5 w-5" />, label: "Careers", href: "#careers", badge: "2" },
-  ];
-
-  return (
-    <div
-      className="relative"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <button className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
-        Resources <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
-      </button>
-
-      {isOpen && (
-        <div className="absolute left-0 top-full pt-2 animate-in fade-in-0 zoom-in-95 duration-200">
-          <div className="bg-background border rounded-lg shadow-xl p-2 w-[240px]">
-            <div className="space-y-1">
-              {resourceItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  target={item.href.startsWith('http') ? "_blank" : undefined}
-                  rel={item.href.startsWith('http') ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-accent transition-colors group"
-                >
-                  <div className="text-muted-foreground group-hover:text-foreground transition-colors">
-                    {item.icon}
-                  </div>
-                  <span className="text-sm font-medium group-hover:text-foreground">{item.label}</span>
-                  {item.badge && (
-                    <span className="ml-auto text-xs bg-primary text-primary-foreground px-1.5 py-0.5 rounded">
-                      {item.badge}
-                    </span>
-                  )}
                 </Link>
               ))}
             </div>
@@ -470,7 +325,7 @@ export default function Navbar() {
       {isMounted && isBannerVisible && <div className="h-8 sm:h-9"></div>}
 
       <header className={`border-b sticky ${isMounted && isBannerVisible ? 'top-8 sm:top-9' : 'top-0'} z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60`}>
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
+      <div className="container flex h-16 items-center justify-between max-w-7xl mx-auto px-4">
         <div className="flex items-center gap-8">
           <Link href="/">
             <Image
@@ -502,14 +357,14 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/#case-studies"
+              href="/new-homepage#use-cases"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Case Studies
             </Link>
 
             <Link
-              href="/pricing"
+              href="/new-homepage#pricing"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Pricing
@@ -538,7 +393,7 @@ export default function Navbar() {
             asChild
             className="lg:hidden"
           >
-            <Link href="/pricing">
+            <Link href="/new-homepage#pricing">
               Pricing
             </Link>
           </Button>
