@@ -1,7 +1,7 @@
 // app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter, IBM_Plex_Sans } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 import Script from "next/script";
