@@ -13,6 +13,7 @@ import { SelfHostedDeployment } from "./components/SelfHostedDeployment";
 import { Pricing } from "./components/Pricing";
 import { CTAFooter } from "./components/CTAFooter";
 import { UseCases } from "./components/UseCases";
+import { JoinCommunity } from "./components";
 
 export default function NewHomepage() {
   return (
@@ -56,6 +57,9 @@ export default function NewHomepage() {
 
       {/* CTA & Footer */}
       <CTAFooter />
+
+      {/* Join Community */}
+      <JoinCommunity />
     </div>
   );
 }

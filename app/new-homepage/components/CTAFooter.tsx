@@ -225,9 +225,6 @@ export function CTAFooter() {
 
             {/* CTA Content Grid */}
             <div className="relative grid lg:grid-cols-2 border-b border-slate-200">
-              <div className="hidden lg:flex absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 z-20 w-6 h-6 items-center justify-center">
-                <span className="text-[#3b82f6] text-lg font-light select-none">+</span>
-              </div>
 
               {/* Left - CTA Buttons with Interactive Background */}
               <div
