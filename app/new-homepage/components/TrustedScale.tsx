@@ -9,7 +9,6 @@ import Link from "next/link";
 const TOTAL_CELLS = 12;
 const REVEAL_DELAY = 120;
 const HIGHLIGHT_INTERVAL = 2000;
-const SWAP_INTERVAL = 3000;
 
 // Logo cell IDs (for hover effects)
 const logoCellIds = new Set([1, 2, 4, 6, 8, 9]);
@@ -211,7 +210,6 @@ export function TrustedScale() {
   const [cellOrder, setCellOrder] = useState<number[]>(
     Array.from({ length: TOTAL_CELLS }, (_, i) => i)
   );
-  const [swappingCells, setSwappingCells] = useState<Set<number>>(new Set());
 
   // Shuffled order for staggered reveal (stable across renders)
   const revealOrder = useMemo(
@@ -259,39 +257,9 @@ export function TrustedScale() {
     return () => clearInterval(interval);
   }, [revealedCells.size]);
 
-  // Random position swapping after reveal completes
-  useEffect(() => {
-    if (revealedCells.size < TOTAL_CELLS) return;
-
-    const interval = setInterval(() => {
-      // Pick 2 random different position indices
-      const i = Math.floor(Math.random() * TOTAL_CELLS);
-      let j = Math.floor(Math.random() * (TOTAL_CELLS - 1));
-      if (j >= i) j++;
-
-      setCellOrder((prev) => {
-        // Mark both cells as swapping
-        setSwappingCells(new Set([prev[i], prev[j]]));
-        return prev;
-      });
-
-      // After 300ms (scale-down done), do the actual swap
-      setTimeout(() => {
-        setCellOrder((prev) => {
-          const next = [...prev];
-          [next[i], next[j]] = [next[j], next[i]];
-          return next;
-        });
-        // After 300ms more (scale-up done), clear swapping state
-        setTimeout(() => setSwappingCells(new Set()), 300);
-      }, 300);
-    }, SWAP_INTERVAL);
-
-    return () => clearInterval(interval);
-  }, [revealedCells.size]);
 
   // Build class names for each grid cell
-  const cellAnim = (cellId: number, isSwapping: boolean) => {
+  const cellAnim = (cellId: number) => {
     const isRevealed = revealedCells.has(cellId);
     const isHighlighted = highlightIndex === cellId;
     const isLogo = logoCellIds.has(cellId);
@@ -301,12 +269,11 @@ export function TrustedScale() {
       isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
       isLogo ? "hover:scale-[1.02] hover:shadow-sm" : "",
       isHighlighted ? "ring-1 ring-inset ring-[#3b82f6]/10 shadow-[inset_0_0_40px_rgba(59,130,246,0.06)]" : "",
-      isSwapping ? "scale-95 opacity-60" : "scale-100",
     ].join(" ");
   };
 
   return (
-    <section className=" bg-white px-4 lg:px-40 py-4 lg:py-10 2xl:py-20">
+    <section className=" bg-white px-4 lg:px-20 py-4 lg:py-10 2xl:py-20">
       <div className="container mx-auto max-w-[1440px]">
         {/* Top Section with decorative patterns */}
         <div className="relative border border-slate-200 mb-0">
@@ -355,11 +322,10 @@ export function TrustedScale() {
           className="grid grid-cols-1 md:grid-cols-4 gap-0 border-x border-b border-slate-200 overflow-visible"
         >
           {cellOrder.map((cellId, position) => {
-            const isSwapping = swappingCells.has(cellId);
             return (
               <div
                 key={cellId}
-                className={`${getCellBaseClasses(cellId)} ${getBorderClasses(position)} border-slate-200 ${cellAnim(cellId, isSwapping)}`}
+                className={`${getCellBaseClasses(cellId)} ${getBorderClasses(position)} border-slate-200 ${cellAnim(cellId)}`}
               >
                 <CellContent cellId={cellId} />
               </div>

@@ -405,7 +405,7 @@ const MobileNavigation = () => {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="sm" className="lg:hidden">
+        <Button variant="ghost" size="sm" className="lg:hidden px-0">
           <Menu className="h-5 w-5" />
           <span className="sr-only">Open menu</span>
         </Button>
@@ -581,7 +581,7 @@ export default function Navbar() {
       {isMounted && isBannerVisible && <div className="h-8 sm:h-9"></div>}
 
       <header className={`border-b sticky ${isMounted && isBannerVisible ? 'top-8 sm:top-9' : 'top-0'} z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60`}>
-      <div className="container flex h-16 items-center justify-between max-w-[1440px] px-4 mx-auto lg:px-40">
+      <div className="container flex h-16 items-center justify-between px-4 lg:px-0 mx-auto">
         <div className="flex items-center gap-8">
           <Link href="/">
             <Image
@@ -598,10 +598,6 @@ export default function Navbar() {
             <ProductDropdown />
 
             <SolutionsDropdown />
-
-            {/* <DevelopersDropdown /> */}
-
-            {/* <ResourcesDropdown /> */}
 
             <Link
               href="https://docs.fystack.io"

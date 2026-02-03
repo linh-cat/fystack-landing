@@ -155,7 +155,7 @@ export function UseCases() {
   }, []);
 
   return (
-    <section id="use-cases" className="bg-white px-4 lg:px-40 py-4 lg:py-10 2xl:py-20scroll-mt-20 ">
+    <section id="use-cases" className="bg-white px-4 lg:px-20 py-4 lg:py-10 2xl:py-20scroll-mt-20 ">
 
       <div className="container mx-auto max-w-[1440px] relative">
         <div className="hidden lg:block absolute -top-2 -left-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />

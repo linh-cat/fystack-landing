@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Wallet } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -37,7 +37,7 @@ export function Hero() {
   }, [wordIndex]);
 
   return (
-    <section className="overflow-hidden flex items-center justify-center px-4 lg:px-40 py-4 lg:py-10 2xl:py-20">
+    <section className="overflow-hidden flex items-center justify-center px-4 lg:px-20 py-4 lg:py-10">
       {/* Wrapper for corner squares outside the box */}
       <div ref={scrollRef} className={`relative w-full max-w-[1440px] ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Corner squares - outside the box */}

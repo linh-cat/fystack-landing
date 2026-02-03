@@ -195,7 +195,7 @@ export function CTAFooter() {
   };
 
   return (
-    <footer className="bg-white px-4 lg:px-40 py-4 lg:py-10 2xl:py-20">
+    <footer className="bg-white px-4 lg:px-20 py-4 lg:py-10 2xl:py-20">
       <div
         ref={scrollRef}
         className={`container mx-auto max-w-[1440px] ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}
