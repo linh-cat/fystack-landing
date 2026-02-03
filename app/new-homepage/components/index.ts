@@ -13,4 +13,3 @@ export { Features } from "./Features";
 export { HowItWorks } from "./HowItWorks";
 export { UseCases } from "./UseCases";
 export { Chains } from "./Chains";
-export { CTA } from "./CTA";

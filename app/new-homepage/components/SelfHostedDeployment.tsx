@@ -188,11 +188,6 @@ export function SelfHostedDeployment() {
             </div>
 
           </div>
-
-          {/* Corner squares */}
-          <div className="hidden lg:block absolute -top-2 -left-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />
-          <div className="hidden lg:block absolute -bottom-2 -left-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />
-          <div className="hidden lg:block absolute -bottom-2 -right-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />
         </div>
       </div>
     </section>

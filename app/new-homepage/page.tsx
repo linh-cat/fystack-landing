@@ -11,8 +11,7 @@ import { OperationalExcellence } from "./components/OperationalExcellence";
 import { EnterpriseCompliance } from "./components/EnterpriseCompliance";
 import { SelfHostedDeployment } from "./components/SelfHostedDeployment";
 import { Pricing } from "./components/Pricing";
-import { CTASection } from "./components/CTASection";
-import { NewFooter } from "./components/NewFooter";
+import { CTAFooter } from "./components/CTAFooter";
 import { UseCases } from "./components/UseCases";
 
 export default function NewHomepage() {
@@ -53,13 +52,10 @@ export default function NewHomepage() {
 
         {/* Pricing Section */}
         <Pricing />
-
-        {/* CTA Section */}
-        <CTASection />
       </main>
 
-      {/* Footer */}
-      <NewFooter />
+      {/* CTA & Footer */}
+      <CTAFooter />
     </div>
   );
 }

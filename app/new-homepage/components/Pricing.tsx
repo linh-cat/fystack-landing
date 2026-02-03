@@ -251,11 +251,7 @@ export function Pricing() {
               <a className="px-8 py-3 border border-slate-200 bg-white text-slate-700 rounded-full text-sm font-medium hover:bg-slate-50 transition-colors whitespace-nowrap" href="https://t.me/anhthind">
                 Talk to Founders
               </a>
-            </div>
-
-            {/* Corner squares */}
-            <div className="hidden lg:block absolute -bottom-2 -left-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />
-            <div className="hidden lg:block absolute -bottom-2 -right-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />        
+            </div>       
           </div>
         </div>
       </div>
