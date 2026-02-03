@@ -3,8 +3,6 @@ export { DebugDelivery } from "./DebugDelivery";
 export { TrustedScale } from "./TrustedScale";
 export { WhyChooseUs } from "./WhyChooseUs";
 export { MPCSecurity } from "./MPCSecurity";
-export { SecurityExperts } from "./SecurityExperts";
-export { DeveloperExperience } from "./DeveloperExperience";
 export { OperationalExcellence } from "./OperationalExcellence";
 export { EnterpriseCompliance } from "./EnterpriseCompliance";
 export { SelfHostedDeployment } from "./SelfHostedDeployment";

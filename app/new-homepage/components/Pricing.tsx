@@ -89,14 +89,14 @@ export function Pricing() {
   ];
 
   return (
-    <section id="pricing" className="py-16 lg:py-24 bg-white px-4 scroll-mt-20">
+    <section id="pricing" className="bg-white px-4 lg:px-40 py-4 lg:py-10 2xl:py-20 scroll-mt-20">
       <div ref={ref} className={`container mx-auto max-w-[1440px] ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Wrapper */}
         <div className="relative">
           {/* Corner squares */}
 
           {/* Header Section */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-10 md:mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
               Simple, transparent pricing
             </h2>
@@ -128,7 +128,7 @@ export function Pricing() {
           <div className="border border-slate-200">
             {activeTab === "cloud" ? (
               /* Cloud Plans - 3 Columns */
-              <div className="grid lg:grid-cols-3">
+              <div className="grid lg:grid-cols-3 gap-0">
                 {cloudPlans.map((plan, index) => (
                   <div
                     key={index}
@@ -220,9 +220,9 @@ export function Pricing() {
                   <button className="px-8 py-3 bg-[#3b82f6] text-white rounded-full text-sm font-medium hover:bg-[#2563eb] transition-colors w-1/2">
                     View Details
                   </button>
-                  <button className="px-8 py-3 border border-slate-200 text-slate-700 bg-white rounded-full text-sm font-medium hover:bg-slate-50 transition-colors w-full flex-1">
+                  <a className="px-8 py-3 border border-slate-200 text-slate-700 bg-white rounded-full text-sm font-medium hover:bg-slate-50 transition-colors w-full flex-1 text-center" href="https://t.me/anhthind">
                     Talk to Founders
-                  </button>
+                  </a>
                 </div>
               </div>
             )}
@@ -248,9 +248,9 @@ export function Pricing() {
                   For teams that need custom integrations, SLA guarantees, and dedicated support.
                 </p>
               </div>
-              <button className="px-8 py-3 border border-slate-200 bg-white text-slate-700 rounded-full text-sm font-medium hover:bg-slate-50 transition-colors whitespace-nowrap">
+              <a className="px-8 py-3 border border-slate-200 bg-white text-slate-700 rounded-full text-sm font-medium hover:bg-slate-50 transition-colors whitespace-nowrap" href="https://t.me/anhthind">
                 Talk to Founders
-              </button>
+              </a>
             </div>
 
             {/* Corner squares */}

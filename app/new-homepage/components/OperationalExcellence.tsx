@@ -39,12 +39,12 @@ export function OperationalExcellence() {
   ];
 
   return (
-    <section id="operations" className="py-16 lg:py-24 bg-white px-4 scroll-mt-20">
+    <section id="operations" className="bg-white px-4 lg:px-40 py-4 lg:py-10 2xl:py-20">
       <div ref={ref} className={`container mx-auto max-w-[1440px] ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Wrapper */}
         <div className="relative">
           {/* Header Section */}
-          <div className="text-center mb-12 lg:mb-16">
+          <div className="text-center mb-12 lg:mb-16 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
               Built for operational excellence
             </h2>
@@ -72,11 +72,11 @@ export function OperationalExcellence() {
             />
 
             {/* Main grid */}
-            <div className="flex-1 grid lg:grid-cols-3 border border-slate-200">
+            <div className="flex-1 grid lg:grid-cols-3 gap-0 border border-slate-200">
               {columns.map((column, index) => (
                 <div
                   key={index}
-                  className={`p-6 lg:p-8 ${index < 2 ? "border-b lg:border-b-0 lg:border-r border-slate-200" : ""
+                  className={`p-6 md:p-7 lg:p-8 ${index < 2 ? "border-b lg:border-b-0 lg:border-r border-slate-200" : ""
                     }`}
                 >
                   {/* Title */}

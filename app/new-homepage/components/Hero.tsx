@@ -37,7 +37,7 @@ export function Hero() {
   }, [wordIndex]);
 
   return (
-    <section className="py-6 sm:py-8 lg:py-16 overflow-hidden flex items-center justify-center px-4">
+    <section className="overflow-hidden flex items-center justify-center px-4 lg:px-40 py-4 lg:py-10 2xl:py-20">
       {/* Wrapper for corner squares outside the box */}
       <div ref={scrollRef} className={`relative w-full max-w-[1440px] ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Corner squares - outside the box */}
@@ -47,7 +47,7 @@ export function Hero() {
         <div className="hidden lg:block absolute -bottom-2 -right-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />
 
         <div className="relative w-full h-full border border-slate-100 lg:min-h-[630px] overflow-hidden">
-          <div className="grid lg:grid-cols-2 h-full lg:min-h-[630px]">
+          <div className="grid lg:grid-cols-2 gap-0 h-full lg:min-h-[630px]">
             {/* Left Content - with gradient background */}
             <div className="bg-gradient-to-t from-white to-[#3b82f6]/10 px-5 sm:px-8 lg:px-16 flex flex-col justify-center space-y-4 sm:space-y-6 lg:space-y-8 py-8 sm:py-10 lg:py-12 relative order-1">
               <div className="absolute top-10 left-10 w-[150px] sm:w-[200px] h-[150px] sm:h-[200px] bg-gradient-to-t from-white to-[#3b82f6]/80 blur-3xl -z-10" />
@@ -74,7 +74,7 @@ export function Hero() {
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-3xl sm:text-4xl lg:text-[56px] font-bold tracking-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold tracking-tight">
                 <div className="flex flex-col gap-1 leading-[1.1]">
                   <span className="text-slate-800">
                     Enterprise grade
@@ -95,7 +95,7 @@ export function Hero() {
 
 
               {/* Description */}
-              <p className="text-sm sm:text-base lg:text-lg text-slate-700 max-w-md leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-700 max-w-xl leading-relaxed">
                 The fastest way to go on-chain. We help fintechs, web3 teams
                 automate stablecoin, digital asset workflows across multiple
                 chains securely at scale with maximum security.
@@ -122,7 +122,7 @@ export function Hero() {
                   className="rounded-full px-5 sm:px-7 py-5 sm:py-6 text-xs sm:text-sm font-semibold border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition-all"
                   asChild
                 >
-                  <Link href="/compare">Deploy Self-Hosted</Link>
+                  <Link href="/compare" target="_blank" rel="noopener noreferrer">Deploy Self-Hosted</Link>
                 </Button>
               </div>
             </div>
@@ -134,8 +134,8 @@ export function Hero() {
                 className="absolute inset-0"
                 style={{
                   backgroundImage: `
-                    linear-gradient(to right, #f1f5f9 1px, transparent 1px),
-                    linear-gradient(to bottom, #f1f5f9 1px, transparent 1px)
+                    linear-gradient(to right, #eff5fa 1px, transparent 1px),
+                    linear-gradient(to bottom, #eff5fa 1px, transparent 1px)
                   `,
                   backgroundSize: '60px 60px'
                 }}

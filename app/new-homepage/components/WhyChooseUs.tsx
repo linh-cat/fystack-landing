@@ -21,7 +21,7 @@ export function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-white px-4">
+    <section className="bg-white px-4 lg:px-40 py-4 lg:py-10 2xl:py-20">
       <div ref={ref} className={`container mx-auto max-w-[1440px] ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Wrapper with corner squares */}
         <div className="relative">
@@ -33,9 +33,9 @@ export function WhyChooseUs() {
 
           <div className="border border-slate-200">
             {/* Top Section - Two columns */}
-            <div className="grid lg:grid-cols-2">
+            <div className="grid lg:grid-cols-2 gap-0">
               {/* Left - Main heading */}
-              <div className="p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-slate-200">
+              <div className="p-6 md:p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-slate-200">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 leading-tight">
                   Focus on your product,
                   <br />
@@ -44,7 +44,7 @@ export function WhyChooseUs() {
               </div>
 
               {/* Right - Subheading */}
-              <div className="p-8 lg:p-12">
+              <div className="p-6 md:p-8 lg:p-12">
                 <p className="text-[#3b82f6] text-sm font-semibold mb-4 tracking-wide">
                   /SHIP FASTER & SAVE MONEY/
                 </p>
@@ -57,9 +57,9 @@ export function WhyChooseUs() {
             </div>
 
             {/* Bottom Section - Three columns */}
-            <div className="grid lg:grid-cols-3 border-t border-slate-200">
+            <div className="grid lg:grid-cols-3 gap-0 border-t border-slate-200">
               {/* Fystack Column - Blue background */}
-              <div className="bg-[#3b82f6] p-8 lg:p-10 text-white">
+              <div className="bg-[#3b82f6] p-6 md:p-8 lg:p-10 text-white">
                 {/* Badge */}
                 <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/20 mb-6">
                   <span className="text-sm font-medium">Fystack</span>
@@ -82,7 +82,7 @@ export function WhyChooseUs() {
               </div>
 
               {/* Others Column - White background */}
-              <div className="bg-white p-8 lg:p-10 border-t lg:border-t-0 lg:border-l lg:border-r border-slate-200">
+              <div className="bg-white p-6 md:p-8 lg:p-10 border-t lg:border-t-0 lg:border-l lg:border-r border-slate-200">
                 {/* Badge */}
                 <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-slate-200 bg-gray-200 mb-6">
                   <span className="text-sm text-slate-700">Fireblocks, Cobo, Utila, Safeheron</span>
@@ -107,7 +107,7 @@ export function WhyChooseUs() {
               </div>
 
               {/* Fystack Info Column */}
-              <div className="bg-slate-50/50 p-8 lg:p-10 border-t lg:border-t-0 flex flex-col justify-between">
+              <div className="bg-slate-50/50 p-6 md:p-8 lg:p-10 border-t lg:border-t-0 flex flex-col justify-between">
                 {/* Logo */}
                 <Image
                   src="/svg/app-logo.svg"

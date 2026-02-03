@@ -11,7 +11,7 @@ export function NewFooter() {
     { label: "Features", href: "/features" },
     { label: "Security", href: "/security" },
     { label: "Pricing", href: "/pricing" },
-    { label: "Documentation", href: "/docs" },
+    { label: "Documentation", href: "https://docs.fystack.io" },
     { label: "API Reference", href: "/api" },
   ];
 
@@ -25,13 +25,13 @@ export function NewFooter() {
   ];
 
   const socialLinks = [
-    { label: "Github", icon: "/svg/footer/github.svg", href: "https://github.com/fystack" },
-    { label: "Twitter", icon: "/svg/footer/x.svg", href: "https://twitter.com/fystack" },
-    { label: "LinkedIn", icon: "/svg/footer/linked-in.svg", href: "https://linkedin.com/company/fystack" },
+    { label: "Github", icon: "/svg/footer/github.svg", href: "https://github.com/fystack/mpcium" },
+    { label: "Twitter", icon: "/svg/footer/x.svg", href: "https://x.com/fystack" },
+    { label: "LinkedIn", icon: "/svg/footer/linked-in.svg", href: "https://www.linkedin.com/company/fystack/posts/?feedView=all" },
   ];
 
   return (
-    <footer className="bg-white px-4 pb-8">
+    <footer className="bg-white px-4 lg:px-40 py-4 lg:py-10 2xl:py-20">
       <div ref={ref} className={`container mx-auto max-w-[1440px] ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Wrapper */}
         <div className="relative">

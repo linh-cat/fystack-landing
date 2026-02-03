@@ -27,7 +27,7 @@ export function MPCSecurity() {
   ];
 
   return (
-    <section id="wallet" className="py-16 lg:py-24 bg-white px-4 scroll-mt-20">
+    <section id="wallet" className="bg-white px-4 lg:px-40 py-4 lg:py-10 2xl:py-20">
       <div ref={ref} className={`container mx-auto max-w-[1440px] ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Wrapper with corner squares */}
         <div className="relative w-full h-full">
@@ -54,7 +54,7 @@ export function MPCSecurity() {
             {/* Main content */}
             <div className="flex-1 border border-slate-200">
               {/* Header Section */}
-              <div className="text-center py-10 lg:py-14 px-6 border-b border-slate-200">
+              <div className="text-center py-8 md:py-10 lg:py-14 px-6 border-b border-slate-200">
                 <p className="text-[#3b82f6] text-sm font-semibold mb-4 tracking-wide">
                   /SECURITY/
                 </p>
@@ -69,9 +69,9 @@ export function MPCSecurity() {
               </div>
 
               {/* Content Section - Two columns */}
-              <div className="grid lg:grid-cols-2">
+              <div className="grid lg:grid-cols-2 gap-0">
                 {/* Left - Features Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 border-b lg:border-b-0 lg:border-r border-slate-200">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-b lg:border-b-0 lg:border-r border-slate-200">
                   {features.map((feature, index) => (
                     <div
                       key={index}

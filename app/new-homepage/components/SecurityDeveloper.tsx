@@ -17,11 +17,10 @@ interface TabContent {
 const TAB_INTERVAL = 5000;
 const tabKeys: TabKey[] = ["encryption", "database", "kms"];
 
-export function SecurityExperts() {
+export function SecurityDeveloper() {
   const { ref, isVisible } = useScrollReveal();
   const [activeTab, setActiveTab] = useState<TabKey>("encryption");
   const [isHovered, setIsHovered] = useState(false);
-  const [progressKey, setProgressKey] = useState(0);
 
   // Auto-cycle tabs
   useEffect(() => {
@@ -33,7 +32,6 @@ export function SecurityExperts() {
         const nextIndex = (currentIndex + 1) % tabKeys.length;
         return tabKeys[nextIndex];
       });
-      setProgressKey((k) => k + 1);
     }, TAB_INTERVAL);
 
     return () => clearInterval(interval);
@@ -41,7 +39,6 @@ export function SecurityExperts() {
 
   const handleTabClick = useCallback((key: TabKey) => {
     setActiveTab(key);
-    setProgressKey((k) => k + 1);
   }, []);
 
   const tabs = [
@@ -76,9 +73,41 @@ export function SecurityExperts() {
 
   const currentContent = tabContent[activeTab];
 
+  const chains = [
+    {
+      name: "Ethereum",
+      description: "EVM Compatible",
+      logo: "/logo/Ethereum.png",
+    },
+    {
+      name: "Solana",
+      description: "High Performance",
+      logo: "/logo/Solana1.png",
+    },
+    {
+      name: "Tron",
+      description: "USDT Powerhouse",
+      logo: "/logo/Tron.png",
+    },
+    {
+      name: "Stellar",
+      description: "Fast & Scalable",
+      logo: "/logo/Solana2.png",
+    },
+    {
+      name: "Base",
+      description: "Layer 2",
+      logo: "/logo/Base.png",
+    },
+  ];
+
   return (
-    <section className="py-16 lg:py-24 bg-white px-4">
-      <div ref={ref} className={`container mx-auto max-w-[1440px] ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
+    <section className="bg-white px-4 lg:px-40 py-4 lg:py-10 2xl:py-20">
+      <div
+        ref={ref}
+        className={`container mx-auto max-w-[1440px] ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"
+          }`}
+      >
         {/* Wrapper with corner squares */}
         <div className="relative">
           <div className="flex">
@@ -98,21 +127,7 @@ export function SecurityExperts() {
 
             {/* Main content */}
             <div className="flex-1 border border-slate-200 overflow-hidden">
-              {/* Diagonal pattern background */}
-              <div
-                className="absolute inset-0 opacity-30 pointer-events-none"
-                style={{
-                  backgroundImage: `repeating-linear-gradient(
-                  45deg,
-                  transparent,
-                  transparent 10px,
-                  #f1f5f9 10px,
-                  #f1f5f9 11px
-                )`,
-                }}
-              />
-
-              {/* Header Section */}
+              {/* Security Header Section */}
               <div className="relative text-center py-10 lg:py-14 px-6 border-b border-slate-200 bg-white/80">
                 <p className="text-[#3b82f6] text-sm font-semibold mb-4 tracking-wide font-mono">
                   /SECURITY BUILT BY EXPERTS/
@@ -156,7 +171,7 @@ export function SecurityExperts() {
                 </div>
               </div>
 
-              {/* Content Section */}
+              {/* Security Tab Content Section */}
               <div
                 key={activeTab}
                 className="relative grid lg:grid-cols-2 bg-white/80 animate-[fade-in_0.3s_ease-in-out]"
@@ -198,42 +213,36 @@ export function SecurityExperts() {
                   />
 
                   {/* 3D Floating squares */}
-                  {/* Square 1 - Top left */}
                   <div
                     className="absolute top-8 left-8 w-16 h-16 bg-gradient-to-br from-white to-slate-100 border border-slate-200 rounded-lg shadow-lg opacity-60"
                     style={{
                       transform: "perspective(500px) rotateX(10deg) rotateY(-10deg)",
                     }}
                   />
-                  {/* Square 2 - Top right */}
                   <div
                     className="absolute top-16 right-12 w-12 h-12 bg-gradient-to-br from-[#85898d]/10 to-[#85898d]/5 border border-[#85898d]/20 rounded-lg opacity-70"
                     style={{
                       transform: "perspective(500px) rotateX(-5deg) rotateY(15deg)",
                     }}
                   />
-                  {/* Square 3 - Bottom left */}
                   <div
                     className="absolute bottom-20 left-16 w-10 h-10 bg-gradient-to-br from-slate-50 to-white border border-slate-200 rounded-md shadow-sm opacity-50"
                     style={{
                       transform: "perspective(500px) rotateX(15deg) rotateY(-5deg)",
                     }}
                   />
-                  {/* Square 4 - Bottom right */}
                   <div
                     className="absolute bottom-12 right-8 w-14 h-14 bg-gradient-to-br from-white to-[#85898d]/5 border border-slate-200 rounded-lg opacity-60"
                     style={{
                       transform: "perspective(500px) rotateX(-10deg) rotateY(10deg)",
                     }}
                   />
-                  {/* Square 5 - Center background */}
                   <div
                     className="absolute top-1/3 right-1/4 w-20 h-20 bg-gradient-to-br from-[#85898d]/5 to-transparent border border-[#85898d]/10 rounded-xl opacity-40"
                     style={{
                       transform: "perspective(600px) rotateX(5deg) rotateY(-15deg)",
                     }}
                   />
-                  {/* Square 6 - Small accent */}
                   <div
                     className="absolute top-1/4 left-1/3 w-8 h-8 bg-gradient-to-br from-[#85898d]/20 to-[#85898d]/5 border border-[#85898d]/30 rounded-md opacity-60"
                     style={{
@@ -256,6 +265,96 @@ export function SecurityExperts() {
                 </div>
               </div>
 
+              {/* ==================== DEVELOPER SECTION ==================== */}
+
+              {/* Developer Header with diagonal pattern */}
+              <div
+                className="relative h-14 lg:h-18 border-t border-b border-slate-200"
+                style={{
+                  backgroundImage: `repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    #f8fafc 10px,
+                    #f8fafc 11px
+                  )`,
+                }}
+              />
+
+              {/* Developer Content Grid */}
+              <div className="grid lg:grid-cols-3 gap-0 bg-white/80">
+                <div className="lg:col-span-2 border-b lg:border-b-0 lg:border-r border-slate-200">
+                  {/* Header content */}
+                  <div className="relative p-6 md:p-8 lg:p-12 overflow-hidden">
+                    {/* Background dot decoration */}
+                    <div className="absolute -right-8 -top-4 lg:right-4 lg:top-0 w-[200px] h-[200px] lg:w-[280px] lg:h-[280px] opacity-60 pointer-events-none">
+                      <Image
+                        src="/svg/background/background-dot.svg"
+                        alt=""
+                        width={280}
+                        height={280}
+                        className="w-full h-full"
+                      />
+                    </div>
+
+                    <p className="relative z-10 text-[#3b82f6] text-sm font-semibold mb-4 tracking-wide">
+                      DEVELOPER EXPERIENCE
+                    </p>
+                    <h2 className="relative z-10 text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4 leading-tight">
+                      Developer first platform.
+                      <br />
+                      <span className="">One unified API, multiple chains.</span>
+                    </h2>
+                    <p className="relative z-10 text-slate-500 text-base lg:text-lg leading-relaxed max-w-2xl mb-8">
+                      Write once, deploy everywhere. A single SDK that works across
+                      all major blockchains.
+                    </p>
+
+                    {/* Code Editor */}
+                    <div className="relative z-10 overflow-hidden shadow-sm">
+                      <Image
+                        src="/svg/develop_experience/wallet-develop.svg"
+                        alt="Developer Experience"
+                        width={1000}
+                        height={1000}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Column - Supported Chains */}
+                <div className="flex flex-col">
+                  {/* Chains content */}
+                  <div className="p-6 md:p-7 lg:p-8 flex-1">
+                    <p className="text-slate-400 text-xs font-semibold mb-6 tracking-wider uppercase">
+                      Supported Chains
+                    </p>
+
+                    {/* Chain list */}
+                    <div className="space-y-4">
+                      {chains.map((chain, index) => (
+                        <div key={index} className="flex items-center gap-3">
+                          {/* Chain Logo */}
+                          <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <Image src={chain.logo} alt={chain.name} width={48} height={48} />
+                          </div>
+                          {/* Chain Info */}
+                          <div>
+                            <p className="text-slate-800 font-medium">{chain.name}</p>
+                            <p className="text-slate-400 text-sm">{chain.description}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* More chains text */}
+                    <p className="text-slate-400 text-sm mt-6">
+                      + 10 more chains supported
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               {/* Bottom decorative border with vertical lines */}
               <div className="relative h-16 border-t border-slate-200 bg-white/80">
                 {/* Vertical line decorations */}
@@ -275,8 +374,8 @@ export function SecurityExperts() {
                   -45deg,
                   transparent,
                   transparent 8px,
-                                    #E9EAEB 8px, 8px,
-                                    #E9EAEB 9px 9px
+                  #E9EAEB 8px,
+                  #E9EAEB 9px
                 )`,
               }}
             />

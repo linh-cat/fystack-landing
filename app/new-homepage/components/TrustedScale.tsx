@@ -6,25 +6,6 @@ import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-// Corner cross decoration component
-function CornerCross({ position }: { position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' }) {
-  const positionClasses = {
-    'top-left': '-top-[6px] -left-[6px]',
-    'top-right': '-top-[6px] -right-[6px]',
-    'bottom-left': '-bottom-[6px] -left-[6px]',
-    'bottom-right': '-bottom-[6px] -right-[6px]',
-  };
-
-  return (
-    <div className={`hidden md:block absolute ${positionClasses[position]} w-[10px] h-[10px]`}>
-      {/* Horizontal line */}
-      <div className="absolute top-1/2 left-0 w-full h-px bg-[#3b82f6] -translate-y-1/2 z-10" />
-      {/* Vertical line */}
-      <div className="absolute left-1/2 top-0 h-full w-px bg-[#3b82f6] -translate-x-1/2 z-10" />
-    </div>
-  );
-}
-
 const TOTAL_CELLS = 12;
 const REVEAL_DELAY = 120;
 const HIGHLIGHT_INTERVAL = 2000;
@@ -119,10 +100,7 @@ function CellContent({ cellId }: { cellId: number }) {
           <p className="text-slate-500 text-sm leading-relaxed">
             Scale your operations with multi-chain treasury management, automated workflows, and team controls.
           </p>
-          <CornerCross position="top-left" />
-          <CornerCross position="top-right" />
-          <CornerCross position="bottom-left" />
-          <CornerCross position="bottom-right" />
+          
         </>
       );
     case 6:
@@ -135,8 +113,7 @@ function CellContent({ cellId }: { cellId: number }) {
             height={40}
             className="h-10 lg:h-12 w-auto"
           />
-          <CornerCross position="top-right" />
-          <CornerCross position="bottom-right" />
+          
         </>
       );
     case 7:
@@ -329,7 +306,7 @@ export function TrustedScale() {
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-white px-4">
+    <section className=" bg-white px-4 lg:px-40 py-4 lg:py-10 2xl:py-20">
       <div className="container mx-auto max-w-[1440px]">
         {/* Top Section with decorative patterns */}
         <div className="relative border border-slate-200 mb-0">
@@ -346,7 +323,7 @@ export function TrustedScale() {
             </div>
 
             {/* Header Content */}
-            <div className="flex-1 text-center py-8 lg:py-12 px-6 lg:px-12">
+            <div className="flex-1 text-center py-8 md:py-10 lg:py-12 px-6 md:px-8 lg:px-12">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
                 Trusted to scale from day
                 <br />
@@ -375,7 +352,7 @@ export function TrustedScale() {
         {/* Grid Section */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 md:grid-cols-4 border-x border-b border-slate-200 overflow-visible"
+          className="grid grid-cols-1 md:grid-cols-4 gap-0 border-x border-b border-slate-200 overflow-visible"
         >
           {cellOrder.map((cellId, position) => {
             const isSwapping = swappingCells.has(cellId);

@@ -33,12 +33,12 @@ export function EnterpriseCompliance() {
   ];
 
   return (
-    <section id="compliance" className="pt-16 lg:pt-24 pb-0 bg-white px-4 scroll-mt-20">
+    <section id="compliance" className="bg-white px-4 lg:px-40 pt-4 lg:pt-10 2xl:pt-20">
       <div ref={ref} className={`container mx-auto max-w-[1440px] ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Wrapper */}
         <div className="relative">
           {/* Header Section with background */}
-          <div className="relative text-center mb-12 lg:mb-16">
+          <div className="relative text-center mb-10 md:mb-12 lg:mb-16">
             {/* Background dots behind header */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <Image
@@ -84,11 +84,11 @@ export function EnterpriseCompliance() {
             />
 
             {/* Main grid */}
-            <div className="flex-1 grid md:grid-cols-2 border border-slate-200 relative">
+            <div className="flex-1 grid md:grid-cols-2 gap-0 border border-slate-200 relative">
               {cards.map((card, index) => (
                 <div
                   key={index}
-                  className={`p-6 lg:p-8 ${index === 0
+                  className={`p-6 md:p-7 lg:p-8 ${index === 0
                       ? "border-b md:border-r border-slate-200"
                       : index === 1
                         ? "border-b border-slate-200"
@@ -157,7 +157,7 @@ export function EnterpriseCompliance() {
           </div>
 
           {/* Decorative image between sections */}
-          <div className="relative flex justify-end mt-8">
+          <div className="relative flex justify-end">
             <Image
               src="/svg/background/square-gray-bg.svg"
               alt="Decorative"

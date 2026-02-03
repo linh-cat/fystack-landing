@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   ChevronDown,
+  ChevronRight,
   Github,
   Wallet,
   CreditCard,
@@ -19,8 +20,16 @@ import {
   Coins,
   Bot,
   Smartphone,
-  Server
+  Server,
+  Menu
 } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 import appLogo from "@/app/images/app-logo.svg";
 
@@ -282,6 +291,253 @@ const SolutionsDropdown = () => {
   );
 };
 
+const MobileNavigation = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [expandedSection, setExpandedSection] = useState<string | null>(null);
+
+  const toggleSection = (section: string) => {
+    setExpandedSection(expandedSection === section ? null : section);
+  };
+
+  const closeSheet = () => {
+    setIsOpen(false);
+    setExpandedSection(null);
+  };
+
+  const productItems: ProductMenuItem[] = [
+    {
+      icon: <Wallet className="h-5 w-5" />,
+      title: "Wallet-as-a-Service",
+      description: "Build, manage, and scale secure wallets across multiple chains.",
+      href: "/new-homepage#wallet",
+    },
+    {
+      icon: <CreditCard className="h-5 w-5" />,
+      title: "Crypto Payments",
+      description: "Accept and send crypto payments seamlessly.",
+      href: "/new-homepage#use-cases",
+    },
+    {
+      icon: <Zap className="h-5 w-5" />,
+      title: "Automation",
+      description: "Automate on-chain operations to save time.",
+      href: "/new-homepage#operations",
+    },
+    {
+      icon: <Bell className="h-5 w-5" />,
+      title: "Alerts & Monitoring",
+      description: "Real-time transaction and event monitoring.",
+      href: "/new-homepage#operations",
+    },
+    {
+      icon: <BarChart3 className="h-5 w-5" />,
+      title: "Analytics & Insights",
+      description: "Track transaction volumes and wallet activity.",
+      href: "/new-homepage#operations",
+    },
+    {
+      icon: <Users className="h-5 w-5" />,
+      title: "User Management",
+      description: "Define roles and permissions for your team.",
+      href: "/new-homepage#compliance",
+    },
+    {
+      icon: <FileText className="h-5 w-5" />,
+      title: "Audit Trails",
+      description: "Full transparency into every action.",
+      href: "/new-homepage#compliance",
+    },
+    {
+      icon: <Shield className="h-5 w-5" />,
+      title: "Transaction Policies",
+      description: "Set programmable rules for spending.",
+      href: "/new-homepage#compliance",
+    },
+  ];
+
+  const solutionItems: ProductMenuItem[] = [
+    {
+      icon: <Building2 className="h-5 w-5" />,
+      title: "Multi-Chain Treasury",
+      description: "Manage crypto treasuries across chains.",
+      href: "/new-homepage#use-cases",
+    },
+    {
+      icon: <Coins className="h-5 w-5" />,
+      title: "Stablecoin Operations",
+      description: "Simplify cross-chain stablecoin flows.",
+      href: "/new-homepage#use-cases",
+    },
+    {
+      icon: <Bot className="h-5 w-5" />,
+      title: "Trading Bots",
+      description: "Build secure automated trading bots.",
+      href: "/new-homepage#use-cases",
+    },
+    {
+      icon: <Smartphone className="h-5 w-5" />,
+      title: "Fintech & Payments",
+      description: "Accept crypto payments, automate payouts.",
+      href: "/new-homepage#use-cases",
+    },
+    {
+      icon: <Server className="h-5 w-5" />,
+      title: "Self-Hosting",
+      description: "Deploy on your own cloud or servers.",
+      href: "/new-homepage#self-hosting",
+    },
+    {
+      icon: <Shield className="h-5 w-5" />,
+      title: "Whitelabel Custodian",
+      description: "Launch your own branded custodian service.",
+      href: "/new-homepage#wallet",
+    },
+  ];
+
+  const navLinks = [
+    { href: "https://docs.fystack.io", title: "Documentation", external: true },
+    { href: "/new-homepage#use-cases", title: "Case Studies", external: false },
+    { href: "/new-homepage#pricing", title: "Pricing", external: false },
+    { href: "/compare", title: "Compare", external: false },
+    { href: "/blog", title: "Blog", external: false },
+  ];
+
+  return (
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+      <SheetTrigger asChild>
+        <Button variant="ghost" size="sm" className="lg:hidden">
+          <Menu className="h-5 w-5" />
+          <span className="sr-only">Open menu</span>
+        </Button>
+      </SheetTrigger>
+      <SheetContent side="right" className="w-[300px] sm:w-[350px] overflow-y-auto">
+        <SheetHeader className="text-left">
+          <SheetTitle>Navigation</SheetTitle>
+        </SheetHeader>
+        <nav className="flex flex-col gap-2 mt-6">
+          {/* Product Section */}
+          <div>
+            <button
+              onClick={() => toggleSection("product")}
+              className="flex items-center justify-between w-full py-3 text-sm font-medium hover:text-foreground transition-colors"
+            >
+              <span>Product</span>
+              <ChevronRight
+                className={`h-4 w-4 transition-transform duration-200 ${
+                  expandedSection === "product" ? "rotate-90" : ""
+                }`}
+              />
+            </button>
+            {expandedSection === "product" && (
+              <div className="pl-2 pb-2 space-y-1 animate-in slide-in-from-top-2 duration-200">
+                {productItems.map((item) => (
+                  <Link
+                    key={item.title}
+                    href={item.href}
+                    onClick={closeSheet}
+                    className="flex items-center gap-3 p-2 rounded-md hover:bg-accent transition-colors"
+                  >
+                    <div className="text-muted-foreground">{item.icon}</div>
+                    <div>
+                      <div className="text-sm font-medium">{item.title}</div>
+                      <div className="text-xs text-muted-foreground">{item.description}</div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Solutions Section */}
+          <div>
+            <button
+              onClick={() => toggleSection("solutions")}
+              className="flex items-center justify-between w-full py-3 text-sm font-medium hover:text-foreground transition-colors"
+            >
+              <span>Solutions</span>
+              <ChevronRight
+                className={`h-4 w-4 transition-transform duration-200 ${
+                  expandedSection === "solutions" ? "rotate-90" : ""
+                }`}
+              />
+            </button>
+            {expandedSection === "solutions" && (
+              <div className="pl-2 pb-2 space-y-1 animate-in slide-in-from-top-2 duration-200">
+                {solutionItems.map((item) => (
+                  <Link
+                    key={item.title}
+                    href={item.href}
+                    onClick={closeSheet}
+                    className="flex items-center gap-3 p-2 rounded-md hover:bg-accent transition-colors"
+                  >
+                    <div className="text-muted-foreground">{item.icon}</div>
+                    <div>
+                      <div className="text-sm font-medium">{item.title}</div>
+                      <div className="text-xs text-muted-foreground">{item.description}</div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Divider */}
+          <div className="h-px bg-border my-2" />
+
+          {/* Direct Links */}
+          {navLinks.map((link) => (
+            <Link
+              key={link.title}
+              href={link.href}
+              onClick={closeSheet}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
+              className="py-3 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {link.title}
+            </Link>
+          ))}
+
+          {/* Divider */}
+          <div className="h-px bg-border my-2" />
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col gap-2 pt-2">
+            <Button variant="outline" size="sm" asChild className="justify-start gap-2">
+              <Link
+                href="https://github.com/fystack"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="h-4 w-4" />
+                <span>GitHub</span>
+              </Link>
+            </Button>
+            <Button variant="ghost" size="sm" asChild className="justify-start">
+              <Link
+                href="https://app.fystack.io"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Log in
+              </Link>
+            </Button>
+            <Button size="sm" asChild className="justify-start">
+              <Link
+                href="https://app.fystack.io"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Sign up
+              </Link>
+            </Button>
+          </div>
+        </nav>
+      </SheetContent>
+    </Sheet>
+  );
+};
+
 export default function Navbar() {
   const [isBannerVisible, setIsBannerVisible] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -325,7 +581,7 @@ export default function Navbar() {
       {isMounted && isBannerVisible && <div className="h-8 sm:h-9"></div>}
 
       <header className={`border-b sticky ${isMounted && isBannerVisible ? 'top-8 sm:top-9' : 'top-0'} z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60`}>
-      <div className="container flex h-16 items-center justify-between max-w-[1440px] mx-auto px-4 lg:px-0">
+      <div className="container flex h-16 items-center justify-between max-w-[1440px] px-4 mx-auto lg:px-40">
         <div className="flex items-center gap-8">
           <Link href="/">
             <Image
@@ -388,17 +644,6 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2 md:gap-3">
           <Button
-            size="sm"
-            variant="default"
-            asChild
-            className="lg:hidden"
-          >
-            <Link href="/new-homepage#pricing">
-              Pricing
-            </Link>
-          </Button>
-
-          <Button
             variant="outline"
             size="sm"
             asChild
@@ -414,7 +659,7 @@ export default function Navbar() {
             </Link>
           </Button>
 
-          <Button variant="ghost" size="sm" asChild>
+          <Button variant="ghost" size="sm" asChild className="hidden sm:inline-flex">
             <Link
               href="https://app.fystack.io"
               target="_blank"
@@ -424,7 +669,7 @@ export default function Navbar() {
             </Link>
           </Button>
 
-          <Button size="sm" asChild>
+          <Button size="sm" asChild className="hidden sm:inline-flex">
             <Link
               href="https://app.fystack.io"
               target="_blank"
@@ -433,6 +678,9 @@ export default function Navbar() {
               Sign up
             </Link>
           </Button>
+
+          {/* Mobile Navigation */}
+          <MobileNavigation />
         </div>
       </div>
     </header>

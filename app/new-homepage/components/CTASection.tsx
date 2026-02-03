@@ -173,7 +173,7 @@ export function CTASection() {
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-white px-4">
+    <section className="bg-white px-4 lg:px-40 py-4 lg:py-10 2xl:py-20">
       <div ref={scrollRef} className={`container mx-auto max-w-[1440px] ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Wrapper */}
         <div className="relative">
@@ -187,7 +187,6 @@ export function CTASection() {
             <div className="relative text-center py-12 lg:py-16 px-6 border-b border-slate-200">
               {/* Vertical dashed lines */}
               <div className="hidden lg:block absolute left-1/4 top-0 bottom-0 border-l border-dashed border-slate-200" />
-              <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 border-l border-dashed border-slate-200" />
               <div className="hidden lg:block absolute left-3/4 top-0 bottom-0 border-l border-dashed border-slate-200" />
               
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
@@ -313,7 +312,7 @@ export function CTASection() {
                     </button>
 
                     {/* Secondary Button */}
-                    <button
+                    <a
                       className="px-14 py-3.5 bg-white border-2 border-slate-200 text-slate-700 rounded-full text-base font-medium
                         shadow-sm
                         transition-all duration-300 ease-out
@@ -321,9 +320,10 @@ export function CTASection() {
                         active:scale-[0.98]
                         focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2
                         cursor-pointer"
+                        href="https://t.me/anhthind"
                     >
                       Talk to founders
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>

@@ -6,8 +6,7 @@ import { DebugDelivery } from "./components/DebugDelivery";
 import { TrustedScale } from "./components/TrustedScale";
 import { WhyChooseUs } from "./components/WhyChooseUs";
 import { MPCSecurity } from "./components/MPCSecurity";
-import { SecurityExperts } from "./components/SecurityExperts";
-import { DeveloperExperience } from "./components/DeveloperExperience";
+import { SecurityDeveloper } from "./components/SecurityDeveloper";
 import { OperationalExcellence } from "./components/OperationalExcellence";
 import { EnterpriseCompliance } from "./components/EnterpriseCompliance";
 import { SelfHostedDeployment } from "./components/SelfHostedDeployment";
@@ -40,11 +39,8 @@ export default function NewHomepage() {
         {/* MPC Security Section */}
         <MPCSecurity />
 
-        {/* Security Experts Section */}
-        <SecurityExperts />
-
-        {/* Developer Experience Section */}
-        <DeveloperExperience />
+        {/* Security & Developer Section */}
+        <SecurityDeveloper />
 
         {/* Operational Excellence Section */}
         <OperationalExcellence />

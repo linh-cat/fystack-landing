@@ -24,16 +24,16 @@ export function SelfHostedDeployment() {
   ];
 
   return (
-    <section id="self-hosting" className="pb-16 lg:pb-24 bg-white px-4 scroll-mt-20">
+    <section id="self-hosting" className="bg-white px-4 lg:px-40 pb-4 lg:pb-10 2xl:pb-20 scroll-mt-20">
       <div ref={ref} className={`container mx-auto max-w-[1440px] ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Wrapper */}
         <div className="relative">
           {/* Main content with striped sidebars */}
           <div className="relative flex">
             {/* Main grid */}
-            <div className="flex-1 grid lg:grid-cols-2 border border-slate-200 relative">
+            <div className="flex-1 grid lg:grid-cols-2 gap-0 border border-slate-200 relative">
               {/* Left Column - Content */}
-              <div className="p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-slate-200">
+              <div className="p-6 md:p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-slate-200">
                 {/* Badge */}
                 <p className="text-[#3b82f6] text-sm font-semibold mb-4 tracking-wide">
                   /DEPLOYMENT/
@@ -45,7 +45,7 @@ export function SelfHostedDeployment() {
                 </h2>
 
                 {/* Subtitle */}
-                <p className="text-slate-500 text-base lg:text-lg leading-relaxed mb-8">
+                <p className="text-slate-500 text-base lg:text-lg leading-relaxed mb-8 max-w-xl">
                   Complete control over your private keys and data with self-hosted deployment
                 </p>
 
@@ -174,9 +174,9 @@ export function SelfHostedDeployment() {
                     </div>
 
                     {/* Button */}
-                    <button className="relative z-10 px-8 py-3 bg-white border border-slate-200 rounded-lg text-slate-700 font-medium hover:bg-slate-50 transition-colors shadow-sm">
+                    <a className="relative z-10 px-8 py-3 bg-white border border-slate-200 rounded-lg text-slate-700 font-medium hover:bg-slate-50 transition-colors shadow-sm text-center" href="/compare" target="_blank" rel="noopener noreferrer">
                       Deploy Self-Hosted
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>

@@ -10,18 +10,18 @@ export function DebugDelivery() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-20 lg:py-28 bg-white px-4">
+    <section className="bg-white px-4 lg:px-40 py-4 lg:py-10 2xl:py-20">
       <div ref={ref} className={`container mx-auto max-w-[1440px] relative ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Section Title */}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-800 mb-16 lg:mb-24 px-4">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-800 mb-12 md:mb-16 lg:mb-24 px-4">
           Debug Delivery with Confidence
         </h2>
 
         {/* Two Column Layout */}
         <div className="flex items-center justify-center">
-          <div className="grid lg:grid-cols-2 items-center max-w-full w-full bg-slate-100/50">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center max-w-full w-full bg-slate-100/50">
             {/* Left Column - Text Content */}
-            <div className="space-y-10 px-4 py-8">
+            <div className="space-y-10 px-6 lg:px-12 py-10 lg:py-12 max-w-xl">
               {/* Automatic Retries */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">

@@ -178,23 +178,14 @@ export function UseCases() {
   }, []);
 
   return (
-    <section id="use-cases" className="py-16 lg:py-24 bg-white px-4 scroll-mt-20">
+    <section id="use-cases" className="bg-white px-4 lg:px-40 py-4 lg:py-10 2xl:py-20scroll-mt-20">
       <div className="container mx-auto max-w-[1440px]">
         {/* Wrapper */}
         <div className="relative">
-          {/* Corner squares */}
-          <div className="hidden lg:block absolute -top-2 -left-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />
-          <div className="hidden lg:block absolute -top-2 -right-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />
-
           {/* Main content */}
           <div className="border border-slate-200">
             {/* Header Section */}
             <div className="relative text-center py-12 lg:py-16 px-6 border-b border-slate-200">
-              {/* Vertical dashed lines */}
-              <div className="hidden lg:block absolute left-1/4 top-0 bottom-0 border-l border-dashed border-slate-200" />
-              <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 border-l border-dashed border-slate-200" />
-              <div className="hidden lg:block absolute left-3/4 top-0 bottom-0 border-l border-dashed border-slate-200" />
-
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
                 One platform, unlimited use cases<span className="text-[#3b82f6]">.</span>
               </h2>
@@ -330,10 +321,6 @@ export function UseCases() {
               </div>
             </div>
           </div>
-
-          {/* Corner squares bottom */}
-          <div className="hidden lg:block absolute -bottom-2 -left-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />
-          <div className="hidden lg:block absolute -bottom-2 -right-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />
         </div>
       </div>
     </section>
