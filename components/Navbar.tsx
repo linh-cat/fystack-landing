@@ -557,7 +557,7 @@ export default function Navbar() {
     <>
       {/* Builder Grant Banner */}
       {isMounted && isBannerVisible && (
-        <div className="fixed top-0 left-0 right-0 z-[60] bg-[#155dfc] text-white text-center py-2 px-4 text-xs sm:text-sm font-medium">
+        <div className="fixed top-0 left-0 right-0 z-[60] bg-[#3b82f6] text-white text-center py-2 px-4 text-xs sm:text-sm font-medium">
           <div className="relative flex items-center justify-center">
             <Link
               href="/builder-grants"

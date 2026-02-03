@@ -93,7 +93,7 @@ export default function ComparePage() {
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
             <span className="text-slate-700 dark:text-slate-200">Fystack Self-hosted vs </span>
-            <span className="text-[#155dfc]">Others</span>
+            <span className="text-[#3b82f6]">Others</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
             Fystack offers self-hosted solutions that companies can deploy on their infrastructure for maximum control and security
@@ -259,7 +259,7 @@ export default function ComparePage() {
                     href="https://docs.fystack.io/security/encryption-at-rest"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#155dfc] text-white rounded-lg font-medium hover:bg-blue-600 transition-colors shadow-md"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#3b82f6] text-white rounded-lg font-medium hover:bg-blue-600 transition-colors shadow-md"
                   >
                     <Shield className="w-5 h-5" />
                     View Security Documentation
@@ -365,7 +365,7 @@ export default function ComparePage() {
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Feature</h3>
               </div>
               <div className="col-span-1 text-center">
-                <h3 className="text-lg font-semibold text-[#155dfc]">Fystack</h3>
+                <h3 className="text-lg font-semibold text-[#3b82f6]">Fystack</h3>
               </div>
               <div className="col-span-1 text-center">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Others</h3>
@@ -408,7 +408,7 @@ export default function ComparePage() {
                           <X className="w-6 h-6 text-red-600 dark:text-red-400" />
                         )
                       ) : (
-                        <span className="font-medium text-[#155dfc]">{item.fystack}</span>
+                        <span className="font-medium text-[#3b82f6]">{item.fystack}</span>
                       )}
                     </div>
                     <div className="col-span-1 flex items-center justify-center">
@@ -464,7 +464,7 @@ export default function ComparePage() {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="https://app.fystack.io"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#155dfc] text-white rounded-lg font-medium hover:bg-blue-600 transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#3b82f6] text-white rounded-lg font-medium hover:bg-blue-600 transition-colors"
               >
                 Get Started
                 <ArrowRight className="w-5 h-5" />

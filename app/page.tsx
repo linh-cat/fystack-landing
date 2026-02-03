@@ -138,7 +138,7 @@ export default function Home() {
             <div className="flex flex-col items-center text-center">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 md:mb-8 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <Wallet className="w-4 h-4 text-[#155dfc]" />
+                <Wallet className="w-4 h-4 text-[#3b82f6]" />
                 <span className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
                   Digital Custody Infrastructure
                 </span>
@@ -149,7 +149,7 @@ export default function Home() {
                   Enterprise-grade
                 </span>
                 <br />
-                <span className="text-[#155dfc]">
+                <span className="text-[#3b82f6]">
                   {typedText}
                   {!isTypingDone && <span className="animate-pulse">|</span>}
                 </span>
@@ -187,7 +187,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
-                  className="rounded-full px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold bg-[#155dfc] hover:bg-[#155dfc]/90 shadow-lg hover:shadow-xl transition-all"
+                  className="rounded-full px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold bg-[#3b82f6] hover:bg-[#3b82f6]/90 shadow-lg hover:shadow-xl transition-all"
                   asChild
                 >
                   <Link
@@ -242,7 +242,7 @@ export default function Home() {
                   href="https://www.youtube.com/watch?v=Am206C2Grxo&list=PLU9E1W4GqwHGmFhSF2HXKYzbFZNYgBQBR"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-full bg-white/95 text-slate-900 px-5 py-3 shadow-lg hover:bg-[#155dfc] hover:text-white transition-all duration-200"
+                  className="flex items-center gap-2 rounded-full bg-white/95 text-slate-900 px-5 py-3 shadow-lg hover:bg-[#3b82f6] hover:text-white transition-all duration-200"
                 >
                   <Play className="w-5 h-5" />
                   <span className="font-medium">Watch Demo</span>
@@ -264,10 +264,10 @@ export default function Home() {
 
             <div className="grid md:grid-cols-3 gap-6">
               {/* Startups */}
-              <div className="group relative bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 hover:border-[#155dfc]/50 hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer">
+              <div className="group relative bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 hover:border-[#3b82f6]/50 hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500"></div>
                 <div className="relative">
-                  <div className="w-12 h-1 bg-[#155dfc] rounded-full mb-6"></div>
+                  <div className="w-12 h-1 bg-[#3b82f6] rounded-full mb-6"></div>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
                     Startups
                   </h3>
@@ -279,10 +279,10 @@ export default function Home() {
               </div>
 
               {/* Mid-size companies */}
-              <div className="group relative bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 hover:border-[#155dfc]/50 hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer">
+              <div className="group relative bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 hover:border-[#3b82f6]/50 hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500"></div>
                 <div className="relative">
-                  <div className="w-12 h-1 bg-[#155dfc] rounded-full mb-6"></div>
+                  <div className="w-12 h-1 bg-[#3b82f6] rounded-full mb-6"></div>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
                     Mid-size companies
                   </h3>
@@ -294,10 +294,10 @@ export default function Home() {
               </div>
 
               {/* Enterprises */}
-              <div className="group relative bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 hover:border-[#155dfc]/50 hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer">
+              <div className="group relative bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 hover:border-[#3b82f6]/50 hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500"></div>
                 <div className="relative">
-                  <div className="w-12 h-1 bg-[#155dfc] rounded-full mb-6"></div>
+                  <div className="w-12 h-1 bg-[#3b82f6] rounded-full mb-6"></div>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
                     Enterprises
                   </h3>
@@ -448,30 +448,30 @@ export default function Home() {
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
                       Exchange Custody Infrastructure
                     </h3>
-                    <p className="text-[#155dfc] font-medium mb-6">
+                    <p className="text-[#3b82f6] font-medium mb-6">
                       Built for regulated and high-volume exchanges
                     </p>
                     <ul className="space-y-4">
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           <strong>Full key and data ownership</strong> – Self-hosted custody with no vendor lock-in
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           <strong>Jurisdiction-safe by design</strong> – Keys never leave their country of operation
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           <strong>Flexible security architecture</strong> – MPC and HSM-enforced signing (FIPS 140-3 Level 3)
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           <strong>Faster than in-house builds</strong> – Deploy in weeks, not months, at lower cost
                         </span>
@@ -502,31 +502,31 @@ export default function Home() {
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
                       Stablecoin payment rail
                     </h3>
-                    <p className="text-[#155dfc] font-medium mb-6">
+                    <p className="text-[#3b82f6] font-medium mb-6">
                       Seamlessly integrate cryptocurrency payments
                     </p>
                     <ul className="space-y-4">
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Automated MPC wallet sweeps for seamless fund
                           management
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Multi-chain deposit collection across EVM, Solana
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Real-time webhook notifications for payment events
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Enterprise-grade security with threshold signatures
                         </span>
@@ -553,36 +553,36 @@ export default function Home() {
                       href="https://apescreener.xyz/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-[#155dfc] transition-colors"
+                      className="hover:text-[#3b82f6] transition-colors"
                     >
-                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 hover:text-[#155dfc] transition-colors">
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 hover:text-[#3b82f6] transition-colors">
                         Apescreener
                       </h3>
                     </Link>
-                    <p className="text-[#155dfc] font-medium mb-6">
+                    <p className="text-[#3b82f6] font-medium mb-6">
                       All-Chain Treasury Management
                     </p>
                     <ul className="space-y-4">
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Unified treasury view across multiple blockchains
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Multi-sig approvals for large fund movements
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Real-time portfolio analytics and reporting
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Automated treasury operations and alerts
                         </span>
@@ -615,30 +615,30 @@ export default function Home() {
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
                       OTC Desk
                     </h3>
-                    <p className="text-[#155dfc] font-medium mb-6">
+                    <p className="text-[#3b82f6] font-medium mb-6">
                       Over-the-Counter Trading Platform
                     </p>
                     <ul className="space-y-4">
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Secure custody for high-value OTC transactions
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Quorum approval workflows for large trades
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Auto sweep user's deposit wallet into hot wallets
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Compliance-ready audit trails and reporting
                         </span>
@@ -664,30 +664,30 @@ export default function Home() {
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
                       Trading agents with approval
                     </h3>
-                    <p className="text-[#155dfc] font-medium mb-6">
+                    <p className="text-[#3b82f6] font-medium mb-6">
                       Prevent unauthorized access or bad trades with multi-layer approval workflows
                     </p>
                     <ul className="space-y-4">
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Multi-signature approval required
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Transaction limits and guardrails
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Real-time monitoring and alerts
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Ensure every automated trading action is reviewed and approved before execution
                         </span>
@@ -750,31 +750,31 @@ export default function Home() {
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
                       Gaming Wallet
                     </h3>
-                    <p className="text-[#155dfc] font-medium mb-6">
+                    <p className="text-[#3b82f6] font-medium mb-6">
                       Gaming Infrastructure
                     </p>
                     <ul className="space-y-4">
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           On-chain Minecraft server built on Solana
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Wallet infrastructure for gamers to deposit tokens,
                           SOL and play games
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Scalable wallet creation for thousands of players
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 dark:text-slate-400">
                           Low-latency transaction processing for gaming UX
                         </span>
@@ -2196,7 +2196,7 @@ export default function Home() {
                       Yearly
                     </button>
                   </div>
-                  <span className="text-[#155dfc] text-sm font-medium">
+                  <span className="text-[#3b82f6] text-sm font-medium">
                     -20%
                   </span>
                 </div>
@@ -2221,7 +2221,7 @@ export default function Home() {
                       </div>
 
                       <Button
-                        className="w-full mb-8 rounded-full py-6 text-sm font-medium bg-[#155dfc] hover:bg-[#1350d9] text-white"
+                        className="w-full mb-8 rounded-full py-6 text-sm font-medium bg-[#3b82f6] hover:bg-[#2563eb] text-white"
                         asChild
                       >
                         <Link
@@ -2275,9 +2275,9 @@ export default function Home() {
                   </Card>
 
                   {/* Starter Plan */}
-                  <Card className="relative flex flex-col bg-white dark:bg-gray-900 rounded-2xl shadow-lg border-2 border-[#155dfc] w-full min-w-0">
+                  <Card className="relative flex flex-col bg-white dark:bg-gray-900 rounded-2xl shadow-lg border-2 border-[#3b82f6] w-full min-w-0">
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <Badge className="bg-[#155dfc] hover:bg-[#155dfc] text-white px-4 py-1 text-xs font-medium">
+                      <Badge className="bg-[#3b82f6] hover:bg-[#3b82f6] text-white px-4 py-1 text-xs font-medium">
                         Most Popular
                       </Badge>
                     </div>
@@ -2301,7 +2301,7 @@ export default function Home() {
                       </div>
 
                       <Button
-                        className="w-full mb-8 rounded-full py-6 text-sm font-medium bg-[#155dfc] hover:bg-[#1350d9] text-white"
+                        className="w-full mb-8 rounded-full py-6 text-sm font-medium bg-[#3b82f6] hover:bg-[#2563eb] text-white"
                         asChild
                       >
                         <Link
@@ -2388,7 +2388,7 @@ export default function Home() {
                       </div>
 
                       <Button
-                        className="w-full mb-8 rounded-full py-6 text-sm font-medium bg-[#155dfc] hover:bg-[#1350d9] text-white"
+                        className="w-full mb-8 rounded-full py-6 text-sm font-medium bg-[#3b82f6] hover:bg-[#2563eb] text-white"
                         asChild
                       >
                         <Link
@@ -2501,7 +2501,7 @@ export default function Home() {
                       <div className="md:w-auto">
                         <Button
                           size="lg"
-                          className="bg-[#155dfc] hover:bg-[#1350d9] text-white rounded-full px-8"
+                          className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full px-8"
                           asChild
                         >
                           <Link
@@ -2533,7 +2533,7 @@ export default function Home() {
                       </p>
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
+                          <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-none" />
                           <div>
                             <div className="font-semibold text-slate-900 dark:text-white">
                               7-Day Deployment Support
@@ -2545,7 +2545,7 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
+                          <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-none" />
                           <div>
                             <div className="font-semibold text-slate-900 dark:text-white">
                               MPC Technology
@@ -2556,7 +2556,7 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
+                          <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-none" />
                           <div>
                             <div className="font-semibold text-slate-900 dark:text-white">
                               Multi-Chain Support
@@ -2567,7 +2567,7 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
+                          <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-none" />
                           <div>
                             <div className="font-semibold text-slate-900 dark:text-white">
                               Self-Hosted
@@ -2578,7 +2578,7 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
+                          <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-none" />
                           <div>
                             <div className="font-semibold text-slate-900 dark:text-white">
                               Updates & Security Patches
@@ -2589,7 +2589,7 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
+                          <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-none" />
                           <div>
                             <div className="font-semibold text-slate-900 dark:text-white">
                               Documentation
@@ -2600,7 +2600,7 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-[#155dfc] mt-0.5 flex-none" />
+                          <CheckCircle className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-none" />
                           <div>
                             <div className="font-semibold text-slate-900 dark:text-white">
                               Commercial Use
@@ -2614,7 +2614,7 @@ export default function Home() {
                       <div className="flex flex-col sm:flex-row gap-3 mt-8">
                         <Button
                           size="lg"
-                          className="text-base px-8 bg-[#155dfc] hover:bg-[#1350d9] text-white rounded-full"
+                          className="text-base px-8 bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full"
                           asChild
                         >
                           <Link href="/pricing">
@@ -2721,7 +2721,7 @@ export default function Home() {
           href="https://t.me/+9AtC0z8sS79iZjFl"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center bg-[#155dfc] hover:bg-[#155dfc]/90 text-white px-7 py-4 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl"
+          className="flex items-center justify-center bg-[#3b82f6] hover:bg-[#3b82f6]/90 text-white px-7 py-4 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -182,7 +182,7 @@ export default function BuyPage() {
                         Yearly
                       </button>
                     </div>
-                    <span className="text-[#155dfc] text-sm font-medium">
+                    <span className="text-[#3b82f6] text-sm font-medium">
                       -20%
                     </span>
                   </div>
@@ -194,13 +194,13 @@ export default function BuyPage() {
                         key={plan.name}
                         className={`relative flex flex-col bg-white dark:bg-gray-900 rounded-2xl shadow-sm border ${
                           plan.popular
-                            ? "border-2 border-[#155dfc] shadow-lg"
+                            ? "border-2 border-[#3b82f6] shadow-lg"
                             : "border-gray-200 dark:border-gray-800"
                         }`}
                       >
                         {plan.popular && (
                           <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                            <Badge className="bg-[#155dfc] hover:bg-[#155dfc] text-white px-4 py-1 text-xs font-medium">
+                            <Badge className="bg-[#3b82f6] hover:bg-[#3b82f6] text-white px-4 py-1 text-xs font-medium">
                               Most Popular
                             </Badge>
                           </div>
@@ -230,7 +230,7 @@ export default function BuyPage() {
                           </div>
 
                           <Button
-                            className="w-full mb-8 rounded-full py-6 text-sm font-medium bg-[#155dfc] hover:bg-[#1350d9] text-white"
+                            className="w-full mb-8 rounded-full py-6 text-sm font-medium bg-[#3b82f6] hover:bg-[#2563eb] text-white"
                             asChild
                           >
                             <Link href="https://app.fystack.io" target="_blank" rel="noopener noreferrer">
@@ -295,7 +295,7 @@ export default function BuyPage() {
                         <div className="md:w-auto">
                           <Button
                             size="lg"
-                            className="bg-[#155dfc] hover:bg-[#1350d9] text-white rounded-full px-8"
+                            className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full px-8"
                             asChild
                           >
                             <Link href="https://t.me/anhthind" target="_blank" rel="noopener noreferrer">
@@ -454,7 +454,7 @@ export default function BuyPage() {
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-5">
                           <div className="flex items-start gap-3">
-                            <Check className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                            <Check className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                             <div>
                               <div className="font-medium text-slate-900 dark:text-white">7-Day Deployment Support</div>
                               <div className="text-sm text-slate-500 dark:text-slate-400">
@@ -463,7 +463,7 @@ export default function BuyPage() {
                             </div>
                           </div>
                           <div className="flex items-start gap-3">
-                            <Check className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                            <Check className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                             <div>
                               <div className="font-medium text-slate-900 dark:text-white">MPC Technology</div>
                               <div className="text-sm text-slate-500 dark:text-slate-400">
@@ -472,7 +472,7 @@ export default function BuyPage() {
                             </div>
                           </div>
                           <div className="flex items-start gap-3">
-                            <Check className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                            <Check className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                             <div>
                               <div className="font-medium text-slate-900 dark:text-white">Multi-Chain Support</div>
                               <div className="text-sm text-slate-500 dark:text-slate-400">
@@ -481,7 +481,7 @@ export default function BuyPage() {
                             </div>
                           </div>
                           <div className="flex items-start gap-3">
-                            <Check className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                            <Check className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                             <div>
                               <div className="font-medium text-slate-900 dark:text-white">Self-Hosted</div>
                               <div className="text-sm text-slate-500 dark:text-slate-400">
@@ -492,7 +492,7 @@ export default function BuyPage() {
                         </div>
                         <div className="space-y-5">
                           <div className="flex items-start gap-3">
-                            <Check className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                            <Check className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                             <div>
                               <div className="font-medium text-slate-900 dark:text-white">Updates & Security Patches</div>
                               <div className="text-sm text-slate-500 dark:text-slate-400">
@@ -501,7 +501,7 @@ export default function BuyPage() {
                             </div>
                           </div>
                           <div className="flex items-start gap-3">
-                            <Check className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                            <Check className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                             <div>
                               <div className="font-medium text-slate-900 dark:text-white">Documentation</div>
                               <div className="text-sm text-slate-500 dark:text-slate-400">
@@ -510,7 +510,7 @@ export default function BuyPage() {
                             </div>
                           </div>
                           <div className="flex items-start gap-3">
-                            <Check className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                            <Check className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                             <div>
                               <div className="font-medium text-slate-900 dark:text-white">Commercial Use</div>
                               <div className="text-sm text-slate-500 dark:text-slate-400">
@@ -519,7 +519,7 @@ export default function BuyPage() {
                             </div>
                           </div>
                           <div className="flex items-start gap-3">
-                            <Check className="w-5 h-5 text-[#155dfc] mt-0.5 flex-shrink-0" />
+                            <Check className="w-5 h-5 text-[#3b82f6] mt-0.5 flex-shrink-0" />
                             <div>
                               <div className="font-medium text-slate-900 dark:text-white">Docker & K8s Deployment</div>
                               <div className="text-sm text-slate-500 dark:text-slate-400">
@@ -536,7 +536,7 @@ export default function BuyPage() {
                   <div className="max-w-md mx-auto text-center space-y-4">
                     <Button
                       size="lg"
-                      className="w-full text-base bg-[#155dfc] hover:bg-[#1350d9] text-white rounded-full py-6"
+                      className="w-full text-base bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-full py-6"
                       asChild
                     >
                       <Link href="https://t.me/anhthind" target="_blank" rel="noopener noreferrer">
