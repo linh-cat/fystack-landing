@@ -37,9 +37,9 @@ export function Hero() {
   }, [wordIndex]);
 
   return (
-    <section className="overflow-hidden flex items-center justify-center px-4 lg:px-20 py-4 lg:py-10">
+    <section className="overflow-hidden max-w-[1440px] flex items-center justify-center px-4 py-4 lg:py-10 mx-auto">
       {/* Wrapper for corner squares outside the box */}
-      <div ref={scrollRef} className={`relative w-full max-w-[1440px] ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
+      <div ref={scrollRef} className={`relative w-full  ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Corner squares - outside the box */}
         <div className="hidden lg:block absolute -top-2 -left-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />
         <div className="hidden lg:block absolute -top-2 -right-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />

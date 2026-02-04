@@ -10,8 +10,8 @@ export function DebugDelivery() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-white px-4 lg:px-20 py-4 lg:py-10 2xl:py-20">
-      <div ref={ref} className={`container mx-auto max-w-[1440px] relative ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
+    <section className="bg-white max-w-[1440px] px-4 py-4 lg:py-10 2xl:py-20 mx-auto">
+      <div ref={ref} className={`container mx-auto  relative ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Section Title */}
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-800 mb-12 md:mb-16 lg:mb-24 px-4">
           Debug Delivery with Confidence

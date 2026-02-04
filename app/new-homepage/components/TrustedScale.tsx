@@ -273,8 +273,8 @@ export function TrustedScale() {
   };
 
   return (
-    <section className=" bg-white px-4 lg:px-20 py-4 lg:py-10 2xl:py-20">
-      <div className="container mx-auto max-w-[1440px]">
+    <section className=" bg-white max-w-[1440px] px-4 py-4 lg:py-10 2xl:py-20 mx-auto">
+      <div className="container mx-auto">
         {/* Top Section with decorative patterns */}
         <div className="relative border border-slate-200 mb-0">
           <div className="flex items-stretch">
