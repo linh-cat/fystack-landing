@@ -192,7 +192,7 @@ export default function RootLayout({
         {/* Additional meta tags for better social sharing */}
         <meta property="og:locale" content="en_US" />
         <meta property="og:site_name" content="Fystack" />
-        <meta property="fb:app_id" content="your-facebook-app-id" />{" "}
+        <meta property="fb:app_id" content="your-facebook-app-id" />
         {/* Replace with actual FB app ID if you have one */}
         {/* For better mobile sharing */}
         <meta name="format-detection" content="telephone=no" />
