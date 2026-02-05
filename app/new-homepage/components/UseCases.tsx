@@ -224,28 +224,13 @@ export function UseCases() {
                   <button
                     key={tab.key}
                     onClick={() => handleTabClick(tab.key)}
-                    className={`relative w-full text-left px-6 py-4 text-sm font-medium transition-all border-b border-slate-200 last:border-b-0 overflow-hidden
+                    className={`relative w-full text-left px-6 py-4 text-sm font-medium transition-all overflow-hidden
                       ${activeTab === tab.key
                         ? "bg-[#3b82f6] text-white"
                         : "text-slate-600 hover:bg-slate-50"
                       }`}
                   >
                     {tab.label}
-                    {/* Progress bar */}
-                    {activeTab === tab.key && (
-                      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/20">
-                        <div
-                          key={progressKey}
-                          className="h-full bg-white/60"
-                          style={{
-                            width: isTabHovered ? "0%" : "100%",
-                            transition: isTabHovered
-                              ? "none"
-                              : `width ${TAB_INTERVAL}ms linear`,
-                          }}
-                        />
-                      </div>
-                    )}
                   </button>
                 ))}
               </div>
