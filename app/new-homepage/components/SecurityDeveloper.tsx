@@ -132,7 +132,7 @@ export function SecurityDeveloper() {
                 <p className="text-[#3b82f6] text-sm font-semibold mb-4 tracking-wide font-mono">
                   /SECURITY BUILT BY EXPERTS/
                 </p>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
                   No more insecure
                   <br />
                   wallet infrastructure

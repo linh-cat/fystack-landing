@@ -16,7 +16,7 @@ const ibmPlexSans = IBM_Plex_Sans({
 
 export const metadata: Metadata = {
   title: 'Fystack - Enterprise-grade Stablecoin and digital asset Custody For Teams',
-  description: 'The fastest way to go on-chain. Fystack help fintechs, web3 teams automate stablecoin, digital asset workflows across chains securely.',
+  description: 'Multi-chain infrastructure for fintechs, payment platforms, and crypto businesses to automate digital asset operations securely.',
   metadataBase: new URL('https://fystack.io'),
   alternates: {
     canonical: 'https://fystack.io'
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://fystack.io',
     title: 'Fystack - Enterprise-grade Stablecoin and digital asset Custody For Teams',
-    description: 'The fastest way to go on-chain. Fystack help fintechs, web3 teams automate stablecoin, digital asset workflows across chains securely.',
+    description: 'Multi-chain infrastructure for fintechs, payment platforms, and crypto businesses to automate digital asset operations securely.',
     siteName: 'Fystack',
     images: [
       {
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     site: '@fystack',
     creator: '@fystack',
     title: 'Fystack - Enterprise-grade Stablecoin and digital asset Custody For Teams',
-    description: 'The fastest way to go on-chain. We help fintechs, web3 teams automate stablecoin and digital asset workflows across multiple chains securely at scale.',
+    description: 'Multi-chain infrastructure for fintechs, payment platforms, and crypto businesses to automate digital asset operations securely.',
     images: ['/self_custody.jpeg']
   },
   robots: {

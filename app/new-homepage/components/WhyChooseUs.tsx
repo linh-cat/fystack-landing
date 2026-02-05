@@ -36,7 +36,7 @@ export function WhyChooseUs() {
             <div className="grid lg:grid-cols-2 gap-0">
               {/* Left - Main heading */}
               <div className="p-6 md:p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-slate-200">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 leading-tight">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 leading-tight">
                   Focus on your product,
                   <br />
                   not 3rd integration

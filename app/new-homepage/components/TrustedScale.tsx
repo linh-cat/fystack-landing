@@ -291,7 +291,7 @@ export function TrustedScale() {
 
             {/* Header Content */}
             <div className="flex-1 text-center py-8 md:py-10 lg:py-12 px-6 md:px-8 lg:px-12">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
                 Trusted to scale from day
                 <br />
                 one to enterprise<span className="text-[#3b82f6]">.</span>

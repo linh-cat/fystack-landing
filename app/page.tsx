@@ -160,9 +160,8 @@ export default function Home() {
               </h1>
 
               <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-6 max-w-2xl px-4">
-                The fastest way to go on-chain. We help fintechs, web3 teams automate stablecoin, digital asset
-                workflows across multiple chains securely at scale with maximum
-                security.
+                Multi-chain infrastructure for fintechs, payment platforms, and
+                crypto businesses to automate digital asset operations securely.
               </p>
 
               {/* Badges */}

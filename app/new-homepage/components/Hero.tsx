@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
-import { Wallet } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useScrollReveal } from "../hooks/useScrollReveal";
@@ -54,22 +53,16 @@ export function Hero() {
               <div className="absolute top-10 right-10 w-[150px] sm:w-[200px] h-[150px] sm:h-[200px] bg-gradient-to-t from-white to-[#3b82f6]/80 blur-3xl -z-10" />
               {/* Badges */}
               <div className="flex flex-wrap items-center gap-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 border border-slate-200/60 flex-wrap">
-                  <Wallet className="w-3.5 h-3.5 text-[#3b82f6]/70" />
-                  <span className="text-xs sm:text-sm text-slate-500">
-                    Digital Custody Infrastructure
-                  </span>
-                </div>
                 <Link
                   href="https://docs.fystack.io/changelog/v0.1.8"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-br bg-violet-500/10 hover:bg-violet-500/15 transition-colors border border-violet-500/20"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-[#3b82f6]/10 to-[#8b5cf6]/10 hover:from-[#3b82f6]/15 hover:to-[#8b5cf6]/15 transition-colors border border-[#3b82f6]/20"
                 >
-                  <span className="text-xs sm:text-sm text-violet-500">
-                    v0.1.8 in here
+                  <span className="text-xs sm:text-sm bg-gradient-to-r from-[#3b82f6] to-[#8b5cf6] bg-clip-text text-transparent">
+                    v0.1.8 is here
                   </span>
-                  <span className="text-violet-500 text-xs">→</span>
+                  <span className="text-[#8b5cf6] text-xs">→</span>
                 </Link>
               </div>
 
@@ -77,7 +70,7 @@ export function Hero() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold tracking-tight">
                 <div className="flex flex-col gap-1 leading-[1.1]">
                   <span className="text-slate-800">
-                    Enterprise grade
+                    Enterprise-grade
                   </span>
 
                   <span className="text-[#3b82f6]">
@@ -96,9 +89,8 @@ export function Hero() {
 
               {/* Description */}
               <p className="text-sm sm:text-base lg:text-lg text-slate-700 max-w-xl leading-relaxed">
-                The fastest way to go on-chain. We help fintechs, web3 teams
-                automate stablecoin, digital asset workflows across multiple
-                chains securely at scale with maximum security.
+                Multi-chain infrastructure for fintechs, payment platforms, and
+                crypto businesses to automate digital asset operations securely.
               </p>
 
               {/* CTA Buttons */}

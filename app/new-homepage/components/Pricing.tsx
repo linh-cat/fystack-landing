@@ -97,7 +97,7 @@ export function Pricing() {
 
           {/* Header Section */}
           <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
               Simple, transparent pricing
             </h2>
             <p className="text-slate-500 text-base lg:text-lg leading-relaxed max-w-xl mx-auto mb-8">

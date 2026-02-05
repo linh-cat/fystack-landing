@@ -45,7 +45,7 @@ export function OperationalExcellence() {
         <div className="relative">
           {/* Header Section */}
           <div className="text-center mb-12 lg:mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
               Built for operational excellence
             </h2>
             <p className="text-slate-500 text-base lg:text-lg leading-relaxed max-w-xl mx-auto">

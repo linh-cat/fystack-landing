@@ -168,7 +168,7 @@ export function UseCases() {
           <div className="border border-slate-200">
             {/* Header Section */}
             <div className="relative text-center py-12 lg:py-16 px-6 border-b border-slate-200">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
                 One platform, unlimited use cases<span className="text-[#3b82f6]">.</span>
               </h2>
               <p className="text-slate-500 text-base lg:text-lg leading-relaxed max-w-xl mx-auto">

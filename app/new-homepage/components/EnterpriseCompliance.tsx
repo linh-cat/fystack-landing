@@ -57,7 +57,7 @@ export function EnterpriseCompliance() {
               </span>
             </div>
 
-            <h2 className="relative z-10 text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
+            <h2 className="relative z-10 text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
               Enterprise-grade compliance
             </h2>
             <p className="relative z-10 text-slate-500 text-base lg:text-lg leading-relaxed max-w-xl mx-auto">
