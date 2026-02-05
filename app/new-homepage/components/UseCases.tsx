@@ -154,7 +154,7 @@ export function UseCases() {
   return (
     <section id="use-cases" className="bg-white py-4 lg:py-10 2xl:py-20 scroll-mt-20">
 
-      <div className="max-w-[1536px] px-4 2xl:px-0 mx-auto relative">
+      <div className="max-w-[1536px] px-4 lg:px-16 2xl:px-0 mx-auto relative">
         <div className="hidden 2xl:block absolute -top-2 -left-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />
         <div className="hidden 2xl:block absolute -bottom-2 -right-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />
         <div className="hidden 2xl:block absolute -top-2 -right-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />
