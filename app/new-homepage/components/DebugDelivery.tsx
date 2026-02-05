@@ -14,7 +14,7 @@ export function DebugDelivery() {
       <div ref={ref} className={`max-w-[1536px] px-4 2xl:px-0 mx-auto  relative ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Section Title */}
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-slate-800 mb-12 md:mb-16 lg:mb-24 px-4">
-          Debug Delivery with Confidence
+          One Dashboard, Every Blockchain
         </h2>
 
         {/* Two Column Layout */}
@@ -22,29 +22,29 @@ export function DebugDelivery() {
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center max-w-full w-full bg-slate-100/50">
             {/* Left Column - Text Content */}
             <div className="space-y-10 px-6 lg:px-12 py-10 lg:py-12 max-w-xl">
-              {/* Automatic Retries */}
+              {/* Unified Multi-Chain */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="w-1 h-6 bg-[#3b82f6] rounded-full" />
                   <h3 className="text-xl font-bold text-slate-800">
-                    Automatic Retries
+                    Unified Multi-Chain Management
                   </h3>
                 </div>
                 <p className="text-slate-500 leading-relaxed pl-4">
-                  If your server is down, Fystack queues the alert and retries with exponential backoff. We ensure you never lose data.
+                  Manage wallets across multiple blockchains from a single dashboard. No switching between tools.
                 </p>
               </div>
 
-              {/* Full Visibility */}
+              {/* Fintech Experience */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="w-1 h-6 bg-[#3b82f6] rounded-full" />
                   <h3 className="text-xl font-bold text-slate-800">
-                    Full Visibility
+                    Familiar Fintech Experience
                   </h3>
                 </div>
                 <p className="text-slate-500 leading-relaxed pl-4">
-                  Dashboard lets you inspect the full JSON payload and response headers for easier debugging.
+                  Blockchain infrastructure that feels like traditional fintech. Clean, intuitive, and familiar.
                 </p>
               </div>
 
@@ -56,7 +56,7 @@ export function DebugDelivery() {
                   asChild
                 >
                   <Link
-                    href="https://sandbox.fystack.io"
+                    href="https://www.youtube.com/watch?v=Am206C2Grxo"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
