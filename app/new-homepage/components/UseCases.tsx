@@ -54,8 +54,8 @@ const tabsData: {
         "Enterprise-grade security for payment flows",
       ],
       image: "/png/usecases/stable-coin-payment.png",
-      imageWidth: 200,
-      imageHeight: 200,
+      imageWidth: 400,
+      imageHeight: 300,
     },
     {
       key: "treasury",
@@ -129,7 +129,6 @@ const tabKeys = tabsData.map((t) => t.key);
 export function UseCases() {
   const [activeTab, setActiveTab] = useState<TabKey>("exchange");
   const [isTabHovered, setIsTabHovered] = useState(false);
-  const [progressKey, setProgressKey] = useState(0);
 
   const activeTabData = tabsData.find((t) => t.key === activeTab)!;
 
@@ -143,7 +142,6 @@ export function UseCases() {
         const nextIndex = (currentIndex + 1) % tabKeys.length;
         return tabKeys[nextIndex];
       });
-      setProgressKey((k) => k + 1);
     }, TAB_INTERVAL);
 
     return () => clearInterval(interval);
@@ -151,7 +149,6 @@ export function UseCases() {
 
   const handleTabClick = useCallback((key: TabKey) => {
     setActiveTab(key);
-    setProgressKey((k) => k + 1);
   }, []);
 
   return (
@@ -279,7 +276,7 @@ export function UseCases() {
                       alt={activeTabData.title}
                       width={activeTabData.imageWidth || 400}
                       height={activeTabData.imageHeight || 300}
-                      className="w-full h-auto max-w-[400px]"
+                      className="w-full h-auto max-w-[400px] "
                     />
                   </div>
                 </div>

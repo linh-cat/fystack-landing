@@ -53,10 +53,11 @@ export default function NewHomepage() {
 
         {/* Pricing Section */}
         <Pricing />
+  
+        <CTAFooter />
       </main>
 
       {/* CTA & Footer */}
-      <CTAFooter />
 
       {/* Join Community */}
       <JoinCommunity />
