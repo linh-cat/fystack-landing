@@ -27,8 +27,8 @@ export function MPCSecurity() {
   ];
 
   return (
-    <section id="wallet" className="bg-white max-w-[1440px] px-4 py-4 lg:py-10 2xl:py-20 mx-auto">
-      <div ref={ref} className={`container mx-auto  ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
+    <section id="wallet" className="bg-white py-4 lg:py-10 2xl:py-20">
+      <div ref={ref} className={`max-w-[1536px] px-4 2xl:px-0 mx-auto  ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Wrapper with corner squares */}
         <div className="relative w-full h-full">
           {/* Corner squares - outside the box */}

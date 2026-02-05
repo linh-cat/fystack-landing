@@ -1,6 +1,5 @@
 "use client";
 
-import { Check } from "lucide-react";
 import Image from "next/image";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
@@ -21,8 +20,8 @@ export function WhyChooseUs() {
   ];
 
   return (
-    <section className="bg-white max-w-[1440px] px-4 py-4 lg:py-10 2xl:py-20 mx-auto">
-      <div ref={ref} className={`container mx-auto ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
+    <section className="bg-white py-4 lg:py-10 2xl:py-20">
+      <div ref={ref} className={`max-w-[1536px] px-4 2xl:px-0 mx-auto ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Wrapper with corner squares */}
         <div className="relative">
           {/* Corner squares - outside the box */}
@@ -94,11 +93,11 @@ export function WhyChooseUs() {
                 <p className="text-slate-400 text-sm mb-8">( WEEKS TO MONTHS )</p>
 
                 {/* Features list */}
-                <ul className="space-y-4">
+                <ul className="space-y-2">
                   {othersFeatures.map((feature, index) => (
                     <li key={index} className="flex items-center gap-3">
                       <div className="text-slate-700 flex-shrink-0 bg-gray-200 rounded-full p-2 flex items-center justify-center">
-                        <Image src="/svg/why_choose/cancel.svg" alt="X" width={12} height={12} className="w-4 h-4" />
+                        <Image src="/svg/why_choose/cancel.svg" alt="X" width={10} height={10} />
                       </div>
                       <span className="text-base text-slate-600">{feature}</span>
                     </li>
