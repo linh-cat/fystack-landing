@@ -11,7 +11,7 @@ export function DebugDelivery() {
 
   return (
     <section className="bg-white py-4 lg:py-10 2xl:py-20">
-      <div ref={ref} className={`max-w-[1536px] px-4 lg:px-16 2xl:px-0 mx-auto  relative ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
+      <div ref={ref} className={`max-w-[1440px] px-4 lg:px-16 2xl:px-0 mx-auto  relative ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Section Title */}
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-slate-800 mb-12 md:mb-16 lg:mb-24 px-4">
           One Dashboard, Every Blockchain

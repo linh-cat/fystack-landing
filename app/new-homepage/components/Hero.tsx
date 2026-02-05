@@ -37,7 +37,7 @@ export function Hero() {
 
   return (
     <section className="overflow-hidden py-4 lg:py-10">
-      <div className="max-w-[1536px] flex items-center justify-center px-4 lg:px-16 2xl:px-0 mx-auto">
+      <div className="max-w-[1440px] flex items-center justify-center px-4 lg:px-16 2xl:px-0 mx-auto">
       {/* Wrapper for corner squares outside the box */}
       <div ref={scrollRef} className={`relative w-full  ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Corner squares - outside the box */}
