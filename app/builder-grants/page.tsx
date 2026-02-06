@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
-import logoLight from "@/../public/Logo_fystack_light.png";
+import logoLight from "@/public/Logo_fystack_light.png";
 
 export const metadata: Metadata = {
   title: "Builder Grants - Fystack",

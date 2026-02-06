@@ -1,14 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/new-homepage',
-        permanent: true,
-      },
-    ];
-  },
   eslint: {
     ignoreDuringBuilds: true,
   },
