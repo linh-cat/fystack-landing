@@ -396,7 +396,7 @@ const MobileNavigation = () => {
 
   const navLinks = [
     { href: "https://docs.fystack.io", title: "Documentation", external: true },
-    { href: "/new-homepage#use-cases", title: "Case Studies", external: false },
+    { href: "https://fystack.io/blog?tag=Case%20study", title: "Case Studies", external: true },
     { href: "/new-homepage#pricing", title: "Pricing", external: false },
     { href: "/compare", title: "Compare", external: false },
     { href: "/blog", title: "Blog", external: false },
@@ -609,7 +609,9 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/new-homepage#use-cases"
+              href="https://fystack.io/blog?tag=Case%20study"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Case Studies

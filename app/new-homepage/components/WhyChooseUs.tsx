@@ -106,28 +106,24 @@ export function WhyChooseUs() {
               </div>
 
               {/* Fystack Info Column */}
-              <div className="bg-slate-50/50 p-6 md:p-8 lg:p-10 border-t lg:border-t-0 flex flex-col justify-between">
-                {/* Logo */}
-                <Image
-                  src="/svg/app-logo.svg"
-                  alt="Fystack"
-                  width={180}
-                  height={180}
-                // className="w-24 h-24"
-                />
+              <div className="bg-slate-50/50 p-6 md:p-8 lg:p-10 border-t lg:border-t-0 flex flex-col gap-4">
+                {/* Cost Savings Card */}
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-5">
+                  <h4 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-1">$50K+</h4>
+                  <p className="text-slate-700 font-medium text-sm mb-2">Annual cost savings</p>
+                  <p className="text-slate-500 text-xs leading-relaxed">
+                    Eliminate the need to build and maintain wallet infrastructure in-house.
+                  </p>
+                </div>
 
-                {/* Description */}
-                <p className="text-slate-600 leading-relaxed">
-                  Skip months of development and costly maintenance. By leveraging our production-ready wallet infrastructure and SDKs, you can cut engineering costs by{" "}
-                  <span className="text-[#3b82f6] font-semibold bg-[#3b82f6]/10 px-1.5 py-0.5 rounded">
-                    $30K-50K
-                  </span>{" "}
-                  and accelerate your time to market by{" "}
-                  <span className="text-[#3b82f6] font-semibold underline decoration-[#3b82f6] underline-offset-2">
-                    3-6 months
-                  </span>
-                  .
-                </p>
+                {/* Time Savings Card */}
+                <div className="bg-gradient-to-br from-emerald-50 to-emerald-100/50 rounded-2xl p-5">
+                  <h4 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-1">3–6 months</h4>
+                  <p className="text-slate-700 font-medium text-sm mb-2">Faster time to market</p>
+                  <p className="text-slate-500 text-xs leading-relaxed">
+                    Go live faster with our production-ready infrastructure and SDKs.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

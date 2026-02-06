@@ -1,0 +1,13 @@
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#4d4d4d">
+    <path d="M180,60 L210,85 L180,110 L180,95 L195,85 L180,75 Z" />
+    <rect x="155" y="65" width="20" height="4" rx="2" />
+    <rect x="162" y="75" width="15" height="4" rx="2" />
+    <rect x="158" y="85" width="18" height="4" rx="2" />
+    <rect x="165" y="95" width="12" height="4" rx="2" />
+  </g>
+  
+  <text x="200" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="42" fill="#4d4d4d">PrimePay</text>
+  
+  <text x="200" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" letter-spacing="2" fill="#777777">TRANSACT WITH CONFIDENCE</text>
+</svg>

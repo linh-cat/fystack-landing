@@ -9,6 +9,7 @@ type TabKey = "cloud" | "self-hosted";
 export function Pricing() {
   const { ref, isVisible } = useScrollReveal();
   const [activeTab, setActiveTab] = useState<TabKey>("cloud");
+  const [annualEnabled, setAnnualEnabled] = useState<Record<number, boolean>>({});
 
   const tabs = [
     { key: "cloud" as TabKey, label: "Cloud (SaaS)" },
@@ -37,7 +38,7 @@ export function Pricing() {
     {
       badge: "PRO",
       badgeColor: "bg-[#3b82f6] text-white",
-      name: "$950",
+      monthlyPrice: 99,
       priceSuffix: "/month",
       description: "Startups scaling their crypto payment infrastructure.",
       features: [
@@ -58,7 +59,7 @@ export function Pricing() {
     {
       badge: "GROWTH",
       badgeColor: "bg-purple-100 text-purple-600",
-      name: "$2870",
+      monthlyPrice: 299,
       priceSuffix: "/month",
       description: "Complete solution for growing teams wanting to maximize their wallet operations.",
       features: [
@@ -138,14 +139,24 @@ export function Pricing() {
                   >
                     {/* Badge and Toggle */}
                     <div className="flex items-center justify-between mb-4">
-                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${plan.badgeColor}`}>
-                        {plan.badge}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${plan.badgeColor}`}>
+                          {plan.badge}
+                        </span>
+                        {plan.hasToggle && annualEnabled[index] && (
+                          <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-600">
+                            -10%
+                          </span>
+                        )}
+                      </div>
                       {plan.hasToggle && (
                         <div className="flex items-center gap-2">
                           <span className="text-xs text-slate-500">ANNUAL</span>
-                          <div className="w-10 h-5 bg-[#3b82f6] rounded-full relative cursor-pointer">
-                            <div className="absolute right-0.5 top-0.5 w-4 h-4 bg-white rounded-full shadow"></div>
+                          <div
+                            className={`w-10 h-5 rounded-full relative cursor-pointer transition-colors ${annualEnabled[index] ? 'bg-[#3b82f6]' : 'bg-slate-300'}`}
+                            onClick={() => setAnnualEnabled(prev => ({ ...prev, [index]: !prev[index] }))}
+                          >
+                            <div className={`absolute top-0.5 w-4 h-4 bg-white rounded-full shadow transition-all ${annualEnabled[index] ? 'right-0.5' : 'left-0.5'}`}></div>
                           </div>
                         </div>
                       )}
@@ -155,6 +166,15 @@ export function Pricing() {
                     <div className="mb-4">
                       {plan.price === null ? (
                         <h3 className="text-3xl lg:text-4xl font-bold text-slate-800">Free</h3>
+                      ) : plan.monthlyPrice ? (
+                        <div className="flex items-baseline">
+                          <h3 className="text-3xl lg:text-4xl font-bold text-slate-800">
+                            ${annualEnabled[index]
+                              ? Math.round(plan.monthlyPrice * 12 * 0.9).toLocaleString()
+                              : plan.monthlyPrice}
+                          </h3>
+                          <span className="text-slate-500 ml-1">{annualEnabled[index] ? '/year' : '/month'}</span>
+                        </div>
                       ) : (
                         <div className="flex items-baseline">
                           <h3 className="text-3xl lg:text-4xl font-bold text-slate-800">{plan.name}</h3>
@@ -179,11 +199,14 @@ export function Pricing() {
                     </div>
 
                     {/* Button - Always at bottom */}
-                    <button
-                      className={`w-full py-3 rounded-full text-sm font-medium transition-colors mt-8 ${plan.buttonStyle}`}
+                    <a
+                      href="https://app.fystack.io"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`w-full py-3 rounded-full text-sm font-medium transition-colors mt-8 block text-center ${plan.buttonStyle}`}
                     >
                       {plan.buttonText}
-                    </button>
+                    </a>
                   </div>
                 ))}
               </div>

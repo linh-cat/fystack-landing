@@ -1,0 +1,17 @@
+<svg width="800" height="300" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#999999;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#333333;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <g fill="url(#logoGradient)">
+    <path d="M50 100 H160 V135 H95 V165 H150 V200 H95 V230 H165 V265 H50 V100 Z" />
+    <path d="M175 100 L235 175 L175 265 H220 L260 205 L300 265 H345 L285 175 L345 100 H300 L260 155 L220 100 H175 Z" />
+    
+    <path d="M380 100 H480 C530 100 560 130 560 182 C560 234 530 265 480 265 H380 V100 Z M425 135 V230 H480 C505 230 515 215 515 182 C515 150 505 135 480 135 H425 Z" />
+    
+    <path d="M580 100 H750 V135 H685 V265 H645 V135 H580 V100 Z" />
+  </g>
+</svg>

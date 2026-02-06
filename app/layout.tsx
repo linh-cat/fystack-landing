@@ -8,10 +8,11 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import NextTopLoader from 'nextjs-toploader';
 
-const ibmPlexSans = IBM_Plex_Sans({ 
+const ibmPlexSans = IBM_Plex_Sans({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-sans"
+  variable: "--font-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -63,7 +64,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${ibmPlexSans.className}`}>
+    <html lang="en" suppressHydrationWarning className={`${ibmPlexSans.variable} ${ibmPlexSans.className}`}>
       <head>
         {/* Web App Manifest and Icons */}
         <link rel="manifest" href="/site.webmanifest" />

@@ -73,15 +73,9 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li>
                 <Link
-                  href="/#features"
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-                >
-                  Features
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/#security"
+                  href="https://docs.fystack.io/security/encryption-at-rest"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground transition-colors duration-200"
                 >
                   Security
@@ -107,7 +101,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://docs.fystack.io/api"
+                  href="https://docs.fystack.io/wallets"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground transition-colors duration-200"
@@ -146,23 +140,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#careers"
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-                >
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/#press"
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-                >
-                  Press
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="https://t.me/anhthind"
+                  href="https://app.youform.com/forms/qyanutyi"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground transition-colors duration-200"

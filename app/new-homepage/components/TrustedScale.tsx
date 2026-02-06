@@ -54,7 +54,8 @@ function CellContent({ cellId }: { cellId: number }) {
             /Startups/
           </h3>
           <p className="text-slate-500 text-sm leading-relaxed">
-            Launch your crypto product fast with enterprise-grade wallet infrastructure. No need to build from scratch.
+            Launch your crypto product fast with enterprise-grade wallet
+            infrastructure. No need to build from scratch.
           </p>
         </>
       );
@@ -64,15 +65,15 @@ function CellContent({ cellId }: { cellId: number }) {
           src="/svg/trust_to_scale/apescreener.svg"
           alt="Apescreener"
           width={160}
-          height={40}
-          className="h-10 lg:h-12 w-auto"
+          height={57}
+          className="h-14 lg:h-16 w-auto"
         />
       );
     case 2:
       return (
         <Image
-          src="/svg/trust_to_scale/superteam.svg"
-          alt="Superteam"
+          src="/svg/trust_to_scale/gaian.svg"
+          alt="Gaian"
           width={160}
           height={40}
           className="h-10 lg:h-12 w-auto"
@@ -83,8 +84,8 @@ function CellContent({ cellId }: { cellId: number }) {
     case 4:
       return (
         <Image
-          src="/svg/trust_to_scale/superteam.svg"
-          alt="Superteam"
+          src="/svg/trust_to_scale/exdt.svg"
+          alt="EXDT"
           width={160}
           height={40}
           className="h-10 lg:h-12 w-auto"
@@ -97,9 +98,9 @@ function CellContent({ cellId }: { cellId: number }) {
             &lt;Mid-size companies&gt;
           </h3>
           <p className="text-slate-500 text-sm leading-relaxed">
-            Scale your operations with multi-chain treasury management, automated workflows, and team controls.
+            Scale your operations with multi-chain treasury management,
+            automated workflows, and team controls.
           </p>
-          
         </>
       );
     case 6:
@@ -112,34 +113,35 @@ function CellContent({ cellId }: { cellId: number }) {
             height={40}
             className="h-10 lg:h-12 w-auto"
           />
-          
         </>
       );
     case 7:
       return (
         <>
-          <span className="text-3xl lg:text-4xl font-bold text-[#3b82f6]">+100</span>
+          <span className="text-3xl lg:text-4xl font-bold text-[#3b82f6]">
+            +20
+          </span>
           <span className="text-slate-500 text-sm">global client</span>
         </>
       );
     case 8:
       return (
         <Image
-          src="/svg/trust_to_scale/apescreener.svg"
-          alt="Apescreener"
-          width={160}
-          height={40}
-          className="h-10 lg:h-12 w-auto"
+          src="/svg/trust_to_scale/primepay.svg"
+          alt="PrimePay"
+          width={200}
+          height={120}
+          className="h-28 lg:h-32 w-auto"
         />
       );
     case 9:
       return (
         <Image
-          src="/svg/trust_to_scale/gaian.svg"
-          alt="Gaian"
+          src="/svg/trust_to_scale/superteam.svg"
+          alt="Superteam"
           width={160}
-          height={40}
-          className="h-10 lg:h-12 w-auto"
+          height={57}
+          className="h-14 lg:h-16 w-auto"
         />
       );
     case 10:
@@ -149,7 +151,8 @@ function CellContent({ cellId }: { cellId: number }) {
             {"{Enterprises}"}
           </h3>
           <p className="text-slate-500 text-sm leading-relaxed">
-            Self-hosted deployment with full compliance controls, audit trails, and dedicated support for your team.
+            Self-hosted deployment with full compliance controls, audit trails,
+            and dedicated support for your team.
           </p>
         </>
       );
@@ -165,7 +168,7 @@ function CellContent({ cellId }: { cellId: number }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Start deploying
+            Get started
           </Link>
         </Button>
       );
@@ -257,7 +260,6 @@ export function TrustedScale() {
     return () => clearInterval(interval);
   }, [revealedCells.size]);
 
-
   // Build class names for each grid cell
   const cellAnim = (cellId: number) => {
     const isRevealed = revealedCells.has(cellId);
@@ -268,7 +270,9 @@ export function TrustedScale() {
       "transition-all duration-300 ease-in-out relative",
       isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
       isLogo ? "hover:scale-[1.02] hover:shadow-sm" : "",
-      isHighlighted ? "ring-1 ring-inset ring-[#3b82f6]/10 shadow-[inset_0_0_40px_rgba(59,130,246,0.06)]" : "",
+      isHighlighted
+        ? "ring-1 ring-inset ring-[#3b82f6]/10 shadow-[inset_0_0_40px_rgba(59,130,246,0.06)]"
+        : "",
     ].join(" ");
   };
 
@@ -325,7 +329,9 @@ export function TrustedScale() {
             return (
               <div
                 key={cellId}
-                className={`${getCellBaseClasses(cellId)} ${getBorderClasses(position)} border-slate-200 ${cellAnim(cellId)}`}
+                className={`${getCellBaseClasses(cellId)} ${getBorderClasses(
+                  position
+                )} border-slate-200 ${cellAnim(cellId)}`}
               >
                 <CellContent cellId={cellId} />
               </div>

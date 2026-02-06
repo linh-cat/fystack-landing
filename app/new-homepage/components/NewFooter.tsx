@@ -8,26 +8,29 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 export function NewFooter() {
   const { ref, isVisible } = useScrollReveal();
   const productLinks = [
-    { label: "Features", href: "/features" },
-    { label: "Security", href: "/security" },
+    { label: "Security", href: "https://docs.fystack.io/security/encryption-at-rest" },
     { label: "Pricing", href: "/pricing" },
     { label: "Documentation", href: "https://docs.fystack.io" },
-    { label: "API Reference", href: "/api" },
+    { label: "API Reference", href: "https://docs.fystack.io/wallets" },
   ];
 
   const companyLinks = [
     { label: "About", href: "/about" },
     { label: "Blog", href: "/blog" },
     { label: "Fireblocks vs Fystack", href: "/compare" },
-    { label: "Careers", href: "/careers" },
-    { label: "Press", href: "/press" },
-    { label: "Contact", href: "/contact" },
+    { label: "Contact", href: "https://app.youform.com/forms/qyanutyi" },
   ];
 
   const socialLinks = [
     { label: "Github", icon: "/svg/footer/github.svg", href: "https://github.com/fystack/mpcium" },
-    { label: "Twitter", icon: "/svg/footer/x.svg", href: "https://x.com/fystack" },
+    { label: "X", icon: "/svg/footer/x.svg", href: "https://x.com/fystack" },
     { label: "LinkedIn", icon: "/svg/footer/linked-in.svg", href: "https://www.linkedin.com/company/fystack/posts/?feedView=all" },
+  ];
+
+  const legalLinks = [
+    { label: "Terms of Service", href: "/terms" },
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Cookie Policy", href: "/cookies" },
   ];
 
   return (
@@ -80,7 +83,7 @@ export function NewFooter() {
               </div>
 
               {/* Spacer */}
-              <div className="lg:col-span-3" />
+              <div className="lg:col-span-2" />
 
               {/* Product Links */}
               <div className="lg:col-span-2">
@@ -100,10 +103,27 @@ export function NewFooter() {
               </div>
 
               {/* Company Links */}
-              <div className="lg:col-span-3">
+              <div className="lg:col-span-2">
                 <h4 className="font-semibold text-slate-800 mb-4">Company</h4>
                 <ul className="space-y-3">
                   {companyLinks.map((link, index) => (
+                    <li key={index}>
+                      <Link
+                        href={link.href}
+                        className="text-slate-500 text-sm hover:text-slate-700 transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Legal Links */}
+              <div className="lg:col-span-2">
+                <h4 className="font-semibold text-slate-800 mb-4">Legal</h4>
+                <ul className="space-y-3">
+                  {legalLinks.map((link, index) => (
                     <li key={index}>
                       <Link
                         href={link.href}
