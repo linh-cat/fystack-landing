@@ -17,9 +17,9 @@ import Script from "next/script";
 export const revalidate = 3600;
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Generate static paths for all blog posts
@@ -45,7 +45,8 @@ export async function generateStaticParams() {
 // Update the generateMetadata function
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   try {
-    const post = await ghostAPI.getPostBySlug(params.slug);
+    const { slug } = await params;
+    const post = await ghostAPI.getPostBySlug(slug);
     
     if (!post) {
       return {
@@ -165,7 +166,8 @@ function generateBlogPostSchema(post: GhostPost) {
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = await ghostAPI.getPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await ghostAPI.getPostBySlug(slug);
   if (!post) {
     notFound();
   }
