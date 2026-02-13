@@ -13,6 +13,10 @@ const config: Config = {
         'sans': ['var(--font-sans)', 'sans-serif'],
         'mono': ['var(--font-mono)', 'monospace'],
       },
+      screens: {
+        '3xl': '1920px',
+        '4xl': '2560px',
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
