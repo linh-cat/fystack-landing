@@ -1,7 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
-import { Hero, KeyBenefits, UseCasesSection, DeveloperExperienceSection, SecurityControlSection, DeploymentModelsSection, TechAgnosticSection } from "./components";
+import { Hero, KeyBenefits, UseCasesSection, DeveloperExperienceSection, SecurityControlSection, DeploymentModelsSection, TechAgnosticSection, EnterpriseSection } from "./components";
 import { JoinCommunity } from "@/app/new-homepage/components";
 import { CTAFooter } from "../new-homepage/components/CTAFooter";
 
@@ -14,14 +14,14 @@ export default function WalletAsServicePage() {
         {/* Hero Section */}
         <Hero />
 
-        {/* Key Benefits Section */}
-        <KeyBenefits />
-
         {/* Use Cases Section */}
         <UseCasesSection />
 
         {/* Developer Experience Section */}
         <DeveloperExperienceSection />
+
+        {/* Key Benefits Section */}
+        <KeyBenefits />
 
         {/* Security & Control Section */}
         <SecurityControlSection />
@@ -31,6 +31,9 @@ export default function WalletAsServicePage() {
 
         {/* Technology Agnostic Section */}
         <TechAgnosticSection />
+
+        {/* Enterprise Section */}
+        <EnterpriseSection />
 
         <CTAFooter />
       </main>
