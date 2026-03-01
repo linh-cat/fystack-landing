@@ -174,7 +174,7 @@ export function SelfHostedDeployment() {
                     </div>
 
                     {/* Button */}
-                    <a className="relative z-10 px-8 py-3 bg-white border border-slate-200 rounded-lg text-slate-700 font-medium hover:bg-slate-50 transition-colors shadow-sm text-center" href="/compare" target="_blank" rel="noopener noreferrer">
+                    <a className="relative z-10 px-8 py-3 bg-white border border-slate-200 rounded-lg text-slate-700 font-medium hover:bg-slate-50 transition-colors shadow-sm text-center" href="https://selfhost.fystack.io/" target="_blank" rel="noopener noreferrer">
                       Deploy Self-Hosted
                     </a>
                   </div>
