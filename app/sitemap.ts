@@ -64,6 +64,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: 'monthly' as const,
         priority: 0.85, // Slightly increased for important section
       },
+      {
+        url: 'https://fystack.io/wallet-as-service',
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.9,
+      },
       // Add other static pages here
     ];
 
