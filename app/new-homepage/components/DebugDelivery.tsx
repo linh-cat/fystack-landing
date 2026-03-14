@@ -51,7 +51,7 @@ export function DebugDelivery() {
             asChild
           >
             <Link
-              href="https://www.youtube.com/watch?v=Am206C2Grxo"
+              href="https://www.youtube.com/watch?v=Ii9LuCfMU4I&list=PLU9E1W4GqwHGmFhSF2HXKYzbFZNYgBQBR&index=4"
               target="_blank"
               rel="noopener noreferrer"
             >
