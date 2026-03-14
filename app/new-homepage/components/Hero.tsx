@@ -4,6 +4,11 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import {
+  ArrowUpRight,
+  ArrowDownLeft,
+  RefreshCw,
+} from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
 export function Hero() {
@@ -71,7 +76,7 @@ export function Hero() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold tracking-tight">
                 <div className="flex flex-col gap-1 leading-[1.1]">
                   <span className="text-slate-800">
-                    Enterprise-grade
+                    Self-Hosted
                   </span>
 
                   <span className="text-[#3b82f6]">
@@ -82,7 +87,7 @@ export function Hero() {
                   </span>
 
                   <span className="text-slate-800">
-                    Custody For Teams
+                    Wallet Infrastructure
                   </span>
                 </div>
               </h1>
@@ -147,48 +152,90 @@ export function Hero() {
               <div className="hidden lg:block absolute bottom-8 right-8 text-sm text-slate-500 z-10" style={{ fontFamily: 'var(--font-geist-mono)' }}>
                 {"{Save Cost}"}
               </div>
-              <div className="relative w-full mx-auto py-12 sm:py-16 lg:py-20 overflow-visible">
-                {/* 3D perspective container */}
-                <div className="relative">
+              {/* Orbital Wallet Engine Visualization */}
+              <div className="relative w-full aspect-square max-w-[480px] mx-auto">
+                {/* Outer ring */}
+                <div className="absolute inset-8 rounded-full border border-dashed border-blue-200/60 animate-[spin_60s_linear_infinite]" />
+                {/* Middle ring */}
+                <div className="absolute inset-20 rounded-full border border-blue-200/40" />
+
+                {/* Center card */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-white rounded-2xl shadow-xl shadow-blue-500/10 border border-slate-200 flex flex-col items-center justify-center gap-2 z-10">
                   <Image
-                    src="/png/hero/hero.png"
-                    alt="Digital asset custody layer"
-                    width={350}
-                    height={350}
-                    className="absolute -bottom-32 left-1/2 -translate-x-1/2 transition-all duration-700 ease-out w-[280px] lg:w-[450px] h-auto"
+                    src="/svg/wallet_as_service/fystack-mini.svg"
+                    alt="Fystack"
+                    width={36}
+                    height={36}
                   />
-                  {/* <Image
-                    src="/svg/hero/wallet.svg"
-                    alt="Digital asset custody layer"
-                    width={350}
-                    height={350}
-                    className="absolute -bottom-32 left-1/2 -translate-x-1/2
-                    translate-y-6
-                    drop-shadow-2xl
-                    transition-all duration-700 ease-out
-                    w-[200px] sm:w-[280px] lg:w-[350px] h-auto"
-                  />
-                  <Image
-                    src="/svg/hero/custody.svg"
-                    alt="MPC & HSM infrastructure"
-                    width={350}
-                    height={350}
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2
-                    translate-y-20
-                    drop-shadow-3xl
-                    transition-all duration-700 ease-out
-                    w-[200px] sm:w-[280px] lg:w-[350px] h-auto"
-                  />
-                  <Image
-                    src="/svg/hero/application.svg"
-                    alt="Applications layer"
-                    width={350}
-                    height={350}
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2
-                    drop-shadow-xl
-                    transition-all duration-700 ease-out
-                    w-[200px] sm:w-[280px] lg:w-[350px] h-auto"
-                  /> */}
+                  <span className="text-sm font-bold text-slate-900">
+                    Fystack
+                  </span>
+                  <span className="text-[10px] text-slate-500 font-medium">
+                    Wallet Engine
+                  </span>
+                </div>
+
+                {/* Floating chain icons on the orbit */}
+                {/* ETH - top */}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-14 h-14 bg-white rounded-xl shadow-lg shadow-slate-200/50 border border-slate-200 flex items-center justify-center hover:scale-110 transition-transform">
+                  <Image src="/logo/crypto/eth.png" alt="ETH" width={28} height={28} />
+                </div>
+
+                {/* BTC - right */}
+                <div className="absolute top-1/2 right-2 -translate-y-1/2 w-14 h-14 bg-white rounded-xl shadow-lg shadow-slate-200/50 border border-slate-200 flex items-center justify-center hover:scale-110 transition-transform">
+                  <Image src="/logo/Bitcoin.png" alt="BTC" width={28} height={28} />
+                </div>
+
+                {/* USDC - bottom */}
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-14 h-14 bg-white rounded-xl shadow-lg shadow-slate-200/50 border border-slate-200 flex items-center justify-center hover:scale-110 transition-transform">
+                  <Image src="/logo/crypto/usdc.png" alt="USDC" width={28} height={28} />
+                </div>
+
+                {/* USDT - left */}
+                <div className="absolute top-1/2 left-2 -translate-y-1/2 w-14 h-14 bg-white rounded-xl shadow-lg shadow-slate-200/50 border border-slate-200 flex items-center justify-center hover:scale-110 transition-transform">
+                  <Image src="/logo/crypto/usdt.png" alt="USDT" width={28} height={28} />
+                </div>
+
+                {/* Connector lines */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 480 480">
+                  <line x1="240" y1="72" x2="240" y2="170" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.3" />
+                  <line x1="408" y1="240" x2="310" y2="240" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.3" />
+                  <line x1="240" y1="408" x2="240" y2="310" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.3" />
+                  <line x1="72" y1="240" x2="170" y2="240" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.3" />
+                </svg>
+
+                {/* Floating action cards */}
+                {/* Top right - Receive */}
+                <div className="absolute top-12 right-4 bg-white rounded-lg shadow-lg shadow-slate-200/50 border border-slate-200 px-3 py-2 flex items-center gap-2">
+                  <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
+                    <ArrowDownLeft className="w-3 h-3 text-green-600" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-semibold text-slate-900">Receive</p>
+                    <p className="text-[9px] text-slate-500">1.2 ETH</p>
+                  </div>
+                </div>
+
+                {/* Bottom left - Send */}
+                <div className="absolute bottom-16 left-0 bg-white rounded-lg shadow-lg shadow-slate-200/50 border border-slate-200 px-3 py-2 flex items-center gap-2">
+                  <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center">
+                    <ArrowUpRight className="w-3 h-3 text-blue-600" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-semibold text-slate-900">Send</p>
+                    <p className="text-[9px] text-slate-500">5,000 USDC</p>
+                  </div>
+                </div>
+
+                {/* Top left - Sweep */}
+                <div className="absolute top-16 left-0 bg-white rounded-lg shadow-lg shadow-slate-200/50 border border-slate-200 px-3 py-2 flex items-center gap-2">
+                  <div className="w-6 h-6 rounded-full bg-violet-100 flex items-center justify-center">
+                    <RefreshCw className="w-3 h-3 text-violet-600" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-semibold text-slate-900">Auto Sweep</p>
+                    <p className="text-[9px] text-slate-500">→ Treasury</p>
+                  </div>
                 </div>
               </div>
             </div>

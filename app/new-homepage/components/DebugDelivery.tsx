@@ -1,8 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { DashboardMockup } from "@/components/DashboardMockup";
 import { ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
@@ -17,71 +17,52 @@ export function DebugDelivery() {
           One Dashboard, Every Blockchain
         </h2>
 
-        {/* Two Column Layout */}
-        <div className="flex items-center justify-center">
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center max-w-full w-full bg-slate-100/50">
-            {/* Left Column - Text Content */}
-            <div className="space-y-10 px-6 lg:px-12 py-10 lg:py-12 max-w-xl">
-              {/* Unified Multi-Chain */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-1 h-6 bg-[#3b82f6] rounded-full" />
-                  <h3 className="text-xl font-bold text-slate-800">
-                    Unified Multi-Chain Management
-                  </h3>
-                </div>
-                <p className="text-slate-500 leading-relaxed pl-4">
-                  Manage wallets across multiple blockchains from a single dashboard. No switching between tools.
-                </p>
+        {/* Text + CTA Row */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8 md:mb-12 px-4">
+          <div className="flex flex-col sm:flex-row gap-6 sm:gap-12">
+            <div className="space-y-2">
+              <div className="flex items-center gap-3">
+                <div className="w-1 h-6 bg-[#3b82f6] rounded-full" />
+                <h3 className="text-lg font-bold text-slate-800">
+                  Unified Multi-Chain Management
+                </h3>
               </div>
-
-              {/* Fintech Experience */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-1 h-6 bg-[#3b82f6] rounded-full" />
-                  <h3 className="text-xl font-bold text-slate-800">
-                    Familiar Fintech Experience
-                  </h3>
-                </div>
-                <p className="text-slate-500 leading-relaxed pl-4">
-                  Blockchain infrastructure that feels like traditional fintech. Clean, intuitive, and familiar.
-                </p>
-              </div>
-
-              {/* CTA Button */}
-              <div className="pl-4 pt-4">
-                <Button
-                  size="lg"
-                  className="rounded-full px-8 py-6 text-sm font-semibold bg-[#3b82f6] hover:bg-[#3b82f6]/90 transition-all"
-                  asChild
-                >
-                  <Link
-                    href="https://www.youtube.com/watch?v=Am206C2Grxo"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Play Demo
-                    <ArrowUpRight className="ml-2 w-4 h-4" />
-                  </Link>
-                </Button>
-              </div>
+              <p className="text-slate-500 leading-relaxed pl-4 text-sm max-w-sm">
+                Manage wallets across multiple blockchains from a single dashboard. No switching between tools.
+              </p>
             </div>
 
-            {/* Right Column - Image */}
-            <div className="relative">
-              {/* Image container with shadow */}
-              <div className="relative overflow-hidden border border-slate-200">
-                <Image
-                  src="/svg/debug_delivery/debug-delivery.svg"
-                  alt="Debug Delivery Dashboard"
-                  width={600}
-                  height={450}
-                  className="w-full h-auto"
-                />
+            <div className="space-y-2">
+              <div className="flex items-center gap-3">
+                <div className="w-1 h-6 bg-[#3b82f6] rounded-full" />
+                <h3 className="text-lg font-bold text-slate-800">
+                  Familiar Fintech Experience
+                </h3>
               </div>
+              <p className="text-slate-500 leading-relaxed pl-4 text-sm max-w-sm">
+                Blockchain infrastructure that feels like traditional fintech. Clean, intuitive, and familiar.
+              </p>
             </div>
           </div>
+
+          <Button
+            size="lg"
+            className="rounded-full px-8 py-6 text-sm font-semibold bg-[#3b82f6] hover:bg-[#3b82f6]/90 transition-all"
+            asChild
+          >
+            <Link
+              href="https://www.youtube.com/watch?v=Am206C2Grxo"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Play Demo
+              <ArrowUpRight className="ml-2 w-4 h-4" />
+            </Link>
+          </Button>
         </div>
+
+        {/* Full-width Dashboard Mockup */}
+        <DashboardMockup />
       </div>
     </section>
   );

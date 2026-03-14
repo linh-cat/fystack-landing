@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
 const chains = [
+  { name: "Bitcoin", logo: "bitcoin-btc-logo.svg" },
   { name: "Ethereum", logo: "ethereum-eth-logo.svg" },
   { name: "Solana", logo: "solana-sol-logo.svg" },
   { name: "Polygon", logo: "polygon-matic-logo.svg" },

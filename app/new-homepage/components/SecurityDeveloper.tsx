@@ -75,6 +75,11 @@ export function SecurityDeveloper() {
 
   const chains = [
     {
+      name: "Bitcoin",
+      description: "Digital Gold",
+      logo: "/logo/Bitcoin.png",
+    },
+    {
       name: "Ethereum",
       description: "EVM Compatible",
       logo: "/logo/Ethereum.png",
@@ -90,9 +95,9 @@ export function SecurityDeveloper() {
       logo: "/logo/Tron.png",
     },
     {
-      name: "Stellar",
-      description: "Fast & Scalable",
-      logo: "/logo/Solana2.png",
+      name: "BSC",
+      description: "BNB Chain",
+      logo: "/logo/BSC.png",
     },
     {
       name: "Base",
