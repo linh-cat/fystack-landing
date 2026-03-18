@@ -8,6 +8,7 @@ import {
   ArrowUpRight,
   ArrowDownLeft,
   RefreshCw,
+  Bell,
 } from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
@@ -224,6 +225,17 @@ export function Hero() {
                   <div>
                     <p className="text-[10px] font-semibold text-slate-900">Send</p>
                     <p className="text-[9px] text-slate-500">5,000 USDC</p>
+                  </div>
+                </div>
+
+                {/* Bottom right - Webhook */}
+                <div className="absolute bottom-16 right-0 bg-white rounded-lg shadow-lg shadow-slate-200/50 border border-slate-200 px-3 py-2 flex items-center gap-2">
+                  <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center">
+                    <Bell className="w-3 h-3 text-amber-600" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-semibold text-slate-900">Webhook</p>
+                    <p className="text-[9px] text-slate-500">tx confirmed</p>
                   </div>
                 </div>
 

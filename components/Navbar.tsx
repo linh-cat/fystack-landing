@@ -539,48 +539,9 @@ const MobileNavigation = () => {
 };
 
 export default function Navbar() {
-  const [isBannerVisible, setIsBannerVisible] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-    const bannerClosed = localStorage.getItem('bannerClosed');
-    setIsBannerVisible(bannerClosed !== 'true');
-  }, []);
-
-  const closeBanner = () => {
-    setIsBannerVisible(false);
-    localStorage.setItem('bannerClosed', 'true');
-  };
-
   return (
     <>
-      {/* Builder Grant Banner */}
-      {isMounted && isBannerVisible && (
-        <div className="fixed top-0 left-0 right-0 z-[60] bg-[#3b82f6] text-white text-center py-2 px-4 text-xs sm:text-sm font-medium">
-          <div className="relative flex items-center justify-center">
-            <Link
-              href="/builder-grants"
-              className="inline-flex items-center gap-1 sm:gap-2 hover:opacity-90 transition-opacity"
-            >
-              <span className="hidden sm:inline">Builder Grant Program for Startups — Up to $15,000 API credits in total</span>
-              <span className="sm:hidden">Builder Grants — $15K API credits</span>
-              <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            </Link>
-            <button
-              onClick={closeBanner}
-              className="absolute right-0 p-1 hover:opacity-70 transition-opacity"
-              aria-label="Close banner"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-            </button>
-          </div>
-        </div>
-      )}
-      {/* Spacer for fixed banner */}
-      {isMounted && isBannerVisible && <div className="h-8 sm:h-9"></div>}
-
-      <header className={`border-b sticky ${isMounted && isBannerVisible ? 'top-8 sm:top-9' : 'top-0'} z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60`}>
+      <header className={`border-b sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60`}>
       <div className="container flex h-16 items-center justify-between px-4 lg:px-16 4xl:px-0 mx-auto">
         <div className="flex items-center gap-8">
           <Link href="/">
