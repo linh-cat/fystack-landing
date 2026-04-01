@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="border-t py-12 md:py-16 lg:py-20">
       <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-        <div className="grid gap-8 lg:grid-cols-5">
+        <div className="grid gap-8 lg:grid-cols-6">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <Image
@@ -132,20 +132,49 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://fystack.io/blog/fystack-vs-fireblocks-self-hosted-vs-saas-what-is-the-future-of-crypto-asset-custody-for-businesses"
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-                >
-                  Fireblocks vs Fystack
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="https://app.youform.com/forms/qyanutyi"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground transition-colors duration-200"
                 >
                   Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-sm font-medium mb-4">Compare</h3>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <Link
+                  href="https://fystack.io/blog/fystack-vs-fireblocks-self-hosted-vs-saas-what-is-the-future-of-crypto-asset-custody-for-businesses"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                >
+                  vs Fireblocks
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://fystack.io/blog/fystack-vs-cobo-which-pricing-model-works-for-your-businesses"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                >
+                  vs Cobo
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://fystack.io/blog/fystack-vs-utila-how-to-choose-the-right-mpc-wallet-for-your-web3-business"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                >
+                  vs Utila
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://fystack.io/blog/fystack-vs-dfns-mpc-wallet-for-apac-startups-vs-european-institutions"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                >
+                  vs Dfns
                 </Link>
               </li>
             </ul>

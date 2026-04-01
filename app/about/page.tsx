@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
-import { NewFooter } from "@/app/new-homepage/components/NewFooter";
+import { CTAFooter } from "@/app/new-homepage/components/CTAFooter";
 import {
   Shield,
   Eye,
@@ -664,7 +664,7 @@ cd mpcium
         </div>
       </section>
 
-      <NewFooter />
+      <CTAFooter />
     </div>
   );
 }

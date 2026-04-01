@@ -17,8 +17,14 @@ export function NewFooter() {
   const companyLinks = [
     { label: "About", href: "/about" },
     { label: "Blog", href: "/blog" },
-    { label: "Fireblocks vs Fystack", href: "/compare" },
     { label: "Contact", href: "https://app.youform.com/forms/qyanutyi" },
+  ];
+
+  const compareLinks = [
+    { label: "vs Fireblocks", href: "/blog/fystack-vs-fireblocks-self-hosted-vs-saas-what-is-the-future-of-crypto-asset-custody-for-businesses" },
+    { label: "vs Cobo", href: "/blog/fystack-vs-cobo-which-pricing-model-works-for-your-businesses" },
+    { label: "vs Utila", href: "/blog/fystack-vs-utila-how-to-choose-the-right-mpc-wallet-for-your-web3-business" },
+    { label: "vs Dfns", href: "/blog/fystack-vs-dfns-mpc-wallet-for-apac-startups-vs-european-institutions" },
   ];
 
   const socialLinks = [

@@ -41,8 +41,14 @@ export function CTAFooter() {
   const companyLinks = [
     { label: "About", href: "/about" },
     { label: "Blog", href: "/blog" },
-    { label: "Fireblocks vs Fystack", href: "/compare" },
     { label: "Contact", href: "https://app.youform.com/forms/qyanutyi" },
+  ];
+
+  const compareLinks = [
+    { label: "vs Fireblocks", href: "/blog/fystack-vs-fireblocks-self-hosted-vs-saas-what-is-the-future-of-crypto-asset-custody-for-businesses" },
+    { label: "vs Cobo", href: "/blog/fystack-vs-cobo-which-pricing-model-works-for-your-businesses" },
+    { label: "vs Utila", href: "/blog/fystack-vs-utila-how-to-choose-the-right-mpc-wallet-for-your-web3-business" },
+    { label: "vs Dfns", href: "/blog/fystack-vs-dfns-mpc-wallet-for-apac-startups-vs-european-institutions" },
   ];
 
   const socialLinks = [
@@ -417,14 +423,28 @@ export function CTAFooter() {
                   </div>
                 </div>
 
-                {/* Spacer */}
-                <div className="lg:col-span-2" />
-
                 {/* Product Links */}
                 <div className="lg:col-span-2">
                   <h4 className="font-semibold text-slate-800 mb-4">Product</h4>
                   <ul className="space-y-3">
                     {productLinks.map((link, index) => (
+                      <li key={index}>
+                        <Link
+                          href={link.href}
+                          className="text-slate-500 text-sm hover:text-slate-700 transition-colors"
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Compare Links */}
+                <div className="lg:col-span-2">
+                  <h4 className="font-semibold text-slate-800 mb-4">Compare</h4>
+                  <ul className="space-y-3">
+                    {compareLinks.map((link, index) => (
                       <li key={index}>
                         <Link
                           href={link.href}
