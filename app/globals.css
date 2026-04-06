@@ -1,3 +1,5 @@
+@import "prismjs/themes/prism-tomorrow.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -563,6 +565,147 @@ html {
 
 .dark .kg-toggle-content {
   color: hsl(var(--muted-foreground));
+}
+
+/* Code Block Styles - DigitalOcean-inspired */
+.code-block-wrapper {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  margin: 1.5rem 0;
+  background: #1e1e2e;
+  border: 1px solid #313244;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.code-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.625rem 1rem;
+  background: #181825;
+  border-bottom: 1px solid #313244;
+}
+
+.code-block-lang {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #cdd6f4;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+}
+
+.code-block-copy {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #cdd6f4;
+  background: transparent;
+  border: 1px solid #585b70;
+  border-radius: 9999px;
+  padding: 0.25rem 0.875rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+  line-height: 1.4;
+}
+
+.code-block-copy:hover {
+  background: #313244;
+  border-color: #a6adc8;
+  color: #fff;
+}
+
+.code-block-copy.copied {
+  background: #a6e3a1;
+  color: #1e1e2e;
+  border-color: #a6e3a1;
+}
+
+/* Override Prism theme styles inside our wrapper */
+.code-block-wrapper pre[class*="language-"] {
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: #1e1e2e !important;
+  padding: 1.25rem 1rem !important;
+  font-size: 0.9375rem !important;
+  line-height: 1.7 !important;
+}
+
+.code-block-wrapper code[class*="language-"] {
+  background: transparent !important;
+  padding: 0 !important;
+  font-size: 0.9375rem !important;
+  border: none !important;
+  border-radius: 0 !important;
+  color: #cdd6f4 !important;
+}
+
+/* Prism token color overrides for a Catppuccin-like theme */
+.code-block-wrapper .token.comment,
+.code-block-wrapper .token.prolog,
+.code-block-wrapper .token.doctype,
+.code-block-wrapper .token.cdata {
+  color: #6c7086 !important;
+}
+
+.code-block-wrapper .token.punctuation {
+  color: #bac2de !important;
+}
+
+.code-block-wrapper .token.property,
+.code-block-wrapper .token.tag,
+.code-block-wrapper .token.boolean,
+.code-block-wrapper .token.number,
+.code-block-wrapper .token.constant,
+.code-block-wrapper .token.symbol {
+  color: #fab387 !important;
+}
+
+.code-block-wrapper .token.selector,
+.code-block-wrapper .token.attr-name,
+.code-block-wrapper .token.string,
+.code-block-wrapper .token.char,
+.code-block-wrapper .token.builtin {
+  color: #a6e3a1 !important;
+}
+
+.code-block-wrapper .token.operator,
+.code-block-wrapper .token.entity,
+.code-block-wrapper .token.url {
+  color: #89dceb !important;
+}
+
+.code-block-wrapper .token.atrule,
+.code-block-wrapper .token.attr-value,
+.code-block-wrapper .token.keyword {
+  color: #cba6f7 !important;
+}
+
+.code-block-wrapper .token.function,
+.code-block-wrapper .token.class-name {
+  color: #89b4fa !important;
+}
+
+.code-block-wrapper .token.regex,
+.code-block-wrapper .token.important,
+.code-block-wrapper .token.variable {
+  color: #f9e2af !important;
+}
+
+/* Override prose styles so enhanced code blocks aren't double-styled */
+.prose .code-block-wrapper pre {
+  background: #1e1e2e !important;
+  border: none !important;
+  padding: 1.25rem 1rem !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+.prose .code-block-wrapper code {
+  background: transparent !important;
+  padding: 0 !important;
+  color: #cdd6f4 !important;
+  border-radius: 0 !important;
 }
 
 @layer components {
