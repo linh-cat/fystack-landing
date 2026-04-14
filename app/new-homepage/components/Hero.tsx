@@ -61,13 +61,13 @@ export function Hero() {
               {/* Badges */}
               <div className="flex flex-wrap items-center gap-2">
                 <Link
-                  href="https://docs.fystack.io/changelog/v0.1.8"
+                  href="https://docs.fystack.io/changelog/v0.1.12"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-[#3b82f6]/10 to-[#8b5cf6]/10 hover:from-[#3b82f6]/15 hover:to-[#8b5cf6]/15 transition-colors border border-[#3b82f6]/20"
                 >
                   <span className="text-xs sm:text-sm bg-gradient-to-r from-[#3b82f6] to-[#8b5cf6] bg-clip-text text-transparent">
-                    v0.1.8 is here
+                    v0.1.12 is here
                   </span>
                   <span className="text-[#8b5cf6] text-xs">→</span>
                 </Link>
