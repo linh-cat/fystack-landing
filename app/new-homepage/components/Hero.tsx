@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,6 +10,7 @@ import {
   ArrowDownLeft,
   RefreshCw,
   Bell,
+  Play,
 } from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
@@ -17,6 +19,7 @@ export function Hero() {
   const [typedText, setTypedText] = useState("");
   const [isTypingDone, setIsTypingDone] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
   const words = ["Stablecoin", "Digital Asset"];
 
   useEffect(() => {
@@ -61,15 +64,17 @@ export function Hero() {
               {/* Badges */}
               <div className="flex flex-wrap items-center gap-2">
                 <Link
-                  href="https://docs.fystack.io/changelog/v0.1.12"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-[#3b82f6]/10 to-[#8b5cf6]/10 hover:from-[#3b82f6]/15 hover:to-[#8b5cf6]/15 transition-colors border border-[#3b82f6]/20"
+                  href="/changelog"
+                  className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-[#3b82f6]/10 to-[#8b5cf6]/10 hover:from-[#3b82f6]/15 hover:to-[#8b5cf6]/15 transition-colors border border-[#3b82f6]/20"
                 >
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inset-0 rounded-full bg-[#3b82f6] opacity-75 animate-ping" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-[#3b82f6]" />
+                  </span>
                   <span className="text-xs sm:text-sm bg-gradient-to-r from-[#3b82f6] to-[#8b5cf6] bg-clip-text text-transparent">
                     v0.1.12 is here
                   </span>
-                  <span className="text-[#8b5cf6] text-xs">→</span>
+                  <span className="text-[#8b5cf6] text-xs transition-transform group-hover:translate-x-0.5">→</span>
                 </Link>
               </div>
 
@@ -115,6 +120,18 @@ export function Hero() {
                     Get Started
                   </Link>
                 </Button>
+                <button
+                  type="button"
+                  onClick={() => setIsDemoOpen(true)}
+                  className="group relative inline-flex items-center gap-2.5 rounded-full px-5 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-slate-800 bg-white border border-slate-200 hover:border-[#3b82f6]/40 hover:text-[#3b82f6] transition-all shadow-sm hover:shadow-md hover:shadow-[#3b82f6]/10"
+                >
+                  <span className="relative flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center">
+                    <span className="absolute inset-0 rounded-full bg-[#3b82f6]/30 animate-ping" />
+                    <span className="absolute inset-0 rounded-full bg-gradient-to-br from-[#3b82f6] to-[#8b5cf6] shadow-[0_0_14px_rgba(59,130,246,0.7)] animate-[demo-flash_2s_ease-in-out_infinite]" />
+                    <Play className="relative h-3 w-3 sm:h-3.5 sm:w-3.5 text-white fill-white translate-x-[1px]" />
+                  </span>
+                  Watch Demo
+                </button>
                 <Button
                   size="lg"
                   variant="outline"
@@ -124,6 +141,19 @@ export function Hero() {
                   <Link href="https://selfhost.fystack.io/" target="_blank" rel="noopener noreferrer">Deploy Self-Hosted</Link>
                 </Button>
               </div>
+
+              <style jsx>{`
+                @keyframes demo-flash {
+                  0%, 100% {
+                    box-shadow: 0 0 14px rgba(59, 130, 246, 0.7), 0 0 0 0 rgba(59, 130, 246, 0.5);
+                    filter: brightness(1);
+                  }
+                  50% {
+                    box-shadow: 0 0 22px rgba(139, 92, 246, 0.9), 0 0 0 4px rgba(139, 92, 246, 0.15);
+                    filter: brightness(1.2);
+                  }
+                }
+              `}</style>
             </div>
 
             {/* Right Content - Grid border pattern */}
@@ -255,6 +285,23 @@ export function Hero() {
         </div>
       </div>
       </div>
+
+      <Dialog open={isDemoOpen} onOpenChange={setIsDemoOpen}>
+        <DialogContent className="max-w-4xl w-[95vw] p-0 overflow-hidden bg-black border-slate-800">
+          <DialogTitle className="sr-only">Fystack Product Demo</DialogTitle>
+          <div className="relative aspect-video w-full">
+            {isDemoOpen && (
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src="https://www.youtube.com/embed/X5nqO33ngVg?autoplay=1&rel=0"
+                title="Fystack Demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }

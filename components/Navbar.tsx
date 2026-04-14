@@ -400,6 +400,7 @@ const MobileNavigation = () => {
     { href: "/new-homepage#pricing", title: "Pricing", external: false },
     { href: "/compare", title: "Compare", external: false },
     { href: "/blog", title: "Blog", external: false },
+    { href: "/changelog", title: "Changelog", external: false },
   ];
 
   return (
@@ -597,6 +598,13 @@ export default function Navbar() {
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Blog
+            </Link>
+
+            <Link
+              href="/changelog"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Changelog
             </Link>
           </nav>
         </div>
