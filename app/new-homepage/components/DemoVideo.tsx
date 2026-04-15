@@ -1,21 +1,21 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Play } from "lucide-react";
+import { Volume2, VolumeX } from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
 export function DemoVideo() {
   const { ref, isVisible } = useScrollReveal(0.1);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
 
-  const handlePlay = () => {
+  const toggleMute = () => {
     const video = videoRef.current;
     if (!video) return;
-    video.muted = false;
-    video.currentTime = 0;
-    video.play();
-    setIsPlaying(true);
+    const next = !video.muted;
+    video.muted = next;
+    if (!next) video.play().catch(() => {});
+    setIsMuted(next);
   };
 
   return (
@@ -45,7 +45,10 @@ export function DemoVideo() {
             </div>
 
             {/* Video */}
-            <div className="relative aspect-video bg-slate-900">
+            <div
+              className="relative aspect-video bg-slate-900 cursor-pointer group"
+              onClick={toggleMute}
+            >
               <video
                 ref={videoRef}
                 className="absolute inset-0 w-full h-full object-cover"
@@ -54,24 +57,27 @@ export function DemoVideo() {
                 muted
                 loop
                 playsInline
-                controls={isPlaying}
               />
 
-              {/* Play overlay (before user clicks) */}
-              {!isPlaying && (
-                <button
-                  type="button"
-                  onClick={handlePlay}
-                  className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/30 via-transparent to-transparent group"
-                  aria-label="Play demo with sound"
-                >
-                  <span className="relative flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center">
-                    <span className="absolute inset-0 rounded-full bg-white/30 animate-ping" />
-                    <span className="absolute inset-0 rounded-full bg-gradient-to-br from-[#3b82f6] to-[#8b5cf6] shadow-[0_0_32px_rgba(59,130,246,0.6)] group-hover:scale-110 transition-transform" />
-                    <Play className="relative h-6 w-6 sm:h-8 sm:w-8 text-white fill-white translate-x-[2px]" />
-                  </span>
-                </button>
-              )}
+              {/* Mute indicator */}
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleMute();
+                }}
+                className="absolute bottom-4 right-4 flex items-center gap-2 px-3 py-2 rounded-full bg-black/60 backdrop-blur-sm text-white text-xs font-medium opacity-90 hover:opacity-100 transition-opacity"
+                aria-label={isMuted ? "Unmute demo" : "Mute demo"}
+              >
+                {isMuted ? (
+                  <>
+                    <VolumeX className="h-3.5 w-3.5" />
+                    <span>Tap for sound</span>
+                  </>
+                ) : (
+                  <Volume2 className="h-3.5 w-3.5" />
+                )}
+              </button>
             </div>
           </div>
         </div>
