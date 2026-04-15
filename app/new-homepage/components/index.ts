@@ -1,4 +1,5 @@
 export { Hero } from "./Hero";
+export { DemoVideo } from "./DemoVideo";
 export { DebugDelivery } from "./DebugDelivery";
 export { TrustedScale } from "./TrustedScale";
 export { WhyChooseUs } from "./WhyChooseUs";

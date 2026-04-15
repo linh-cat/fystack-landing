@@ -10,7 +10,6 @@ import {
   ArrowDownLeft,
   RefreshCw,
   Bell,
-  Play,
 } from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
@@ -120,18 +119,6 @@ export function Hero() {
                     Get Started
                   </Link>
                 </Button>
-                <button
-                  type="button"
-                  onClick={() => setIsDemoOpen(true)}
-                  className="group relative inline-flex items-center gap-2.5 rounded-full px-5 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-slate-800 bg-white border border-slate-200 hover:border-[#3b82f6]/40 hover:text-[#3b82f6] transition-all shadow-sm hover:shadow-md hover:shadow-[#3b82f6]/10"
-                >
-                  <span className="relative flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center">
-                    <span className="absolute inset-0 rounded-full bg-[#3b82f6]/30 animate-ping" />
-                    <span className="absolute inset-0 rounded-full bg-gradient-to-br from-[#3b82f6] to-[#8b5cf6] shadow-[0_0_14px_rgba(59,130,246,0.7)] animate-[demo-flash_2s_ease-in-out_infinite]" />
-                    <Play className="relative h-3 w-3 sm:h-3.5 sm:w-3.5 text-white fill-white translate-x-[1px]" />
-                  </span>
-                  Watch Demo
-                </button>
                 <Button
                   size="lg"
                   variant="outline"
@@ -291,12 +278,12 @@ export function Hero() {
           <DialogTitle className="sr-only">Fystack Product Demo</DialogTitle>
           <div className="relative aspect-video w-full">
             {isDemoOpen && (
-              <iframe
+              <video
                 className="absolute inset-0 h-full w-full"
-                src="https://www.youtube.com/embed/X5nqO33ngVg?autoplay=1&rel=0"
-                title="Fystack Demo"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+                src="/videos/fystack-demo.webm"
+                autoPlay
+                controls
+                playsInline
               />
             )}
           </div>

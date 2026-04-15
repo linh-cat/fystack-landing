@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import { Hero } from "./new-homepage/components/Hero";
+import { DemoVideo } from "./new-homepage/components/DemoVideo";
 import { DebugDelivery } from "./new-homepage/components/DebugDelivery";
 import { TrustedScale } from "./new-homepage/components/TrustedScale";
 import { WhyChooseUs } from "./new-homepage/components/WhyChooseUs";
@@ -23,6 +24,9 @@ export default function Homepage() {
       <main className="flex-1">
         {/* Hero Section */}
         <Hero />
+
+        {/* Demo Video */}
+        <DemoVideo />
 
         {/* Debug Delivery Section */}
         <DebugDelivery />
