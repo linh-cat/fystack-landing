@@ -19,7 +19,7 @@ export function Hero() {
   const [isTypingDone, setIsTypingDone] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
   const [isDemoOpen, setIsDemoOpen] = useState(false);
-  const words = ["Stablecoin", "Digital Asset"];
+  const words = ["Stablecoin", "Digital Asset", "Payments"];
 
   useEffect(() => {
     let currentIndex = 0;
@@ -100,8 +100,9 @@ export function Hero() {
 
               {/* Description */}
               <p className="text-sm sm:text-base lg:text-lg text-slate-700 max-w-xl leading-relaxed">
-                Multi-chain infrastructure for fintechs, payment platforms, and
-                crypto businesses to automate digital asset operations securely.
+                Built for stablecoin payment processors, fintechs, and exchanges.
+                Run it on your own infrastructure, own your keys, and keep your
+                margin — no more paying volume-based charges.
               </p>
 
               {/* CTA Buttons */}
@@ -158,17 +159,26 @@ export function Hero() {
               />
 
               {/* Labels around the image */}
-              <div className="hidden lg:block absolute top-8 left-8 text-sm text-slate-500 z-10 font-geist-mono">
-                {"{Save Time}"}
+              {/* Corner feature badges */}
+              <div className="hidden lg:flex absolute top-6 left-6 z-10 items-center px-3 py-1.5 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20">
+                <span className="text-xs font-semibold text-[#3b82f6] tracking-tight">
+                  Deploy in Days
+                </span>
               </div>
-              <div className="hidden lg:block absolute top-8 right-8 text-sm text-slate-500 z-10 font-geist-mono">
-                {"{Developer first}"}
+              <div className="hidden lg:flex absolute top-6 right-6 z-10 items-center px-3 py-1.5 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20">
+                <span className="text-xs font-semibold text-[#3b82f6] tracking-tight">
+                  Developer First
+                </span>
               </div>
-              <div className="hidden lg:block absolute bottom-8 left-8 text-sm text-slate-500 z-10" style={{ fontFamily: 'var(--font-geist-mono)' }}>
-                {"{Prevent Key Breaches}"}
+              <div className="hidden lg:flex absolute bottom-6 left-6 z-10 items-center px-3 py-1.5 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20">
+                <span className="text-xs font-semibold text-[#3b82f6] tracking-tight">
+                  Prevent Key Breaches
+                </span>
               </div>
-              <div className="hidden lg:block absolute bottom-8 right-8 text-sm text-slate-500 z-10" style={{ fontFamily: 'var(--font-geist-mono)' }}>
-                {"{Save Cost}"}
+              <div className="hidden lg:flex absolute bottom-6 right-6 z-10 items-center px-3 py-1.5 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20">
+                <span className="text-xs font-semibold text-[#3b82f6] tracking-tight">
+                  Unlimited Volume
+                </span>
               </div>
               {/* Orbital Wallet Engine Visualization */}
               <div className="relative w-full aspect-square max-w-[480px] mx-auto">
