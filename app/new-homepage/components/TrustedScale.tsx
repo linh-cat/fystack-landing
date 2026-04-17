@@ -1,17 +1,17 @@
 "use client";
 
 import { useState, useEffect, useRef, useMemo } from "react";
-import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
-const TOTAL_CELLS = 12;
+const TOTAL_CELLS = 9;
+const GRID_COLS = 3;
 const REVEAL_DELAY = 120;
 const HIGHLIGHT_INTERVAL = 2000;
 
+const CELL_ORDER = Array.from({ length: TOTAL_CELLS }, (_, i) => i);
+
 // Logo cell IDs (for hover effects)
-const logoCellIds = new Set([1, 2, 4, 6, 8, 9]);
+const logoCellIds = new Set([1, 2, 3, 5, 6, 7]);
 
 function shuffle(arr: number[]): number[] {
   const a = [...arr];
@@ -24,19 +24,17 @@ function shuffle(arr: number[]): number[] {
 
 // Border classes determined by position (not cellId)
 function getBorderClasses(position: number): string {
-  const row = Math.floor(position / 4);
-  const col = position % 4;
-  const isLastRow = row === 2;
-  const isLastCol = col === 3;
+  const row = Math.floor(position / GRID_COLS);
+  const col = position % GRID_COLS;
+  const isLastRow = row === GRID_COLS - 1;
+  const isLastCol = col === GRID_COLS - 1;
 
   const classes: string[] = [];
 
-  // Bottom border: all rows except last
   if (!isLastRow) {
     classes.push("border-b");
   }
 
-  // Right border: all cols except last (on md+)
   if (!isLastCol) {
     classes.push("md:border-r");
   }
@@ -51,11 +49,11 @@ function CellContent({ cellId }: { cellId: number }) {
       return (
         <>
           <h3 className="text-lg lg:text-xl font-bold text-slate-800 mb-3">
-            /Startups/
+            /Processors/
           </h3>
           <p className="text-slate-500 text-sm leading-relaxed">
-            Launch your crypto product fast with enterprise-grade wallet
-            infrastructure. No need to build from scratch.
+            Stop losing margin to volume-based fees. Run the wallet layer
+            yourself — no per-transaction cut, no revenue share.
           </p>
         </>
       );
@@ -80,8 +78,6 @@ function CellContent({ cellId }: { cellId: number }) {
         />
       );
     case 3:
-      return <ChevronRight className="w-12 h-12 text-slate-400" />;
-    case 4:
       return (
         <Image
           src="/svg/trust_to_scale/exdt.svg"
@@ -91,40 +87,30 @@ function CellContent({ cellId }: { cellId: number }) {
           className="h-10 lg:h-12 w-auto"
         />
       );
-    case 5:
+    case 4:
       return (
         <>
           <h3 className="text-lg lg:text-xl font-bold text-[#3b82f6] mb-3">
-            &lt;Mid-size companies&gt;
+            &lt;Fits you if&gt;
           </h3>
           <p className="text-slate-500 text-sm leading-relaxed">
-            Scale your operations with multi-chain treasury management,
-            automated workflows, and team controls.
+            You&apos;re a PSP or stablecoin processor moving real monthly
+            volume, hitting a competitor&apos;s volume cliff, or needing
+            self-hosted for jurisdiction or licensing.
           </p>
         </>
       );
+    case 5:
+      return (
+        <Image
+          src="/svg/trust_to_scale/minepath.svg"
+          alt="Minepath"
+          width={160}
+          height={40}
+          className="h-10 lg:h-12 w-auto"
+        />
+      );
     case 6:
-      return (
-        <>
-          <Image
-            src="/svg/trust_to_scale/minepath.svg"
-            alt="Minepath"
-            width={160}
-            height={40}
-            className="h-10 lg:h-12 w-auto"
-          />
-        </>
-      );
-    case 7:
-      return (
-        <>
-          <span className="text-3xl lg:text-4xl font-bold text-[#3b82f6]">
-            +20
-          </span>
-          <span className="text-slate-500 text-sm">global client</span>
-        </>
-      );
-    case 8:
       return (
         <Image
           src="/svg/trust_to_scale/primepay.svg"
@@ -134,7 +120,7 @@ function CellContent({ cellId }: { cellId: number }) {
           className="h-28 lg:h-32 w-auto"
         />
       );
-    case 9:
+    case 7:
       return (
         <Image
           src="/svg/trust_to_scale/superteam.svg"
@@ -144,33 +130,17 @@ function CellContent({ cellId }: { cellId: number }) {
           className="h-14 lg:h-16 w-auto"
         />
       );
-    case 10:
+    case 8:
       return (
         <>
           <h3 className="text-lg lg:text-xl font-bold text-slate-800 mb-3">
-            {"{Enterprises}"}
+            {"{Self-hosted}"}
           </h3>
           <p className="text-slate-500 text-sm leading-relaxed">
-            Self-hosted deployment with full compliance controls, audit trails,
-            and dedicated support for your team.
+            Deploy on your own infrastructure — Systemd, Docker, or Kubernetes.
+            Your keys, your cloud, your compliance boundary.
           </p>
         </>
-      );
-    case 11:
-      return (
-        <Button
-          variant="outline"
-          className="relative z-10 rounded-full px-8 py-6 text-sm font-semibold border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition"
-          asChild
-        >
-          <Link
-            href="https://app.fystack.io"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Get started
-          </Link>
-        </Button>
       );
     default:
       return null;
@@ -181,25 +151,18 @@ function CellContent({ cellId }: { cellId: number }) {
 function getCellBaseClasses(cellId: number): string {
   switch (cellId) {
     case 0:
+    case 8:
       return "p-6 lg:p-8 bg-white";
     case 1:
     case 2:
-    case 4:
-    case 8:
-    case 9:
-      return "p-6 lg:p-8 bg-slate-50/50 flex items-center justify-center";
     case 3:
-      return "p-6 lg:p-8 bg-white flex items-center justify-center";
-    case 5:
-      return "p-6 lg:p-8 bg-white relative";
     case 6:
-      return "p-6 lg:p-8 bg-slate-50/50 flex items-center justify-center relative";
     case 7:
-      return "p-6 lg:p-8 bg-white flex flex-col items-center justify-center";
-    case 10:
+      return "p-6 lg:p-8 bg-slate-50/50 flex items-center justify-center";
+    case 4:
       return "p-6 lg:p-8 bg-white relative";
-    case 11:
-      return "relative flex items-center justify-center bg-white overflow-hidden p-6 lg:p-8";
+    case 5:
+      return "p-6 lg:p-8 bg-slate-50/50 flex items-center justify-center relative";
     default:
       return "p-6 lg:p-8 bg-white";
   }
@@ -210,9 +173,6 @@ export function TrustedScale() {
   const [revealedCells, setRevealedCells] = useState<Set<number>>(new Set());
   const [highlightIndex, setHighlightIndex] = useState<number | null>(null);
   const [hasRevealed, setHasRevealed] = useState(false);
-  const [cellOrder, setCellOrder] = useState<number[]>(
-    Array.from({ length: TOTAL_CELLS }, (_, i) => i)
-  );
 
   // Shuffled order for staggered reveal (stable across renders)
   const revealOrder = useMemo(
@@ -230,7 +190,6 @@ export function TrustedScale() {
           setHasRevealed(true);
           observer.disconnect();
 
-          // Reveal cells one by one in shuffled order
           revealOrder.forEach((cellIndex, i) => {
             setTimeout(() => {
               setRevealedCells((prev) => {
@@ -260,7 +219,6 @@ export function TrustedScale() {
     return () => clearInterval(interval);
   }, [revealedCells.size]);
 
-  // Build class names for each grid cell
   const cellAnim = (cellId: number) => {
     const isRevealed = revealedCells.has(cellId);
     const isHighlighted = highlightIndex === cellId;
@@ -296,14 +254,14 @@ export function TrustedScale() {
             {/* Header Content */}
             <div className="flex-1 text-center py-8 md:py-10 lg:py-12 px-6 md:px-8 lg:px-12">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
-                Trusted to scale from day
+                Built for stablecoin
                 <br />
-                one to enterprise<span className="text-[#3b82f6]">.</span>
+                payment processors<span className="text-[#3b82f6]">.</span>
               </h2>
               <p className="text-slate-500 text-base lg:text-lg leading-relaxed">
-                Join innovative companies building their future on
+                Live in production with PSPs and payments teams
                 <br className="hidden sm:block" />
-                Fystack&apos;s robust and scalable infrastructure.
+                moving real stablecoin flow every day.
               </p>
             </div>
 
@@ -323,9 +281,9 @@ export function TrustedScale() {
         {/* Grid Section */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 md:grid-cols-4 gap-0 border-x border-b border-slate-200 overflow-visible"
+          className="grid grid-cols-1 md:grid-cols-3 gap-0 border-x border-b border-slate-200 overflow-visible"
         >
-          {cellOrder.map((cellId, position) => {
+          {CELL_ORDER.map((cellId, position) => {
             return (
               <div
                 key={cellId}

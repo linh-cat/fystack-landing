@@ -100,9 +100,9 @@ export function Hero() {
 
               {/* Description */}
               <p className="text-sm sm:text-base lg:text-lg text-slate-700 max-w-xl leading-relaxed">
-                Built for stablecoin payment processors, fintechs, and exchanges.
-                Run it on your own infrastructure, own your keys, and keep your
-                margin — no more paying volume-based charges.
+                Built for stablecoin payment processors. Run it on your own
+                infrastructure, own your keys, and keep your margin — no more
+                volume-based fees on every transaction.
               </p>
 
               {/* CTA Buttons */}
@@ -159,27 +159,6 @@ export function Hero() {
               />
 
               {/* Labels around the image */}
-              {/* Corner feature badges */}
-              <div className="hidden lg:flex absolute top-6 left-6 z-10 items-center px-3 py-1.5 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20">
-                <span className="text-xs font-semibold text-[#3b82f6] tracking-tight">
-                  Deploy in Days
-                </span>
-              </div>
-              <div className="hidden lg:flex absolute top-6 right-6 z-10 items-center px-3 py-1.5 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20">
-                <span className="text-xs font-semibold text-[#3b82f6] tracking-tight">
-                  Developer First
-                </span>
-              </div>
-              <div className="hidden lg:flex absolute bottom-6 left-6 z-10 items-center px-3 py-1.5 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20">
-                <span className="text-xs font-semibold text-[#3b82f6] tracking-tight">
-                  Prevent Key Breaches
-                </span>
-              </div>
-              <div className="hidden lg:flex absolute bottom-6 right-6 z-10 items-center px-3 py-1.5 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20">
-                <span className="text-xs font-semibold text-[#3b82f6] tracking-tight">
-                  Unlimited Volume
-                </span>
-              </div>
               {/* Orbital Wallet Engine Visualization */}
               <div className="relative w-full aspect-square max-w-[480px] mx-auto">
                 {/* Outer ring */}
@@ -204,24 +183,24 @@ export function Hero() {
                 </div>
 
                 {/* Floating chain icons on the orbit */}
-                {/* ETH - top */}
+                {/* USDT - top */}
                 <div className="absolute top-2 left-1/2 -translate-x-1/2 w-14 h-14 bg-white rounded-xl shadow-lg shadow-slate-200/50 border border-slate-200 flex items-center justify-center hover:scale-110 transition-transform">
-                  <Image src="/logo/crypto/eth.png" alt="ETH" width={28} height={28} />
+                  <Image src="/logo/crypto/usdt.png" alt="USDT" width={28} height={28} />
                 </div>
 
-                {/* BTC - right */}
+                {/* USDC - right */}
                 <div className="absolute top-1/2 right-2 -translate-y-1/2 w-14 h-14 bg-white rounded-xl shadow-lg shadow-slate-200/50 border border-slate-200 flex items-center justify-center hover:scale-110 transition-transform">
-                  <Image src="/logo/Bitcoin.png" alt="BTC" width={28} height={28} />
-                </div>
-
-                {/* USDC - bottom */}
-                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-14 h-14 bg-white rounded-xl shadow-lg shadow-slate-200/50 border border-slate-200 flex items-center justify-center hover:scale-110 transition-transform">
                   <Image src="/logo/crypto/usdc.png" alt="USDC" width={28} height={28} />
                 </div>
 
-                {/* USDT - left */}
+                {/* Tron - bottom */}
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-14 h-14 bg-white rounded-xl shadow-lg shadow-slate-200/50 border border-slate-200 flex items-center justify-center hover:scale-110 transition-transform">
+                  <Image src="/logo/crypto/tron.png" alt="Tron" width={28} height={28} />
+                </div>
+
+                {/* Ethereum - left */}
                 <div className="absolute top-1/2 left-2 -translate-y-1/2 w-14 h-14 bg-white rounded-xl shadow-lg shadow-slate-200/50 border border-slate-200 flex items-center justify-center hover:scale-110 transition-transform">
-                  <Image src="/logo/crypto/usdt.png" alt="USDT" width={28} height={28} />
+                  <Image src="/logo/crypto/eth.png" alt="Ethereum" width={28} height={28} />
                 </div>
 
                 {/* Connector lines */}
@@ -240,7 +219,7 @@ export function Hero() {
                   </div>
                   <div>
                     <p className="text-[10px] font-semibold text-slate-900">Receive</p>
-                    <p className="text-[9px] text-slate-500">1.2 ETH</p>
+                    <p className="text-[9px] text-slate-500">10,000 USDT</p>
                   </div>
                 </div>
 

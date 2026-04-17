@@ -3,17 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 
-type TabKey = "exchange" | "stablecoin" | "treasury" | "otc" | "trading" | "gaming";
-
-const sliderItems = [
-  { icon: "/svg/usecases/slider/stable-payment.svg", label: "Stablecoin Payments" },
-  { icon: "/svg/usecases/slider/treasury.svg", label: "Treasury Management" },
-  { icon: "/svg/usecases/slider/otc-exchange.svg", label: "OTC Exchange" },
-  { icon: "/svg/usecases/slider/gaming-wallet.svg", label: "Gaming Wallets" },
-  { icon: "/svg/usecases/slider/tokenization.svg", label: "Tokenization" },
-  { icon: "/svg/usecases/slider/payroll.svg", label: "Payroll" },
-  { icon: "/svg/usecases/slider/onchain-account.svg", label: "On-chain Accounting" },
-];
+type TabKey = "stablecoin" | "treasury" | "otc";
 
 const tabsData: {
   key: TabKey;
@@ -26,22 +16,6 @@ const tabsData: {
   imageWidth?: number;
   imageHeight?: number;
 }[] = [
-    {
-      key: "exchange",
-      label: "Exchange",
-      title: "Exchange Custody Infrastructure",
-      subtitle: "Data ownership",
-      description: "Self-hosted, compliant, and scalable custody solution for digital asset exchanges.",
-      features: [
-        "Full key and data ownership with no vendor lock-in",
-        "Jurisdiction-safe deployment — keys stay in-region",
-        "MPC and HSM-enforced signing (FIPS 140-3 Level 3)",
-        "Deploy in weeks, not months",
-      ],
-      image: "/png/usecases/stable-coin-payment.png",
-      imageWidth: 400,
-      imageHeight: 300,
-    },
     {
       key: "stablecoin",
       label: "Stablecoin payment",
@@ -89,45 +63,13 @@ const tabsData: {
       imageWidth: 400,
       imageHeight: 300,
     },
-    {
-      key: "trading",
-      label: "Trading Agents",
-      title: "Trading agents with approval",
-      subtitle: "Multi-signature approval",
-      description: "Programmable custody for autonomous trading systems with granular controls.",
-      features: [
-        "API-first design for bot integration",
-        "Granular spending policies and limits",
-        "Automated approval rules based on parameters",
-        "Full audit trail for agent actions",
-      ],
-      image: "/png/usecases/trading-agent.png",
-      imageWidth: 400,
-      imageHeight: 300,
-    },
-    {
-      key: "gaming",
-      label: "Gaming Wallet",
-      title: "Gaming Wallet",
-      subtitle: "On-chain server built on Solana",
-      description: "Seamless in-game asset management with low-latency signing for real-time gaming.",
-      features: [
-        "Create wallets instantly for millions of users",
-        "Gas-free transactions with sponsored fees",
-        "NFT and token management APIs",
-        "Low-latency signing for real-time gaming",
-      ],
-      image: "/png/usecases/gaming-wallet.png",
-      imageWidth: 400,
-      imageHeight: 300,
-    },
   ];
 
 const TAB_INTERVAL = 5000;
 const tabKeys = tabsData.map((t) => t.key);
 
 export function UseCases() {
-  const [activeTab, setActiveTab] = useState<TabKey>("exchange");
+  const [activeTab, setActiveTab] = useState<TabKey>("stablecoin");
   const [isTabHovered, setIsTabHovered] = useState(false);
 
   const activeTabData = tabsData.find((t) => t.key === activeTab)!;
@@ -166,62 +108,25 @@ export function UseCases() {
             {/* Header Section */}
             <div className="relative text-center py-12 lg:py-16 px-6 border-b border-slate-200">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
-                One platform, unlimited use cases<span className="text-[#3b82f6]">.</span>
+                One platform. Every stablecoin workflow<span className="text-[#3b82f6]">.</span>
               </h2>
               <p className="text-slate-500 text-base lg:text-lg leading-relaxed max-w-xl mx-auto">
-                Built for every digital asset workflow
+                From deposit rails to treasury sweeps — purpose-built for payments teams.
               </p>
             </div>
 
-            {/* Row 1: Auto-scrolling Slider */}
-            <div className="relative border-b border-slate-200 overflow-hidden">
-              {/* Left fade */}
-              <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-              {/* Right fade */}
-              <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-
-              <div
-                className="flex overflow-x-hidden py-6"
-                style={{ scrollbarWidth: "none" }}
-              >
-                {/* Infinite scroll with CSS animation */}
-                <div className="flex animate-scroll">
-                  {[...sliderItems, ...sliderItems].map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center gap-3 px-6 py-3 flex-shrink-0 border-r border-slate-200"
-                    >
-                      <div className="w-10 h-10 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0">
-                        <Image
-                          src={item.icon}
-                          alt={item.label}
-                          width={24}
-                          height={24}
-                          className="w-6 h-6"
-                        />
-                      </div>
-                      <span className="text-slate-600 text-sm font-medium whitespace-nowrap">
-                        {item.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Row 2: Tabbed Interface */}
+            {/* Tabbed Interface */}
             <div
-              className="grid lg:grid-cols-[280px_1fr]"
               onMouseEnter={() => setIsTabHovered(true)}
               onMouseLeave={() => setIsTabHovered(false)}
             >
-              {/* Left - Vertical Tabs */}
-              <div className="border-b lg:border-b-0 lg:border-r border-slate-200">
+              {/* Top - Horizontal Tabs */}
+              <div className="flex border-b border-slate-200 overflow-x-auto">
                 {tabsData.map((tab) => (
                   <button
                     key={tab.key}
                     onClick={() => handleTabClick(tab.key)}
-                    className={`relative w-full text-left px-6 py-4 text-sm font-medium transition-all overflow-hidden
+                    className={`relative flex-1 text-center px-6 py-4 text-sm font-medium transition-all whitespace-nowrap border-r border-slate-200 last:border-r-0
                       ${activeTab === tab.key
                         ? "bg-[#3b82f6] text-white"
                         : "text-slate-600 hover:bg-slate-50"
@@ -232,7 +137,7 @@ export function UseCases() {
                 ))}
               </div>
 
-              {/* Right - Tab Content */}
+              {/* Tab Content */}
               <div className="p-8 lg:p-12">
                 <div
                   key={activeTab}

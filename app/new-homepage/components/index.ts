@@ -3,6 +3,7 @@ export { DemoVideo } from "./DemoVideo";
 export { DebugDelivery } from "./DebugDelivery";
 export { TrustedScale } from "./TrustedScale";
 export { WhyChooseUs } from "./WhyChooseUs";
+export { FystackVsInHouse } from "./FystackVsInHouse";
 export { MPCSecurity } from "./MPCSecurity";
 export { OperationalExcellence } from "./OperationalExcellence";
 export { EnterpriseCompliance } from "./EnterpriseCompliance";

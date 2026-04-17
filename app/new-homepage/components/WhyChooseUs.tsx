@@ -1,51 +1,172 @@
 "use client";
 
-import Image from "next/image";
+import { Check, X } from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
+
+type CellValue = "check" | "cross" | "limited" | string;
+
+interface ComparisonRow {
+  feature: string;
+  description?: string;
+  fystack: CellValue;
+  others: CellValue;
+}
+
+interface ComparisonCategory {
+  title: string;
+  rows: ComparisonRow[];
+}
+
+const comparison: ComparisonCategory[] = [
+  {
+    title: "Deployment & Control",
+    rows: [
+      {
+        feature: "Self-Hosted",
+        description: "Deploy on your own infrastructure for maximum control",
+        fystack: "check",
+        others: "cross",
+      },
+      {
+        feature: "Cloud-Native (Docker / K8s)",
+        description: "Modern containerized architecture for easy scaling",
+        fystack: "check",
+        others: "limited",
+      },
+      {
+        feature: "Deploy in Private Network",
+        description: "Run entirely within your secure network perimeter",
+        fystack: "check",
+        others: "cross",
+      },
+    ],
+  },
+  {
+    title: "Data & Residency",
+    rows: [
+      {
+        feature: "Own Your Keys",
+        description: "Keys live in your cloud, not the vendor's",
+        fystack: "check",
+        others: "limited",
+      },
+      {
+        feature: "Data Stays in Your Region",
+        description: "Jurisdiction-safe deployment for compliance needs",
+        fystack: "check",
+        others: "limited",
+      },
+      {
+        feature: "No Vendor Custody",
+        description: "You hold the keys — vendor can't freeze funds",
+        fystack: "check",
+        others: "cross",
+      },
+    ],
+  },
+  {
+    title: "Pricing & Flexibility",
+    rows: [
+      {
+        feature: "Flat Pricing",
+        description: "No volume-based fees on every transaction",
+        fystack: "Flat monthly fee",
+        others: "Cap outbound volume + overage rate",
+      },
+      {
+        feature: "Vendor Lock-In Free",
+        description: "Export your data and switch anytime",
+        fystack: "check",
+        others: "cross",
+      },
+      {
+        feature: "Whitelabel",
+        description: "Fully customizable to match your brand",
+        fystack: "check",
+        others: "limited",
+      },
+      {
+        feature: "Auto Sweep",
+        description: "Automated deposit collection to treasury wallets",
+        fystack: "check",
+        others: "limited",
+      },
+    ],
+  },
+  {
+    title: "Developer Experience",
+    rows: [
+      {
+        feature: "Simple REST API",
+        fystack: "check",
+        others: "Complex APIs",
+      },
+      {
+        feature: "Clear Documentation",
+        fystack: "check",
+        others: "Fragmented docs",
+      },
+      {
+        feature: "Responsive Support",
+        fystack: "check",
+        others: "Slow support cycles",
+      },
+    ],
+  },
+];
+
+function Cell({ value }: { value: CellValue }) {
+  if (value === "check") {
+    return (
+      <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50">
+        <Check className="w-4 h-4 text-emerald-600" strokeWidth={3} />
+      </div>
+    );
+  }
+  if (value === "cross") {
+    return (
+      <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-50">
+        <X className="w-4 h-4 text-rose-500" strokeWidth={3} />
+      </div>
+    );
+  }
+  if (value === "limited") {
+    return <span className="text-slate-400 text-sm font-medium">Limited</span>;
+  }
+  return <span className="text-slate-500 text-sm">{value}</span>;
+}
 
 export function WhyChooseUs() {
   const { ref, isVisible } = useScrollReveal();
-  const fystackFeatures = [
-    "Simple REST API",
-    "Clear documentation",
-    "Ready-to-use SDKs",
-    "Responsive support",
-  ];
-
-  const othersFeatures = [
-    "Complex APIs",
-    "Fragmented docs",
-    "Custom integration work",
-    "Slow support cycles",
-  ];
 
   return (
     <section className="bg-white py-4 lg:py-10 2xl:py-20">
-      <div ref={ref} className={`max-w-[1440px] px-4 lg:px-16 2xl:px-0 mx-auto ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
+      <div
+        ref={ref}
+        className={`max-w-[1440px] px-4 lg:px-16 2xl:px-0 mx-auto ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"
+          }`}
+      >
         {/* Wrapper with corner squares */}
         <div className="relative">
-          {/* Corner squares - outside the box */}
           <div className="hidden lg:block absolute -top-2 -left-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />
           <div className="hidden lg:block absolute -top-2 -right-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />
           <div className="hidden lg:block absolute -bottom-2 -left-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />
           <div className="hidden lg:block absolute -bottom-2 -right-2 w-2.5 h-2.5 bg-[#3b82f6] z-10" />
 
           <div className="border border-slate-200">
-            {/* Top Section - Two columns */}
+            {/* Top Section - Two columns (header) */}
             <div className="grid lg:grid-cols-2 gap-0">
-              {/* Left - Main heading */}
               <div className="p-6 md:p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-slate-200">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 leading-tight">
-                  Focus on your product,
+                  Ship your product,
                   <br />
-                  not 3rd integration
+                  not wallet infrastructure
                 </h2>
               </div>
 
-              {/* Right - Subheading */}
               <div className="p-6 md:p-8 lg:p-12">
                 <p className="text-[#3b82f6] text-sm font-semibold mb-4 tracking-wide">
-                  /SHIP FASTER & SAVE MONEY/
+                  /SHIP FASTER, CUT COSTS/
                 </p>
                 <p className="text-slate-600 text-lg lg:text-xl leading-relaxed">
                   Focus on your product while we handle the infrastructure.
@@ -55,76 +176,58 @@ export function WhyChooseUs() {
               </div>
             </div>
 
-            {/* Bottom Section - Three columns */}
-            <div className="grid lg:grid-cols-3 gap-0 border-t border-slate-200">
-              {/* Fystack Column - Blue background */}
-              <div className="bg-[#3b82f6] p-6 md:p-8 lg:p-10 text-white">
-                {/* Badge */}
-                <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/20 mb-6">
-                  <span className="text-sm font-medium">Fystack</span>
+            {/* Comparison Table */}
+            <div className="border-t border-slate-200">
+              {/* Table Header */}
+              <div className="grid grid-cols-[1.5fr_1fr_1fr] lg:grid-cols-[2fr_1fr_1fr] bg-slate-50/60 border-b border-slate-200">
+                <div className="px-4 md:px-6 lg:px-8 py-4" />
+                <div className="px-4 md:px-6 lg:px-8 py-4 flex items-center justify-center text-center">
+                  <span className="text-sm font-semibold text-[#3b82f6]">Fystack</span>
                 </div>
-
-                <h3 className="text-2xl lg:text-3xl font-bold mb-2">
-                  Why choose us?
-                </h3>
-                <p className="text-white/80 text-sm mb-8">( DAYS TO INTEGRATE )</p>
-
-                {/* Features list */}
-                <ul className="space-y-4">
-                  {fystackFeatures.map((feature, index) => (
-                    <li key={index} className="flex items-center gap-3">
-                      <Image src="/svg/why_choose/check.svg" alt="Check" width={12} height={12} className="w-4 h-4" />
-                      <span className="text-base">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="px-4 md:px-6 lg:px-8 py-4 flex flex-col items-center justify-center text-center">
+                  <span className="text-sm font-semibold text-slate-700">SaaS vendors</span>
+                  <span className="text-xs font-normal text-slate-400 mt-0.5">
+                    Fireblocks, Cobo, Utila, Liminal
+                  </span>
+                </div>
               </div>
 
-              {/* Others Column - White background */}
-              <div className="bg-white p-6 md:p-8 lg:p-10 border-t lg:border-t-0 lg:border-l lg:border-r border-slate-200">
-                {/* Badge */}
-                <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-slate-200 bg-gray-200 mb-6">
-                  <span className="text-sm text-slate-700">Fireblocks, Cobo, Utila, Safeheron</span>
-                </div>
+              {/* Category rows */}
+              {comparison.map((category) => (
+                <div key={category.title}>
+                  {/* Category label */}
+                  <div className="bg-slate-50/30 px-4 md:px-6 lg:px-8 py-3 border-b border-slate-200">
+                    <span className="text-xs font-bold text-slate-500 tracking-wider uppercase">
+                      {category.title}
+                    </span>
+                  </div>
 
-                <h3 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-2">
-                  Others
-                </h3>
-                <p className="text-slate-400 text-sm mb-8">( WEEKS TO MONTHS )</p>
-
-                {/* Features list */}
-                <ul className="space-y-2">
-                  {othersFeatures.map((feature, index) => (
-                    <li key={index} className="flex items-center gap-3">
-                      <div className="text-slate-700 flex-shrink-0 bg-gray-200 rounded-full p-2 flex items-center justify-center">
-                        <Image src="/svg/why_choose/cancel.svg" alt="X" width={10} height={10} />
+                  {/* Feature rows */}
+                  {category.rows.map((row) => (
+                    <div
+                      key={row.feature}
+                      className="grid grid-cols-[1.5fr_1fr_1fr] lg:grid-cols-[2fr_1fr_1fr] border-b border-slate-100 last:border-b-0 hover:bg-slate-50/40 transition-colors"
+                    >
+                      <div className="px-4 md:px-6 lg:px-8 py-4">
+                        <p className="text-slate-800 font-medium text-sm md:text-base">
+                          {row.feature}
+                        </p>
+                        {row.description && (
+                          <p className="text-slate-500 text-xs md:text-sm mt-1 leading-relaxed">
+                            {row.description}
+                          </p>
+                        )}
                       </div>
-                      <span className="text-base text-slate-600">{feature}</span>
-                    </li>
+                      <div className="px-4 md:px-6 lg:px-8 py-4 flex items-center justify-center">
+                        <Cell value={row.fystack} />
+                      </div>
+                      <div className="px-4 md:px-6 lg:px-8 py-4 flex items-center justify-center text-center">
+                        <Cell value={row.others} />
+                      </div>
+                    </div>
                   ))}
-                </ul>
-              </div>
-
-              {/* Fystack Info Column */}
-              <div className="bg-slate-50/50 p-6 md:p-8 lg:p-10 border-t lg:border-t-0 flex flex-col gap-4">
-                {/* Cost Savings Card */}
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-5">
-                  <h4 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-1">$50K+</h4>
-                  <p className="text-slate-700 font-medium text-sm mb-2">Annual cost savings</p>
-                  <p className="text-slate-500 text-xs leading-relaxed">
-                    Eliminate the need to build and maintain wallet infrastructure in-house.
-                  </p>
                 </div>
-
-                {/* Time Savings Card */}
-                <div className="bg-gradient-to-br from-emerald-50 to-emerald-100/50 rounded-2xl p-5">
-                  <h4 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-1">3–6 months</h4>
-                  <p className="text-slate-700 font-medium text-sm mb-2">Faster time to market</p>
-                  <p className="text-slate-500 text-xs leading-relaxed">
-                    Go live faster with our production-ready infrastructure and SDKs.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

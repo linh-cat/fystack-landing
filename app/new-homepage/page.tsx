@@ -5,6 +5,7 @@ import { Hero } from "./components/Hero";
 import { DebugDelivery } from "./components/DebugDelivery";
 import { TrustedScale } from "./components/TrustedScale";
 import { WhyChooseUs } from "./components/WhyChooseUs";
+import { FystackVsInHouse } from "./components/FystackVsInHouse";
 import { MPCSecurity } from "./components/MPCSecurity";
 import { SecurityDeveloper } from "./components/SecurityDeveloper";
 import { OperationalExcellence } from "./components/OperationalExcellence";
@@ -35,6 +36,9 @@ export default function NewHomepage() {
 
         {/* Why Choose Us Section */}
         <WhyChooseUs />
+
+        {/* Fystack vs Building In-House */}
+        <FystackVsInHouse />
 
         {/* MPC Security Section */}
         <MPCSecurity />
