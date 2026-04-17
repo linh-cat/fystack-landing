@@ -2,25 +2,29 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Github } from "lucide-react";
+import { Github, ShieldCheck, KeyRound, EyeOff, FileSignature } from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
 export function MPCSecurity() {
   const { ref, isVisible } = useScrollReveal();
   const features = [
     {
+      icon: ShieldCheck,
       tag: "No single point of failure",
       description: "Distributed architecture across independent nodes",
     },
     {
+      icon: KeyRound,
       tag: "Split key shares",
       description: "Keys divided and stored on different nodes",
     },
     {
+      icon: EyeOff,
       tag: "Private key never exists whole",
       description: "Complete key never assembled in memory",
     },
     {
+      icon: FileSignature,
       tag: "Threshold signing",
       description: "Cryptographic signatures without key reconstruction",
     },
@@ -72,24 +76,25 @@ export function MPCSecurity() {
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Left - Features Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-b lg:border-b-0 lg:border-r border-slate-200">
-                  {features.map((feature, index) => (
-                    <div
-                      key={index}
-                      className={`${index < 2 ? "border-b border-slate-200" : ""} ${index % 2 === 0 ? "sm:border-r border-slate-200" : ""}`}
-                    >
-                      {/* Tag */}
-                      <div className="inline-flex items-center px-2 py-2 bg-[#EFF6FF] border border-[#2F5FAD]/20 rounded-br-2xl">
-                        <span className="text-[#2F5FAD] font-medium">
-                          {feature.tag}
+                  {features.map((feature, index) => {
+                    const Icon = feature.icon;
+                    return (
+                      <div
+                        key={index}
+                        className={`group p-6 lg:p-7 transition-colors hover:bg-slate-50/70 ${index < 2 ? "border-b border-slate-200" : ""} ${index % 2 === 0 ? "sm:border-r border-slate-200" : ""}`}
+                      >
+                        <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[#EFF6FF] text-[#2F5FAD] border border-[#2F5FAD]/15 mb-4">
+                          <Icon className="w-[18px] h-[18px]" strokeWidth={2} />
                         </span>
+                        <h3 className="text-[#2F5FAD] font-semibold text-base leading-snug mb-2">
+                          {feature.tag}
+                        </h3>
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                          {feature.description}
+                        </p>
                       </div>
-
-                      {/* Content */}
-                      <p className="text-slate-600 leading-relaxed mt-10 px-4">
-                        {feature.description}
-                      </p>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
 
                 {/* Right - Node Image */}
