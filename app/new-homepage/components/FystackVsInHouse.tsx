@@ -36,7 +36,7 @@ export function FystackVsInHouse() {
           <div className="border border-slate-200 grid md:grid-cols-2 gap-0">
             <div className="p-6 md:p-8 lg:p-10 border-b md:border-b-0 md:border-r border-slate-200 bg-gradient-to-br from-blue-50/60 to-transparent">
               <h4 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-1">
-                $100,000/year
+                $100k+/year
               </h4>
               <p className="text-slate-700 font-medium text-sm mb-2">
                 Saved vs building in-house
