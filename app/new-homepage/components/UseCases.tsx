@@ -201,7 +201,7 @@ export function UseCases() {
               <div className="p-8 lg:p-12">
                 <div
                   key={activeTab}
-                  className="grid lg:grid-cols-2 gap-8 items-center animate-[fade-in_0.3s_ease-in-out]"
+                  className="grid lg:grid-cols-2 gap-8 items-center animate-[fade-in_0.3s_ease-in-out] min-h-[420px] lg:min-h-[460px]"
                 >
                   {/* Content */}
                   <div>

@@ -1,20 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
-type TabKey = "system" | "docker" | "kubernetes";
-
 export function SelfHostedDeployment() {
   const { ref, isVisible } = useScrollReveal();
-  const [activeTab, setActiveTab] = useState<TabKey>("kubernetes");
-
-  const tabs = [
-    { key: "system" as TabKey, label: "System" },
-    { key: "docker" as TabKey, label: "Docker" },
-    { key: "kubernetes" as TabKey, label: "Kubernetes" },
-  ];
 
   const backupFeatures = [
     "Encrypted at rest with AES-256",
@@ -125,25 +115,8 @@ export function SelfHostedDeployment() {
                 </div>
               </div>
 
-              {/* Right Column - Tabs and Image */}
+              {/* Right Column - Image */}
               <div className="relative flex flex-col">
-                {/* Tabs */}
-                <div className="flex border-b border-slate-200">
-                  {tabs.map((tab) => (
-                    <button
-                      key={tab.key}
-                      onClick={() => setActiveTab(tab.key)}
-                      className={`flex-1 py-4 text-sm font-medium transition-all ${
-                        activeTab === tab.key
-                          ? "bg-[#3b82f6] text-white"
-                          : "bg-white text-slate-600 hover:bg-slate-50"
-                      }`}
-                    >
-                      {tab.label}
-                    </button>
-                  ))}
-                </div>
-
                 {/* Image Area */}
                 <div className="relative flex-1 flex flex-col items-center justify-center p-8 min-h-[400px]">
                   {/* Blue gradient background */}

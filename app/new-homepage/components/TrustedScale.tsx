@@ -29,7 +29,7 @@ const clientLogos = [
     height: "h-20 lg:h-24",
   },
   {
-    src: "/svg/trust_to_scale/superteam.webp",
+    src: "/svg/trust_to_scale/superteam.svg",
     alt: "Superteam",
     height: "h-14 lg:h-16",
   },

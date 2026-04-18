@@ -25,7 +25,7 @@ const partners: Partner[] = [
   },
   {
     name: "SuperTeam VN",
-    logo: "/clientpartners/superteamvn.webp",
+    logo: "/clientpartners/superteamvn.svg",
     darkBg: true, // This logo works better on dark background
     url: "https://vn.superteam.fun/",
   },
