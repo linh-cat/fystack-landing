@@ -82,7 +82,7 @@ export default function WalletAsAServicePage() {
                     </Link>
                   </Button>
                   <Button size="lg" variant="outline" className="rounded-full px-8 py-6 text-base font-semibold border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" asChild>
-                    <Link href="https://t.me/anhthind" target="_blank" rel="noopener noreferrer">
+                    <Link href="https://app.youform.com/forms/qyanutyi" target="_blank" rel="noopener noreferrer">
                       Talk to an Architect
                     </Link>
                   </Button>
@@ -1223,7 +1223,7 @@ export default function WalletAsAServicePage() {
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" className="rounded-full px-8 py-6 text-base font-semibold border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" asChild>
-                  <Link href="https://t.me/anhthind" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://app.youform.com/forms/qyanutyi" target="_blank" rel="noopener noreferrer">
                     Talk to Sales
                   </Link>
                 </Button>

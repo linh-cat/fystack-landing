@@ -16,11 +16,7 @@ import {
   Users,
   FileText,
   Shield,
-  Building2,
-  Coins,
-  Bot,
   Smartphone,
-  Server,
   Menu
 } from "lucide-react";
 import {
@@ -211,40 +207,16 @@ const SolutionsDropdown = () => {
 
   const solutionItems: ProductMenuItem[] = [
     {
-      icon: <Building2 className="h-5 w-5" />,
-      title: "Multi-Chain Treasury Management",
-      description: "Manage and automate crypto treasuries across Ethereum, BSC, Solana, and Tron with unified control.",
-      href: "/new-homepage#use-cases",
-    },
-    {
-      icon: <Coins className="h-5 w-5" />,
-      title: "Stablecoin Operations",
-      description: "Simplify cross-chain stablecoin flows for payments, settlements, and treasury movement.",
-      href: "/new-homepage#use-cases",
-    },
-    {
-      icon: <Bot className="h-5 w-5" />,
-      title: "Trading Bots",
-      description: "Build secure, automated trading bots powered by MPC wallets with no key exposure.",
-      href: "/new-homepage#use-cases",
+      icon: <Shield className="h-5 w-5" />,
+      title: "Whitelabel Custody Platform",
+      description: "Launch a fully branded custody service backed by Fystack's MPC infrastructure, compliance, and self-hosting options.",
+      href: "/solutions/whitelabel-custody",
     },
     {
       icon: <Smartphone className="h-5 w-5" />,
-      title: "Fintech & Payment Platforms",
-      description: "Accept crypto payments, automate merchant payouts, and reconcile transactions seamlessly.",
-      href: "/new-homepage#use-cases",
-    },
-    {
-      icon: <Server className="h-5 w-5" />,
-      title: "Self-Hosting & Data Residency",
-      description: "Deploy Fystack on your own cloud or servers to maintain full control and regulatory compliance.",
-      href: "/new-homepage#self-hosting",
-    },
-    {
-      icon: <Shield className="h-5 w-5" />,
-      title: "Whitelabel Custodian",
-      description: "Launch your own branded custodian service with Fystack's secure infrastructure and compliance features.",
-      href: "/new-homepage#wallet",
+      title: "Non-Custodial MPC Wallet",
+      description: "Shared-custody wallets where the user, your backend, and a trusted co-signer each hold a key share — no single party can sign alone.",
+      href: "/solutions/non-custodial-wallet",
     },
   ];
 
@@ -357,40 +329,16 @@ const MobileNavigation = () => {
 
   const solutionItems: ProductMenuItem[] = [
     {
-      icon: <Building2 className="h-5 w-5" />,
-      title: "Multi-Chain Treasury",
-      description: "Manage crypto treasuries across chains.",
-      href: "/new-homepage#use-cases",
-    },
-    {
-      icon: <Coins className="h-5 w-5" />,
-      title: "Stablecoin Operations",
-      description: "Simplify cross-chain stablecoin flows.",
-      href: "/new-homepage#use-cases",
-    },
-    {
-      icon: <Bot className="h-5 w-5" />,
-      title: "Trading Bots",
-      description: "Build secure automated trading bots.",
-      href: "/new-homepage#use-cases",
+      icon: <Shield className="h-5 w-5" />,
+      title: "Whitelabel Custody Platform",
+      description: "Launch a branded custody service on Fystack's MPC infrastructure.",
+      href: "/solutions/whitelabel-custody",
     },
     {
       icon: <Smartphone className="h-5 w-5" />,
-      title: "Fintech & Payments",
-      description: "Accept crypto payments, automate payouts.",
-      href: "/new-homepage#use-cases",
-    },
-    {
-      icon: <Server className="h-5 w-5" />,
-      title: "Self-Hosting",
-      description: "Deploy on your own cloud or servers.",
-      href: "/new-homepage#self-hosting",
-    },
-    {
-      icon: <Shield className="h-5 w-5" />,
-      title: "Whitelabel Custodian",
-      description: "Launch your own branded custodian service.",
-      href: "/new-homepage#wallet",
+      title: "Non-Custodial MPC Wallet",
+      description: "User, backend, and co-signer each hold a key share.",
+      href: "/solutions/non-custodial-wallet",
     },
   ];
 
@@ -451,7 +399,7 @@ const MobileNavigation = () => {
           </div> */}
 
           {/* Solutions Section */}
-          {/* <div>
+          <div>
             <button
               onClick={() => toggleSection("solutions")}
               className="flex items-center justify-between w-full py-3 text-sm font-medium hover:text-foreground transition-colors"
@@ -483,7 +431,7 @@ const MobileNavigation = () => {
             )}
           </div>
 
-          <div className="h-px bg-border my-2" /> */}
+          <div className="h-px bg-border my-2" />
 
           {/* Direct Links */}
           {navLinks.map((link) => (
@@ -560,7 +508,7 @@ export default function Navbar() {
           <nav className="hidden lg:flex items-center gap-6">
             {/* <ProductDropdown /> */}
 
-            {/* <SolutionsDropdown /> */}
+            <SolutionsDropdown />
 
             <Link
               href="/wallet-as-service"
