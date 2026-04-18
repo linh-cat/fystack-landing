@@ -46,7 +46,7 @@ function ThreeShareVisualization() {
     {
       icon: ShieldCheck,
       label: "Trusted Co-Signer",
-      sub: "Fystack / TEE / HSM",
+      sub: "Fystack / TEE enclave",
       badge: "SHARE 3",
       color: "#059669",
       bg: "#ecfdf5",

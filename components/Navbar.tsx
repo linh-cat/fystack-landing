@@ -17,6 +17,7 @@ import {
   FileText,
   Shield,
   Smartphone,
+  Coins,
   Menu
 } from "lucide-react";
 import {
@@ -207,6 +208,12 @@ const SolutionsDropdown = () => {
 
   const solutionItems: ProductMenuItem[] = [
     {
+      icon: <Coins className="h-5 w-5" />,
+      title: "Stablecoin Rails for Fintechs",
+      description: "Purpose-built wallet infrastructure for fintechs launching stablecoin payments, settlements, and payouts across chains.",
+      href: "/solutions/stablecoin-rails-for-fintechs",
+    },
+    {
       icon: <Shield className="h-5 w-5" />,
       title: "Whitelabel Custody Platform",
       description: "Launch a fully branded custody service backed by Fystack's MPC infrastructure, compliance, and self-hosting options.",
@@ -328,6 +335,12 @@ const MobileNavigation = () => {
   ];
 
   const solutionItems: ProductMenuItem[] = [
+    {
+      icon: <Coins className="h-5 w-5" />,
+      title: "Stablecoin Rails for Fintechs",
+      description: "Wallet infrastructure for fintech stablecoin payments.",
+      href: "/solutions/stablecoin-rails-for-fintechs",
+    },
     {
       icon: <Shield className="h-5 w-5" />,
       title: "Whitelabel Custody Platform",
