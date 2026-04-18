@@ -121,9 +121,14 @@ export function TrustedScale() {
 
         {/* Client Logos Marquee */}
         <div className="border-x border-b border-slate-200 bg-slate-50/50 py-10 lg:py-12">
-          <p className="text-center text-xs md:text-sm font-semibold text-slate-500 tracking-wider uppercase mb-8">
-            Trusted by teams moving real stablecoin volume
-          </p>
+          <div className="text-center mb-8">
+            <p className="text-xs md:text-sm font-semibold text-slate-500 tracking-wider uppercase">
+              Trusted by teams moving real stablecoin volume
+            </p>
+            <p className="text-xs md:text-sm font-semibold text-slate-500 tracking-wider uppercase mt-1">
+              <span className="text-[#3b82f6]">20+</span> self-hosted instances launched and running in production
+            </p>
+          </div>
           <div
             className="group relative overflow-hidden"
             style={{
