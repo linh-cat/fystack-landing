@@ -13,6 +13,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'cdn.worldvectorlogo.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'ghost.fystack.io',
+      },
     ],
   },
   async headers() {

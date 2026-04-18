@@ -550,10 +550,10 @@ export default function Navbar() {
               src={appLogo}
               alt="Fystack Logo"
               priority
-              width={170}
-              height={50}
-              style={{ width: "auto", height: "auto" }}
-              className="w-[120px] sm:w-[150px] md:w-[170px]"
+              width={198}
+              height={48}
+              style={{ height: "auto" }}
+              className="w-[150px] sm:w-[180px] md:w-[200px]"
             />
           </Link>
 
