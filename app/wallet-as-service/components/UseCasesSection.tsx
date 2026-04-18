@@ -105,12 +105,12 @@ export function UseCasesSection() {
               adapts to multiple use cases, from exchanges and OTC desks to
               stablecoin payment apps and enterprise platforms.
             </p>
-            <Link
+            {/* <Link
               href="#contact"
               className="text-sm sm:text-base text-slate-600 hover:text-slate-900 border border-slate-200 rounded-full px-4 py-2 inline-flex items-center gap-2"
             >
               Talk to an Architect
-            </Link>
+            </Link> */}
           </div>
 
           {/* Three Column Use Cases */}

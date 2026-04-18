@@ -395,6 +395,7 @@ const MobileNavigation = () => {
   ];
 
   const navLinks = [
+    { href: "/wallet-as-service", title: "Platform", external: false },
     { href: "https://docs.fystack.io", title: "Documentation", external: true },
     { href: "https://fystack.io/blog?tag=Case%20study", title: "Case Studies", external: true },
     { href: "/new-homepage#pricing", title: "Pricing", external: false },
@@ -417,7 +418,7 @@ const MobileNavigation = () => {
         </SheetHeader>
         <nav className="flex flex-col gap-2 mt-6">
           {/* Product Section */}
-          <div>
+          {/* <div>
             <button
               onClick={() => toggleSection("product")}
               className="flex items-center justify-between w-full py-3 text-sm font-medium hover:text-foreground transition-colors"
@@ -447,10 +448,10 @@ const MobileNavigation = () => {
                 ))}
               </div>
             )}
-          </div>
+          </div> */}
 
           {/* Solutions Section */}
-          <div>
+          {/* <div>
             <button
               onClick={() => toggleSection("solutions")}
               className="flex items-center justify-between w-full py-3 text-sm font-medium hover:text-foreground transition-colors"
@@ -482,8 +483,7 @@ const MobileNavigation = () => {
             )}
           </div>
 
-          {/* Divider */}
-          <div className="h-px bg-border my-2" />
+          <div className="h-px bg-border my-2" /> */}
 
           {/* Direct Links */}
           {navLinks.map((link) => (
@@ -557,9 +557,16 @@ export default function Navbar() {
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6">
-            <ProductDropdown />
+            {/* <ProductDropdown /> */}
 
-            <SolutionsDropdown />
+            {/* <SolutionsDropdown /> */}
+
+            <Link
+              href="/wallet-as-service"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Platform
+            </Link>
 
             <Link
               href="https://docs.fystack.io"

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import { SelfHostedComparison } from "./SelfHostedComparison";
 
 type TabKey = "cloud" | "self-hosted";
 
@@ -25,10 +26,9 @@ export function Pricing() {
       description: "For individual developers starting with Fystack wallet infrastructure.",
       features: [
         "Up to 2 MPC wallets",
-        "1,000 Hyper wallets",
-        "100 crypto payments",
-        "Max Outbound Volume: $20,000/month",
-        "1 workspace, 3 users",
+        "100 Hyper wallets",
+        "200 monthly outbound transactions",
+        "1 workspace, 2 users",
         "Community support",
       ],
       buttonText: "Start with Basic",
@@ -38,16 +38,15 @@ export function Pricing() {
     {
       badge: "PRO",
       badgeColor: "bg-[#3b82f6] text-white",
-      monthlyPrice: 99,
+      monthlyPrice: 199,
       priceSuffix: "/month",
       description: "Startups scaling their crypto payment infrastructure.",
       features: [
-        "All Developer features",
+        "All Basic features",
         "Up to 3 MPC wallets",
-        "3,000 Hyper wallets",
-        "500 crypto payments",
-        "Max Outbound Volume: $100,000/month",
-        "2 workspaces, 3 users",
+        "1,000 Hyper wallets",
+        "2,000 monthly outbound transactions",
+        "2 workspaces, 4 users",
         "Advanced security features",
         "Basic support",
       ],
@@ -59,16 +58,15 @@ export function Pricing() {
     {
       badge: "GROWTH",
       badgeColor: "bg-purple-100 text-purple-600",
-      monthlyPrice: 299,
+      monthlyPrice: 499,
       priceSuffix: "/month",
       description: "Complete solution for growing teams wanting to maximize their wallet operations.",
       features: [
-        "All Starter features",
+        "All Pro features",
         "Up to 20 MPC wallets",
-        "10,000 Hyper wallets",
-        "2,000 crypto payments",
-        "Max Outbound Volume: $500,000/month",
-        "5 workspaces, 10 users",
+        "2,500 Hyper wallets",
+        "5,000 monthly outbound transactions",
+        "3 workspaces, 10 users",
         "Priority support",
         "Advanced analytics",
       ],
@@ -80,10 +78,12 @@ export function Pricing() {
   ];
 
   const selfHostedFeatures = [
-    { title: "7-Day Deployment Support", description: "Guided onboarding to launch your infrastructure fast" },
+    { title: "Guided Deployment", description: "Hands-on onboarding to launch your infrastructure fast" },
     { title: "MPC Technology", description: "Secure multi-party computation infrastructure" },
     { title: "Multi-Chain Support", description: "10+ blockchain networks supported" },
-    { title: "Self-Hosted", description: "Deploy on your own infrastructure" },
+    { title: "Unlimited Volume & Wallets", description: "No caps on transaction volume, wallets, or users" },
+    { title: "Data Privacy & Control", description: "Your data stays in your infrastructure — full ownership" },
+    { title: "Dedicated Support", description: "Private Slack & Telegram channel with our team" },
     { title: "Updates & Security Patches", description: "Regular updates included for 1 year" },
     { title: "Documentation", description: "Comprehensive guides and API docs" },
     { title: "Commercial Use", description: "Use in unlimited commercial projects" },
@@ -213,14 +213,21 @@ export function Pricing() {
             ) : (
               /* Self-Hosted Content */
               <div className="p-8 lg:p-12">
+                {/* Self-Hosted vs Cloud comparison */}
+                <div className="mb-10 lg:mb-12">
+                  <SelfHostedComparison />
+                </div>
+
                 {/* Badge */}
                 <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#3b82f6]/10 text-[#3b82f6] mb-4">
                   Self-Hosted
                 </span>
 
-                <h3 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-2">
-                  What&apos;s Included?
-                </h3>
+                <div className="flex items-baseline gap-2 mb-2">
+                  <span className="text-slate-500 text-base">Starts at</span>
+                  <h3 className="text-3xl lg:text-4xl font-bold text-slate-800">$2,000</h3>
+                  <span className="text-slate-500">/month</span>
+                </div>
                 <p className="text-slate-500 text-base mb-8">
                   Everything you need to build secure wallet infrastructure
                 </p>
@@ -240,11 +247,13 @@ export function Pricing() {
 
                 {/* Buttons */}
                 <div className="flex flex-wrap gap-4">
-                  <button className="px-8 py-3 bg-[#3b82f6] text-white rounded-full text-sm font-medium hover:bg-[#2563eb] transition-colors w-1/2">
-                    View Details
-                  </button>
-                  <a className="px-8 py-3 border border-slate-200 text-slate-700 bg-white rounded-full text-sm font-medium hover:bg-slate-50 transition-colors w-full flex-1 text-center" href="https://t.me/anhthind">
-                    Talk to Founders
+                  <a
+                    className="px-8 py-3 bg-[#3b82f6] text-white rounded-full text-sm font-medium hover:bg-[#2563eb] transition-colors w-full text-center"
+                    href="https://app.youform.com/forms/qyanutyi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Talk to us
                   </a>
                 </div>
               </div>
@@ -271,8 +280,13 @@ export function Pricing() {
                   For teams that need custom integrations, SLA guarantees, and dedicated support.
                 </p>
               </div>
-              <a className="px-8 py-3 border border-slate-200 bg-white text-slate-700 rounded-full text-sm font-medium hover:bg-slate-50 transition-colors whitespace-nowrap" href="https://t.me/anhthind">
-                Talk to Founders
+              <a
+                className="px-8 py-3 border border-slate-200 bg-white text-slate-700 rounded-full text-sm font-medium hover:bg-slate-50 transition-colors whitespace-nowrap"
+                href="https://app.youform.com/forms/qyanutyi"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Talk to us
               </a>
             </div>       
           </div>

@@ -33,14 +33,14 @@ export function EnterpriseSection() {
                 For teams that need custom integrations, SLA guarantees, and
                 dedicated support.
               </p>
-              <Button
+              {/* <Button
                 size="lg"
                 variant="outline"
                 className="rounded-full px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-medium transition-all shrink-0"
                 asChild
               >
                 <Link href="#contact">Talk to an Architect</Link>
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>

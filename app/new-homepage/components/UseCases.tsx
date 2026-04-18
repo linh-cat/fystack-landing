@@ -19,7 +19,8 @@ const tabsData: {
     {
       key: "stablecoin",
       label: "Stablecoin payment",
-      title: "{Stablecoin payment rail}",
+      title: "Stablecoin payment rail",
+      subtitle: "Accept & send",
       description: "Accept and send crypto payments at scale with automated reconciliation.",
       features: [
         "MPC wallet sweeps for automated fund collection",
@@ -59,7 +60,7 @@ const tabsData: {
         "Settlement tracking and confirmation",
         "Compliance-ready transaction records",
       ],
-      image: "/png/usecases/otc-desk.png",
+      image: "/png/usecases/stable-coin-payment.png",
       imageWidth: 400,
       imageHeight: 300,
     },
@@ -67,6 +68,65 @@ const tabsData: {
 
 const TAB_INTERVAL = 5000;
 const tabKeys = tabsData.map((t) => t.key);
+
+function ChainCard({ logo, label }: { logo: string; label: string }) {
+  return (
+    <div className="w-[76px] h-[76px] rounded-xl bg-white border border-slate-200 shadow-[0_2px_8px_rgba(15,23,42,0.04)] flex items-center justify-center">
+      <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center overflow-hidden">
+        <Image src={logo} alt={label} width={32} height={32} className="w-8 h-8 object-contain" />
+      </div>
+    </div>
+  );
+}
+
+function TreasuryVisualization() {
+  return (
+    <div
+      className="relative w-full max-w-[420px] aspect-square"
+      style={{
+        backgroundImage:
+          "linear-gradient(to right, rgba(148,163,184,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(148,163,184,0.12) 1px, transparent 1px)",
+        backgroundSize: "28px 28px",
+      }}
+    >
+      {/* Dashed connector lines */}
+      <svg
+        className="absolute inset-0 w-full h-full pointer-events-none"
+        viewBox="0 0 400 400"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <line x1="200" y1="76" x2="200" y2="150" stroke="#CBD5E1" strokeWidth="1.25" strokeDasharray="4 4" />
+        <line x1="200" y1="250" x2="200" y2="324" stroke="#CBD5E1" strokeWidth="1.25" strokeDasharray="4 4" />
+        <line x1="76" y1="200" x2="150" y2="200" stroke="#CBD5E1" strokeWidth="1.25" strokeDasharray="4 4" />
+        <line x1="250" y1="200" x2="324" y2="200" stroke="#CBD5E1" strokeWidth="1.25" strokeDasharray="4 4" />
+      </svg>
+
+      <div className="absolute top-0 left-1/2 -translate-x-1/2">
+        <ChainCard logo="/logo/crypto/eth.png" label="ETH" />
+      </div>
+      <div className="absolute top-1/2 right-0 -translate-y-1/2">
+        <ChainCard logo="/logo/crypto/sol.png" label="SOL" />
+      </div>
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
+        <ChainCard logo="/logo/crypto/tron.png" label="TRON" />
+      </div>
+      <div className="absolute top-1/2 left-0 -translate-y-1/2">
+        <ChainCard logo="/logo/crypto/bnb.png" label="BNB" />
+      </div>
+
+      {/* Center treasury card */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150px] h-[150px] rounded-2xl bg-white border border-slate-200 shadow-[0_8px_24px_rgba(59,130,246,0.12)] flex flex-col items-center justify-center">
+        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#60A5FA] to-[#3b82f6] flex items-center justify-center text-white font-bold text-xl shadow-[0_4px_12px_rgba(59,130,246,0.35)]">
+          $
+        </div>
+        <div className="mt-3 text-sm font-bold text-slate-800">Treasury</div>
+        <div className="text-[11px] text-slate-500 mt-0.5">Multi-chain</div>
+      </div>
+    </div>
+  );
+}
 
 export function UseCases() {
   const [activeTab, setActiveTab] = useState<TabKey>("stablecoin");
@@ -121,12 +181,12 @@ export function UseCases() {
               onMouseLeave={() => setIsTabHovered(false)}
             >
               {/* Top - Horizontal Tabs */}
-              <div className="flex border-b border-slate-200 overflow-x-auto">
+              <div className="flex border-b border-slate-200">
                 {tabsData.map((tab) => (
                   <button
                     key={tab.key}
                     onClick={() => handleTabClick(tab.key)}
-                    className={`relative flex-1 text-center px-6 py-4 text-sm font-medium transition-all whitespace-nowrap border-r border-slate-200 last:border-r-0
+                    className={`relative flex-1 min-w-0 text-center px-1.5 sm:px-4 lg:px-6 py-3 lg:py-4 text-[11px] sm:text-sm font-medium transition-all leading-tight border-r border-slate-200 last:border-r-0 break-words
                       ${activeTab === tab.key
                         ? "bg-[#3b82f6] text-white"
                         : "text-slate-600 hover:bg-slate-50"
@@ -176,13 +236,17 @@ export function UseCases() {
 
                   {/* Image */}
                   <div className="flex items-center justify-center">
-                    <Image
-                      src={activeTabData.image}
-                      alt={activeTabData.title}
-                      width={activeTabData.imageWidth || 400}
-                      height={activeTabData.imageHeight || 300}
-                      className="w-full h-auto max-w-[400px] "
-                    />
+                    {activeTab === "treasury" ? (
+                      <TreasuryVisualization />
+                    ) : (
+                      <Image
+                        src={activeTabData.image}
+                        alt={activeTabData.title}
+                        width={activeTabData.imageWidth || 400}
+                        height={activeTabData.imageHeight || 300}
+                        className="w-full h-auto max-w-[400px] "
+                      />
+                    )}
                   </div>
                 </div>
               </div>

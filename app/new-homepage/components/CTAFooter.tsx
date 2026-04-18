@@ -26,8 +26,6 @@ export function CTAFooter() {
   const stats = [
     { value: "100+", label: "Supported tokens" },
     { value: "10+", label: "Blockchain networks" },
-    { value: "<1hr", label: "Response time" },
-    { value: "24/7", label: "Enterprise support" },
   ];
 
   // Footer links data
@@ -333,7 +331,7 @@ export function CTAFooter() {
                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
                         cursor-pointer"
                     >
-                      <span className="relative z-10">Live Demo</span>
+                      <span className="relative z-10">Request sandbox access</span>
                       <div
                         className="absolute inset-0 rounded-full bg-[#3b82f6] opacity-0
                         group-hover:opacity-50 blur-xl transition-opacity duration-300"
@@ -348,9 +346,11 @@ export function CTAFooter() {
                         active:scale-[0.98]
                         focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2
                         cursor-pointer"
-                      href="https://t.me/anhthind"
+                      href="https://app.youform.com/forms/qyanutyi"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      Talk to founders
+                      Talk to us
                     </a>
                   </div>
                 </div>
@@ -361,14 +361,8 @@ export function CTAFooter() {
                 {stats.map((stat, index) => (
                   <div
                     key={index}
-                    className={`p-8 lg:p-10 flex flex-col transition-colors duration-300 hover:bg-slate-50/50 ${
-                      index === 0
-                        ? "border-b border-r border-slate-200"
-                        : index === 1
-                        ? "border-b border-slate-200"
-                        : index === 2
-                        ? "border-r border-slate-200"
-                        : ""
+                    className={`p-8 lg:p-10 flex flex-col justify-center transition-colors duration-300 hover:bg-slate-50/50 ${
+                      index === 0 ? "border-r border-slate-200" : ""
                     }`}
                   >
                     <span className="text-3xl lg:text-4xl font-bold text-[#3b82f6] mb-2">

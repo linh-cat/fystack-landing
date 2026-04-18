@@ -11,9 +11,9 @@ export function OperationalExcellence() {
       subtitle: "REAL-TIME VISIBILITY ACROSS WALLETS AND TRANSACTIONS.",
       image: "/png/operational_excellence/alert.png",
       features: [
-        "Scheduled & threshold-based sweeps",
-        "Multi-chain native automation",
-        "Gas-optimized batching",
+        "Telegram & Slack notifications",
+        "Balance and transaction monitoring",
+        "Suspicious activity alerts",
       ],
     },
     {
@@ -21,9 +21,9 @@ export function OperationalExcellence() {
       subtitle: "AUTOMATICALLY MOVE FUNDS WITH SAFETY AND EFFICIENCY",
       image: "/svg/operational_excellence/automation.svg",
       features: [
-        "Telegram & Slack notifications",
-        "Balance and transaction monitoring",
-        "Suspicious activity alerts",
+        "Scheduled & threshold-based sweeps",
+        "Multi-chain native automation",
+        "Gas-optimized batching",
       ],
     },
     {

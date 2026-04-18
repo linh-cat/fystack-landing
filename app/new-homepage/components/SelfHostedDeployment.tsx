@@ -188,8 +188,42 @@ export function SelfHostedDeployment() {
             </div>
 
           </div>
+
+          {/* Deploy on any cloud strip */}
+          <div className="mt-6 border border-slate-200 px-6 py-10 lg:py-14">
+            <p className="text-center text-sm md:text-base font-semibold text-slate-500 tracking-wider uppercase mb-8 lg:mb-10">
+              Deploy On-Prem or Your Favorite Cloud
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 md:gap-x-16 lg:gap-x-20">
+              {cloudProviders.map((provider) => (
+                <div
+                  key={provider.alt}
+                  className="h-16 md:h-20 flex items-center justify-center opacity-90 hover:opacity-100 transition-transform duration-300 ease-out hover:scale-125 cursor-pointer"
+                >
+                  <Image
+                    src={provider.src}
+                    alt={provider.alt}
+                    width={180}
+                    height={80}
+                    className="object-contain h-full w-auto max-w-[180px]"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
+const cloudProviders = [
+  { src: "/logo/aws.png", alt: "AWS" },
+  { src: "/logo/googlecloud.webp", alt: "Google Cloud" },
+  { src: "/logo/Microsoft_Azure_Logo.png", alt: "Azure" },
+  { src: "/logo/hetzner-logo.svg", alt: "Hetzner" },
+  { src: "/logo/yandex.png", alt: "Yandex Cloud" },
+  { src: "/logo/alibaba_cloud.png", alt: "Alibaba Cloud" },
+  { src: "/logo/Tencent_Cloud_Logo.png", alt: "Tencent Cloud" },
+  { src: "/logo/digitalocean.svg", alt: "DigitalOcean" },
+];

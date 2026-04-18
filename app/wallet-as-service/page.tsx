@@ -30,7 +30,7 @@ export default function WalletAsServicePage() {
         {/* <DeploymentModelsSection /> */}
 
         {/* Technology Agnostic Section */}
-        <TechAgnosticSection />
+        {/* <TechAgnosticSection /> */}
 
         {/* Enterprise Section */}
         <EnterpriseSection />

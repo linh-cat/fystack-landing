@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Check, X, ArrowRight, Github, Shield, Lock, Cloud, Globe, Server, AlertTriangle } from 'lucide-react';
+import { ArrowRight, Github, Shield, Lock, Cloud, Globe, Server, AlertTriangle } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import { WhyChooseUsTable } from '@/app/new-homepage/components/WhyChooseUsTable';
 
 export const metadata: Metadata = {
   title: 'Fystack Self-hosted vs Others',
@@ -10,78 +11,6 @@ export const metadata: Metadata = {
 };
 
 export default function ComparePage() {
-  const features = [
-    {
-      category: 'Deployment & Control',
-      items: [
-        {
-          name: 'Self-Hosted',
-          description: 'Deploy on your own infrastructure for maximum control and security',
-          fystack: true,
-          others: false,
-        },
-        {
-          name: 'Cloud-Native (Docker/K8s)',
-          description: 'Modern containerized architecture for easy scaling',
-          fystack: true,
-          others: 'Limited',
-        },
-        {
-          name: 'Deploy in Private Network',
-          description: 'Run entirely within your secure network perimeter',
-          fystack: true,
-          others: false,
-        },
-      ],
-    },
-    {
-      category: 'Flexibility & Integration',
-      items: [
-        {
-          name: 'Developer-Friendly',
-          description: 'RESTful APIs, comprehensive SDKs, and clear documentation',
-          fystack: true,
-          others: 'Limited',
-        },
-        {
-          name: 'Whitelabel',
-          description: 'Fully customizable to match your brand',
-          fystack: true,
-          others: 'Limited',
-        },
-        {
-          name: 'Vendor Lock-In Free',
-          description: 'Own your keys, export your data, switch anytime',
-          fystack: true,
-          others: false,
-        },
-      ],
-    },
-    {
-      category: 'Scalability & Pricing',
-      items: [
-        {
-          name: 'Number of Wallets',
-          description: 'Maximum wallets you can create',
-          fystack: 'Unlimited',
-          others: 'Limited',
-        },
-        {
-          name: 'Volume/AUM Limits',
-          description: 'Transaction volume or assets under management caps',
-          fystack: 'Unlimited',
-          others: 'Limited',
-        },
-        {
-          name: 'Pricing Model',
-          description: 'How you pay for the service',
-          fystack: 'Flat',
-          others: 'Based on volume & AUM',
-        },
-      ],
-    },
-  ];
-
   const competitors = ['Fireblocks', 'Cobo', 'Dfns', 'Safeheron'];
 
   return (
@@ -285,30 +214,21 @@ export default function ComparePage() {
                   Deploy with
                 </h4>
                 <div className="flex flex-wrap items-center justify-center gap-12">
-                  <div className="w-32 h-32 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer">
-                    <Image
-                      src="/logo/systemd.png"
-                      alt="Systemd"
-                      width={120}
-                      height={120}
-                      className="object-contain w-full h-full"
-                    />
-                  </div>
-                  <div className="w-32 h-32 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer">
+                  <div className="w-20 h-20 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer">
                     <Image
                       src="/logo/docker.png"
                       alt="Docker"
-                      width={120}
-                      height={120}
+                      width={80}
+                      height={80}
                       className="object-contain w-full h-full"
                     />
                   </div>
-                  <div className="w-32 h-32 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer">
+                  <div className="w-20 h-20 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer">
                     <Image
                       src="/logo/kubernetes.png"
                       alt="Kubernetes"
-                      width={120}
-                      height={120}
+                      width={80}
+                      height={80}
                       className="object-contain w-full h-full"
                     />
                   </div>
@@ -348,6 +268,51 @@ export default function ComparePage() {
                       className="object-contain w-full h-full"
                     />
                   </div>
+                  <div className="w-32 h-32 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer">
+                    <Image
+                      src="/logo/hetzner-logo.svg"
+                      alt="Hetzner"
+                      width={120}
+                      height={120}
+                      className="object-contain w-full h-full"
+                    />
+                  </div>
+                  <div className="w-32 h-32 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer">
+                    <Image
+                      src="/logo/yandex.png"
+                      alt="Yandex Cloud"
+                      width={120}
+                      height={120}
+                      className="object-contain w-full h-full"
+                    />
+                  </div>
+                  <div className="w-32 h-32 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer">
+                    <Image
+                      src="/logo/alibaba_cloud.png"
+                      alt="Alibaba Cloud"
+                      width={120}
+                      height={120}
+                      className="object-contain w-full h-full"
+                    />
+                  </div>
+                  <div className="w-32 h-32 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer">
+                    <Image
+                      src="/logo/Tencent_Cloud_Logo.png"
+                      alt="Tencent Cloud"
+                      width={120}
+                      height={120}
+                      className="object-contain w-full h-full"
+                    />
+                  </div>
+                  <div className="w-32 h-32 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer">
+                    <Image
+                      src="/logo/digitalocean.svg"
+                      alt="DigitalOcean"
+                      width={120}
+                      height={120}
+                      className="object-contain w-full h-full"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -358,74 +323,8 @@ export default function ComparePage() {
       {/* Comparison Table */}
       <section className="pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
-            {/* Table Header */}
-            <div className="grid grid-cols-3 gap-4 p-6 bg-slate-50 dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700">
-              <div className="col-span-1">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Feature</h3>
-              </div>
-              <div className="col-span-1 text-center">
-                <h3 className="text-lg font-semibold text-[#3b82f6]">Fystack</h3>
-              </div>
-              <div className="col-span-1 text-center">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Others</h3>
-              </div>
-            </div>
-
-            {/* Table Body */}
-            {features.map((category, categoryIdx) => (
-              <div key={category.category}>
-                {/* Category Header */}
-                <div className="px-6 py-4 bg-slate-100 dark:bg-slate-800 border-b border-gray-200 dark:border-gray-700">
-                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wide">
-                    {category.category}
-                  </h4>
-                </div>
-
-                {/* Category Items */}
-                {category.items.map((item, itemIdx) => (
-                  <div
-                    key={item.name}
-                    className={`grid grid-cols-3 gap-4 p-6 ${
-                      itemIdx < category.items.length - 1 || categoryIdx < features.length - 1
-                        ? 'border-b border-gray-200 dark:border-gray-700'
-                        : ''
-                    }`}
-                  >
-                    <div className="col-span-1">
-                      <div className="font-medium text-gray-900 dark:text-gray-100 mb-1">
-                        {item.name}
-                      </div>
-                      <div className="text-sm text-gray-500 dark:text-gray-400">
-                        {item.description}
-                      </div>
-                    </div>
-                    <div className="col-span-1 flex items-center justify-center">
-                      {typeof item.fystack === 'boolean' ? (
-                        item.fystack ? (
-                          <Check className="w-6 h-6 text-green-600 dark:text-green-400" />
-                        ) : (
-                          <X className="w-6 h-6 text-red-600 dark:text-red-400" />
-                        )
-                      ) : (
-                        <span className="font-medium text-[#3b82f6]">{item.fystack}</span>
-                      )}
-                    </div>
-                    <div className="col-span-1 flex items-center justify-center">
-                      {typeof item.others === 'boolean' ? (
-                        item.others ? (
-                          <Check className="w-6 h-6 text-green-600 dark:text-green-400" />
-                        ) : (
-                          <X className="w-6 h-6 text-red-600 dark:text-red-400" />
-                        )
-                      ) : (
-                        <span className="font-medium text-gray-600 dark:text-gray-400">{item.others}</span>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ))}
+          <div className="border border-slate-200 rounded-2xl overflow-hidden bg-white">
+            <WhyChooseUsTable />
           </div>
 
           {/* Key Advantages */}
