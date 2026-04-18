@@ -155,7 +155,7 @@ const features = [
     icon: Terminal,
     title: "Built for Developers",
     description:
-      "Clean REST API, SDKs, and thorough documentation — designed for engineers who need control and flexibility.",
+      "Go live in days, not weeks. Clean REST API, SDKs, and docs built for engineers who need control and flexibility.",
   },
   {
     icon: Code,

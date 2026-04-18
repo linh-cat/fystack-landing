@@ -20,7 +20,7 @@ const tabsData: {
       key: "stablecoin",
       label: "Stablecoin payment",
       title: "Stablecoin payment rail",
-      subtitle: "Accept & send",
+      subtitle: "For PSPs, payment processors, and fintech payment teams",
       description: "Accept and send crypto payments at scale with automated reconciliation.",
       features: [
         "MPC wallet sweeps for automated fund collection",
@@ -36,7 +36,7 @@ const tabsData: {
       key: "treasury",
       label: "Treasury",
       title: "All-Chain Treasury Management",
-      subtitle: "Unified treasury",
+      subtitle: "For crypto-native finance and operations teams",
       description: "Consolidate and manage digital assets across multiple blockchains from a single platform.",
       features: [
         "Consolidate balances across 10+ blockchains",
@@ -52,7 +52,7 @@ const tabsData: {
       key: "otc",
       label: "OTC Desk",
       title: "OTC Desk",
-      subtitle: "Buyer, Seller, Broker-Dealer",
+      subtitle: "For broker-dealers, market makers, and OTC desks",
       description: "Secure large-value transfers with multi-party verification and compliance controls.",
       features: [
         "Multi-signature approval for large transactions",
