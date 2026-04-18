@@ -53,8 +53,9 @@ export function SelfHostedComparison() {
             </h3>
 
             <div className="mb-6 flex justify-center">
-              <Badge className="bg-emerald-500 hover:bg-emerald-500 text-white px-4 py-2 text-sm font-medium">
-                🔒 Private Network
+              <Badge className="bg-emerald-500 hover:bg-emerald-500 text-white px-4 py-2 text-sm font-medium inline-flex items-center gap-1.5">
+                <Lock className="w-3.5 h-3.5" />
+                Private Network
               </Badge>
             </div>
 
@@ -101,8 +102,9 @@ export function SelfHostedComparison() {
             </h3>
 
             <div className="mb-6 flex justify-center">
-              <Badge className="bg-orange-500 hover:bg-orange-500 text-white px-4 py-2 text-sm font-medium">
-                🌐 Public Internet
+              <Badge className="bg-orange-500 hover:bg-orange-500 text-white px-4 py-2 text-sm font-medium inline-flex items-center gap-1.5">
+                <Globe className="w-3.5 h-3.5" />
+                Public Internet
               </Badge>
             </div>
 
