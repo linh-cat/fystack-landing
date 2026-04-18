@@ -153,7 +153,7 @@ export function SelfHostedDeployment() {
 
                   {/* Kubernetes Cluster Image */}
                   <Image
-                    src="/svg/self_host/kubernet-cluster.svg"
+                    src="/svg/self_host/kubernet-cluster.webp"
                     alt="Kubernetes Cluster"
                     width={400}
                     height={300}
@@ -218,12 +218,12 @@ export function SelfHostedDeployment() {
 }
 
 const cloudProviders = [
-  { src: "/logo/aws.png", alt: "AWS" },
+  { src: "/logo/aws.webp", alt: "AWS" },
   { src: "/logo/googlecloud.webp", alt: "Google Cloud" },
-  { src: "/logo/Microsoft_Azure_Logo.png", alt: "Azure" },
+  { src: "/logo/Microsoft_Azure_Logo.webp", alt: "Azure" },
   { src: "/logo/hetzner-logo.svg", alt: "Hetzner" },
-  { src: "/logo/yandex.png", alt: "Yandex Cloud" },
+  { src: "/logo/yandex.webp", alt: "Yandex Cloud" },
   { src: "/logo/alibaba_cloud.png", alt: "Alibaba Cloud" },
-  { src: "/logo/Tencent_Cloud_Logo.png", alt: "Tencent Cloud" },
+  { src: "/logo/Tencent_Cloud_Logo.webp", alt: "Tencent Cloud" },
   { src: "/logo/digitalocean.svg", alt: "DigitalOcean" },
 ];

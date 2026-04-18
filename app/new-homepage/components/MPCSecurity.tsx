@@ -104,7 +104,7 @@ export function MPCSecurity() {
                   <div className="absolute top-10 right-10 w-[200px] h-[50px] bg-gradient-to-t from-white to-[#3b82f6]/30 blur-2xl" />
                   {/* Node SVG */}
                   <Image
-                    src="/png/mpc_security/node.png"
+                    src="/png/mpc_security/node.webp"
                     alt="MPC Node Architecture"
                     width={351}
                     height={208}

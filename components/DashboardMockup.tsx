@@ -29,10 +29,10 @@ const sidebarItems = [
 ];
 
 const assetLogos: Record<string, string> = {
-  ETH: "/logo/crypto/eth.png",
-  USDC: "/logo/crypto/usdc.png",
-  USDT: "/logo/crypto/usdt.png",
-  SOL: "/logo/crypto/sol.png",
+  ETH: "/logo/crypto/eth.webp",
+  USDC: "/logo/crypto/usdc.webp",
+  USDT: "/logo/crypto/usdt.webp",
+  SOL: "/logo/crypto/sol.webp",
 };
 
 const walletRows = [

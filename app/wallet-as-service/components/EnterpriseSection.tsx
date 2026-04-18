@@ -19,7 +19,7 @@ export function EnterpriseSection() {
         >
           <div className="relative overflow-hidden rounded-2xl">
             <Image
-              src="/svg/background/square-gray-bg.svg"
+              src="/svg/background/square-gray-bg.webp"
               alt="Background"
               width={500}
               height={150}

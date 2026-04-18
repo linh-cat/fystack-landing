@@ -29,13 +29,13 @@ export function UseCasesSection() {
       title: "Exchanges & OTC Desks",
       description:
         "Secure high-volume deposits, withdrawals, and real-time balances across a unified hot, warm, and cold wallet architecture.",
-      image: "/png/usecases/stable-coin-payment.png",
+      image: "/png/usecases/stable-coin-payment.webp",
     },
     {
       title: "Payment & Stablecoin Apps",
       description:
         "Streamline collections, payouts, and stablecoin operations via treasury automation with customizable policy approvals.",
-      image: "/png/usecases/exchange.png",
+      image: "/png/usecases/exchange.webp",
     },
     {
       title: "Crypto Payment Gateway",
@@ -56,10 +56,10 @@ export function UseCasesSection() {
   ];
 
   const assetLogos: Record<string, string> = {
-    ETH: "/logo/crypto/eth.png",
-    USDC: "/logo/crypto/usdc.png",
-    USDT: "/logo/crypto/usdt.png",
-    SOL: "/logo/crypto/sol.png",
+    ETH: "/logo/crypto/eth.webp",
+    USDC: "/logo/crypto/usdc.webp",
+    USDT: "/logo/crypto/usdt.webp",
+    SOL: "/logo/crypto/sol.webp",
   };
 
   const walletRows = [

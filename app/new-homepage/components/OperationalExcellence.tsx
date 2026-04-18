@@ -9,7 +9,7 @@ export function OperationalExcellence() {
     {
       title: "Alerts & Monitoring",
       subtitle: "REAL-TIME VISIBILITY ACROSS WALLETS AND TRANSACTIONS.",
-      image: "/png/operational_excellence/alert.png",
+      image: "/png/operational_excellence/alert.webp",
       features: [
         "Telegram & Slack notifications",
         "Balance and transaction monitoring",
@@ -19,7 +19,7 @@ export function OperationalExcellence() {
     {
       title: "Automation",
       subtitle: "AUTOMATICALLY MOVE FUNDS WITH SAFETY AND EFFICIENCY",
-      image: "/svg/operational_excellence/automation.svg",
+      image: "/svg/operational_excellence/automation.webp",
       features: [
         "Scheduled & threshold-based sweeps",
         "Multi-chain native automation",
@@ -29,7 +29,7 @@ export function OperationalExcellence() {
     {
       title: "Analytics & Insights",
       subtitle: "CLEAR OPERATIONAL INSIGHTS FOR TREASURY TEAMS.",
-      image: "/png/operational_excellence/analytics.png",
+      image: "/png/operational_excellence/analytics.webp",
       features: [
         "Wallet performance metrics",
         "Transaction and volume analytics",

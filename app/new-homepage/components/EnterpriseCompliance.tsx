@@ -159,7 +159,7 @@ export function EnterpriseCompliance() {
           {/* Decorative image between sections */}
           <div className="relative flex justify-end">
             <Image
-              src="/svg/background/square-gray-bg.svg"
+              src="/svg/background/square-gray-bg.webp"
               alt="Decorative"
               width={500}
               height={400}

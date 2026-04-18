@@ -17,7 +17,7 @@ export function DeploymentModelsSection() {
       active: true,
     },
     {
-      icon: "/svg/wallet_as_service/exchange-otc.svg",
+      icon: "/svg/wallet_as_service/exchange-otc.webp",
       title: "Fystack Self-Hosted",
       description:
         "Secure high-volume deposits, withdrawals, and real-time balances across a unified hot, warm, and cold wallet.",

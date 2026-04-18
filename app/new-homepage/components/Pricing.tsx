@@ -265,7 +265,7 @@ export function Pricing() {
             {/* Background image */}
             <div className="absolute left-0 top-0 bottom-0 w-1/2 pointer-events-none overflow-hidden">
               <Image
-                src="/svg/background/square-gray-bg.svg"
+                src="/svg/background/square-gray-bg.webp"
                 alt="Background"
                 width={400}
                 height={200}

@@ -10,13 +10,13 @@ export function DeveloperExperienceSection() {
   const { ref: scrollRef, isVisible } = useScrollReveal(0.15);
 
   const supportedChains = [
-    { name: "Ethereum", logo: "/logo/Ethereum.png" },
-    { name: "BSC", logo: "/logo/crypto/bnb.png" },
-    { name: "Polygon", logo: "/logo/crypto/polygon.png" },
-    { name: "Avalanche", logo: "/logo/crypto/avax.png" },
-    { name: "Base", logo: "/logo/Base.png" },
-    { name: "Tron", logo: "/logo/Tron.png" },
-    { name: "Solana", logo: "/logo/Solana1.png" },
+    { name: "Ethereum", logo: "/logo/Ethereum.webp" },
+    { name: "BSC", logo: "/logo/crypto/bnb.webp" },
+    { name: "Polygon", logo: "/logo/crypto/polygon.webp" },
+    { name: "Avalanche", logo: "/logo/crypto/avax.webp" },
+    { name: "Base", logo: "/logo/Base.webp" },
+    { name: "Tron", logo: "/logo/Tron.webp" },
+    { name: "Solana", logo: "/logo/Solana1.webp" },
   ];
 
   return (

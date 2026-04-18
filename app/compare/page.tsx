@@ -216,7 +216,7 @@ export default function ComparePage() {
                 <div className="flex flex-wrap items-center justify-center gap-12">
                   <div className="w-20 h-20 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer">
                     <Image
-                      src="/logo/docker.png"
+                      src="/logo/docker.webp"
                       alt="Docker"
                       width={80}
                       height={80}
@@ -225,7 +225,7 @@ export default function ComparePage() {
                   </div>
                   <div className="w-20 h-20 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer">
                     <Image
-                      src="/logo/kubernetes.png"
+                      src="/logo/kubernetes.webp"
                       alt="Kubernetes"
                       width={80}
                       height={80}
@@ -243,7 +243,7 @@ export default function ComparePage() {
                 <div className="flex flex-wrap items-center justify-center gap-12">
                   <div className="w-32 h-32 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer">
                     <Image
-                      src="/logo/aws.png"
+                      src="/logo/aws.webp"
                       alt="AWS"
                       width={120}
                       height={120}
@@ -261,7 +261,7 @@ export default function ComparePage() {
                   </div>
                   <div className="w-32 h-32 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer">
                     <Image
-                      src="/logo/Microsoft_Azure_Logo.png"
+                      src="/logo/Microsoft_Azure_Logo.webp"
                       alt="Azure"
                       width={120}
                       height={120}
@@ -279,7 +279,7 @@ export default function ComparePage() {
                   </div>
                   <div className="w-32 h-32 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer">
                     <Image
-                      src="/logo/yandex.png"
+                      src="/logo/yandex.webp"
                       alt="Yandex Cloud"
                       width={120}
                       height={120}
@@ -297,7 +297,7 @@ export default function ComparePage() {
                   </div>
                   <div className="w-32 h-32 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer">
                     <Image
-                      src="/logo/Tencent_Cloud_Logo.png"
+                      src="/logo/Tencent_Cloud_Logo.webp"
                       alt="Tencent Cloud"
                       width={120}
                       height={120}

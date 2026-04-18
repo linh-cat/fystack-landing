@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
-import logoLight from "@/public/Logo_fystack_light.png";
+import logoLight from "@/public/Logo_fystack_light.webp";
 
 export const metadata: Metadata = {
   title: "Builder Grants - Fystack",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "Fystack Builder Grants - $50k Credit",
     description:
       "Join our builder grants program and get funding, technical support, and marketing boost for your project.",
-    images: ["/startup_program/startup_program.png"],
+    images: ["/startup_program/startup_program.webp"],
   },
 };
 
@@ -58,7 +58,7 @@ export default function BuilderGrantsPage() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/startup_program/startup_program.png"
+          src="/startup_program/startup_program.webp"
           alt="Fystack Builder Grants Background"
           fill
           className="object-cover opacity-50"

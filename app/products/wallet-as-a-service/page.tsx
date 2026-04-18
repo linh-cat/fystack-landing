@@ -221,7 +221,7 @@ export default function WalletAsAServicePage() {
                   {/* Mini visualization - MPC nodes */}
                   <div className="rounded-2xl overflow-hidden border border-primary/20 bg-white/5 dark:bg-slate-900/40">
                     <Image
-                      src="/visualization/keys.png"
+                      src="/visualization/keys.webp"
                       alt="MPC key distribution visualization"
                       width={1599}
                       height={923}

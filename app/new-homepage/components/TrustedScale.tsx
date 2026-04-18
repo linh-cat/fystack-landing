@@ -19,7 +19,7 @@ const clientLogos = [
     height: "h-10 lg:h-12",
   },
   {
-    src: "/svg/trust_to_scale/minepath.svg",
+    src: "/svg/trust_to_scale/minepath.webp",
     alt: "Minepath",
     height: "h-10 lg:h-12",
   },
@@ -29,7 +29,7 @@ const clientLogos = [
     height: "h-20 lg:h-24",
   },
   {
-    src: "/svg/trust_to_scale/superteam.svg",
+    src: "/svg/trust_to_scale/superteam.webp",
     alt: "Superteam",
     height: "h-14 lg:h-16",
   },
@@ -63,7 +63,7 @@ export function TrustedScale() {
             {/* Left decorative pattern */}
             <div className="hidden md:flex w-24 lg:w-32 flex-shrink-0 items-center justify-center border-r border-slate-200 p-4">
               <Image
-                src="/svg/trust_to_scale/trust-to-scale.svg"
+                src="/svg/trust_to_scale/trust-to-scale.webp"
                 alt="Decorative pattern"
                 width={80}
                 height={160}
@@ -88,7 +88,7 @@ export function TrustedScale() {
             {/* Right decorative pattern */}
             <div className="hidden md:flex w-24 lg:w-32 flex-shrink-0 items-center justify-center border-l border-slate-200 p-4">
               <Image
-                src="/svg/trust_to_scale/trust-to-scale.svg"
+                src="/svg/trust_to_scale/trust-to-scale.webp"
                 alt="Decorative pattern"
                 width={80}
                 height={160}

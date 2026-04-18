@@ -53,21 +53,21 @@ export function SecurityDeveloper() {
       description:
         "Industry-standard DEK/KEK hybrid encryption model balancing security, performance, and operational simplicity.",
       features: ["High Performance", "Layered Security"],
-      image: "/svg/security_experts/encryption.svg",
+      image: "/svg/security_experts/encryption.webp",
     },
     database: {
       title: "Verifiable Database Integrity",
       description:
         "Cryptographic proofs ensure data integrity and tamper-evidence for all stored records and transactions.",
       features: ["Tamper-Evident", "Audit Ready"],
-      image: "/svg/security_experts/vertical-database.svg",
+      image: "/svg/security_experts/vertical-database.webp",
     },
     kms: {
       title: "Cloud KMS Integration",
       description:
         "Native support for AWS KMS, Azure Key Vault, and Google Cloud KMS for enterprise key management.",
       features: ["Multi-Cloud", "Enterprise Ready"],
-      image: "/svg/security_experts/cloud-kms.svg",
+      image: "/svg/security_experts/cloud-kms.webp",
     },
   };
 
@@ -77,32 +77,32 @@ export function SecurityDeveloper() {
     {
       name: "Bitcoin",
       description: "Digital Gold",
-      logo: "/logo/Bitcoin.png",
+      logo: "/logo/Bitcoin.webp",
     },
     {
       name: "Ethereum",
       description: "EVM Compatible",
-      logo: "/logo/Ethereum.png",
+      logo: "/logo/Ethereum.webp",
     },
     {
       name: "Solana",
       description: "High Performance",
-      logo: "/logo/Solana1.png",
+      logo: "/logo/Solana1.webp",
     },
     {
       name: "Tron",
       description: "USDT Powerhouse",
-      logo: "/logo/Tron.png",
+      logo: "/logo/Tron.webp",
     },
     {
       name: "BSC",
       description: "BNB Chain",
-      logo: "/logo/BSC.png",
+      logo: "/logo/BSC.webp",
     },
     {
       name: "Base",
       description: "Layer 2",
-      logo: "/logo/Base.png",
+      logo: "/logo/Base.webp",
     },
   ];
 
@@ -318,7 +318,7 @@ export function SecurityDeveloper() {
                     {/* Code Editor */}
                     <div className="relative z-10 overflow-hidden shadow-sm">
                       <Image
-                        src="/svg/develop_experience/wallet-develop.svg"
+                        src="/svg/develop_experience/wallet-develop.webp"
                         alt="Developer Experience"
                         width={1000}
                         height={1000}

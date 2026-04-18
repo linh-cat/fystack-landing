@@ -28,7 +28,7 @@ const tabsData: {
         "Webhook notifications for real-time updates",
         "Enterprise-grade security for payment flows",
       ],
-      image: "/png/usecases/exchange.png",
+      image: "/png/usecases/exchange.webp",
       imageWidth: 400,
       imageHeight: 300,
     },
@@ -44,7 +44,7 @@ const tabsData: {
         "Role-based access with approval workflows",
         "Real-time reporting and audit trails",
       ],
-      image: "/png/usecases/treasury.png",
+      image: "/png/usecases/treasury.webp",
       imageWidth: 400,
       imageHeight: 300,
     },
@@ -60,7 +60,7 @@ const tabsData: {
         "Settlement tracking and confirmation",
         "Compliance-ready transaction records",
       ],
-      image: "/png/usecases/stable-coin-payment.png",
+      image: "/png/usecases/stable-coin-payment.webp",
       imageWidth: 400,
       imageHeight: 300,
     },
@@ -104,16 +104,16 @@ function TreasuryVisualization() {
       </svg>
 
       <div className="absolute top-0 left-1/2 -translate-x-1/2">
-        <ChainCard logo="/logo/crypto/eth.png" label="ETH" />
+        <ChainCard logo="/logo/crypto/eth.webp" label="ETH" />
       </div>
       <div className="absolute top-1/2 right-0 -translate-y-1/2">
-        <ChainCard logo="/logo/crypto/sol.png" label="SOL" />
+        <ChainCard logo="/logo/crypto/sol.webp" label="SOL" />
       </div>
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-        <ChainCard logo="/logo/crypto/tron.png" label="TRON" />
+        <ChainCard logo="/logo/crypto/tron.webp" label="TRON" />
       </div>
       <div className="absolute top-1/2 left-0 -translate-y-1/2">
-        <ChainCard logo="/logo/crypto/bnb.png" label="BNB" />
+        <ChainCard logo="/logo/crypto/bnb.webp" label="BNB" />
       </div>
 
       {/* Center treasury card */}

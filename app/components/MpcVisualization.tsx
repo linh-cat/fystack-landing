@@ -7,7 +7,7 @@ export default function MpcVisualization() {
     <div className="flex flex-col gap-4">
       <div className="rounded-2xl overflow-hidden bg-white dark:bg-slate-900/40 lg:-m-2 xl:-m-4">
         <Image
-          src="/visualization/keys.png"
+          src="/visualization/keys.webp"
           alt="MPC key distribution visualization"
           width={1599}
           height={923}

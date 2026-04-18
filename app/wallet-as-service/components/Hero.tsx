@@ -80,7 +80,7 @@ export function Hero() {
             {/* Right Column - Stack Visualization */}
             <div className="hidden lg:flex items-center justify-center relative">
               <Image
-                src="/png/hero/hero.png"
+                src="/png/hero/hero.webp"
                 alt="Fystack wallet infrastructure stack"
                 width={450}
                 height={450}
