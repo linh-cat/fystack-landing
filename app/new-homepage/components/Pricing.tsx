@@ -27,7 +27,7 @@ export function Pricing() {
       features: [
         "Up to 2 MPC wallets",
         "100 Hyper wallets",
-        "200 monthly outbound transactions",
+        "$20K maximum outbound volume",
         "1 workspace, 2 users",
         "Community support",
       ],
@@ -44,8 +44,8 @@ export function Pricing() {
       features: [
         "All Basic features",
         "Up to 3 MPC wallets",
-        "1,000 Hyper wallets",
-        "2,000 monthly outbound transactions",
+        "2,000 Hyper wallets",
+        "$200K maximum outbound volume",
         "2 workspaces, 4 users",
         "Advanced security features",
         "Basic support",
@@ -64,8 +64,8 @@ export function Pricing() {
       features: [
         "All Pro features",
         "Up to 20 MPC wallets",
-        "2,500 Hyper wallets",
-        "5,000 monthly outbound transactions",
+        "5,000 Hyper wallets",
+        "$1M maximum outbound volume",
         "3 workspaces, 10 users",
         "Priority support",
         "Advanced analytics",
