@@ -19,7 +19,7 @@ export function Hero() {
   const [isTypingDone, setIsTypingDone] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
   const [isDemoOpen, setIsDemoOpen] = useState(false);
-  const words = ["Stablecoin", "Digital Asset", "Payments"];
+  const words = ["Stablecoin", "Digital Asset"];
 
   useEffect(() => {
     let currentIndex = 0;
@@ -100,10 +100,9 @@ export function Hero() {
 
               {/* Description */}
               <p className="text-sm sm:text-base lg:text-lg text-slate-700 max-w-xl leading-relaxed">
-                The stablecoin platform fintechs build on — wallets, MPC
-                signing, chain integration, treasury flows, and policy in one
-                stack. Deploy managed or self-hosted. Your keys, your cloud,
-                your margin.
+                Wallets, MPC signing, and multi-chain treasury in one
+                platform. Deploy managed or self-hosted. Your keys. Your
+                infrastructure. Your margin.
               </p>
 
               {/* CTA Buttons */}
