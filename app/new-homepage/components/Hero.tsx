@@ -113,13 +113,7 @@ export function Hero() {
                   className="rounded-full px-5 sm:px-7 py-5 sm:py-6 text-xs sm:text-sm font-semibold bg-[#3b82f6] hover:bg-[#3b82f6]/90 transition-all"
                   asChild
                 >
-                  <Link
-                    href="https://app.fystack.io"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Get Started
-                  </Link>
+                  <Link href="/contact">Book a Demo</Link>
                 </Button>
                 <Button
                   size="lg"
@@ -127,7 +121,13 @@ export function Hero() {
                   className="rounded-full px-5 sm:px-7 py-5 sm:py-6 text-xs sm:text-sm font-semibold border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition-all"
                   asChild
                 >
-                  <Link href="https://selfhost.fystack.io/" target="_blank" rel="noopener noreferrer">Deploy Self-Hosted</Link>
+                  <Link
+                    href="https://app.fystack.io"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Get Started
+                  </Link>
                 </Button>
               </div>
 

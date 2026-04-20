@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -8,17 +8,16 @@ import {
   ChevronDown,
   ChevronRight,
   Github,
-  Wallet,
-  CreditCard,
-  Zap,
-  Bell,
-  BarChart3,
-  Users,
   FileText,
   Shield,
   Smartphone,
   Coins,
-  Menu
+  Menu,
+  Code2,
+  Package,
+  Boxes,
+  Server,
+  Send,
 } from "lucide-react";
 import {
   Sheet,
@@ -36,158 +35,6 @@ interface ProductMenuItem {
   description: string;
   href: string;
 }
-
-const ProductDropdown = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    setIsOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setIsOpen(false);
-    }, 150);
-  };
-
-  const operationsItems: ProductMenuItem[] = [
-    {
-      icon: <Wallet className="h-5 w-5" />,
-      title: "Wallet-as-a-Service",
-      description: "Build, manage, and scale secure wallets across multiple chains without managing private keys.",
-      href: "/wallet-as-service",
-    },
-    {
-      icon: <CreditCard className="h-5 w-5" />,
-      title: "Crypto Payments",
-      description: "Accept and send crypto payments seamlessly across EVM, Tron, and Solana networks.",
-      href: "/new-homepage#use-cases",
-    },
-    {
-      icon: <Zap className="h-5 w-5" />,
-      title: "Automation",
-      description: "Automate on-chain operations to save time and reduce manual risk.",
-      href: "/new-homepage#operations",
-    },
-    {
-      icon: <Bell className="h-5 w-5" />,
-      title: "Alerts & Monitoring",
-      description: "Stay informed in real-time about every transaction and event across wallets.",
-      href: "/new-homepage#operations",
-    },
-    {
-      icon: <BarChart3 className="h-5 w-5" />,
-      title: "Analytics & Insights",
-      description: "Track transaction volumes, wallet activity, and user growth in one unified dashboard.",
-      href: "/new-homepage#operations",
-    },
-  ];
-
-  const complianceItems: ProductMenuItem[] = [
-    {
-      icon: <Users className="h-5 w-5" />,
-      title: "User Management",
-      description: "Define roles and permissions for administrators, operators, and auditors.",
-      href: "/new-homepage#compliance",
-    },
-    {
-      icon: <FileText className="h-5 w-5" />,
-      title: "Audit Trails",
-      description: "Full transparency into every transaction, signature, and approval action.",
-      href: "/new-homepage#compliance",
-    },
-    {
-      icon: <Shield className="h-5 w-5" />,
-      title: "Transaction Policies",
-      description: "Set programmable rules for spending and approvals with whitelist destinations and daily limits.",
-      href: "/new-homepage#compliance",
-    },
-  ];
-
-  return (
-    <div
-      className="relative"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <button className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
-        Product <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
-      </button>
-
-      {isOpen && (
-        <div className="absolute left-0 top-full pt-2 animate-in fade-in-0 zoom-in-95 duration-200">
-          <div className="bg-background border rounded-lg shadow-xl p-6 w-[720px]">
-            <div className="grid grid-cols-2 gap-8">
-              {/* Left Column */}
-              <div>
-                <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">
-                  Operations & Automation
-                </div>
-                <div className="space-y-1">
-                  {operationsItems.map((item) => (
-                    <Link
-                      key={item.title}
-                      href={item.href}
-                      className="block p-3 rounded-md hover:bg-accent transition-colors group"
-                    >
-                      <div className="flex gap-3">
-                        <div className="text-muted-foreground group-hover:text-foreground transition-colors mt-0.5">
-                          {item.icon}
-                        </div>
-                        <div>
-                          <div className="font-medium text-sm mb-1 group-hover:text-foreground">
-                            {item.title}
-                          </div>
-                          <div className="text-xs text-muted-foreground leading-relaxed">
-                            {item.description}
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right Column */}
-              <div>
-                <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">
-                  Compliance & Governance
-                </div>
-                <div className="space-y-1">
-                  {complianceItems.map((item) => (
-                    <Link
-                      key={item.title}
-                      href={item.href}
-                      className="block p-3 rounded-md hover:bg-accent transition-colors group"
-                    >
-                      <div className="flex gap-3">
-                        <div className="text-muted-foreground group-hover:text-foreground transition-colors mt-0.5">
-                          {item.icon}
-                        </div>
-                        <div>
-                          <div className="font-medium text-sm mb-1 group-hover:text-foreground">
-                            {item.title}
-                          </div>
-                          <div className="text-xs text-muted-foreground leading-relaxed">
-                            {item.description}
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
 
 const SolutionsDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -270,6 +117,125 @@ const SolutionsDropdown = () => {
   );
 };
 
+const DeveloperDropdown = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 150);
+  };
+
+  const developerItems: ProductMenuItem[] = [
+    {
+      icon: <FileText className="h-5 w-5" />,
+      title: "Self-Host Documentation",
+      description: "Guides for running the full Fystack stack on your own infrastructure.",
+      href: "https://selfhost.fystack.io/",
+    },
+    {
+      icon: <Package className="h-5 w-5" />,
+      title: "SDK Examples",
+      description: "Production-ready code samples to integrate Fystack in minutes.",
+      href: "https://github.com/fystack/fystack-sdk-examples",
+    },
+    {
+      icon: <Boxes className="h-5 w-5" />,
+      title: "Open-Source MPC",
+      description: "Mpcium — the MPC engine powering Fystack, auditable and free to inspect.",
+      href: "https://github.com/fystack/mpcium",
+    },
+    {
+      icon: <Server className="h-5 w-5" />,
+      title: "Self-Host Custody Platform",
+      description: "Deploy the full Fystack custody stack on your own infrastructure.",
+      href: "https://github.com/fystack/fystack-selfhost-scripts",
+    },
+    {
+      icon: <Send className="h-5 w-5" />,
+      title: "Join Developer Community",
+      description: "Chat with the Fystack team and other builders on Telegram.",
+      href: "https://t.me/+9AtC0z8sS79iZjFl",
+    },
+  ];
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <button className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+        Developer <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
+
+      {isOpen && (
+        <div className="absolute left-0 top-full pt-2 animate-in fade-in-0 zoom-in-95 duration-200">
+          <div className="bg-background border rounded-lg shadow-xl p-4 w-[440px]">
+            <Link
+              href="https://docs.fystack.io/wallets"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block p-3 rounded-md bg-accent/40 hover:bg-accent transition-colors group mb-3"
+            >
+              <div className="flex gap-3 items-start">
+                <div className="flex h-10 w-10 items-center justify-center rounded-md bg-[#3b82f6]/10 text-[#3b82f6]">
+                  <Code2 className="h-5 w-5" />
+                </div>
+                <div>
+                  <div className="font-semibold text-sm mb-0.5">API Documentation</div>
+                  <div className="text-xs text-muted-foreground leading-relaxed">
+                    Full REST API reference for wallets, payments, and key management.
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            <div className="h-px bg-border my-2" />
+
+            <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-3 mb-1 mt-2">
+              Documentation
+            </div>
+            <div className="space-y-1">
+              {developerItems.map((item) => (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block p-3 rounded-md hover:bg-accent transition-colors group"
+                >
+                  <div className="flex gap-3">
+                    <div className="text-muted-foreground group-hover:text-foreground transition-colors mt-0.5">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <div className="font-medium text-sm mb-1 group-hover:text-foreground">
+                        {item.title}
+                      </div>
+                      <div className="text-xs text-muted-foreground leading-relaxed">
+                        {item.description}
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const MobileNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -282,57 +248,6 @@ const MobileNavigation = () => {
     setIsOpen(false);
     setExpandedSection(null);
   };
-
-  const productItems: ProductMenuItem[] = [
-    {
-      icon: <Wallet className="h-5 w-5" />,
-      title: "Wallet-as-a-Service",
-      description: "Build, manage, and scale secure wallets across multiple chains.",
-      href: "/new-homepage#wallet",
-    },
-    {
-      icon: <CreditCard className="h-5 w-5" />,
-      title: "Crypto Payments",
-      description: "Accept and send crypto payments seamlessly.",
-      href: "/new-homepage#use-cases",
-    },
-    {
-      icon: <Zap className="h-5 w-5" />,
-      title: "Automation",
-      description: "Automate on-chain operations to save time.",
-      href: "/new-homepage#operations",
-    },
-    {
-      icon: <Bell className="h-5 w-5" />,
-      title: "Alerts & Monitoring",
-      description: "Real-time transaction and event monitoring.",
-      href: "/new-homepage#operations",
-    },
-    {
-      icon: <BarChart3 className="h-5 w-5" />,
-      title: "Analytics & Insights",
-      description: "Track transaction volumes and wallet activity.",
-      href: "/new-homepage#operations",
-    },
-    {
-      icon: <Users className="h-5 w-5" />,
-      title: "User Management",
-      description: "Define roles and permissions for your team.",
-      href: "/new-homepage#compliance",
-    },
-    {
-      icon: <FileText className="h-5 w-5" />,
-      title: "Audit Trails",
-      description: "Full transparency into every action.",
-      href: "/new-homepage#compliance",
-    },
-    {
-      icon: <Shield className="h-5 w-5" />,
-      title: "Transaction Policies",
-      description: "Set programmable rules for spending.",
-      href: "/new-homepage#compliance",
-    },
-  ];
 
   const solutionItems: ProductMenuItem[] = [
     {
@@ -355,10 +270,53 @@ const MobileNavigation = () => {
     },
   ];
 
+  const developerItems: (ProductMenuItem & { external?: boolean })[] = [
+    {
+      icon: <Code2 className="h-5 w-5" />,
+      title: "API Documentation",
+      description: "Full REST API reference.",
+      href: "https://docs.fystack.io/wallets",
+      external: true,
+    },
+    {
+      icon: <FileText className="h-5 w-5" />,
+      title: "Self-Host Documentation",
+      description: "Guides for running Fystack on your own infrastructure.",
+      href: "https://selfhost.fystack.io/",
+      external: true,
+    },
+    {
+      icon: <Package className="h-5 w-5" />,
+      title: "SDK Examples",
+      description: "Production-ready code samples.",
+      href: "https://github.com/fystack/fystack-sdk-examples",
+      external: true,
+    },
+    {
+      icon: <Boxes className="h-5 w-5" />,
+      title: "Open-Source MPC",
+      description: "Mpcium — Fystack's MPC engine.",
+      href: "https://github.com/fystack/mpcium",
+      external: true,
+    },
+    {
+      icon: <Server className="h-5 w-5" />,
+      title: "Self-Host Custody Platform",
+      description: "Deploy the full stack on your own infrastructure.",
+      href: "https://github.com/fystack/fystack-selfhost-scripts",
+      external: true,
+    },
+    {
+      icon: <Send className="h-5 w-5" />,
+      title: "Join Developer Community",
+      description: "Chat with Fystack builders on Telegram.",
+      href: "https://t.me/+9AtC0z8sS79iZjFl",
+      external: true,
+    },
+  ];
+
   const navLinks = [
     { href: "/wallet-as-service", title: "Platform", external: false },
-    { href: "https://docs.fystack.io", title: "Documentation", external: true },
-    { href: "https://fystack.io/blog?tag=Case%20study", title: "Case Studies", external: true },
     { href: "/new-homepage#pricing", title: "Pricing", external: false },
     { href: "/compare", title: "Compare", external: false },
     { href: "/blog", title: "Blog", external: false },
@@ -378,39 +336,6 @@ const MobileNavigation = () => {
           <SheetTitle>Navigation</SheetTitle>
         </SheetHeader>
         <nav className="flex flex-col gap-2 mt-6">
-          {/* Product Section */}
-          {/* <div>
-            <button
-              onClick={() => toggleSection("product")}
-              className="flex items-center justify-between w-full py-3 text-sm font-medium hover:text-foreground transition-colors"
-            >
-              <span>Product</span>
-              <ChevronRight
-                className={`h-4 w-4 transition-transform duration-200 ${
-                  expandedSection === "product" ? "rotate-90" : ""
-                }`}
-              />
-            </button>
-            {expandedSection === "product" && (
-              <div className="pl-2 pb-2 space-y-1 animate-in slide-in-from-top-2 duration-200">
-                {productItems.map((item) => (
-                  <Link
-                    key={item.title}
-                    href={item.href}
-                    onClick={closeSheet}
-                    className="flex items-center gap-3 p-2 rounded-md hover:bg-accent transition-colors"
-                  >
-                    <div className="text-muted-foreground">{item.icon}</div>
-                    <div>
-                      <div className="text-sm font-medium">{item.title}</div>
-                      <div className="text-xs text-muted-foreground">{item.description}</div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div> */}
-
           {/* Solutions Section */}
           <div>
             <button
@@ -431,6 +356,41 @@ const MobileNavigation = () => {
                     key={item.title}
                     href={item.href}
                     onClick={closeSheet}
+                    className="flex items-center gap-3 p-2 rounded-md hover:bg-accent transition-colors"
+                  >
+                    <div className="text-muted-foreground">{item.icon}</div>
+                    <div>
+                      <div className="text-sm font-medium">{item.title}</div>
+                      <div className="text-xs text-muted-foreground">{item.description}</div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Developer Section */}
+          <div>
+            <button
+              onClick={() => toggleSection("developer")}
+              className="flex items-center justify-between w-full py-3 text-sm font-medium hover:text-foreground transition-colors"
+            >
+              <span>Developer</span>
+              <ChevronRight
+                className={`h-4 w-4 transition-transform duration-200 ${
+                  expandedSection === "developer" ? "rotate-90" : ""
+                }`}
+              />
+            </button>
+            {expandedSection === "developer" && (
+              <div className="pl-2 pb-2 space-y-1 animate-in slide-in-from-top-2 duration-200">
+                {developerItems.map((item) => (
+                  <Link
+                    key={item.title}
+                    href={item.href}
+                    onClick={closeSheet}
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noopener noreferrer" : undefined}
                     className="flex items-center gap-3 p-2 rounded-md hover:bg-accent transition-colors"
                   >
                     <div className="text-muted-foreground">{item.icon}</div>
@@ -523,29 +483,13 @@ export default function Navbar() {
 
             <SolutionsDropdown />
 
+            <DeveloperDropdown />
+
             <Link
               href="/wallet-as-service"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Platform
-            </Link>
-
-            <Link
-              href="https://docs.fystack.io"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Documentation
-            </Link>
-
-            <Link
-              href="https://fystack.io/blog?tag=Case%20study"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Case Studies
             </Link>
 
             <Link
