@@ -80,10 +80,6 @@ export function Hero() {
               {/* Main Headline */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold tracking-tight">
                 <div className="flex flex-col gap-1 leading-[1.1]">
-                  <span className="text-slate-800">
-                    Self-Hosted
-                  </span>
-
                   <span className="text-[#3b82f6]">
                     {"{"}
                     {typedText}
@@ -94,15 +90,20 @@ export function Hero() {
                   <span className="text-slate-800">
                     Wallet Infrastructure
                   </span>
+
+                  <span className="text-slate-800">
+                    for Fintechs
+                  </span>
                 </div>
               </h1>
 
 
               {/* Description */}
               <p className="text-sm sm:text-base lg:text-lg text-slate-700 max-w-xl leading-relaxed">
-                Built for stablecoin payment processors. Run it on your own
-                infrastructure, own your keys, and keep your margin — no more
-                volume-based fees on every transaction.
+                The stablecoin platform fintechs build on — wallets, MPC
+                signing, chain integration, treasury flows, and policy in one
+                stack. Deploy managed or self-hosted. Your keys, your cloud,
+                your margin.
               </p>
 
               {/* CTA Buttons */}

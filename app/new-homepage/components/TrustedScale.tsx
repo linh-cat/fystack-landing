@@ -37,14 +37,14 @@ const clientLogos = [
 
 const storyCells = [
   {
-    title: "/Processors/",
+    title: "/Margin/",
     titleClass: "text-slate-800",
     body: "Stop losing margin to volume-based fees. Run the wallet layer yourself — no per-transaction cut, no revenue share.",
   },
   {
     title: "<Fits you if>",
     titleClass: "text-[#3b82f6]",
-    body: "You're a PSP or stablecoin processor moving real monthly volume, hitting a competitor's volume cliff, or needing self-hosted for jurisdiction or licensing.",
+    body: "You're a fintech, PSP, or neobank running stablecoin rails — hitting a competitor's volume cliff, or needing self-hosted for jurisdiction or licensing.",
   },
   {
     title: "{Self-hosted}",
@@ -74,14 +74,14 @@ export function TrustedScale() {
             {/* Header Content */}
             <div className="flex-1 text-center py-8 md:py-10 lg:py-12 px-6 md:px-8 lg:px-12">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
-                Built for stablecoin
+                Built for teams moving
                 <br />
-                payment processors<span className="text-[#3b82f6]">.</span>
+                stablecoins at scale<span className="text-[#3b82f6]">.</span>
               </h2>
               <p className="text-slate-500 text-base lg:text-lg leading-relaxed">
-                Live in production with PSPs and payments teams
+                Live in production with payment processors, fintechs,
                 <br className="hidden sm:block" />
-                moving real stablecoin flow every day.
+                and digital-asset platforms moving real stablecoin flow every day.
               </p>
             </div>
 

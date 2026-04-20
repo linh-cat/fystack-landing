@@ -69,10 +69,15 @@ export function DebugDelivery() {
     <section className="bg-white py-4 lg:py-10 2xl:py-20">
       <div ref={ref} className={`max-w-[1440px] px-4 lg:px-16 2xl:px-0 mx-auto  relative ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Section Title + Demo Button */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12 md:mb-16 px-4">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800">
-            One Stack for Every Stablecoin Rail
-          </h2>
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-12 md:mb-16 px-4">
+          <div className="space-y-3">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800">
+              One Stack for Every Stablecoin Rail
+            </h2>
+            <p className="text-slate-500 text-base lg:text-lg">
+              Stablecoin integration for your business on multiple blockchains — without a web3 team.
+            </p>
+          </div>
 
           <Button
             size="lg"

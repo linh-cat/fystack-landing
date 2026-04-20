@@ -123,6 +123,12 @@ export function Pricing() {
                 </button>
               ))}
             </div>
+
+            <p className="text-slate-500 text-sm lg:text-base mt-4 max-w-xl mx-auto">
+              {activeTab === "cloud"
+                ? "For teams shipping fast. We run the infrastructure, you focus on product."
+                : "For teams with compliance, sovereignty, or high-volume requirements."}
+            </p>
           </div>
 
           {/* Content Area */}
