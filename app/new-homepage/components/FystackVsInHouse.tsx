@@ -9,7 +9,7 @@ export function FystackVsInHouse() {
     <section className="bg-white py-4 lg:py-10 2xl:py-20">
       <div
         ref={ref}
-        className={`max-w-[1440px] px-4 lg:px-16 2xl:px-0 mx-auto ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"
+        className={`max-w-[1440px] 2xl:max-w-[1728px] px-4 lg:px-16 2xl:px-16 mx-auto ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"
           }`}
       >
         {/* Section header */}

@@ -31,6 +31,8 @@ export function NewFooter() {
     { label: "Github", icon: "/svg/footer/github.svg", href: "https://github.com/fystack/mpcium" },
     { label: "X", icon: "/svg/footer/x.svg", href: "https://x.com/fystack" },
     { label: "LinkedIn", icon: "/svg/footer/linked-in.svg", href: "https://www.linkedin.com/company/fystack/posts/?feedView=all" },
+    { label: "Medium", icon: "/svg/footer/medium.svg", href: "https://medium.com/@fystack" },
+    { label: "Substack", icon: "/svg/footer/substack.svg", href: "https://substack.com/profile/496828574-fystack/" },
   ];
 
   const legalLinks = [
@@ -40,7 +42,7 @@ export function NewFooter() {
   ];
 
   return (
-    <footer className="bg-white max-w-[1440px] px-4 lg:px-16 2xl:px-0 py-4 lg:py-10 2xl:py-20 mx-auto">
+    <footer className="bg-white max-w-[1440px] 2xl:max-w-[1728px] px-4 lg:px-16 2xl:px-16 py-4 lg:py-10 2xl:py-20 mx-auto">
       <div ref={ref} className={`container mx-auto  ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}>
         {/* Wrapper */}
         <div className="relative">
@@ -147,7 +149,7 @@ export function NewFooter() {
           {/* Copyright */}
           <div className="border border-t-0 border-slate-200 px-8 py-6">
             <p className="text-slate-600 text-sm">
-              © 2025 Fystack. All rights reserved.
+              © 2026 Fystack. All rights reserved.
             </p>
           </div>
 

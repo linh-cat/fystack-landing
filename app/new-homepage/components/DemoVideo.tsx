@@ -22,7 +22,7 @@ export function DemoVideo() {
     <section className="py-12 lg:py-20">
       <div
         ref={ref}
-        className={`max-w-[1440px] mx-auto px-4 lg:px-16 2xl:px-0 ${
+        className={`max-w-[1440px] 2xl:max-w-[1728px] mx-auto px-4 lg:px-16 2xl:px-16 ${
           isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"
         }`}
       >

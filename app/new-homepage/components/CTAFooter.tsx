@@ -53,6 +53,8 @@ export function CTAFooter() {
     { label: "Github", icon: "/svg/footer/github.svg", href: "https://github.com/fystack/mpcium" },
     { label: "X", icon: "/svg/footer/x.svg", href: "https://x.com/fystack" },
     { label: "LinkedIn", icon: "/svg/footer/linked-in.svg", href: "https://www.linkedin.com/company/fystack/posts/?feedView=all" },
+    { label: "Medium", icon: "/svg/footer/medium.svg", href: "https://medium.com/@fystack" },
+    { label: "Substack", icon: "/svg/footer/substack.svg", href: "https://substack.com/profile/496828574-fystack/" },
   ];
 
   const legalLinks = [
@@ -205,7 +207,7 @@ export function CTAFooter() {
     <footer className="bg-white py-4 lg:py-10 2xl:py-20">
       <div
         ref={scrollRef}
-        className={`max-w-[1440px] px-4 lg:px-16 2xl:px-0 mx-auto  ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}
+        className={`max-w-[1440px] 2xl:max-w-[1728px] px-4 lg:px-16 2xl:px-16 mx-auto  ${isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}
       >
         <div className="relative">
           {/* Top corner squares */}
@@ -400,18 +402,19 @@ export function CTAFooter() {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex flex-col items-center justify-center p-4 hover:bg-slate-50 transition-colors ${
+                        aria-label={social.label}
+                        className={`flex items-center justify-center p-3.5 hover:bg-slate-50 transition-colors ${
                           index < socialLinks.length - 1 ? "border-r border-slate-200" : ""
                         }`}
                       >
                         <Image
                           src={social.icon}
-                          alt={social.label}
+                          alt=""
                           width={20}
                           height={20}
-                          className="w-5 h-5 mb-1"
+                          className="w-5 h-5"
                         />
-                        <span className="text-xs text-slate-500">{social.label}</span>
+                        <span className="sr-only">{social.label}</span>
                       </Link>
                     ))}
                   </div>
@@ -491,7 +494,7 @@ export function CTAFooter() {
           {/* Copyright */}
           <div className="border border-t-0 border-slate-200 px-8 py-6">
             <p className="text-slate-600 text-sm">
-              © 2025 Fystack. All rights reserved.
+              © 2026 Fystack. All rights reserved.
             </p>
           </div>
 
