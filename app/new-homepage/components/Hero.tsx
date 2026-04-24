@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -15,33 +15,7 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 
 export function Hero() {
   const { ref: scrollRef, isVisible } = useScrollReveal(0.1);
-  const [typedText, setTypedText] = useState("");
-  const [isTypingDone, setIsTypingDone] = useState(false);
-  const [wordIndex, setWordIndex] = useState(0);
   const [isDemoOpen, setIsDemoOpen] = useState(false);
-  const words = ["Stablecoin", "Digital Asset"];
-
-  useEffect(() => {
-    let currentIndex = 0;
-    const currentWord = words[wordIndex];
-
-    const typingInterval = setInterval(() => {
-      if (currentIndex <= currentWord.length) {
-        setTypedText(currentWord.slice(0, currentIndex));
-        setIsTypingDone(false);
-        currentIndex++;
-      } else {
-        setIsTypingDone(true);
-        clearInterval(typingInterval);
-        setTimeout(() => {
-          setWordIndex((prev) => (prev + 1) % words.length);
-        }, 2000);
-      }
-    }, 150);
-
-    return () => clearInterval(typingInterval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [wordIndex]);
 
   return (
     <section className="overflow-hidden py-4 lg:py-10">
@@ -80,30 +54,31 @@ export function Hero() {
               {/* Main Headline */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold tracking-tight">
                 <div className="flex flex-col gap-1 leading-[1.1]">
-                  <span className="text-[#3b82f6]">
-                    {"{"}
-                    {typedText}
-                    {"}"}
-                    {!isTypingDone && <span className="animate-pulse">_</span>}
+                  <span className="text-slate-800">
+                    Bring your fintech
                   </span>
 
-                  <span className="text-slate-800">
-                    Wallet Infrastructure
+                  <span className="text-[#3b82f6] whitespace-nowrap">
+                    on-chain
                   </span>
 
-                  <span className="text-slate-800">
-                    for Fintechs
+                  <span className="text-slate-600 text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-semibold">
+                    without a custodian in the middle.
                   </span>
                 </div>
               </h1>
 
 
               {/* Description */}
-              <p className="text-sm sm:text-base lg:text-lg text-slate-700 max-w-xl leading-relaxed">
-                Wallets, MPC signing, and multi-chain treasury in one
-                platform. Deploy managed or self-hosted. Your keys. Your
-                infrastructure. Your margin.
-              </p>
+              <div className="space-y-3 max-w-xl">
+                <p className="text-sm sm:text-base lg:text-lg text-slate-700 leading-relaxed">
+                  MPC wallets, stablecoin rails, and multi-chain treasury.
+                  Self-hosted or managed.
+                </p>
+                <p className="text-sm sm:text-base lg:text-lg text-[#3b82f6] leading-relaxed">
+                  Your keys. Your assets. Your margin.
+                </p>
+              </div>
 
               {/* CTA Buttons */}
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-2">
@@ -125,7 +100,7 @@ export function Hero() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Get Started
+                    Try Fystack Cloud
                   </Link>
                 </Button>
               </div>

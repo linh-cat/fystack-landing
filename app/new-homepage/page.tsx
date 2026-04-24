@@ -18,7 +18,7 @@ import { JoinCommunity } from "./components";
 
 export default function NewHomepage() {
   return (
-    <div className="flex flex-col min-h-screen font-geist-mono">
+    <div className="flex flex-col min-h-screen">
       <Navbar />
 
       <main className="flex-1">

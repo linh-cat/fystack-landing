@@ -1,17 +1,22 @@
 // app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
-import { IBM_Plex_Sans } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import NextTopLoader from 'nextjs-toploader';
 
-const ibmPlexSans = IBM_Plex_Sans({
-  weight: ["400", "500", "600", "700"],
+const geistSans = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -64,7 +69,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${ibmPlexSans.variable} ${ibmPlexSans.className}`}>
+    <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} ${geistSans.className}`}>
       <head>
         {/* Web App Manifest and Icons */}
         <link rel="manifest" href="/site.webmanifest" />
@@ -220,7 +225,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${ibmPlexSans.className} antialiased`}
+        className={`${geistSans.className} antialiased`}
         suppressHydrationWarning
       >
         {/* <!-- Google Tag Manager (noscript) --> */}

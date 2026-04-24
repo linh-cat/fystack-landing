@@ -391,7 +391,7 @@ export function CTAFooter() {
                   />
 
                   <p className="text-slate-500 text-sm mb-8 max-w-xs">
-                    MPC platform built for developers. Create wallets with ease securely.
+                    Wallet infrastructure for fintechs going on-chain. Self-hosted or managed.
                   </p>
 
                   {/* Social Links */}
