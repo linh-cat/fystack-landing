@@ -464,13 +464,16 @@ export default function Navbar() {
   return (
     <>
       <header className={`border-b sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 bg-slate-500`}>
-      <div className="container flex h-16 items-center justify-between max-w-[1440px] 2xl:max-w-[1728px] mx-auto">
+      <div className="flex h-12 sm:h-14 items-center justify-between max-w-[1440px] 2xl:max-w-[1728px] mx-auto px-4 lg:px-16 2xl:px-0">
         <div className="flex items-center gap-8">
-          <Link href="/">
+          <Link href="/" className="flex-shrink-0">
             <Image
               src={appLogo}
               alt="Fystack Logo"
               priority
+              width={198}
+              height={48}
+              className="w-[120px] sm:w-[140px] md:w-[160px] h-auto"
             />
           </Link>
 
