@@ -463,18 +463,14 @@ const MobileNavigation = () => {
 export default function Navbar() {
   return (
     <>
-      <header className={`border-b sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60`}>
-      <div className="container flex h-16 items-center justify-between px-4 lg:px-16 4xl:px-0 mx-auto">
+      <header className={`border-b sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 bg-slate-500`}>
+      <div className="container flex h-16 items-center justify-between max-w-[1440px] 2xl:max-w-[1728px] mx-auto">
         <div className="flex items-center gap-8">
           <Link href="/">
             <Image
               src={appLogo}
               alt="Fystack Logo"
               priority
-              width={198}
-              height={48}
-              style={{ height: "auto" }}
-              className="w-[150px] sm:w-[180px] md:w-[200px]"
             />
           </Link>
 
@@ -566,4 +562,4 @@ export default function Navbar() {
     </header>
     </>
   );
-} 
+}
