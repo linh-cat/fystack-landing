@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
@@ -488,6 +489,122 @@ function Benefits() {
   );
 }
 
+function SDKs() {
+  const { ref, isVisible } = useScrollReveal();
+
+  const sdks = [
+    {
+      name: "iOS",
+      sub: "Swift / SwiftUI",
+      logo: "/png/sdk/ios-v2.png",
+    },
+    {
+      name: "Android",
+      sub: "Kotlin / Java",
+      logo: "/png/sdk/android.png",
+    },
+    {
+      name: "React Native",
+      sub: "iOS & Android",
+      logo: "/png/sdk/react-native.png",
+    },
+    {
+      name: "Flutter",
+      sub: "Dart",
+      logo: "/png/sdk/flutter.png",
+    },
+  ];
+
+  return (
+    <section className="bg-white py-4 lg:py-10 2xl:py-20">
+      <div
+        ref={ref}
+        className={`max-w-[1440px] px-4 lg:px-16 2xl:px-0 mx-auto ${
+          isVisible
+            ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]"
+            : "opacity-0"
+        }`}
+      >
+        <div className="mb-12 md:mb-16 px-4">
+          <p className="text-[#3b82f6] text-sm font-semibold mb-4 tracking-wide">
+            /SDKS/
+          </p>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 max-w-3xl leading-tight">
+            Native SDKs for every mobile platform
+          </h2>
+          <p className="text-slate-500 text-base lg:text-lg leading-relaxed mt-4 max-w-3xl">
+            Ship MPC signing on the platforms your users already live on. Each
+            SDK handles share storage, device binding, and protocol messaging —
+            your app just calls{" "}
+            <code className="px-1.5 py-0.5 bg-slate-100 text-slate-700 rounded text-sm font-mono">
+              sign()
+            </code>
+            .
+          </p>
+        </div>
+
+        <div className="mx-4 grid grid-cols-2 lg:grid-cols-4 gap-0 border border-slate-200">
+          {sdks.map((sdk) => {
+            return (
+              <div
+                key={sdk.name}
+                className="group p-6 lg:p-8 bg-white hover:bg-slate-50/60 transition-colors border-slate-200 border-r border-b last:border-r-0 [&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(4n)]:border-r-0 lg:border-b-0 [&:nth-last-child(-n+2)]:border-b-0"
+              >
+                <div className="flex items-center justify-center h-16 lg:h-20 mb-5">
+                  <Image
+                    src={sdk.logo}
+                    alt={`${sdk.name} SDK`}
+                    width={80}
+                    height={80}
+                    className="h-12 lg:h-16 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                  />
+                </div>
+                <p className="text-base lg:text-lg font-bold text-slate-800 text-center mb-1">
+                  {sdk.name}
+                </p>
+                <p className="text-[11px] lg:text-xs text-slate-500 text-center">
+                  {sdk.sub}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="mx-4 mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          <Button
+            variant="outline"
+            className="rounded-full px-6 py-5 text-sm font-semibold border-slate-300 bg-white hover:bg-slate-50 text-slate-700"
+            asChild
+          >
+            <Link
+              href="https://docs.fystack.io"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read SDK Docs
+              <ArrowUpRight className="ml-2 w-4 h-4" />
+            </Link>
+          </Button>
+          <Button
+            variant="outline"
+            className="rounded-full px-6 py-5 text-sm font-semibold border-slate-300 bg-white hover:bg-slate-50 text-slate-700"
+            asChild
+          >
+            <Link
+              href="https://github.com/fystack"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on GitHub
+              <ArrowUpRight className="ml-2 w-4 h-4" />
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function UseCases() {
   const { ref, isVisible } = useScrollReveal();
 
@@ -605,6 +722,7 @@ export default function NonCustodialWalletPage() {
         <Hero />
         <HowItWorks />
         <Benefits />
+        <SDKs />
         <UseCases />
         <ContactBanner />
         <CTAFooter />
