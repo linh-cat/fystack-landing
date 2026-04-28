@@ -172,7 +172,7 @@ export default function ChangelogClient() {
       <section className="max-w-[1200px] mx-auto px-4 sm:px-8 lg:px-16 py-12 lg:py-20">
         <div className="relative">
           {/* vertical line */}
-          <div className="hidden lg:block absolute left-[180px] top-2 bottom-2 w-px bg-gradient-to-b from-slate-200 via-slate-200 to-transparent" />
+          <div className="hidden lg:block absolute left-[204px] top-2 bottom-2 w-px bg-gradient-to-b from-slate-200 via-slate-200 to-transparent" />
 
           <div className="flex flex-col gap-16 lg:gap-24">
             {filtered.map((entry, idx) => (
@@ -248,7 +248,7 @@ function EntryRow({
       </div>
 
       {/* Timeline dot */}
-      <div className="hidden lg:block absolute left-[176px] top-2 w-2 h-2 rounded-full bg-white border-2 border-[#3b82f6] ring-4 ring-white" />
+      <div className="hidden lg:block absolute left-[200px] top-2 w-2 h-2 rounded-full bg-white border-2 border-[#3b82f6] ring-4 ring-white" />
 
       {/* Content card */}
       <div className="relative">

@@ -25,6 +25,49 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    version: "v0.1.13",
+    date: "April 28, 2026",
+    isoDate: "2026-04-28",
+    title: "Gas Sponsorship (Auto-Fuel), withdrawal tracker & per-field permissions",
+    summary:
+      "Workspaces can sponsor gas for EVM, Solana, and TRON token movements end-to-end, alongside a redesigned withdrawal tracker and finer-grained wallet settings controls.",
+    categories: ["Platform"],
+    highlights: [
+      {
+        title: "Gas Sponsorship (Auto-Fuel)",
+        description:
+          "Workspaces can now turn on gas sponsorship for all their wallets — wallets no longer need to hold ETH, SOL, or TRX to send transactions. Gas costs are covered automatically by the workspace gas station, so end users can move ERC-20s, SPL tokens, and TRC-20s without ever worrying about native fees.",
+      },
+      {
+        title: "Auto Gas Refill UI",
+        description:
+          "Operator experience for Auto-Fuel: per-network configuration modal, wallet settings integration, gas-sponsorship messaging in send/withdraw forms, and labeled gas-funding steps in transaction history.",
+      },
+      {
+        title: "Redesigned withdrawal tracker",
+        description:
+          "Supports multiple concurrent in-flight withdrawals on a single screen, with each withdrawal showing its own progress states including the new Funding Gas step.",
+      },
+      {
+        title: "Per-field wallet settings permissions",
+        description:
+          "Admins can update non-sensitive fields like wallet name and gas sponsorship toggle, while signing threshold, disabled state, and auto-approval limit remain owner-only with clear blocked-field errors.",
+      },
+      {
+        title: "Network-scoped wallets",
+        description:
+          "Wallet creation and listing are now network-aware, with a network selector in the create form and filters that honor the selected networks.",
+      },
+      {
+        title: "Wallet lifecycle controls",
+        description:
+          "Owners can delete or disable wallets directly from the wallet table and remove individual assets, with a new wallet purpose dropdown in the create flow.",
+      },
+    ],
+    components: ["Apex Platform v0.1.13", "Fystack UI v0.1.13"],
+    docsUrl: "https://docs.fystack.io/changelog/v0.1.13",
+  },
+  {
     version: "v0.1.12",
     date: "March 31, 2026",
     isoDate: "2026-03-31",
