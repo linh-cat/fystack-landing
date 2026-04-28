@@ -65,7 +65,7 @@ export function Hero() {
                     </span>
 
                     <span className="text-slate-600 text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-semibold">
-                      without a custodian in the middle.
+                      fully in your control.
                     </span>
                   </div>
                 </h1>
