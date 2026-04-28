@@ -28,20 +28,20 @@ export const changelog: ChangelogEntry[] = [
     version: "v0.1.13",
     date: "April 28, 2026",
     isoDate: "2026-04-28",
-    title: "Gas Sponsorship (Auto-Fuel), withdrawal tracker & per-field permissions",
+    title: "Gas Sponsorship, Auto Gas Refill & rebuilt withdrawal tracker",
     summary:
-      "Workspaces can sponsor gas for EVM, Solana, and TRON token movements end-to-end, alongside a redesigned withdrawal tracker and finer-grained wallet settings controls.",
+      "Two new ways to keep wallets funded — per-transaction gas sponsorship and threshold-based auto refill — plus a withdrawal tracker rebuilt for concurrent flows and per-field wallet permissions.",
     categories: ["Platform"],
     highlights: [
       {
-        title: "Gas Sponsorship (Auto-Fuel)",
+        title: "Gas Sponsorship",
         description:
-          "Workspaces can now turn on gas sponsorship for all their wallets — wallets no longer need to hold ETH, SOL, or TRX to send transactions. Gas costs are covered automatically by the workspace gas station, so end users can move ERC-20s, SPL tokens, and TRC-20s without ever worrying about native fees.",
+          "Workspaces can enable gas sponsorship per wallet so users no longer need to hold ETH, SOL, or TRX to transact. At withdrawal time, gas is funded just-in-time from the workspace gas tank — surfaced through a new `gas_sponsorship_enabled` flag, a `FUNDING_GAS` withdrawal status, and the `withdrawal.funding_gas` webhook.",
       },
       {
-        title: "Auto Gas Refill UI",
+        title: "Auto Gas Refill",
         description:
-          "Operator experience for Auto-Fuel: per-network configuration modal, wallet settings integration, gas-sponsorship messaging in send/withdraw forms, and labeled gas-funding steps in transaction history.",
+          "A separate threshold-based top-up: Auto Gas Refill watches each wallet's native balance (ETH, TRX, SOL) and, when it drops below your configured threshold, transfers a fixed amount from a gas-station wallet to keep it funded. Prevents failed transactions and removes manual top-ups for ops teams across transfers, trading, and custody flows.",
       },
       {
         title: "Redesigned withdrawal tracker",
