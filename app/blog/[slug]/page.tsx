@@ -192,7 +192,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       />
       
       <main className="py-16">
-        <div className="container px-4 md:px-6 max-w-5xl mx-auto">
+        <div className="container px-4 md:px-6 max-w-7xl mx-auto">
           {/* Back Button */}
           <Link
             href="/blog"

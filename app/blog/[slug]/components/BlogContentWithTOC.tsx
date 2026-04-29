@@ -139,6 +139,7 @@ export default function BlogContentWithTOC({ html }: BlogContentWithTOCProps) {
   const [headings, setHeadings] = useState<Heading[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [twitterScriptLoaded, setTwitterScriptLoaded] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
 
   // Pre-process HTML with Prism highlighting (synchronous, no DOM mutation)
   const processedHtml = useMemo(() => highlightCodeInHtml(html), [html]);
@@ -349,6 +350,45 @@ export default function BlogContentWithTOC({ html }: BlogContentWithTOCProps) {
   }, [html]);
 
   useEffect(() => {
+    const container = contentRef.current;
+    if (!container) return;
+
+    const images = container.querySelectorAll<HTMLImageElement>("img");
+    images.forEach((img) => {
+      img.style.cursor = "zoom-in";
+    });
+
+    const handleImageClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName !== "IMG") return;
+      const img = target as HTMLImageElement;
+      if (img.closest("a")) return;
+      e.preventDefault();
+      setLightboxImage({ src: img.currentSrc || img.src, alt: img.alt || "" });
+    };
+
+    container.addEventListener("click", handleImageClick);
+    return () => container.removeEventListener("click", handleImageClick);
+  }, [html, processedHtml]);
+
+  useEffect(() => {
+    if (!lightboxImage) return;
+
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxImage(null);
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKey);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKey);
+    };
+  }, [lightboxImage]);
+
+  useEffect(() => {
     if (headings.length === 0) return;
 
     const handleScroll = () => {
@@ -433,12 +473,53 @@ export default function BlogContentWithTOC({ html }: BlogContentWithTOCProps) {
         onError={(e) => console.error('[Twitter Script] Error:', e)}
       />
 
-      <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_16rem] lg:gap-12">
+      <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-12">
         <div
           ref={contentRef}
           className="prose prose-lg font-sans prose-headings:font-sans max-w-none dark:prose-invert prose-headings:font-bold prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-code:before:content-none prose-code:after:content-none [&_:not(pre)>code]:bg-blue-50 [&_:not(pre)>code]:text-blue-700 [&_:not(pre)>code]:px-2.5 [&_:not(pre)>code]:py-1 [&_:not(pre)>code]:rounded-md [&_:not(pre)>code]:text-[0.95em] [&_:not(pre)>code]:font-medium [&_:not(pre)>code]:ring-1 [&_:not(pre)>code]:ring-blue-300 dark:[&_:not(pre)>code]:bg-blue-950 dark:[&_:not(pre)>code]:text-blue-300 dark:[&_:not(pre)>code]:ring-blue-700 prose-pre:bg-gray-900 prose-pre:text-white prose-pre:border prose-pre:border-gray-700 prose-pre:overflow-auto prose-pre:p-4 prose-img:rounded-lg prose-img:shadow-sm prose-img:w-full prose-img:max-h-[600px] prose-img:object-contain prose-iframe:rounded-lg prose-iframe:shadow-sm [&_.kg-embed-card]:relative [&_.kg-embed-card]:w-full [&_.kg-embed-card]:pb-[56.25%] [&_.kg-embed-card]:h-0 [&_.kg-embed-card]:overflow-hidden [&_.kg-embed-card_iframe]:absolute [&_.kg-embed-card_iframe]:top-0 [&_.kg-embed-card_iframe]:left-0 [&_.kg-embed-card_iframe]:w-full [&_.kg-embed-card_iframe]:h-full [&_.kg-embed-card_iframe]:border-0 [&_figure.kg-card]:my-8"
           dangerouslySetInnerHTML={{ __html: processedHtml }}
         />
+
+        {lightboxImage && (
+          <div
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 sm:p-8 cursor-zoom-out animate-in fade-in duration-150"
+            onClick={() => setLightboxImage(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Image preview"
+          >
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxImage(null);
+              }}
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+              aria-label="Close image preview"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-5 w-5"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={lightboxImage.src}
+              alt={lightboxImage.alt}
+              className="max-h-full max-w-full object-contain rounded-lg shadow-2xl cursor-default"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        )}
 
         {numberedHeadings.length > 0 && (
           <nav
