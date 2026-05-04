@@ -208,7 +208,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {/* Tags */}
               {post.tags && post.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {post.tags.slice(0, 3).map((tag) => (
+                  {post.tags.map((tag) => (
                     <Link
                       key={tag.id}
                       href={`/blog?tag=${encodeURIComponent(tag.name)}`}

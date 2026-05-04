@@ -82,18 +82,25 @@ export async function generateMetadata() {
 // Generate static props at build time
 async function fetchBlogData() {
   try {
-    const response = await ghostAPI.getPosts({
-      limit: 'all',
-      include: ['tags', 'authors'],
-      order: 'published_at DESC'
-    });
-    
-    // Extract unique tags for categories
+    const [response, tags] = await Promise.all([
+      ghostAPI.getPosts({
+        limit: 'all',
+        include: ['tags', 'authors'],
+        order: 'published_at DESC'
+      }),
+      ghostAPI.getTags(),
+    ]);
+
     const tagSet = new Set<string>();
-    response.posts.forEach(post => {
-      post.tags.forEach(tag => tagSet.add(tag.name));
+    tags.forEach(tag => {
+      if (!tag.name.startsWith('#')) tagSet.add(tag.name);
     });
-    
+    response.posts.forEach(post => {
+      post.tags.forEach(tag => {
+        if (!tag.name.startsWith('#')) tagSet.add(tag.name);
+      });
+    });
+
     return {
       posts: response.posts,
       categories: ['All posts', ...Array.from(tagSet).sort()],

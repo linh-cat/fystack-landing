@@ -79,7 +79,7 @@ export default function BlogContent({
 
           {/* Category Filter Pills */}
           <div className="flex flex-wrap gap-2 justify-center">
-            {categories.slice(0, 7).map((category) => (
+            {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => handleCategorySelect(category)}
