@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { SelfHostedComparison } from "./SelfHostedComparison";
 
@@ -253,14 +254,12 @@ export function Pricing() {
 
                 {/* Buttons */}
                 <div className="flex flex-wrap gap-4">
-                  <a
+                  <Link
                     className="px-8 py-3 bg-[#3b82f6] text-white rounded-full text-sm font-medium hover:bg-[#2563eb] transition-colors w-full text-center"
-                    href="https://app.youform.com/forms/qyanutyi"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/contact"
                   >
                     Talk to us
-                  </a>
+                  </Link>
                 </div>
               </div>
             )}
@@ -286,14 +285,12 @@ export function Pricing() {
                   For teams that need custom integrations, SLA guarantees, and dedicated support.
                 </p>
               </div>
-              <a
+              <Link
                 className="px-8 py-3 border border-slate-200 bg-white text-slate-700 rounded-full text-sm font-medium hover:bg-slate-50 transition-colors whitespace-nowrap"
-                href="https://app.youform.com/forms/qyanutyi"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/contact"
               >
                 Talk to us
-              </a>
+              </Link>
             </div>       
           </div>
         </div>

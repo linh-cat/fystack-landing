@@ -321,10 +321,8 @@ export function CTAFooter() {
                 {/* CTA Buttons */}
                 <div className="relative flex flex-col items-center justify-center p-12 lg:p-16 min-h-[340px]">
                   <div className="flex flex-col items-center gap-4 z-10">
-                    <a
-                      href="https://app.youform.com/forms/qyanutyi"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href="/contact"
                       className="group relative px-16 py-4 bg-[#3b82f6] text-white rounded-full text-base font-medium
                         shadow-lg shadow-blue-500/25
                         transition-all duration-300 ease-out
@@ -333,14 +331,14 @@ export function CTAFooter() {
                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
                         cursor-pointer"
                     >
-                      <span className="relative z-10">Request sandbox access</span>
+                      <span className="relative z-10">Request a demo</span>
                       <div
                         className="absolute inset-0 rounded-full bg-[#3b82f6] opacity-0
                         group-hover:opacity-50 blur-xl transition-opacity duration-300"
                       />
-                    </a>
+                    </Link>
 
-                    <a
+                    <Link
                       className="px-14 py-3.5 bg-white border-2 border-slate-200 text-slate-700 rounded-full text-base font-medium
                         shadow-sm
                         transition-all duration-300 ease-out
@@ -348,12 +346,10 @@ export function CTAFooter() {
                         active:scale-[0.98]
                         focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2
                         cursor-pointer"
-                      href="https://app.youform.com/forms/qyanutyi"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href="/contact"
                     >
                       Talk to us
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

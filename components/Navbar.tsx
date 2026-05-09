@@ -445,13 +445,7 @@ const MobileNavigation = () => {
               </Link>
             </Button>
             <Button size="sm" asChild className="justify-start">
-              <Link
-                href="https://app.fystack.io"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Sign up
-              </Link>
+              <Link href="/contact">Book a demo</Link>
             </Button>
           </div>
         </nav>
@@ -549,13 +543,7 @@ export default function Navbar() {
           </Button>
 
           <Button size="sm" asChild className="hidden sm:inline-flex">
-            <Link
-              href="https://app.fystack.io"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Sign up
-            </Link>
+            <Link href="/contact">Book a demo</Link>
           </Button>
 
           {/* Mobile Navigation */}
