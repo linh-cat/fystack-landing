@@ -435,7 +435,8 @@ const MobileNavigation = () => {
                 <span>GitHub</span>
               </Link>
             </Button>
-            <Button variant="ghost" size="sm" asChild className="justify-start">
+            {/* Temporarily hidden: Log in CTA */}
+            {/* <Button variant="ghost" size="sm" asChild className="justify-start">
               <Link
                 href="https://app.fystack.io"
                 target="_blank"
@@ -443,7 +444,7 @@ const MobileNavigation = () => {
               >
                 Log in
               </Link>
-            </Button>
+            </Button> */}
             <Button size="sm" asChild className="justify-start">
               <Link href="/contact">Book a demo</Link>
             </Button>
@@ -532,7 +533,8 @@ export default function Navbar() {
             </Link>
           </Button>
 
-          <Button variant="ghost" size="sm" asChild className="hidden sm:inline-flex">
+          {/* Temporarily hidden: Log in CTA */}
+          {/* <Button variant="ghost" size="sm" asChild className="hidden sm:inline-flex">
             <Link
               href="https://app.fystack.io"
               target="_blank"
@@ -540,7 +542,7 @@ export default function Navbar() {
             >
               Log in
             </Link>
-          </Button>
+          </Button> */}
 
           <Button size="sm" asChild className="hidden sm:inline-flex">
             <Link href="/contact">Book a demo</Link>

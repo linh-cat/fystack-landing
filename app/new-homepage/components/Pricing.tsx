@@ -32,7 +32,7 @@ export function Pricing() {
         "1 workspace, 2 users",
         "Community support",
       ],
-      buttonText: "Start with Basic",
+      buttonText: "Book a demo",
       buttonStyle: "border border-slate-200 text-slate-700 hover:bg-slate-50",
       highlighted: false,
     },
@@ -51,7 +51,7 @@ export function Pricing() {
         "Advanced security features",
         "Basic support",
       ],
-      buttonText: "Start with Professional",
+      buttonText: "Book a demo",
       buttonStyle: "bg-[#3b82f6] text-white hover:bg-[#2563eb]",
       highlighted: true,
       hasToggle: true,
@@ -71,7 +71,7 @@ export function Pricing() {
         "Priority support",
         "Advanced analytics",
       ],
-      buttonText: "Start with Growth",
+      buttonText: "Book a demo",
       buttonStyle: "border border-slate-200 text-slate-700 hover:bg-slate-50",
       highlighted: false,
       hasToggle: true,
@@ -206,14 +206,12 @@ export function Pricing() {
                     </div>
 
                     {/* Button - Always at bottom */}
-                    <a
-                      href="https://app.fystack.io"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href="/contact"
                       className={`w-full py-3 rounded-full text-sm font-medium transition-colors mt-8 block text-center ${plan.buttonStyle}`}
                     >
                       {plan.buttonText}
-                    </a>
+                    </Link>
                   </div>
                 ))}
               </div>
