@@ -225,7 +225,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${geistSans.className} antialiased`}
+        className={`${geistSans.className} antialiased overflow-x-hidden`}
         suppressHydrationWarning
       >
         {/* <!-- Google Tag Manager (noscript) --> */}

@@ -129,15 +129,16 @@ export function TrustedScale() {
               <span className="text-[#3b82f6]">20+</span> self-hosted instances launched and running in production
             </p>
           </div>
-          <div
-            className="group relative overflow-hidden"
-            style={{
-              maskImage:
-                "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-              WebkitMaskImage:
-                "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-            }}
-          >
+          <div className="overflow-hidden">
+            <div
+              className="group relative"
+              style={{
+                maskImage:
+                  "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+                WebkitMaskImage:
+                  "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+              }}
+            >
             <div className="flex w-max animate-scroll group-hover:[animation-play-state:paused]">
               {[...clientLogos, ...clientLogos, ...clientLogos].map(
                 (logo, index) => (
@@ -159,6 +160,7 @@ export function TrustedScale() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
   );
 }

@@ -322,6 +322,7 @@ export function SecurityDeveloper() {
                         alt="Developer Experience"
                         width={1000}
                         height={1000}
+                        className="w-full h-auto"
                       />
                     </div>
                   </div>

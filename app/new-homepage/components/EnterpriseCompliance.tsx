@@ -163,7 +163,7 @@ export function EnterpriseCompliance() {
               alt="Decorative"
               width={500}
               height={400}
-              className="w-auto h-auto max-w-[500px] opacity-80"
+              className="w-full max-w-[500px] h-auto opacity-80"
             />
           </div>
         </div>

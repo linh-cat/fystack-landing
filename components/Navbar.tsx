@@ -457,8 +457,8 @@ const MobileNavigation = () => {
 export default function Navbar() {
   return (
     <>
-      <header className={`border-b sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 bg-slate-500`}>
-      <div className="flex h-12 sm:h-14 items-center justify-between max-w-[1440px] 2xl:max-w-[1728px] mx-auto px-4 lg:px-16 2xl:px-0">
+      <header className="border-b sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="flex h-12 sm:h-14 items-center justify-between max-w-[1440px] 2xl:max-w-[1728px] mx-auto px-4 lg:px-16 3xl:px-0">
         <div className="flex items-center gap-8">
           <Link href="/" className="flex-shrink-0">
             <Image
