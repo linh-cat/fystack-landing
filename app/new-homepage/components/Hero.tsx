@@ -88,8 +88,12 @@ export function Hero() {
                     className="rounded-full px-5 sm:px-7 py-5 sm:py-6 text-xs sm:text-sm font-semibold bg-[#3b82f6] hover:bg-[#3b82f6]/90 transition-all"
                     asChild
                   >
-                    <Link href="/contact">
-                      Book a demo
+                    <Link
+                      href="https://app.fystack.io"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Get Started
                     </Link>
                   </Button>
                   <Button
