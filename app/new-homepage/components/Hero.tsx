@@ -58,14 +58,10 @@ export function Hero() {
                 {/* Main Headline */}
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold tracking-tight">
                   <div className="flex flex-col gap-1 leading-[1.1]">
-                    <span className="text-slate-800">Bring your business</span>
+                    <span className="text-slate-800">The custody layer</span>
 
-                    <span className="text-[#3b82f6] whitespace-nowrap">
-                      on-chain
-                    </span>
-
-                    <span className="text-slate-600 text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-semibold">
-                      fully in your control.
+                    <span className="text-[#3b82f6]">
+                      for stablecoin infrastructure
                     </span>
                   </div>
                 </h1>
@@ -73,8 +69,9 @@ export function Hero() {
                 {/* Description */}
                 <div className="space-y-3 max-w-xl">
                   <p className="text-sm sm:text-base lg:text-lg text-slate-700 leading-relaxed">
-                    MPC wallets, stablecoin rails, and multi-chain treasury.
-                    Self-hosted or managed.
+                    Enterprise custody, stablecoin payments, and treasury
+                    infrastructure with full control over your assets and
+                    operations.
                   </p>
                   <p className="text-sm sm:text-base lg:text-lg text-[#3b82f6] leading-relaxed">
                     Your keys. Your assets. Your margin.
@@ -163,7 +160,7 @@ export function Hero() {
                       Fystack
                     </span>
                     <span className="text-[10px] text-slate-500 font-medium">
-                      Wallet Engine
+                      Custody
                     </span>
                   </div>
 
