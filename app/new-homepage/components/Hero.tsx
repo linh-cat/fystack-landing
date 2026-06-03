@@ -60,18 +60,17 @@ export function Hero() {
                   <div className="flex flex-col gap-1 leading-[1.1]">
                     <span className="text-slate-800">The custody layer</span>
 
-                    <span className="text-[#3b82f6]">
-                      for stablecoin infrastructure
-                    </span>
+                    <span className="text-[#3b82f6]">for digital asset</span>
+
+                    <span className="text-slate-800">infrastructure</span>
                   </div>
                 </h1>
 
                 {/* Description */}
                 <div className="space-y-3 max-w-xl">
                   <p className="text-sm sm:text-base lg:text-lg text-slate-700 leading-relaxed">
-                    Enterprise custody, stablecoin payments, and treasury
-                    infrastructure with full control over your assets and
-                    operations.
+                    MPC wallets, stablecoin rails, tokenized RWAs, and
+                    multi-chain treasury. Self-hosted or managed.
                   </p>
                   <p className="text-sm sm:text-base lg:text-lg text-[#3b82f6] leading-relaxed">
                     Your keys. Your assets. Your margin.

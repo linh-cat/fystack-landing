@@ -118,10 +118,7 @@ function TreasuryVisualization() {
 
       {/* Center treasury card */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150px] h-[150px] rounded-2xl bg-white border border-slate-200 shadow-[0_8px_24px_rgba(59,130,246,0.12)] flex flex-col items-center justify-center">
-        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#60A5FA] to-[#3b82f6] flex items-center justify-center text-white font-bold text-xl shadow-[0_4px_12px_rgba(59,130,246,0.35)]">
-          $
-        </div>
-        <div className="mt-3 text-sm font-bold text-slate-800">Treasury</div>
+        <div className="text-sm font-bold text-slate-800">Treasury</div>
         <div className="text-[11px] text-slate-500 mt-0.5">Multi-chain</div>
       </div>
     </div>
