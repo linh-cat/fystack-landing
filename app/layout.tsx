@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Fystack — The custody layer for stablecoin infrastructure',
+  title: 'Fystack — The custody layer for digital asset infrastructure',
   description: 'Multi-chain infrastructure for fintechs, payment platforms, and crypto businesses to automate digital asset operations securely.',
   metadataBase: new URL('https://fystack.io'),
   alternates: {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://fystack.io',
-    title: 'Fystack — The custody layer for stablecoin infrastructure',
+    title: 'Fystack — The custody layer for digital asset infrastructure',
     description: 'Multi-chain infrastructure for fintechs, payment platforms, and crypto businesses to automate digital asset operations securely.',
     siteName: 'Fystack',
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@fystack',
     creator: '@fystack',
-    title: 'Fystack — The custody layer for stablecoin infrastructure',
+    title: 'Fystack — The custody layer for digital asset infrastructure',
     description: 'Multi-chain infrastructure for fintechs, payment platforms, and crypto businesses to automate digital asset operations securely.',
     images: ['/self_custody.jpeg']
   },
