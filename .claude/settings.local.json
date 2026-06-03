@@ -9,7 +9,9 @@
       "Bash(convert public/Fystack_logo.png -resize 256x256 -strip /tmp/img-opt/Fystack_logo_256.png)",
       "Bash(pngquant --quality=70-90 --force --output public/Fystack_logo.png /tmp/img-opt/Fystack_logo_256.png)",
       "Bash(cp public/Logo_fystack_light.png /tmp/img-opt/Logo_fystack_light.png.bak)",
-      "Bash(convert public/Logo_fystack_light.png -resize 512x -strip /tmp/img-opt/Logo_fystack_light_512.png)"
+      "Bash(convert public/Logo_fystack_light.png -resize 512x -strip /tmp/img-opt/Logo_fystack_light_512.png)",
+      "Bash(npx tsc *)",
+      "Bash(node -e \"const fs=require\\('fs'\\); ['app/resources/config.ts','app/resources/[slug]/page.tsx','app/resources/[slug]/components/ResourceLandingPage.tsx','app/resources/[slug]/thank-you/page.tsx','app/api/leads/route.ts'].forEach\\(f => { const exists = fs.existsSync\\(f\\); console.log\\(exists ? '✓' : '✗', f\\); }\\)\")"
     ]
   }
 }

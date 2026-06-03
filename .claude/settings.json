@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const fs=require\\('fs'\\);const c=fs.readFileSync\\('app/new-homepage/components/TrustedScale.tsx','utf8'\\);const opens=\\(c.match\\(/<div/g\\)||[]\\).length;const closes=\\(c.match\\(/<\\\\/div>/g\\)||[]\\).length;console.log\\('opens:',opens,'closes:',closes,'balanced:',opens===closes\\)\")"
+    ]
+  }
+}
