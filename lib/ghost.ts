@@ -2,8 +2,8 @@ import GhostContentAPI from '@tryghost/content-api';
 
 // Initialize Ghost Content API
 const api = new GhostContentAPI({
-  url: process.env.GHOST_URL || 'http://localhost:2368',
-  key: process.env.GHOST_CONTENT_API_KEY || '21a6cf4ad320856a1071206ef7',
+  url: process.env.NEXT_PUBLIC_GHOST_URL || 'http://localhost:2368',
+  key: process.env.NEXT_PUBLIC_GHOST_CONTENT_API_KEY || '21a6cf4ad320856a1071206ef7',
   version: 'v5.0'
 });
 

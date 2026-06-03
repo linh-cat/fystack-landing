@@ -19,11 +19,11 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useLeadCapture } from "@/hooks/useLeadCapture";
+import { useHubSpotForm } from "@/hooks/useHubSpotForm";
 import type { Resource } from "@/app/resources/config";
 
 const formSchema = z.object({
-  name: z.string().min(1, "Name is required"),
+  firstname: z.string().min(1, "Name is required"),
   email: z.string().email("Please enter a valid email"),
   howDidYouHear: z.string().optional(),
 });
@@ -42,7 +42,7 @@ const HOW_OPTIONS = [
 function ResourceForm({ resource: _resource, slug }: { resource: Resource; slug: string }) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { submit, isLoading, isError, isSuccess } = useLeadCapture();
+  const { submit, isLoading, isError } = useHubSpotForm();
 
   const utmSource = searchParams.get("utm_source") ?? "";
   const utmMedium = searchParams.get("utm_medium") ?? "";
@@ -51,24 +51,21 @@ function ResourceForm({ resource: _resource, slug }: { resource: Resource; slug:
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: { name: "", email: "" },
+    defaultValues: { firstname: "", email: "", howDidYouHear: "" },
   });
-
-  useEffect(() => {
-    if (isSuccess) {
-      router.push(`/resources/${slug}/thank-you`);
-    }
-  }, [isSuccess, router, slug]);
 
   async function onSubmit(values: FormValues) {
     await submit({
-      name: values.name,
+      firstname: values.firstname,
       email: values.email,
       resourceId: slug,
-      howDidYouHear: values.howDidYouHear,
       utmSource,
       utmMedium,
       utmCampaign,
+      howDidYouHear: values.howDidYouHear,
+    }).then(() => {
+      form.reset();
+      router.push("/thank-you");
     });
   }
 
@@ -77,7 +74,7 @@ function ResourceForm({ resource: _resource, slug }: { resource: Resource; slug:
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
         <FormField
           control={form.control}
-          name="name"
+          name="firstname"
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-slate-700 font-medium">
@@ -132,9 +129,7 @@ function ResourceForm({ resource: _resource, slug }: { resource: Resource; slug:
                   >
                     <option value="">Select an option…</option>
                     {HOW_OPTIONS.map((opt) => (
-                      <option key={opt} value={opt}>
-                        {opt}
-                      </option>
+                      <option key={opt} value={opt}>{opt}</option>
                     ))}
                   </select>
                 </FormControl>
