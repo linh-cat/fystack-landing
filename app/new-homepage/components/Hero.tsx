@@ -60,7 +60,9 @@ export function Hero() {
                   <div className="flex flex-col gap-1 leading-[1.1]">
                     <span className="text-slate-800">The custody layer</span>
 
-                    <span className="text-[#3b82f6]">for digital asset</span>
+                    <span className="text-slate-800">
+                      for <span className="text-[#3b82f6]">digital asset</span>
+                    </span>
 
                     <span className="text-slate-800">infrastructure</span>
                   </div>
