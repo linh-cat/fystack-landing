@@ -58,21 +58,23 @@ export function Hero() {
                 {/* Main Headline */}
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold tracking-tight">
                   <div className="flex flex-col gap-1 leading-[1.1]">
-                    <span className="text-slate-800">The custody layer</span>
+                    <span className="text-slate-800">Launch Stablecoin</span>
 
                     <span className="text-slate-800">
-                      for <span className="text-[#3b82f6]">digital asset</span>
+                      Payment Infrastructure
                     </span>
 
-                    <span className="text-slate-800">infrastructure</span>
+                    <span className="text-slate-800">
+                      in <span className="text-[#3b82f6]">Days</span>
+                    </span>
                   </div>
                 </h1>
 
                 {/* Description */}
                 <div className="space-y-3 max-w-xl">
                   <p className="text-sm sm:text-base lg:text-lg text-slate-700 leading-relaxed">
-                    MPC wallets, stablecoin rails, tokenized RWAs, and
-                    multi-chain treasury. Self-hosted or managed.
+                    Wallet APIs, treasury automation, policy engine,
+                    compliance, MPC security, and self-hosted deployment.
                   </p>
                   <p className="text-sm sm:text-base lg:text-lg text-[#3b82f6] leading-relaxed">
                     Your keys. Your assets. Your margin.
@@ -100,13 +102,7 @@ export function Hero() {
                     className="rounded-full px-5 sm:px-7 py-5 sm:py-6 text-xs sm:text-sm font-semibold border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition-all"
                     asChild
                   >
-                    <Link
-                      href="https://docs.fystack.io/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Documentation
-                    </Link>
+                    <Link href="/contact">Book Architecture Review</Link>
                   </Button>
                 </div>
 
