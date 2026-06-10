@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useHubSpotForm } from "@/hooks/useHubSpotForm";
+import { useCreateLead } from "@/hooks/useCreateLead";
 import type { Resource } from "@/app/resources/config";
 
 const formSchema = z.object({
@@ -42,7 +42,7 @@ const HOW_OPTIONS = [
 function ResourceForm({ resource: _resource, slug }: { resource: Resource; slug: string }) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { submit, isLoading, isError } = useHubSpotForm();
+  const { submit, isLoading, isError } = useCreateLead();
 
   const utmSource = searchParams.get("utm_source") ?? "";
   const utmMedium = searchParams.get("utm_medium") ?? "";
@@ -66,7 +66,7 @@ function ResourceForm({ resource: _resource, slug }: { resource: Resource; slug:
     }).then(() => {
       form.reset();
       router.push("/thank-you");
-    });
+    })
   }
 
   return (
