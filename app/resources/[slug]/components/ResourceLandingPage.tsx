@@ -78,7 +78,7 @@ function ResourceForm({ resource: _resource, slug }: { resource: Resource; slug:
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-slate-700 font-medium">
-                Full Name <span className="text-[#3b82f6]">*</span>
+                First Name <span className="text-[#3b82f6]">*</span>
               </FormLabel>
               <FormControl>
                 <Input
