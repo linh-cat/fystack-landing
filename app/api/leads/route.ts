@@ -3,6 +3,7 @@ import { z } from "zod";
 
 const schema = z.object({
   firstname: z.string().min(1),
+  lastname: z.string().min(1),
   email: z.string().email(),
   resourceId: z.string().min(1),
   utmSource: z.string().optional(),
@@ -19,7 +20,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: false, error: "Invalid request" }, { status: 422 });
   }
 
-  const { firstname, email, resourceId, utmSource, utmMedium, utmCampaign, howDidYouHear } =
+  const { firstname, lastname, email, resourceId, utmSource, utmMedium, utmCampaign, howDidYouHear } =
     parsed.data;
 
   const portalId = process.env.HUBSPOT_PORTAL_ID;
@@ -27,6 +28,7 @@ export async function POST(req: Request) {
 
   const fields = [
     { name: "firstname", value: firstname },
+    { name: "lastname", value: lastname },
     { name: "email", value: email },
     { name: "resource_id", value: resourceId },
     ...(utmSource ? [{ name: "utm_source", value: utmSource }] : []),

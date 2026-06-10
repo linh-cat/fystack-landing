@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export type LeadPayload = {
   firstname: string;
+  lastname: string;
   email: string;
   resourceId: string;
   utmSource?: string;

@@ -23,7 +23,8 @@ import { useCreateLead } from "@/hooks/useCreateLead";
 import type { Resource } from "@/app/resources/config";
 
 const formSchema = z.object({
-  firstname: z.string().min(1, "Name is required"),
+  firstname: z.string().min(1, "First name is required"),
+  lastname: z.string().min(1, "Last name is required"),
   email: z.string().email("Please enter a valid email"),
   howDidYouHear: z.string().optional(),
 });
@@ -57,6 +58,7 @@ function ResourceForm({ resource: _resource, slug }: { resource: Resource; slug:
   async function onSubmit(values: FormValues) {
     await submit({
       firstname: values.firstname,
+      lastname: values.lastname,
       email: values.email,
       resourceId: slug,
       utmSource,
@@ -79,6 +81,25 @@ function ResourceForm({ resource: _resource, slug }: { resource: Resource; slug:
             <FormItem>
               <FormLabel className="text-slate-700 font-medium">
                 First Name <span className="text-[#3b82f6]">*</span>
+              </FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Jane Smith"
+                  className="border-slate-200 focus:border-[#3b82f6] focus:ring-[#3b82f6]/20"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="lastname"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-slate-700 font-medium">
+                Last Name <span className="text-[#3b82f6]">*</span>
               </FormLabel>
               <FormControl>
                 <Input
