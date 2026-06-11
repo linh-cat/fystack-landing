@@ -7,10 +7,12 @@ export type LeadPayload = {
   lastname: string;
   email: string;
   resourceId: string;
+  guides: string[];
+  role: string;
+  newsletterOptIn: boolean;
   utmSource?: string;
   utmMedium?: string;
   utmCampaign?: string;
-  howDidYouHear?: string;
 };
 
 export function useCreateLead() {
