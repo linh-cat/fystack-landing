@@ -7,16 +7,15 @@ export type Resource = {
 };
 
 export const RESOURCES: Record<string, Resource> = {
-  "mpc-security-guide": {
-    title: "MPC Security Guide",
+  "custody-compliance-guide": {
+    title: "The Crypto Custody Compliance Guide",
     description:
-      "A practical guide to Multi-Party Computation (MPC) wallets — how they work, why they matter for enterprise custody, and what to look for when evaluating a provider.",
-    pdfUrl: "/downloads/mpc-security-guide.pdf",
+      "What regulators in SEA, Middle East, LATAM and beyond actually require from your custody infrastructure,  before you apply for a license.",
     bullets: [
-      "How MPC eliminates single points of failure in key management",
-      "Threshold signatures vs. multi-sig — key differences explained",
-      "Compliance and audit considerations for regulated environments",
-      "Self-hosted vs. cloud deployment trade-offs",
+      "The exact requirements per market: cold storage ratios, key control, data residency ",
+      "Which markets are open, which are paused, which will fine you first",
+      "Common infrastructure mistakes that delay or kill license applications",
+      "Self-hosted vs. SaaS - what regulators actually prefer",
     ],
   },
 };
