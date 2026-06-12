@@ -20,6 +20,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useCreateLead } from "@/hooks/useCreateLead";
+import { ComplianceResourceLibrary } from "@/app/resources/components/ComplianceResourceLibrary";
 import type { Resource } from "@/app/resources/config";
 
 const GUIDES = [
@@ -178,12 +179,6 @@ function ResourceForm({ resource: _resource, slug }: { resource: Resource; slug:
                             ? "bg-[#3b82f6] border-[#3b82f6]"
                             : "border-slate-300 group-hover:border-[#3b82f6]"
                         }`}
-                        onClick={() => {
-                          const next = checked
-                            ? field.value.filter((v) => v !== guide.value)
-                            : [...field.value, guide.value];
-                          field.onChange(next);
-                        }}
                       >
                         {checked && (
                           <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 10 8">
@@ -254,7 +249,6 @@ function ResourceForm({ resource: _resource, slug }: { resource: Resource; slug:
                     ? "bg-[#3b82f6] border-[#3b82f6]"
                     : "border-slate-300 hover:border-[#3b82f6]"
                 }`}
-                onClick={() => field.onChange(!field.value)}
               >
                 {field.value && (
                   <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 10 8">
@@ -390,6 +384,7 @@ export function ResourceLandingPage({ resource, slug }: Props) {
         </div>
       </section>
 
+      <ComplianceResourceLibrary />
       <CTAFooter />
     </div>
   );
