@@ -137,7 +137,7 @@ export function ComplianceResourceLibrary() {
             <Link
               key={card.slug}
               href={`/resources/${card.slug}`}
-              className="group flex items-center gap-0 bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+              className="group flex items-center gap-0 bg-white border border-slate-200 overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
             >
               {/* Cover */}
               <div className="w-[160px] flex-shrink-0 flex items-center justify-center bg-slate-50 self-stretch px-4 py-6">
