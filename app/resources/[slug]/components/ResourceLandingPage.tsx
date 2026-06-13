@@ -336,17 +336,6 @@ export function ResourceLandingPage({ resource, slug }: Props) {
                   </ul>
                 </div>
               )}
-
-              {resource.coverImage && (
-                <div className="mt-10 border border-slate-200 overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={resource.coverImage}
-                    alt={`${resource.title} preview`}
-                    className="w-full object-cover"
-                  />
-                </div>
-              )}
             </div>
 
             {/* Right — lead capture form */}
