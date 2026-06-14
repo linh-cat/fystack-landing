@@ -316,11 +316,13 @@ const MobileNavigation = () => {
   ];
 
   const navLinks = [
-    { href: "/wallet-as-service", title: "Platform", external: false },
-    { href: "/new-homepage#pricing", title: "Pricing", external: false },
-    { href: "/compare", title: "Compare", external: false },
-    { href: "/blog", title: "Blog", external: false },
-    { href: "/changelog", title: "Changelog", external: false },
+    { href: "/wallet-as-service", title: "Platform", external: false, badge: false },
+    { href: "/new-homepage#pricing", title: "Pricing", external: false, badge: false },
+    { href: "/compare", title: "Compare", external: false, badge: false },
+   
+    { href: "/blog", title: "Blog", external: false, badge: false },
+    { href: "/changelog", title: "Changelog", external: false, badge: false },
+  { href: "/resources/custody-compliance-guide", title: "Guides", external: false, badge: true },
   ];
 
   return (
@@ -414,9 +416,14 @@ const MobileNavigation = () => {
               onClick={closeSheet}
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noopener noreferrer" : undefined}
-              className="py-3 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="py-3 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
             >
               {link.title}
+              {link.badge && (
+                <span className="px-1.5 py-0.5 text-[10px] font-bold leading-none bg-[#3b82f6] text-white rounded-full">
+                  New
+                </span>
+              )}
             </Link>
           ))}
 
@@ -499,6 +506,7 @@ export default function Navbar() {
               Compare
             </Link>
 
+
             <Link
               href="/blog"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
@@ -511,6 +519,16 @@ export default function Navbar() {
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Changelog
+              </Link>
+              
+            <Link
+              href="/resources/custody-compliance-guide"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
+            >
+              Guides
+              <span className="px-1.5 py-0.5 text-[10px] font-bold leading-none bg-[#3b82f6] text-white rounded-full">
+                New
+              </span>
             </Link>
           </nav>
         </div>

@@ -26,9 +26,9 @@ import type { Resource } from "@/app/resources/config";
 const GUIDES = [
   { value: "sea", label: "SEA", comingSoon: false },
   { value: "apac", label: "APAC", comingSoon: false },
-  { value: "middle_east", label: "Middle East", comingSoon: true },
-  { value: "latam", label: "LATAM", comingSoon: true },
-  { value: "central_asia", label: "Central Asia", comingSoon: true },
+  { value: "middle_east", label: "Middle East", comingSoon: true, disabled: true },
+  { value: "latam", label: "LATAM", comingSoon: true, disabled: true },
+  { value: "central_asia", label: "Central Asia", comingSoon: true, disabled: true },
 ];
 
 const ROLES = [
@@ -168,19 +168,22 @@ function ResourceForm({ resource: _resource, slug }: { resource: Resource; slug:
               <div className="space-y-2">
                 {GUIDES.map((guide) => {
                   const checked = field.value.includes(guide.value);
+                  const disabled = guide.disabled ?? false;
                   return (
                     <label
                       key={guide.value}
-                      className="flex items-center gap-3 cursor-pointer group"
+                      className={`flex items-center gap-3 group ${disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}
                     >
                       <span
                         className={`w-4 h-4 flex-shrink-0 rounded border flex items-center justify-center transition-colors ${
-                          checked
+                          checked && !disabled
                             ? "bg-[#3b82f6] border-[#3b82f6]"
+                            : disabled
+                            ? "border-slate-200 bg-slate-100"
                             : "border-slate-300 group-hover:border-[#3b82f6]"
                         }`}
                       >
-                        {checked && (
+                        {checked && !disabled && (
                           <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 10 8">
                             <path d="M1 4l3 3 5-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
@@ -190,7 +193,9 @@ function ResourceForm({ resource: _resource, slug }: { resource: Resource; slug:
                         type="checkbox"
                         className="sr-only"
                         checked={checked}
+                        disabled={disabled}
                         onChange={(e) => {
+                          if (disabled) return;
                           const next = e.target.checked
                             ? [...field.value, guide.value]
                             : field.value.filter((v) => v !== guide.value);
@@ -300,6 +305,8 @@ export function ResourceLandingPage({ resource, slug }: Props) {
     <div className="min-h-screen bg-white">
       <Navbar />
 
+      <ComplianceResourceLibrary />
+
       <section className="relative py-16 lg:py-24 overflow-hidden">
         <div className="max-w-[1440px] px-4 lg:px-16 2xl:px-0 mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
@@ -373,7 +380,6 @@ export function ResourceLandingPage({ resource, slug }: Props) {
         </div>
       </section>
 
-      <ComplianceResourceLibrary />
       <CTAFooter />
     </div>
   );

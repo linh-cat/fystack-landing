@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import { CTAFooter } from "@/app/new-homepage/components/CTAFooter";
 
 export const metadata = {
-  title: "Request received — Fystack",
+  title: "Guide on its way — Fystack",
   robots: { index: false },
 };
 
@@ -23,19 +23,17 @@ export default function ThankYouPage() {
             </div>
 
             <h1 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
-              We&apos;ve received your request
+              The guide is on its way
             </h1>
 
             <p className="text-slate-600 text-lg leading-relaxed mb-10">
-              Our team will send the requested resource to your inbox within 24 hours.
+              We&apos;ve sent the guide to your inbox. It should arrive in the next few minutes.
             </p>
 
             <div className="flex items-start gap-3 border border-slate-200 bg-slate-50/60 rounded-lg p-5 mb-10 text-left">
               <Mail className="w-5 h-5 text-[#3b82f6] flex-shrink-0 mt-0.5" />
               <p className="text-sm text-slate-600 leading-relaxed">
-                Keep an eye on your inbox — and check your spam folder just in
-                case. If you don&apos;t hear from us within 24 hours, reach us
-                at{" "}
+                Can&apos;t find it? Check your spam folder just in case. If it still hasn&apos;t arrived, reach us at{" "}
                 <a
                   href="mailto:ops@fystack.io"
                   className="text-[#3b82f6] hover:underline"
