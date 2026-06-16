@@ -22,22 +22,7 @@ import { Button } from "@/components/ui/button";
 import { useCreateLead } from "@/hooks/useCreateLead";
 import { ComplianceResourceLibrary } from "@/app/resources/components/ComplianceResourceLibrary";
 import type { Resource } from "@/app/resources/config";
-
-const GUIDES = [
-  { value: "sea", label: "SEA", comingSoon: false },
-  { value: "apac", label: "APAC", comingSoon: false },
-  { value: "middle_east", label: "Middle East", comingSoon: true },
-  { value: "latam", label: "LATAM", comingSoon: true },
-  { value: "central_asia", label: "Central Asia", comingSoon: true },
-];
-
-const ROLES = [
-  "Founder / CEO",
-  "CTO / Engineering",
-  "Compliance / Legal",
-  "BD / Partnerships",
-  "Others",
-];
+import { GUIDES, ROLES } from "@/configs/constant";
 
 const formSchema = z.object({
   firstname: z.string().min(1, "First name is required"),
