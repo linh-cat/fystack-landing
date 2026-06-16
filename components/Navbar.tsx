@@ -323,6 +323,7 @@ const MobileNavigation = () => {
     { href: "/blog", title: "Blog", external: false, badge: false },
     { href: "/changelog", title: "Changelog", external: false, badge: false },
   { href: "/resources/custody-compliance-guide", title: "Guides", external: false, badge: true },
+  { href: "/contact", title: "Contact", external: false, badge: false },
   ];
 
   return (
