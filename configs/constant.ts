@@ -8,6 +8,28 @@ export const ROLES = [
   "Others",
 ];
 
+export const SOLUTIONS = [
+  "On/Off Ramp",
+  "Crypto payment gateway",
+  "Stablecoin payment rails",
+  "Exchange",
+  "Embedded wallet infrastructure",
+  "Treasury automation",
+  "White-label custody",
+  "MPC / key management",
+  "Multi-chain wallet API",
+  "Not sure yet — need guidance",
+];
+
+export const EXPECTED_VOLUMES = [
+  "Exploring / pre-launch",
+  "Under $100K / month",
+  "$100K – $1M / month",
+  "$1M – $10M / month",
+  "$10M – $100M / month",
+  "$100M+ / month",
+];
+
 export const GUIDES = [
   { value: "sea", label: "SEA", comingSoon: false },
   { value: "apac", label: "APAC", comingSoon: false },
@@ -20,8 +42,8 @@ export const CALENDLY_URL = "https://calendly.com/thi-fystack/fystack-wallet-cus
 
 
 export const TRUST_BULLETS = [
-  { icon: Building2, text: "We respond within one business day" },
-  { icon: Layers, text: "No sales pitch — just a direct conversation about your infrastructure needs" },
+  { icon: Building2, text: "Speak directly with our engineering team" },
+  { icon: Layers, text: "We map Fystack to your stack and your use case" },
   { icon: TrendingUp, text: "Trusted by fintechs, PSPs, and neobanks across emerging markets" },
 ];
 

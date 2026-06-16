@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send, CheckCircle, Building2, Layers, TrendingUp, ArrowRight, Calendar, Mail, ArrowUpRight } from "lucide-react";
+import { CheckCircle, ArrowRight, Calendar, Mail, ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { CTAFooter } from "@/app/new-homepage/components/CTAFooter";
 import { useScrollReveal } from "@/app/new-homepage/hooks/useScrollReveal";
@@ -21,7 +21,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useSubmitContact } from "@/hooks/useSubmitContact";
-import { CALENDLY_URL, NEXT_STEPS, ROLES, TRUST_BULLETS } from "@/configs/constant";
+import { CALENDLY_URL, EXPECTED_VOLUMES, NEXT_STEPS, ROLES, SOLUTIONS, TRUST_BULLETS } from "@/configs/constant";
 
 const formSchema = z.object({
   email: z.string().email("Please enter a valid business email"),
@@ -37,14 +37,11 @@ function StepConfirmation({ email, onDone }: { email: string; onDone: () => void
   return (
     <div className="space-y-8">
       <div>
-        <p className="text-xs font-semibold tracking-widest text-[#3b82f6] uppercase mb-3">
-          What happens next
-        </p>
         <h2 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-3 leading-tight">
-          Your message is on its way
+          Thank you! We&apos;ll respond within one business day
         </h2>
         <p className="text-slate-600 leading-relaxed">
-          We sent a confirmation to <span className="font-medium text-slate-800">{email}</span>. Here&apos;s our simple review process:
+          We&apos;ve received your message at <span className="font-medium text-slate-800">{email}</span>. Here&apos;s what happens next — and if you&apos;d like to talk sooner, you can book a call with us below.
         </p>
       </div>
 
@@ -127,27 +124,6 @@ function TelegramIcon({ className }: { className?: string }) {
   );
 }
 
-const contactOptions = [
-  {
-    icon: <Calendar className="w-6 h-6" />,
-    title: "Book a Demo",
-    description: "Schedule a 30-minute walkthrough with our team — we'll show you Fystack against your specific use case.",
-    cta: "Open contact form",
-    href: "#contact-form",
-    primary: true,
-    external: false,
-  },
-  {
-    icon: <TelegramIcon className="w-6 h-6" />,
-    title: "Send a Message",
-    description: "Reach our team directly on Telegram. To help us respond faster, share your name, company website, role, the product you're building, and what you'd like our help with.",
-    cta: "Message on Telegram",
-    href: "https://t.me/anhthind",
-    primary: false,
-    external: true,
-  },
-];
-
 const supportLinks = [
   {
     icon: <TelegramIcon className="w-5 h-5" />,
@@ -164,7 +140,6 @@ const supportLinks = [
 ];
 
 export default function ContactPage() {
-  const topRef = useScrollReveal(0.1);
   const heroRef = useScrollReveal(0.1);
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [submittedEmail, setSubmittedEmail] = useState("");
@@ -197,86 +172,6 @@ export default function ContactPage() {
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      {/* ── Top hero + cards ── */}
-      <section className="py-16 lg:py-20">
-        <div className="max-w-[1440px] px-4 lg:px-16 2xl:px-0 mx-auto">
-          {/* Hero banner */}
-          <div
-            ref={topRef.ref}
-            className={`${topRef.isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"}`}
-          >
-            <div className="relative border border-slate-200 bg-gradient-to-br from-white via-white to-[#3b82f6]/5 p-8 lg:p-16 text-center mb-10">
-              <div className="absolute -top-[3px] -left-[3px] w-2.5 h-2.5 bg-[#3b82f6]" />
-              <div className="absolute -top-[3px] -right-[3px] w-2.5 h-2.5 bg-[#3b82f6]" />
-              <div className="absolute -bottom-[3px] -left-[3px] w-2.5 h-2.5 bg-[#3b82f6]" />
-              <div className="absolute -bottom-[3px] -right-[3px] w-2.5 h-2.5 bg-[#3b82f6]" />
-
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20 mb-6">
-                <span className="text-sm text-[#3b82f6] font-medium">Talk to our team</span>
-              </div>
-
-              <h1 className="text-3xl lg:text-5xl font-bold text-slate-800 mb-6 leading-tight max-w-3xl mx-auto">
-                Book a demo of{" "}
-                <span className="text-[#3b82f6]">Fystack</span>
-              </h1>
-
-              <p className="text-slate-600 text-lg leading-relaxed max-w-2xl mx-auto">
-                Walk through your use case with our team and see how fintechs, PSPs, and neobanks run stablecoin rails on Fystack — in our cloud or on their own infrastructure.
-              </p>
-            </div>
-
-            {/* Contact option cards */}
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              {contactOptions.map((option) => (
-                <a
-                  key={option.title}
-                  href={option.href}
-                  target={option.external ? "_blank" : undefined}
-                  rel={option.external ? "noopener noreferrer" : undefined}
-                  className={`group relative border p-8 transition-all hover:shadow-lg block ${
-                    option.primary
-                      ? "border-[#3b82f6]/30 bg-gradient-to-br from-[#3b82f6]/5 to-transparent hover:border-[#3b82f6]/50"
-                      : "border-slate-200 bg-white hover:border-slate-300"
-                  }`}
-                >
-                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 ${option.primary ? "bg-[#3b82f6] text-white" : "bg-[#3b82f6]/10 text-[#3b82f6]"}`}>
-                    {option.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-3">{option.title}</h3>
-                  <p className="text-slate-600 leading-relaxed mb-6">{option.description}</p>
-                  <div className="inline-flex items-center gap-1.5 text-sm font-medium text-[#3b82f6] group-hover:gap-2.5 transition-all">
-                    {option.cta}
-                    <ArrowUpRight className="w-4 h-4" />
-                  </div>
-                </a>
-              ))}
-            </div>
-
-            {/* Support links */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              {supportLinks.map((link) => (
-                <a
-                  key={link.title}
-                  href={link.href}
-                  target={link.href.startsWith("mailto:") ? undefined : "_blank"}
-                  rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                  className="group flex items-center gap-4 border border-slate-200 p-4 hover:border-[#3b82f6]/30 transition-colors"
-                >
-                  <div className="w-10 h-10 rounded-md bg-slate-50 flex items-center justify-center text-slate-600 group-hover:bg-[#3b82f6]/10 group-hover:text-[#3b82f6] transition-colors flex-shrink-0">
-                    {link.icon}
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-sm font-medium text-slate-800">{link.title}</div>
-                    <div className="text-xs text-slate-500">{link.description}</div>
-                  </div>
-                  <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-[#3b82f6] transition-colors" />
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── Contact form ── */}
       <section id="contact-form" className="relative py-16 lg:py-24 overflow-hidden bg-slate-50/50">
         <div className="max-w-[1440px] px-4 lg:px-16 2xl:px-0 mx-auto">
@@ -299,7 +194,7 @@ export default function ContactPage() {
               </h1>
 
               <p className="text-slate-600 text-lg leading-relaxed mb-10">
-                We respond within one business day. No sales pitch — just a direct conversation about your infrastructure needs.
+                We respond within one business day — a direct, technical conversation about what you&apos;re building and how Fystack fits your infrastructure.
               </p>
 
               <ul className="space-y-4">
@@ -380,11 +275,15 @@ export default function ContactPage() {
                               Solutions you&apos;re interested in <span className="text-[#3b82f6]">*</span>
                             </FormLabel>
                             <FormControl>
-                              <Input
-                                placeholder="What are you building?"
-                                className="border-slate-200 focus:border-[#3b82f6] focus:ring-[#3b82f6]/20"
+                              <select
+                                className="w-full h-10 rounded-md border border-slate-200 bg-background px-3 py-2 text-sm focus:border-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-[#3b82f6]/20"
                                 {...field}
-                              />
+                              >
+                                <option value="">What are you building?</option>
+                                {SOLUTIONS.map((solution) => (
+                                  <option key={solution} value={solution}>{solution}</option>
+                                ))}
+                              </select>
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -405,10 +304,10 @@ export default function ContactPage() {
                                 className="w-full h-10 rounded-md border border-slate-200 bg-background px-3 py-2 text-sm focus:border-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-[#3b82f6]/20"
                                 {...field}
                               >
-                                <option value=""></option>
-                                <option value="Monthly: <$10k">Monthly: &lt;$10k</option>
-                                <option value="Monthly: $10k – $750k">Monthly: $10k – $750k</option>
-                                <option value="Monthly: >$750k">Monthly: &gt;$750k</option>
+                                <option value="">Select monthly volume…</option>
+                                {EXPECTED_VOLUMES.map((volume) => (
+                                  <option key={volume} value={volume}>{volume}</option>
+                                ))}
                               </select>
                             </FormControl>
                             <FormMessage />
@@ -449,8 +348,7 @@ export default function ContactPage() {
                         disabled={isLoading}
                         className="w-full bg-[#3b82f6] hover:bg-[#3b82f6]/90 text-white h-11 font-medium gap-2"
                       >
-                        {isLoading ? "Sending…" : "Send message"}
-                        {!isLoading && <Send className="w-4 h-4" />}
+                        {isLoading ? "Submitting…" : "Submit"}
                       </Button>
 
                       <p className="text-xs text-slate-400 text-center leading-relaxed">
@@ -469,6 +367,64 @@ export default function ContactPage() {
                 )}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Other ways to reach us ── */}
+      <section className="py-16 lg:py-20">
+        <div className="max-w-[1440px] px-4 lg:px-16 2xl:px-0 mx-auto">
+          {/* Divider */}
+          <div className="flex items-center gap-4 mb-10">
+            <div className="h-px flex-1 bg-slate-200" />
+            <span className="text-xs font-semibold tracking-widest text-slate-400 uppercase">Or reach us another way</span>
+            <div className="h-px flex-1 bg-slate-200" />
+          </div>
+
+          {/* Faster alternative — Telegram */}
+          <a
+            href="https://t.me/TheTedNguyen"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative border border-[#3b82f6]/30 bg-gradient-to-br from-[#3b82f6]/5 to-transparent hover:border-[#3b82f6]/50 p-8 transition-all hover:shadow-lg block mb-6"
+          >
+            <div className="flex flex-col sm:flex-row items-start gap-5">
+              <div className="w-12 h-12 rounded-lg bg-[#3b82f6] text-white flex items-center justify-center flex-shrink-0">
+                <TelegramIcon className="w-6 h-6" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-slate-800 mb-2">Need a faster reply? Message us on Telegram</h3>
+                <p className="text-slate-600 leading-relaxed mb-4">
+                  Prefer to skip the form? Reach our team directly. Share your role, the product you&apos;re building, and what you&apos;d like our help with.
+                </p>
+                <div className="inline-flex items-center gap-1.5 text-sm font-medium text-[#3b82f6] group-hover:gap-2.5 transition-all">
+                  Message on Telegram
+                  <ArrowUpRight className="w-4 h-4" />
+                </div>
+              </div>
+            </div>
+          </a>
+
+          {/* Support links */}
+          <div className="grid sm:grid-cols-2 gap-4">
+            {supportLinks.map((link) => (
+              <a
+                key={link.title}
+                href={link.href}
+                target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+                rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                className="group flex items-center gap-4 border border-slate-200 p-4 hover:border-[#3b82f6]/30 transition-colors"
+              >
+                <div className="w-10 h-10 rounded-md bg-slate-50 flex items-center justify-center text-slate-600 group-hover:bg-[#3b82f6]/10 group-hover:text-[#3b82f6] transition-colors flex-shrink-0">
+                  {link.icon}
+                </div>
+                <div className="flex-1">
+                  <div className="text-sm font-medium text-slate-800">{link.title}</div>
+                  <div className="text-xs text-slate-500">{link.description}</div>
+                </div>
+                <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-[#3b82f6] transition-colors" />
+              </a>
+            ))}
           </div>
         </div>
       </section>

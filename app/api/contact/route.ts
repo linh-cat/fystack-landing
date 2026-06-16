@@ -22,6 +22,17 @@ export async function POST(req: Request) {
   const portalId = process.env.HUBSPOT_PORTAL_ID;
   const formId = process.env.HUBSPOT_CONTACT_FORM_ID;
 
+  if (!portalId || !formId) {
+    console.error("[contact] Missing HubSpot env vars", {
+      hasPortalId: Boolean(portalId),
+      hasFormId: Boolean(formId),
+    });
+    return NextResponse.json(
+      { success: false, error: "HubSpot is not configured" },
+      { status: 500 }
+    );
+  }
+
   const fields = [
     { name: "email", value: email },
     { name: "lead_role", value: role },
@@ -40,6 +51,13 @@ export async function POST(req: Request) {
   );
 
   if (!hsRes.ok) {
+    const detail = await hsRes.text().catch(() => "<no body>");
+    console.error("[contact] HubSpot submission failed", {
+      status: hsRes.status,
+      portalId,
+      formId,
+      detail,
+    });
     return NextResponse.json({ success: false, error: "HubSpot submission failed" }, { status: 500 });
   }
 
