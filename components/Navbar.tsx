@@ -323,6 +323,7 @@ const MobileNavigation = () => {
     { href: "/blog", title: "Blog", external: false, badge: false },
     { href: "/changelog", title: "Changelog", external: false, badge: false },
   { href: "/resources/custody-compliance-guide", title: "Guides", external: false, badge: true },
+  { href: "/contact", title: "Contact", external: false, badge: false },
   ];
 
   return (
@@ -452,7 +453,7 @@ const MobileNavigation = () => {
               </Link>
             </Button>
             <Button size="sm" asChild className="justify-start">
-              <Link href="/contact">Book a demo</Link>
+              <Link href="/contact">Request a demo</Link>
             </Button>
           </div>
         </nav>
@@ -561,7 +562,7 @@ export default function Navbar() {
           </Button>
 
           <Button size="sm" asChild className="hidden sm:inline-flex">
-            <Link href="/contact">Book a demo</Link>
+            <Link href="/contact">Request a demo</Link>
           </Button>
 
           {/* Mobile Navigation */}
