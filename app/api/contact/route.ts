@@ -3,6 +3,7 @@ import { z } from "zod";
 
 const schema = z.object({
   email: z.string().email(),
+  website: z.string().optional(),
   role: z.string().min(1),
   solutionsInterest: z.string().min(1),
   expectedVolume: z.string().optional(),
@@ -17,7 +18,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: false, error: "Invalid request" }, { status: 422 });
   }
 
-  const { email, role, solutionsInterest, expectedVolume, message } = parsed.data;
+  const { email, website, role, solutionsInterest, expectedVolume, message } = parsed.data;
 
   const portalId = process.env.HUBSPOT_PORTAL_ID;
   const formId = process.env.HUBSPOT_CONTACT_FORM_ID;
@@ -35,6 +36,10 @@ export async function POST(req: Request) {
 
   const fields = [
     { name: "email", value: email },
+    // "website" is a Company property in HubSpot (objectTypeId 0-2). Without
+    // this, the value lands on the contact's website property instead of the
+    // company one the form tracks.
+    ...(website ? [{ objectTypeId: "0-2", name: "website", value: website }] : []),
     { name: "lead_role", value: role },
     { name: "solutions_interest", value: solutionsInterest },
     ...(expectedVolume ? [{ name: "expected_volume", value: expectedVolume }] : []),
