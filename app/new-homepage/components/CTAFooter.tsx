@@ -3,7 +3,9 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { CheckCircle2 } from "lucide-react";
 import appLogo from "@/app/images/app-logo.svg";
+import adevarLogo from "@/app/images/adevar_labs_dark_transparent_cropped.png";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
 // Lerp function for smooth interpolation
@@ -414,6 +416,22 @@ export function CTAFooter() {
                       </Link>
                     ))}
                   </div>
+
+                  {/* Audited by Adevar Labs badge */}
+                  <Link
+                    href="https://fystack.io/blog/fystack-completes-apex-backend-infrastructure-audit-with-adevar-labs"
+                    className="mt-6 inline-flex items-center gap-2.5 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2.5 w-fit hover:bg-emerald-100 transition-colors"
+                  >
+                    <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0" />
+                    <span className="text-base font-medium text-emerald-700">Audited by</span>
+                    <Image
+                      src={adevarLogo}
+                      alt="Adevar Labs"
+                      width={1551}
+                      height={465}
+                      className="h-6 w-auto"
+                    />
+                  </Link>
                 </div>
 
                 {/* Product Links */}
