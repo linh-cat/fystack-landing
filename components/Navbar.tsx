@@ -18,6 +18,7 @@ import {
   Boxes,
   Server,
   Send,
+  ShieldCheck,
 } from "lucide-react";
 import {
   Sheet,
@@ -465,7 +466,23 @@ const MobileNavigation = () => {
 export default function Navbar() {
   return (
     <>
-      <header className="border-b sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="sticky top-0 z-50">
+      {/* Audit announcement banner */}
+      <Link
+        href="https://fystack.io/blog/fystack-completes-apex-backend-infrastructure-audit-with-adevar-labs"
+        className="group block bg-[#3b82f6] text-white hover:bg-[#2563eb] transition-colors"
+      >
+        <div className="flex items-center justify-center gap-2 px-4 py-2 text-center text-xs sm:text-sm font-medium">
+          <ShieldCheck className="h-4 w-4 flex-shrink-0" />
+          <span>We just completed a full security audit with Adevar Labs.</span>
+          <span className="hidden sm:inline-flex items-center gap-1 underline underline-offset-2">
+            Read the report
+            <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </span>
+        </div>
+      </Link>
+
+      <header className="border-b backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="flex h-12 sm:h-14 items-center justify-between max-w-[1440px] 2xl:max-w-[1728px] mx-auto px-4 lg:px-16 3xl:px-0">
         <div className="flex items-center gap-8">
           <Link href="/" className="flex-shrink-0">
@@ -570,6 +587,7 @@ export default function Navbar() {
         </div>
       </div>
     </header>
+    </div>
     </>
   );
 }

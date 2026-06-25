@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export type ContactPayload = {
   email: string;
+  website?: string;
   role: string;
   solutionsInterest: string;
   expectedVolume?: string;

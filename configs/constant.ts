@@ -13,6 +13,7 @@ export const SOLUTIONS = [
   "Crypto payment gateway",
   "Stablecoin payment rails",
   "Exchange",
+  "OTC Desk",
   "Embedded wallet infrastructure",
   "Treasury automation",
   "White-label custody",

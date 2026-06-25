@@ -12,6 +12,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Script from "next/script";
 
+// Known author social profiles, keyed by author name
+const AUTHOR_LINKEDIN: Record<string, string> = {
+  "Thi Nguyen": "https://www.linkedin.com/in/thi-nguyen-559684210/",
+  "Phoebe Duong": "https://www.linkedin.com/in/baovyduong/",
+};
+
 // This page will be statically generated at build time
 // and revalidated every 1 hour (3600 seconds)
 export const revalidate = 3600;
@@ -74,7 +80,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         description: post.og_description || description,
         type: 'article',
         publishedTime: post.published_at,
-        authors: [post.primary_author.name],
+        authors: (post.authors?.length ? post.authors : [post.primary_author]).map((a) => a.name),
         tags: post.tags?.map(tag => tag.name),
         images: [
           {
@@ -100,7 +106,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       },
       other: {
         'article:published_time': post.published_at,
-        'article:author': post.primary_author.name,
+        'article:author': (post.authors?.length ? post.authors : [post.primary_author]).map((a) => a.name).join(', '),
         'article:section': post.primary_tag?.name || 'Blog',
       }
     };
@@ -122,11 +128,15 @@ function generateBlogPostSchema(post: GhostPost) {
     image: post.feature_image || '/Fystack_logo.png',
     datePublished: post.published_at,
     dateModified: post.updated_at || post.published_at,
-    author: {
-      '@type': 'Person',
-      name: post.primary_author.name,
-      url: `https://fystack.io/author/${post.primary_author.slug}`
-    },
+    author: (post.authors?.length ? post.authors : [post.primary_author]).map((a) => {
+      const linkedin = AUTHOR_LINKEDIN[a.name] || a.website;
+      return {
+        '@type': 'Person',
+        name: a.name,
+        url: `https://fystack.io/author/${a.slug}`,
+        ...(linkedin ? { sameAs: [linkedin] } : {}),
+      };
+    }),
     publisher: {
       '@type': 'Organization',
       name: 'Fystack',
@@ -229,53 +239,110 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {/* Removed excerpt display from blog detail page - it should only be on blog listing */}
 
               {/* Author and Meta Info */}
-              <div className="flex flex-col gap-4 pb-6 border-b mb-8">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-muted rounded-full flex items-center justify-center overflow-hidden">
-                      {post.primary_author.profile_image ? (
-                        <Image
-                          src={post.primary_author.profile_image}
-                          alt={post.primary_author.name}
-                          width={40}
-                          height={40}
-                          className="rounded-full object-cover w-full h-full"
-                        />
-                      ) : (
-                        <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-sm font-semibold">
-                            {post.primary_author.name.charAt(0).toUpperCase()}
-                          </span>
+              {(() => {
+                const authors = post.authors?.length ? post.authors : [post.primary_author];
+
+                return (
+                  <div className="flex flex-col gap-4 pb-6 border-b mb-8">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                      <div className="flex items-center gap-3">
+                        <div className="flex -space-x-2">
+                          {authors.map((author) => (
+                            <div
+                              key={author.id ?? author.name}
+                              className="w-10 h-10 bg-muted rounded-full flex items-center justify-center overflow-hidden ring-2 ring-background"
+                            >
+                              {author.profile_image ? (
+                                <Image
+                                  src={author.profile_image}
+                                  alt={author.name}
+                                  width={40}
+                                  height={40}
+                                  className="rounded-full object-cover w-full h-full"
+                                />
+                              ) : (
+                                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                                  <span className="text-white text-sm font-semibold">
+                                    {author.name.charAt(0).toUpperCase()}
+                                  </span>
+                                </div>
+                              )}
+                            </div>
+                          ))}
                         </div>
-                      )}
+                        <div>
+                          <p className="text-sm font-semibold text-foreground flex flex-wrap items-center gap-x-1 gap-y-0.5">
+                            {authors.map((author, i) => {
+                              const linkedin = AUTHOR_LINKEDIN[author.name] || author.website;
+                              const separator =
+                                i < authors.length - 2
+                                  ? ", "
+                                  : i === authors.length - 2
+                                  ? " & "
+                                  : "";
+                              return (
+                                <span key={author.id ?? author.name} className="inline-flex items-center gap-1">
+                                  <span>{author.name}</span>
+                                  {linkedin && (
+                                    <Link
+                                      href={linkedin}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      aria-label={`${author.name} on LinkedIn`}
+                                      className="text-[#0A66C2] hover:opacity-80 transition-opacity"
+                                    >
+                                      <svg
+                                        viewBox="0 0 24 24"
+                                        fill="currentColor"
+                                        className="w-4 h-4"
+                                        aria-hidden="true"
+                                      >
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                      </svg>
+                                    </Link>
+                                  )}
+                                  {separator && <span className="text-muted-foreground">{separator}</span>}
+                                </span>
+                              );
+                            })}
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            {authors.length > 1 ? "Authors" : "Author"}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="w-3 h-3" />
+                          <span>{formatDate(post.published_at)}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Clock className="w-3 h-3" />
+                          <span>{getReadingTime(post.reading_time)}</span>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground">
-                        {post.primary_author.name}
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        Author
-                      </p>
-                    </div>
+                    {authors.some((a) => a.bio) && (
+                      <div className="flex flex-col gap-2">
+                        {authors
+                          .filter((a) => a.bio)
+                          .map((author) => (
+                            <p
+                              key={author.id ?? author.name}
+                              className="text-xs text-muted-foreground max-w-2xl"
+                            >
+                              {authors.length > 1 && (
+                                <span className="font-medium text-foreground">{author.name}: </span>
+                              )}
+                              {author.bio}
+                            </p>
+                          ))}
+                      </div>
+                    )}
                   </div>
-                  
-                  <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-3 h-3" />
-                      <span>{formatDate(post.published_at)}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      <span>{getReadingTime(post.reading_time)}</span>
-                    </div>
-                  </div>
-                </div>
-                {post.primary_author.bio && (
-                  <p className="text-xs text-muted-foreground max-w-2xl">
-                    {post.primary_author.bio}
-                  </p>
-                )}
-              </div>
+                );
+              })()}
             </header>
 
             {/* Featured Image */}

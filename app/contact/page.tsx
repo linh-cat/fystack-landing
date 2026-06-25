@@ -21,15 +21,38 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useSubmitContact } from "@/hooks/useSubmitContact";
+import { isBusinessEmail, isValidWebsite } from "@/lib/utils";
 import { CALENDLY_URL, EXPECTED_VOLUMES, NEXT_STEPS, ROLES, SOLUTIONS, TRUST_BULLETS } from "@/configs/constant";
 
-const formSchema = z.object({
-  email: z.string().email("Please enter a valid business email"),
-  role: z.string().min(1, "Please select your role"),
-  solutionsInterest: z.string().min(1, "Please tell us what you're building"),
-  expectedVolume: z.string().optional(),
-  message: z.string().optional(),
-});
+const formSchema = z
+  .object({
+    email: z.string().email("Please enter a valid email"),
+    website: z.string().optional(),
+    role: z.string().min(1, "Please select your role"),
+    solutionsInterest: z.string().min(1, "Please tell us what you're building"),
+    expectedVolume: z.string().optional(),
+    message: z.string().optional(),
+  })
+  .superRefine((values, ctx) => {
+    // A business email is enough on its own. Otherwise we require a company
+    // website so we can still tie the lead to an organization.
+    if (z.string().email().safeParse(values.email).success && !isBusinessEmail(values.email)) {
+      const website = values.website?.trim();
+      if (!website) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["website"],
+          message: "Please use a business email, or enter your company website",
+        });
+      } else if (!isValidWebsite(website)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["website"],
+          message: "Please enter a valid website (e.g. company.com)",
+        });
+      }
+    }
+  });
 
 type FormValues = z.infer<typeof formSchema>;
 
@@ -149,6 +172,7 @@ export default function ContactPage() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
+      website: "",
       role: "",
       solutionsInterest: "",
       expectedVolume: "",
@@ -156,9 +180,14 @@ export default function ContactPage() {
     },
   });
 
+  const emailValue = form.watch("email");
+  const needsWebsite =
+    z.string().email().safeParse(emailValue).success && !isBusinessEmail(emailValue);
+
   async function onSubmit(values: FormValues) {
     await submit({
       email: values.email,
+      website: needsWebsite ? values.website?.trim() || undefined : undefined,
       role: values.role,
       solutionsInterest: values.solutionsInterest,
       expectedVolume: values.expectedVolume || undefined,
@@ -241,6 +270,33 @@ export default function ContactPage() {
                           </FormItem>
                         )}
                       />
+
+                      {needsWebsite && (
+                        <FormField
+                          control={form.control}
+                          name="website"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-slate-700 font-medium">
+                                Company website <span className="text-[#3b82f6]">*</span>
+                              </FormLabel>
+                              <p className="text-xs text-slate-500 -mt-1">
+                                No problem if you&apos;d rather use a personal email — just add your company website so we can connect you with the right team.
+                              </p>
+                              <FormControl>
+                                <Input
+                                  type="text"
+                                  inputMode="url"
+                                  placeholder="company.com"
+                                  className="border-slate-200 focus:border-[#3b82f6] focus:ring-[#3b82f6]/20"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      )}
 
                       <FormField
                         control={form.control}
