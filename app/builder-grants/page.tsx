@@ -227,7 +227,7 @@ export default function BuilderGrantsPage() {
                 See the docs
               </Button>
             </Link>
-            <Link href="https://t.me/TheTedNguyen" target="_blank">
+            <Link href="https://t.me/anhthind" target="_blank">
               <Button
                 size="lg"
                 className="min-w-[160px] bg-blue-600 text-white hover:bg-blue-700"

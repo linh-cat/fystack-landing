@@ -439,7 +439,7 @@ export default function ContactPage() {
 
           {/* Faster alternative — Telegram */}
           <a
-            href="https://t.me/TheTedNguyen"
+            href="https://t.me/anhthind"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative border border-[#3b82f6]/30 bg-gradient-to-br from-[#3b82f6]/5 to-transparent hover:border-[#3b82f6]/50 p-8 transition-all hover:shadow-lg block mb-6"
