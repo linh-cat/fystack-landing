@@ -32,11 +32,11 @@ export const EXPECTED_VOLUMES = [
 ];
 
 export const GUIDES = [
-  { value: "sea", label: "SEA", comingSoon: false },
-  { value: "apac", label: "APAC", comingSoon: false },
-  { value: "middle_east", label: "Middle East", comingSoon: true, disabled: true },
-  { value: "latam", label: "LATAM", comingSoon: true, disabled: true },
-  { value: "central_asia", label: "Central Asia", comingSoon: true, disabled: true },
+  { value: "sea",          label: "SEA",          comingSoon: false, pdfLink: "https://drive.google.com/file/d/1EKm3K7LxqXjaUiPzjOKfJ2myfPdEMs3Q/view?usp=drive_link" },
+  { value: "apac",         label: "APAC",         comingSoon: false, pdfLink: "https://drive.google.com/file/d/1-Miu9lkg2TPdNiIYvD_S7dSORNrR5RuX/view?usp=drive_link" },
+  { value: "middle_east",  label: "Middle East",  comingSoon: false, disabled: true, pdfLink: "" },
+  { value: "latam",        label: "LATAM",        comingSoon: false, pdfLink: "https://drive.google.com/file/d/1jD9Ayg1kOUuT3XY0puNZXRj7wXCc1lOa/view?usp=drive_link" },
+  { value: "central_asia", label: "Central Asia", comingSoon: true,  disabled: true, pdfLink: "" },
 ];
 
 export const CALENDLY_URL = "https://calendly.com/thi-fystack/fystack-wallet-custody-infrastructure-for-fintechs";

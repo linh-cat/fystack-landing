@@ -70,7 +70,7 @@ function ResourceForm({ resource: _resource, slug }: { resource: Resource; slug:
       utmCampaign,
     }).then(() => {
       form.reset();
-      router.push("/thank-you");
+      router.push(`/thank-you?guides=${values.guides.join(",")}`);
     });
   }
 

@@ -42,4 +42,28 @@ export const RESOURCES: Record<string, Resource> = {
       "Cross-border compliance",
     ],
   },
+  "middle-east-compliance-guide": {
+    title: "Crypto Custody and Compliance Guide — Middle East",
+    description:
+      "Navigate the regulatory requirements and custody infrastructure standards for digital asset businesses operating across Middle East markets.",
+    coverImage: "/images/middle_east.png",
+    bullets: [
+      "Middle East regulatory landscape",
+      "Licensing and compliance requirements",
+      "Custody infrastructure standards",
+      "Cross-border and Sharia-compliant considerations",
+    ],
+  },
+  "latam-compliance-guide": {
+    title: "Crypto Custody and Compliance Guide — LATAM",
+    description:
+      "A practical guide to custody regulations, licensing pathways, and infrastructure requirements across Latin American markets.",
+    coverImage: "/images/latam.png",
+    bullets: [
+      "Country-by-country regulatory overview",
+      "Licensing and registration requirements",
+      "Custody and key management standards",
+      "Stablecoin and cross-border compliance",
+    ],
+  },
 };
