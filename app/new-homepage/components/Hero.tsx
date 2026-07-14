@@ -57,16 +57,9 @@ export function Hero() {
 
                 {/* Main Headline */}
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold tracking-tight">
-                  <div className="flex flex-col gap-1 leading-[1.1]">
-                    <span className="text-slate-800">Launch Stablecoin</span>
-
-                    <span className="text-slate-800">
-                      Payment Infrastructure
-                    </span>
-
-                    <span className="text-slate-800">
-                      in <span className="text-[#3b82f6]">Days</span>
-                    </span>
+                  <div className="leading-[1.1] text-slate-800">
+                    Custody infrastructure for{" "}
+                    <span className="text-[#3b82f6]">stablecoin payments</span>
                   </div>
                 </h1>
 

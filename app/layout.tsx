@@ -21,8 +21,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Stablecoin Payment Infrastructure & Wallet APIs | Fystack',
-  description: 'Launch stablecoin payment infrastructure with wallet APIs, treasury automation, policy engine, compliance, and MPC security — self-hosted or managed.',
+  title: 'Stablecoin Custody & Payment Infrastructure | Fystack',
+  description: 'Custody infrastructure for stablecoin payments with wallet APIs, treasury automation, policy engine, compliance, and MPC security — self-hosted or managed.',
   metadataBase: new URL('https://fystack.io'),
   alternates: {
     canonical: 'https://fystack.io'
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://fystack.io',
-    title: 'Stablecoin Payment Infrastructure & Wallet APIs | Fystack',
-    description: 'Launch stablecoin payment infrastructure with wallet APIs, treasury automation, policy engine, compliance, and MPC security — self-hosted or managed.',
+    title: 'Stablecoin Custody & Payment Infrastructure | Fystack',
+    description: 'Custody infrastructure for stablecoin payments with wallet APIs, treasury automation, policy engine, compliance, and MPC security — self-hosted or managed.',
     siteName: 'Fystack',
     images: [
       {
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@fystack',
     creator: '@fystack',
-    title: 'Stablecoin Payment Infrastructure & Wallet APIs | Fystack',
-    description: 'Launch stablecoin payment infrastructure with wallet APIs, treasury automation, policy engine, compliance, and MPC security — self-hosted or managed.',
+    title: 'Stablecoin Custody & Payment Infrastructure | Fystack',
+    description: 'Custody infrastructure for stablecoin payments with wallet APIs, treasury automation, policy engine, compliance, and MPC security — self-hosted or managed.',
     images: ['/self_custody.jpeg']
   },
   robots: {
