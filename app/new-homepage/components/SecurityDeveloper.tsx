@@ -104,6 +104,12 @@ export function SecurityDeveloper() {
       description: "Layer 2",
       logo: "/logo/Base.webp",
     },
+    {
+      name: "Stellar",
+      description: "Cross-Border Payments",
+      logo: "/logo/crypto/stellar.svg",
+      comingSoon: true,
+    },
   ];
 
   return (
@@ -346,7 +352,14 @@ export function SecurityDeveloper() {
                           </div>
                           {/* Chain Info */}
                           <div>
-                            <p className="text-slate-800 font-medium">{chain.name}</p>
+                            <div className="flex items-center gap-2">
+                              <p className="text-slate-800 font-medium">{chain.name}</p>
+                              {chain.comingSoon && (
+                                <span className="text-[10px] font-semibold uppercase tracking-wider text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full">
+                                  Coming Soon
+                                </span>
+                              )}
+                            </div>
                             <p className="text-slate-400 text-sm">{chain.description}</p>
                           </div>
                         </div>
