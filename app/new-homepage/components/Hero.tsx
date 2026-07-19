@@ -7,10 +7,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, ArrowDownLeft, RefreshCw, Bell } from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import { useIsVietnam } from "@/lib/useGeo";
 
 export function Hero() {
   const { ref: scrollRef, isVisible } = useScrollReveal(0.1);
   const [isDemoOpen, setIsDemoOpen] = useState(false);
+  const isVietnam = useIsVietnam();
 
   return (
     <section className="overflow-hidden py-4 lg:py-10">
@@ -86,7 +88,7 @@ export function Hero() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Get Started
+                      {isVietnam ? "Explore Demo" : "Get Started"}
                     </Link>
                   </Button>
                   <Button
@@ -95,7 +97,9 @@ export function Hero() {
                     className="rounded-full px-5 sm:px-7 py-5 sm:py-6 text-xs sm:text-sm font-semibold border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition-all"
                     asChild
                   >
-                    <Link href="/contact">Request a demo</Link>
+                    <Link href="/contact">
+                      {isVietnam ? "Contact Us" : "Request a demo"}
+                    </Link>
                   </Button>
                 </div>
 

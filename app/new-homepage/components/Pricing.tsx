@@ -1,22 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { SelfHostedComparison } from "./SelfHostedComparison";
+import { useIsVietnam } from "@/lib/useGeo";
 
 type TabKey = "cloud" | "self-hosted";
 
 export function Pricing() {
   const { ref, isVisible } = useScrollReveal();
+  const isVietnam = useIsVietnam();
   const [activeTab, setActiveTab] = useState<TabKey>("cloud");
   const [annualEnabled, setAnnualEnabled] = useState<Record<number, boolean>>({});
 
+  // Cloud (SaaS) plans aren't offered in Vietnam — self-hosted only.
+  useEffect(() => {
+    if (isVietnam) setActiveTab("self-hosted");
+  }, [isVietnam]);
+
   const tabs = [
-    { key: "cloud" as TabKey, label: "Cloud (SaaS)" },
+    ...(isVietnam ? [] : [{ key: "cloud" as TabKey, label: "Cloud (SaaS)" }]),
     { key: "self-hosted" as TabKey, label: "Self-Hosted" },
   ];
+  const showCloud = activeTab === "cloud" && !isVietnam;
 
   const cloudPlans = [
     {
@@ -109,7 +117,11 @@ export function Pricing() {
             </p>
 
             {/* Tab Buttons */}
-            <div className="inline-flex items-center bg-gray-200/50 rounded-lg p-1">
+            <div
+              className={`inline-flex items-center bg-gray-200/50 rounded-lg p-1 ${
+                tabs.length > 1 ? "" : "hidden"
+              }`}
+            >
               {tabs.map((tab) => (
                 <button
                   key={tab.key}
@@ -126,7 +138,7 @@ export function Pricing() {
             </div>
 
             <p className="text-slate-500 text-sm lg:text-base mt-4 max-w-xl mx-auto">
-              {activeTab === "cloud"
+              {showCloud
                 ? "For teams shipping fast. We run the infrastructure, you focus on product."
                 : "For teams with compliance, sovereignty, or high-volume requirements."}
             </p>
@@ -134,7 +146,7 @@ export function Pricing() {
 
           {/* Content Area */}
           <div className="border border-slate-200">
-            {activeTab === "cloud" ? (
+            {showCloud ? (
               /* Cloud Plans - 3 Columns */
               <div className="grid lg:grid-cols-3 gap-0">
                 {cloudPlans.map((plan, index) => (

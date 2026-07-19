@@ -7,6 +7,7 @@ import { CheckCircle2 } from "lucide-react";
 import appLogo from "@/app/images/app-logo.svg";
 import adevarLogo from "@/app/images/adevar_labs_dark_transparent_cropped.png";
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import { useIsVietnam } from "@/lib/useGeo";
 
 // Lerp function for smooth interpolation
 const lerp = (start: number, end: number, factor: number) => {
@@ -15,6 +16,7 @@ const lerp = (start: number, end: number, factor: number) => {
 
 export function CTAFooter() {
   const { ref: scrollRef, isVisible } = useScrollReveal();
+  const isVietnam = useIsVietnam();
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | null>(null);
   const targetPos = useRef({ x: 0.5, y: 0.5 });
@@ -333,7 +335,9 @@ export function CTAFooter() {
                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
                         cursor-pointer"
                     >
-                      <span className="relative z-10">Request a demo</span>
+                      <span className="relative z-10">
+                        {isVietnam ? "Contact Us" : "Request a demo"}
+                      </span>
                       <div
                         className="absolute inset-0 rounded-full bg-[#3b82f6] opacity-0
                         group-hover:opacity-50 blur-xl transition-opacity duration-300"

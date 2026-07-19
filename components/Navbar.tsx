@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useIsVietnam } from "@/lib/useGeo";
 import {
   ChevronDown,
   ChevronRight,
@@ -238,6 +239,7 @@ const DeveloperDropdown = () => {
 };
 
 const MobileNavigation = () => {
+  const isVietnam = useIsVietnam();
   const [isOpen, setIsOpen] = useState(false);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
@@ -454,7 +456,9 @@ const MobileNavigation = () => {
               </Link>
             </Button>
             <Button size="sm" asChild className="justify-start">
-              <Link href="/contact">Request a demo</Link>
+              <Link href="/contact">
+                {isVietnam ? "Contact Us" : "Request a demo"}
+              </Link>
             </Button>
           </div>
         </nav>
@@ -464,6 +468,8 @@ const MobileNavigation = () => {
 };
 
 export default function Navbar() {
+  const isVietnam = useIsVietnam();
+
   return (
     <>
       <div className="sticky top-0 z-50">
@@ -579,7 +585,9 @@ export default function Navbar() {
           </Button>
 
           <Button size="sm" asChild className="hidden sm:inline-flex">
-            <Link href="/contact">Request a demo</Link>
+            <Link href="/contact">
+              {isVietnam ? "Contact Us" : "Request a demo"}
+            </Link>
           </Button>
 
           {/* Mobile Navigation */}
