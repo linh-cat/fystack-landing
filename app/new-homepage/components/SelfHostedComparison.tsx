@@ -27,7 +27,7 @@ export function SelfHostedComparison() {
           infrastructure with complete sovereignty.
         </p>
         <Button
-          className="bg-slate-900 hover:bg-slate-800 text-white rounded-lg px-8 py-6 text-base font-medium mb-12"
+          className="max-w-full h-auto whitespace-normal bg-slate-900 hover:bg-slate-800 text-white rounded-lg px-5 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-medium mb-12"
           asChild
         >
           <Link
