@@ -17,6 +17,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'ghost.fystack.io',
       },
+      {
+        protocol: 'https',
+        hostname: 'ghostapi.fystack.io',
+      },
     ],
   },
   async headers() {
