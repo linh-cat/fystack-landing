@@ -192,6 +192,17 @@ export default function PrivacyPage() {
               <p className="text-base leading-relaxed mt-4">
                 To exercise these rights, please contact us at <a href="mailto:privacy@fystack.io" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline">privacy@fystack.io</a>.
               </p>
+
+              <h3 id="delete" className="text-xl font-semibold mt-6 mb-3 scroll-mt-24">7.1 Account and Data Deletion</h3>
+              <p className="text-base leading-relaxed">
+                To request deletion of your Fystack Cosigner account and associated data, email <a href="mailto:contact@fystack.io?subject=Delete%20account" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline">contact@fystack.io</a> from your registered address with the subject <strong>&quot;Delete account&quot;</strong>.
+              </p>
+              <p className="text-base leading-relaxed mt-4">
+                We remove your account, cosigner device registration, email address, and push notification token within 30 days. Audit logs required by law may be retained for up to 12 months.
+              </p>
+              <p className="text-base leading-relaxed mt-4">
+                Full instructions are available on our <a href="/delete-account" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline">account deletion page</a>.
+              </p>
             </section>
 
             <section>
