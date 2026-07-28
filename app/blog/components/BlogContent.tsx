@@ -15,10 +15,14 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { Calendar, Clock, Tag, Search, X } from "lucide-react";
+import { Calendar, Clock, Tag, Search, X, Code2, ArrowRight, ChevronDown } from "lucide-react";
 import { formatDate, getReadingTime, type GhostPost } from "@/lib/ghost";
 
 const POSTS_PER_PAGE = 9;
+const ENGINEERING_TAG = "Engineering";
+const SPOTLIGHT_COUNT = 3;
+// Shown as prominent top-level filters; everything else lives under "More topics"
+const PRIMARY_CATEGORIES = ["All posts", ENGINEERING_TAG, "Product", "Security", "Research", "Partnership"];
 
 interface BlogContentProps {
   posts: GhostPost[];
@@ -52,6 +56,12 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
   const [searchInput, setSearchInput] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [showAllTopics, setShowAllTopics] = useState(false);
+
+  const primaryCategories = PRIMARY_CATEGORIES.filter((c) => categories.includes(c));
+  const secondaryCategories = categories.filter((c) => !primaryCategories.includes(c));
+  const isEngineering = selectedCategory === ENGINEERING_TAG;
+  const topicsOpen = showAllTopics || secondaryCategories.includes(selectedCategory);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -88,8 +98,22 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
     postsTopRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const engineeringPosts = posts.filter((post) =>
+    post.tags.some((t) => t.name === ENGINEERING_TAG)
+  );
+
+  // On the default view, the newest engineering posts get their own section
+  // instead of being mixed into the generic feed.
+  const showEngineeringSpotlight =
+    selectedCategory === "All posts" && !searchQuery && engineeringPosts.length > 0;
+  const spotlightPosts = showEngineeringSpotlight
+    ? engineeringPosts.slice(0, SPOTLIGHT_COUNT)
+    : [];
+  const spotlightIds = new Set(spotlightPosts.map((p) => p.id));
+
   // Filter by tag + search
   const filteredPosts = posts.filter((post) => {
+    if (spotlightIds.has(post.id)) return false;
     const matchesTag =
       selectedCategory === "All posts" ||
       post.tags.some((t) => t.name === selectedCategory);
@@ -121,7 +145,9 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-2">Blog</h1>
             <p className="text-sm text-muted-foreground">
               {selectedCategory === "All posts"
-                ? "Updates from the Fystack team"
+                ? "Engineering deep dives and updates from the Fystack team"
+                : isEngineering
+                ? "Deep dives from the Fystack engineering team"
                 : `Posts tagged with "${selectedCategory}"`}
             </p>
           </div>
@@ -146,23 +172,82 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
             )}
           </div>
 
-          {/* Category Filter Pills */}
+          {/* Primary Filters */}
           <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => handleCategorySelect(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  category === selectedCategory
-                    ? "bg-foreground text-background"
-                    : "bg-muted text-muted-foreground hover:bg-muted/80"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+            {primaryCategories.map((category) => {
+              const active = category === selectedCategory;
+              const engineering = category === ENGINEERING_TAG;
+              return (
+                <button
+                  key={category}
+                  onClick={() => handleCategorySelect(category)}
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-colors border ${
+                    active
+                      ? "bg-foreground text-background border-foreground"
+                      : engineering
+                      ? "bg-primary/10 text-primary border-primary/30 hover:bg-primary/20"
+                      : "bg-muted text-muted-foreground border-transparent hover:bg-muted/80"
+                  }`}
+                >
+                  {engineering && <Code2 className="w-4 h-4" />}
+                  {category}
+                </button>
+              );
+            })}
           </div>
+
+          {/* Secondary Topics */}
+          {secondaryCategories.length > 0 && (
+            <div className="mt-4 text-center">
+              <button
+                onClick={() => setShowAllTopics((v) => !v)}
+                className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                More topics
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform ${topicsOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              {topicsOpen && (
+                <div className="flex flex-wrap gap-2 justify-center mt-4">
+                  {secondaryCategories.map((category) => (
+                    <button
+                      key={category}
+                      onClick={() => handleCategorySelect(category)}
+                      className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                        category === selectedCategory
+                          ? "bg-foreground text-background"
+                          : "bg-muted text-muted-foreground hover:bg-muted/80"
+                      }`}
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
         </div>
+
+        {/* Engineering landing banner */}
+        {isEngineering && (
+          <div className="mb-12 rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent p-8 md:p-10">
+            <div className="flex items-center gap-2 mb-3">
+              <Code2 className="w-5 h-5 text-primary" />
+              <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+                Engineering
+              </span>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              How we build Fystack
+            </h2>
+            <p className="text-muted-foreground max-w-2xl leading-relaxed">
+              Deep dives from the team building our MPC key infrastructure, policy engine,
+              and payment rails — threshold cryptography, distributed systems, supply-chain
+              security, and the trade-offs behind each design.
+            </p>
+          </div>
+        )}
 
         {/* Scroll anchor */}
         <div ref={postsTopRef} />
@@ -173,7 +258,7 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
               <p className="text-destructive">{error}</p>
             </div>
           </div>
-        ) : filteredPosts.length === 0 ? (
+        ) : filteredPosts.length === 0 && spotlightPosts.length === 0 ? (
           <div className="text-center py-20">
             <div className="bg-muted rounded-lg p-12 max-w-md mx-auto">
               <h3 className="text-xl font-semibold text-foreground mb-2">
@@ -278,6 +363,100 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
                   </Card>
                 </Link>
               </div>
+            )}
+
+            {/* Engineering Spotlight */}
+            {spotlightPosts.length > 0 && (
+              <section className="mb-16 rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/[0.07] via-primary/[0.03] to-transparent p-6 md:p-10">
+                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <Code2 className="w-5 h-5 text-primary" />
+                      <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+                        Engineering
+                      </span>
+                    </div>
+                    <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                      How we build Fystack
+                    </h2>
+                    <p className="text-muted-foreground mt-2 max-w-xl leading-relaxed">
+                      Threshold cryptography, distributed systems, and the design trade-offs
+                      behind our wallet infrastructure.
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => handleCategorySelect(ENGINEERING_TAG)}
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all whitespace-nowrap"
+                  >
+                    All engineering posts
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-6">
+                  {spotlightPosts.map((post) => (
+                    <Link key={post.id} href={`/blog/${post.slug}`} className="group">
+                      <Card className="h-full overflow-hidden border bg-background hover:shadow-lg transition-all duration-300">
+                        <div className="relative h-40 bg-muted/30">
+                          {post.feature_image ? (
+                            <Image
+                              src={post.feature_image}
+                              alt={post.title}
+                              fill
+                              className="object-contain"
+                              sizes="(max-width: 768px) 100vw, 33vw"
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-muted flex items-center justify-center">
+                              <Code2 className="w-10 h-10 text-muted-foreground" />
+                            </div>
+                          )}
+                        </div>
+                        <CardContent className="p-5 space-y-3">
+                          <h3 className="text-lg font-bold leading-tight text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                            {post.title}
+                          </h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+                            {post.excerpt}
+                          </p>
+                          <div className="flex items-center gap-2 pt-1">
+                            <div className="w-7 h-7 bg-muted rounded-full flex items-center justify-center overflow-hidden ring-1 ring-muted-foreground/10">
+                              {post.primary_author.profile_image ? (
+                                <Image
+                                  src={post.primary_author.profile_image}
+                                  alt={post.primary_author.name}
+                                  width={28}
+                                  height={28}
+                                  className="rounded-full object-cover w-full h-full"
+                                />
+                              ) : (
+                                <div className="w-7 h-7 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                                  <span className="text-white text-xs font-semibold">
+                                    {post.primary_author.name.charAt(0).toUpperCase()}
+                                  </span>
+                                </div>
+                              )}
+                            </div>
+                            <span className="text-sm font-medium text-foreground truncate">
+                              {post.primary_author.name}
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                            <span className="flex items-center gap-1.5">
+                              <Calendar className="w-3 h-3 text-primary/60" />
+                              {formatDate(post.published_at)}
+                            </span>
+                            <span className="flex items-center gap-1.5">
+                              <Clock className="w-3 h-3 text-primary/60" />
+                              {getReadingTime(post.reading_time)}
+                            </span>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  ))}
+                </div>
+              </section>
             )}
 
             {/* Posts Grid */}
