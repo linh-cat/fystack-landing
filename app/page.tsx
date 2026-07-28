@@ -10,6 +10,7 @@ import { FystackVsInHouse } from "./new-homepage/components/FystackVsInHouse";
 import { MPCSecurity } from "./new-homepage/components/MPCSecurity";
 import { SecurityDeveloper } from "./new-homepage/components/SecurityDeveloper";
 import { OperationalExcellence } from "./new-homepage/components/OperationalExcellence";
+import { Cosigners } from "./new-homepage/components/Cosigners";
 import { EnterpriseCompliance } from "./new-homepage/components/EnterpriseCompliance";
 import { SelfHostedDeployment } from "./new-homepage/components/SelfHostedDeployment";
 import { Pricing } from "./new-homepage/components/Pricing";
@@ -46,6 +47,9 @@ export default function Homepage() {
 
         {/* MPC Security Section */}
         <MPCSecurity />
+
+        {/* Cosigners (coming soon) */}
+        <Cosigners />
 
         {/* Security & Developer Section */}
         <SecurityDeveloper />

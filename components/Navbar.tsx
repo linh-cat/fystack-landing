@@ -20,6 +20,7 @@ import {
   Server,
   Send,
   ShieldCheck,
+  Fingerprint,
 } from "lucide-react";
 import {
   Sheet,
@@ -73,6 +74,12 @@ const SolutionsDropdown = () => {
       title: "Non-Custodial MPC Wallet",
       description: "Shared-custody wallets where the user, your backend, and a trusted co-signer each hold a key share — no single party can sign alone.",
       href: "/solutions/non-custodial-wallet",
+    },
+    {
+      icon: <Fingerprint className="h-5 w-5" />,
+      title: "Cosigner",
+      description: "An independent signer you control — it decodes every transaction locally and signs from a hardware enclave.",
+      href: "/solutions/cosigner",
     },
   ];
 
@@ -270,6 +277,12 @@ const MobileNavigation = () => {
       title: "Non-Custodial MPC Wallet",
       description: "User, backend, and co-signer each hold a key share.",
       href: "/solutions/non-custodial-wallet",
+    },
+    {
+      icon: <Fingerprint className="h-5 w-5" />,
+      title: "Cosigner",
+      description: "An independent signer that validates and signs in a hardware enclave.",
+      href: "/solutions/cosigner",
     },
   ];
 

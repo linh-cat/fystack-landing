@@ -7,6 +7,7 @@ export { WhyChooseUsTable } from "./WhyChooseUsTable";
 export { FystackVsInHouse } from "./FystackVsInHouse";
 export { MPCSecurity } from "./MPCSecurity";
 export { OperationalExcellence } from "./OperationalExcellence";
+export { Cosigners } from "./Cosigners";
 export { EnterpriseCompliance } from "./EnterpriseCompliance";
 export { SelfHostedDeployment } from "./SelfHostedDeployment";
 export { Pricing } from "./Pricing";
