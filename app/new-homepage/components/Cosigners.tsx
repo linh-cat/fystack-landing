@@ -196,13 +196,20 @@ export function Cosigners() {
           <div className="flex-1 border border-slate-200">
             {/* Mobile cosigner */}
             <div className="grid items-center gap-8 border-b border-slate-200 p-6 md:p-8 lg:grid-cols-2 lg:gap-12 lg:p-10">
-              <div className="flex justify-center">
+              <div className="flex items-center justify-center gap-3 sm:gap-5">
                 <Image
-                  src="/png/cosigners/ios-pending.webp"
-                  alt="Fystack mobile cosigner showing a pending sign request and key generation request awaiting approval"
-                  width={720}
-                  height={1295}
-                  className="h-auto w-full max-w-[320px] lg:max-w-[400px]"
+                  src="/png/cosigners/fystack-mobile-cosigner-pending-approvals.webp"
+                  alt="Fystack mobile cosigner app showing a pending USDC sign request and an MPC key generation request awaiting approval"
+                  width={559}
+                  height={781}
+                  className="h-auto w-full max-w-[220px] lg:max-w-[260px]"
+                />
+                <Image
+                  src="/png/cosigners/fystack-mobile-cosigner-sign-request-usdc-transfer.webp"
+                  alt="Fystack mobile cosigner decoding a 1,000 USDC transfer on Sepolia Ethereum with hold-to-sign confirmation"
+                  width={556}
+                  height={780}
+                  className="h-auto w-full max-w-[220px] lg:max-w-[260px]"
                 />
               </div>
 

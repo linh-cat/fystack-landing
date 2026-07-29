@@ -206,10 +206,10 @@ function Hero() {
 
             <div className="flex justify-center">
               <Image
-                src="/png/cosigners/ios-pending.webp"
-                alt="Fystack mobile cosigner showing a pending sign request and a key generation request awaiting approval"
-                width={720}
-                height={1295}
+                src="/png/cosigners/fystack-mobile-cosigner-sign-request-usdc-transfer.webp"
+                alt="Fystack mobile cosigner decoding a 1,000 USDC transfer on Sepolia Ethereum, with the signing input match verified before hold-to-sign"
+                width={556}
+                height={780}
                 priority
                 className="h-auto w-full max-w-[300px] lg:max-w-[380px]"
               />
@@ -423,10 +423,10 @@ function FormFactors() {
           <div className="grid items-center gap-8 border-b border-slate-200 p-6 md:p-8 lg:grid-cols-2 lg:gap-12 lg:p-10">
             <div className="flex justify-center">
               <Image
-                src="/png/cosigners/ios-pending.webp"
-                alt="Mobile cosigner pending queue with a sign request and a key generation request"
-                width={720}
-                height={1295}
+                src="/png/cosigners/fystack-mobile-cosigner-pending-approvals.webp"
+                alt="Fystack mobile cosigner pending queue with a USDC sign request and an MPC key generation request, each showing 0 of 1 approved"
+                width={559}
+                height={781}
                 className="h-auto w-full max-w-[320px] lg:max-w-[400px]"
               />
             </div>
@@ -490,6 +490,94 @@ function FormFactors() {
 
             <CosignerTerminal />
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const APP_SCREENS = [
+  {
+    src: "/png/cosigners/fystack-mobile-cosigner-approval-timeline.webp",
+    width: 564,
+    height: 777,
+    alt: "Fystack mobile cosigner approval timeline showing the raw signing input, 0 of 1 approvals, and the request, signing, and completion stages",
+    title: "Approvals and timeline",
+    caption:
+      "The raw signing input, who still has to approve, and every stage from request to settlement.",
+  },
+  {
+    src: "/png/cosigners/fystack-mobile-cosigner-transaction-history.webp",
+    width: 558,
+    height: 782,
+    alt: "Fystack mobile cosigner transaction history showing a confirming 1,000 USDC transfer on Sepolia Ethereum",
+    title: "Transaction history",
+    caption:
+      "Everything you signed, with live confirmation status and the destination address.",
+  },
+  {
+    src: "/png/cosigners/fystack-mobile-cosigner-activity-log.webp",
+    width: 563,
+    height: 770,
+    alt: "Fystack mobile cosigner activity log listing approved wallet setup and transaction signing events with timestamps",
+    title: "Activity log",
+    caption:
+      "An audit trail of every wallet setup and signing event this device approved.",
+  },
+];
+
+function InsideTheApp() {
+  const { ref, isVisible } = useScrollReveal();
+
+  return (
+    <section className="bg-white py-4 lg:py-10 2xl:py-20">
+      <div
+        ref={ref}
+        className={`mx-auto max-w-[1440px] px-4 lg:px-16 2xl:px-0 ${
+          isVisible
+            ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]"
+            : "opacity-0"
+        }`}
+      >
+        <div className="mb-12 px-4 md:mb-16">
+          <p className="mb-4 text-sm font-semibold tracking-wide text-[#3b82f6]">
+            /INSIDE THE APP/
+          </p>
+          <h2 className="max-w-3xl text-2xl font-bold leading-tight text-slate-800 md:text-3xl lg:text-4xl">
+            Every approval, on the record
+          </h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-500 lg:text-lg">
+            The mobile cosigner is not just an approve button. It keeps the full
+            context of what was requested, what was signed, and what this device
+            has authorized.
+          </p>
+        </div>
+
+        <div className="mx-4 grid grid-cols-1 gap-0 border border-slate-200 md:grid-cols-3">
+          {APP_SCREENS.map((screen, index) => (
+            <div
+              key={screen.src}
+              className={`p-6 lg:p-8 ${
+                index < APP_SCREENS.length - 1
+                  ? "border-b border-slate-200 md:border-b-0 md:border-r"
+                  : ""
+              }`}
+            >
+              <Image
+                src={screen.src}
+                alt={screen.alt}
+                width={screen.width}
+                height={screen.height}
+                className="mx-auto mb-6 h-auto w-full max-w-[280px]"
+              />
+              <h3 className="mb-2 text-base font-bold leading-snug text-slate-800 lg:text-lg">
+                {screen.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-slate-500">
+                {screen.caption}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -616,6 +704,7 @@ export default function CosignerPage() {
         <WhatYouSign />
         <HowItWorks />
         <FormFactors />
+        <InsideTheApp />
         <UseCases />
         <ContactBanner />
         <CTAFooter />
