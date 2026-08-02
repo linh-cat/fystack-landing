@@ -25,6 +25,120 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    version: "v0.1.16",
+    date: "July 31, 2026",
+    isoDate: "2026-07-31",
+    title: "Auth hardening, redesigned Withdrawal Center & multi-sig tracking",
+    summary:
+      "A sign-up and sign-in hardening pass — mandatory email verification — alongside a rebuilt Withdrawal Center with live multi-signature approval tracking.",
+    categories: ["Security", "Platform", "Developer"],
+    highlights: [
+      {
+        title: "Mandatory email verification",
+        description:
+          "Sign-in now requires a verified email address. The verification flow was hardened mid-rollout to close an email-enumeration gap where sign-in behavior could reveal whether an address was registered.",
+      },
+      {
+        title: "Redesigned Withdrawal Center",
+        description:
+          "A rebuilt withdrawal list, detail, and step tracker replaces the legacy withdrawal tracker, with live status polling and clearer per-step progress for higher transaction volumes.",
+      },
+      {
+        title: "Multi-signature approval tracking",
+        description:
+          "Withdrawal details now show live approval status per signer, and policy rules can automatically bypass manual approval for withdrawals that qualify.",
+      },
+      {
+        title: "Wallet balances & overview API",
+        description:
+          "New endpoints expose aggregated wallet balance and overview data, and withdrawal responses now include wallet details and approval counts.",
+      },
+      {
+        title: "Analytics permission scoping",
+        description:
+          "Analytics routes now sit behind a dedicated RBAC permission instead of being reachable by any authenticated role.",
+      },
+    ],
+    components: ["Apex Platform v0.1.16", "Fystack UI v0.1.16"],
+    docsUrl: "https://docs.fystack.io/changelog/v0.1.16",
+  },
+  {
+    version: "v0.1.15",
+    date: "June 30, 2026",
+    isoDate: "2026-06-30",
+    title: "Programmable Policy Engine v2 & full RBAC overhaul",
+    summary:
+      "A ground-up rebuild of policy and access control: a new policy engine with signed, tamper-evident bundles, and a complete RBAC overhaul with granular permissions and self-service role management.",
+    categories: ["Security", "Platform", "Compliance"],
+    highlights: [
+      {
+        title: "Programmable Policy Engine v2",
+        description:
+          "A new policy engine evaluates withdrawal and contract-call actions against configurable rules, with conflict detection and a full rule-builder UI for defining conditions, wallet targeting, and approval-group bindings.",
+      },
+      {
+        title: "Signed policy bundles",
+        description:
+          "Policy bundles and cache entries are now cryptographically signed and verified, so served or cached policy can be checked for tampering.",
+      },
+      {
+        title: "Custom role management",
+        description:
+          "Admins can create, edit, and delete custom roles from a new role management UI, with a permission matrix that prevents granting access above one's own level.",
+      },
+      {
+        title: "Granular permissions",
+        description:
+          "Coarse workspace-level permissions were split into per-module read/write permissions, the legacy implicit wallet-role system was removed in favor of explicit wallet assignments, and the `guest` role was retired in favor of `viewer`.",
+      },
+      {
+        title: "Live policy reload",
+        description:
+          "RBAC and policy changes now sync and reload without a service restart.",
+      },
+    ],
+    components: ["Apex Platform v0.1.15", "Fystack UI v0.1.15"],
+    docsUrl: "https://docs.fystack.io/changelog/v0.1.15",
+  },
+  {
+    version: "v0.1.14",
+    date: "May 31, 2026",
+    isoDate: "2026-05-31",
+    title: "License key gating, real-time notifications & RBAC foundations",
+    summary:
+      "Self-hosted license enforcement, real-time notifications over SSE, and the first wave of role-based access control ahead of June's full RBAC rollout.",
+    categories: ["Platform", "Security", "Developer"],
+    highlights: [
+      {
+        title: "License key system",
+        description:
+          "Self-hosted deployments are now gated by a signed license key, verified against a public key, with a keygen CLI for issuing keys.",
+      },
+      {
+        title: "Real-time notifications",
+        description:
+          "Notifications now stream to clients over Server-Sent Events instead of polling, for instant delivery of alerts and status updates.",
+      },
+      {
+        title: "API key IP whitelisting",
+        description:
+          "API keys can now be restricted to a whitelist of client IP addresses, and updated after creation, reducing the blast radius of a leaked key.",
+      },
+      {
+        title: "RBAC foundations",
+        description:
+          "Initial role-based access control: roles are assigned on workspace invitation, surfaced in workspace API responses, and recorded in a new audit trail for role changes.",
+      },
+      {
+        title: "Canonical JSON signing fix",
+        description:
+          "Fixed JSON canonicalization to follow RFC 8785, addressing a pentest finding affecting anything hashed or signed against a canonical payload.",
+      },
+    ],
+    components: ["Apex Platform v0.1.14", "Fystack UI v0.1.14"],
+    docsUrl: "https://docs.fystack.io/changelog/v0.1.14",
+  },
+  {
     version: "v0.1.13",
     date: "April 28, 2026",
     isoDate: "2026-04-28",
