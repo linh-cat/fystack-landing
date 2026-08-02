@@ -111,9 +111,10 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
     : [];
   const spotlightIds = new Set(spotlightPosts.map((p) => p.id));
 
-  // Filter by tag + search
+  // Filter by tag + search. Spotlighted engineering posts stay eligible here so
+  // the newest post overall can still take the featured slot even if it's also
+  // shown in the engineering spotlight below.
   const filteredPosts = posts.filter((post) => {
-    if (spotlightIds.has(post.id)) return false;
     const matchesTag =
       selectedCategory === "All posts" ||
       post.tags.some((t) => t.name === selectedCategory);
@@ -134,7 +135,11 @@ export default function BlogContent({ posts, categories, error }: BlogContentPro
 
   const showFeatured = currentPage === 1 && !searchQuery;
   const featuredPost = showFeatured ? (pagedPosts[0] ?? null) : null;
-  const gridPosts = showFeatured ? pagedPosts.slice(1) : pagedPosts;
+  // The grid still excludes spotlighted posts (other than the featured one,
+  // which is already removed by slice(1)) to avoid duplicating them.
+  const gridPosts = (showFeatured ? pagedPosts.slice(1) : pagedPosts).filter(
+    (post) => !spotlightIds.has(post.id)
+  );
 
   return (
     <main className="py-16">
