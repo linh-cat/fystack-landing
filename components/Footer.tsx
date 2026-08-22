@@ -44,7 +44,7 @@ export default function Footer() {
                 <span className="sr-only">Twitter</span>
               </Link>
               <Link
-                href="https://www.linkedin.com/company/108708976"
+                href="https://www.linkedin.com/company/fystack"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors duration-200"
