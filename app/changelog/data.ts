@@ -9,6 +9,12 @@ export type ChangelogCategory =
 export type ChangelogHighlight = {
   title: string;
   description: string;
+  image?: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
 };
 
 export type ChangelogEntry = {
@@ -24,6 +30,56 @@ export type ChangelogEntry = {
 };
 
 export const changelog: ChangelogEntry[] = [
+  {
+    version: "v0.2",
+    date: "August 26, 2026",
+    isoDate: "2026-08-26",
+    title: "Approval Groups, Ed25519 client keys & API key expiration",
+    summary:
+      "A governance and API security release: Approval Groups bring multi-signature control to withdrawals, policies, and group membership, alongside Ed25519 client key pair authentication and API key expiration dates.",
+    categories: ["Security", "Platform"],
+    highlights: [
+      {
+        title: "Approval Groups",
+        description:
+          "A named set of workspace members plus a signature threshold now governs sensitive actions. Assign a group to a wallet so no withdrawal leaves it until enough members sign off, or to a policy so rule changes need sign-off before they apply.",
+        image: {
+          src: "/changelog/approval-group.png",
+          alt: "Approval Group tab under User Management showing the Default Approval Group with its threshold, status, and members",
+          width: 2940,
+          height: 1912,
+        },
+      },
+      {
+        title: "Approval-gated group management",
+        description:
+          "Creating a group, changing its membership, and changing a wallet's assigned group are each approval-gated, so no single person can grant themselves signing authority. Every workspace starts with a Default Approval Group that reviews the creation of other groups.",
+      },
+      {
+        title: "Approval Group Requests",
+        description:
+          "A new review tab under Approval surfaces pending group requests with per-reviewer status and an optional comment on approve or reject.",
+      },
+      {
+        title: "Client Key Pair authentication",
+        description:
+          "API keys can now authenticate with an Ed25519 client key pair, so the signing credential never has to be stored by Fystack. Generate the key pair locally, or hold it non-exportable in AWS KMS.",
+        image: {
+          src: "/changelog/client-key-pair.png",
+          alt: "Create API Key flow with Client Key Pair selected as the recommended authentication method, using an Ed25519 public key with no secret stored",
+          width: 1287,
+          height: 1158,
+        },
+      },
+      {
+        title: "API key expiration dates",
+        description:
+          "API keys can carry an expiration date, making credential rotation a routine step instead of manual cleanup.",
+      },
+    ],
+    components: ["Apex Platform v0.2", "Fystack UI v0.2"],
+    docsUrl: "https://docs.fystack.io/changelog/v0.2",
+  },
   {
     version: "v0.1.16",
     date: "July 31, 2026",

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Check, Rss, Sparkles } from "lucide-react";
 
@@ -295,13 +296,24 @@ function EntryRow({
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#3b82f6]/10">
                     <Check className="h-3 w-3 text-[#3b82f6]" />
                   </span>
-                  <div>
+                  <div className="flex-1">
                     <div className="text-sm font-semibold text-slate-900">
                       {h.title}
                     </div>
                     <p className="text-sm text-slate-600 mt-0.5 leading-relaxed">
                       {h.description}
                     </p>
+                    {h.image && (
+                      <div className="mt-3 overflow-hidden rounded-lg border border-slate-200 shadow-sm">
+                        <Image
+                          src={h.image.src}
+                          alt={h.image.alt}
+                          width={h.image.width}
+                          height={h.image.height}
+                          className="w-full h-auto"
+                        />
+                      </div>
+                    )}
                   </div>
                 </li>
               ))}
