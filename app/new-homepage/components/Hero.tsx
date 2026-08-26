@@ -49,7 +49,7 @@ export function Hero() {
                       <span className="relative inline-flex h-2 w-2 rounded-full bg-[#3b82f6]" />
                     </span>
                     <span className="text-xs sm:text-sm bg-gradient-to-r from-[#3b82f6] to-[#8b5cf6] bg-clip-text text-transparent">
-                      v0.1.13 is here
+                      v0.2 is here
                     </span>
                     <span className="text-[#8b5cf6] text-xs transition-transform group-hover:translate-x-0.5">
                       →

@@ -206,7 +206,7 @@ export default function ContactPage() {
         <div className="max-w-[1440px] px-4 lg:px-16 2xl:px-0 mx-auto">
           <div
             ref={heroRef.ref}
-            className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-start ${
+            className={`grid lg:grid-cols-[1fr_1fr_260px] gap-8 lg:gap-10 items-start ${
               heroRef.isVisible ? "animate-[scroll-fade-up_0.6s_ease-out_forwards]" : "opacity-0"
             }`}
           >
@@ -238,8 +238,30 @@ export default function ContactPage() {
               </ul>
             </div>
 
-            {/* Right — panel */}
-            <div>
+            {/* Right — telegram card */}
+            <a
+              href="https://t.me/+9AtC0z8sS79iZjFl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex flex-col border border-[#3b82f6]/30 bg-gradient-to-br from-[#3b82f6]/5 to-transparent hover:border-[#3b82f6]/50 p-6 transition-all hover:shadow-lg lg:order-3"
+            >
+              <div className="w-11 h-11 rounded-lg bg-[#3b82f6] text-white flex items-center justify-center flex-shrink-0 mb-4">
+                <TelegramIcon className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-bold text-slate-800 mb-1.5 leading-snug">
+                Need a faster reply?
+              </h3>
+              <p className="text-sm text-slate-600 leading-relaxed mb-4">
+                Skip the form and message our team directly on Telegram.
+              </p>
+              <div className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-[#3b82f6] group-hover:gap-2.5 transition-all">
+                Message on Telegram
+                <ArrowUpRight className="w-4 h-4" />
+              </div>
+            </a>
+
+            {/* Middle — form panel */}
+            <div className="lg:order-2">
               <div className="relative border border-[#3b82f6]/20 bg-gradient-to-br from-[#3b82f6]/5 to-transparent p-8 lg:p-10">
                 {/* Corner accents */}
                 <div className="absolute -top-[3px] -left-[3px] w-2.5 h-2.5 bg-[#3b82f6]" />
@@ -436,30 +458,6 @@ export default function ContactPage() {
             <span className="text-xs font-semibold tracking-widest text-slate-400 uppercase">Or reach us another way</span>
             <div className="h-px flex-1 bg-slate-200" />
           </div>
-
-          {/* Faster alternative — Telegram */}
-          <a
-            href="https://t.me/anhthind"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative border border-[#3b82f6]/30 bg-gradient-to-br from-[#3b82f6]/5 to-transparent hover:border-[#3b82f6]/50 p-8 transition-all hover:shadow-lg block mb-6"
-          >
-            <div className="flex flex-col sm:flex-row items-start gap-5">
-              <div className="w-12 h-12 rounded-lg bg-[#3b82f6] text-white flex items-center justify-center flex-shrink-0">
-                <TelegramIcon className="w-6 h-6" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-bold text-slate-800 mb-2">Need a faster reply? Message us on Telegram</h3>
-                <p className="text-slate-600 leading-relaxed mb-4">
-                  Prefer to skip the form? Reach our team directly. Share your role, the product you&apos;re building, and what you&apos;d like our help with.
-                </p>
-                <div className="inline-flex items-center gap-1.5 text-sm font-medium text-[#3b82f6] group-hover:gap-2.5 transition-all">
-                  Message on Telegram
-                  <ArrowUpRight className="w-4 h-4" />
-                </div>
-              </div>
-            </div>
-          </a>
 
           {/* Support links */}
           <div className="grid sm:grid-cols-2 gap-4">
