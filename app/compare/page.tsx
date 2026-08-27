@@ -52,7 +52,7 @@ export default function ComparePage() {
             href="https://github.com/fystack/fystack-selfhost-scripts"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors shadow-lg"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#3b82f6] text-white rounded-lg font-medium hover:bg-[#2563eb] transition-colors shadow-lg"
           >
             <Github className="w-5 h-5" />
             Deploy pilot with one single command
@@ -62,85 +62,73 @@ export default function ComparePage() {
           <div className="mt-16 max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
               {/* Fystack - Private Network */}
-              <div className="relative">
-                <div className="absolute inset-0 bg-green-100 dark:bg-green-900/20 rounded-2xl blur-xl opacity-50"></div>
-                <div className="relative bg-white dark:bg-slate-800 rounded-2xl p-8 border-4 border-green-500 dark:border-green-600 shadow-xl">
-                  <div className="flex items-center justify-center mb-4">
-                    <Shield className="w-12 h-12 text-green-600 dark:text-green-400" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 text-center mb-4">
-                    Fystack Self-Hosted
-                  </h3>
-
-                  {/* Private Network Box */}
-                  <div className="relative border-4 border-dashed border-green-500 dark:border-green-600 rounded-xl p-6 bg-green-50 dark:bg-green-950/30">
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-green-500 dark:bg-green-600 text-white text-sm font-semibold rounded-full flex items-center gap-1">
-                      <Lock className="w-3 h-3" />
-                      Private Network
-                    </div>
-
-                    {/* Internal Components */}
-                    <div className="space-y-3 mt-2">
-                      <div className="flex items-center gap-3 bg-white dark:bg-slate-700 rounded-lg p-3 border border-green-300 dark:border-green-700">
-                        <Server className="w-5 h-5 text-green-600 dark:text-green-400" />
-                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Your Infrastructure</span>
-                      </div>
-                      <div className="flex items-center gap-3 bg-white dark:bg-slate-700 rounded-lg p-3 border border-green-300 dark:border-green-700">
-                        <Lock className="w-5 h-5 text-green-600 dark:text-green-400" />
-                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Your Keys</span>
-                      </div>
-                      <div className="flex items-center gap-3 bg-white dark:bg-slate-700 rounded-lg p-3 border border-green-300 dark:border-green-700">
-                        <Shield className="w-5 h-5 text-green-600 dark:text-green-400" />
-                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Your Control</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <p className="text-center text-sm text-green-700 dark:text-green-400 font-semibold mt-4">
-                    ✓ Isolated from Internet
-                  </p>
+              <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-[#3b82f6]">
+                <div className="flex items-center justify-center mb-4">
+                  <Shield className="w-10 h-10 text-[#3b82f6]" />
                 </div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 text-center mb-3">
+                  Fystack Self-Hosted
+                </h3>
+                <div className="flex justify-center mb-6">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#3b82f6]/10 text-[#3b82f6] text-sm font-medium rounded-full">
+                    <Lock className="w-3.5 h-3.5" />
+                    Private Network
+                  </span>
+                </div>
+
+                <div className="divide-y divide-slate-100 dark:divide-slate-700">
+                  <div className="flex items-center gap-3 py-3">
+                    <Server className="w-5 h-5 text-[#3b82f6] flex-shrink-0" />
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Your Infrastructure</span>
+                  </div>
+                  <div className="flex items-center gap-3 py-3">
+                    <Lock className="w-5 h-5 text-[#3b82f6] flex-shrink-0" />
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Your Keys</span>
+                  </div>
+                  <div className="flex items-center gap-3 py-3">
+                    <Shield className="w-5 h-5 text-[#3b82f6] flex-shrink-0" />
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Your Control</span>
+                  </div>
+                </div>
+
+                <p className="text-center text-sm text-[#3b82f6] font-semibold mt-6">
+                  ✓ Isolated from Internet
+                </p>
               </div>
 
               {/* Others - Exposed to Internet */}
-              <div className="relative">
-                <div className="absolute inset-0 bg-orange-100 dark:bg-orange-900/20 rounded-2xl blur-xl opacity-50"></div>
-                <div className="relative bg-white dark:bg-slate-800 rounded-2xl p-8 border-4 border-orange-500 dark:border-orange-600 shadow-xl">
-                  <div className="flex items-center justify-center mb-4">
-                    <AlertTriangle className="w-12 h-12 text-orange-600 dark:text-orange-400" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 text-center mb-4">
-                    Others (Cloud-based)
-                  </h3>
-
-                  {/* Internet Exposed */}
-                  <div className="relative border-4 border-dashed border-orange-500 dark:border-orange-600 rounded-xl p-6 bg-orange-50 dark:bg-orange-950/30">
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-orange-500 dark:bg-orange-600 text-white text-sm font-semibold rounded-full flex items-center gap-1">
-                      <Globe className="w-3 h-3" />
-                      Public Internet
-                    </div>
-
-                    {/* External Components */}
-                    <div className="space-y-3 mt-2">
-                      <div className="flex items-center gap-3 bg-white dark:bg-slate-700 rounded-lg p-3 border border-orange-300 dark:border-orange-700">
-                        <Cloud className="w-5 h-5 text-orange-600 dark:text-orange-400" />
-                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Vendor Infrastructure</span>
-                      </div>
-                      <div className="flex items-center gap-3 bg-white dark:bg-slate-700 rounded-lg p-3 border border-orange-300 dark:border-orange-700">
-                        <Globe className="w-5 h-5 text-orange-600 dark:text-orange-400" />
-                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Shared Keys</span>
-                      </div>
-                      <div className="flex items-center gap-3 bg-white dark:bg-slate-700 rounded-lg p-3 border border-orange-300 dark:border-orange-700">
-                        <AlertTriangle className="w-5 h-5 text-orange-600 dark:text-orange-400" />
-                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Limited Control</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <p className="text-center text-sm text-orange-700 dark:text-orange-400 font-semibold mt-4">
-                    ⚠ Exposed Attack Surface
-                  </p>
+              <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-600">
+                <div className="flex items-center justify-center mb-4">
+                  <AlertTriangle className="w-10 h-10 text-slate-400" />
                 </div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 text-center mb-3">
+                  Others (Cloud-based)
+                </h3>
+                <div className="flex justify-center mb-6">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 text-sm font-medium rounded-full">
+                    <Globe className="w-3.5 h-3.5" />
+                    Public Internet
+                  </span>
+                </div>
+
+                <div className="divide-y divide-slate-100 dark:divide-slate-700">
+                  <div className="flex items-center gap-3 py-3">
+                    <Cloud className="w-5 h-5 text-slate-400 flex-shrink-0" />
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Vendor Infrastructure</span>
+                  </div>
+                  <div className="flex items-center gap-3 py-3">
+                    <Globe className="w-5 h-5 text-slate-400 flex-shrink-0" />
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Shared Keys</span>
+                  </div>
+                  <div className="flex items-center gap-3 py-3">
+                    <AlertTriangle className="w-5 h-5 text-slate-400 flex-shrink-0" />
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Limited Control</span>
+                  </div>
+                </div>
+
+                <p className="text-center text-sm text-slate-500 dark:text-slate-400 font-semibold mt-6">
+                  ⚠ Exposed Attack Surface
+                </p>
               </div>
             </div>
 

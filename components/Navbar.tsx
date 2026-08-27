@@ -333,7 +333,7 @@ const MobileNavigation = () => {
 
   const navLinks = [
     { href: "/wallet-as-service", title: "Platform", external: false, badge: false },
-    { href: "/new-homepage#pricing", title: "Pricing", external: false, badge: false },
+    { href: "/pricing", title: "Pricing", external: false, badge: false },
     { href: "/compare", title: "Compare", external: false, badge: false },
    
     { href: "/blog", title: "Blog", external: false, badge: false },
@@ -530,7 +530,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/new-homepage#pricing"
+              href="/pricing"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Pricing

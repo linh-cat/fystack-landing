@@ -11,7 +11,7 @@ export default function PricingPage() {
       <Navbar />
 
       <main className="flex-1">
-        <Pricing />
+        <Pricing showComparisonTable />
         <CTAFooter />
       </main>
 

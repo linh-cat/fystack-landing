@@ -27,7 +27,7 @@ export function SelfHostedComparison() {
           infrastructure with complete sovereignty.
         </p>
         <Button
-          className="max-w-full h-auto whitespace-normal bg-slate-900 hover:bg-slate-800 text-white rounded-lg px-5 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-medium mb-12"
+          className="max-w-full h-auto whitespace-normal bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-lg px-5 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-medium mb-12"
           asChild
         >
           <Link
@@ -43,23 +43,23 @@ export function SelfHostedComparison() {
 
       <div className="grid md:grid-cols-2 gap-6">
         {/* Fystack Self-Hosted */}
-        <Card className="relative border-2 border-emerald-500 bg-white rounded-2xl overflow-hidden">
+        <Card className="relative border-2 border-[#3b82f6] bg-white rounded-2xl overflow-hidden">
           <CardContent className="p-6 md:p-8">
             <div className="flex items-center justify-center mb-4">
-              <ShieldCheck className="w-12 h-12 text-emerald-600" />
+              <ShieldCheck className="w-12 h-12 text-[#3b82f6]" />
             </div>
             <h3 className="text-2xl font-bold text-slate-900 mb-4 text-center">
               Fystack Self-Hosted
             </h3>
 
             <div className="mb-6 flex justify-center">
-              <Badge className="bg-emerald-500 hover:bg-emerald-500 text-white px-4 py-2 text-sm font-medium inline-flex items-center gap-1.5">
+              <Badge className="bg-[#3b82f6] hover:bg-[#3b82f6] text-white px-4 py-2 text-sm font-medium inline-flex items-center gap-1.5">
                 <Lock className="w-3.5 h-3.5" />
                 Private Network
               </Badge>
             </div>
 
-            <div className="space-y-3 mb-6 border-2 border-dashed border-emerald-300 rounded-xl p-4 md:p-6 bg-emerald-50/50">
+            <div className="space-y-3 mb-6 border-2 border-dashed border-[#3b82f6]/30 rounded-xl p-4 md:p-6 bg-[#3b82f6]/5">
               <ComparisonRow
                 icon={<Server className="w-5 h-5 text-slate-600" />}
                 title="Your Infrastructure"
@@ -84,7 +84,7 @@ export function SelfHostedComparison() {
               />
             </div>
 
-            <div className="flex items-center justify-center gap-2 text-emerald-600 font-medium">
+            <div className="flex items-center justify-center gap-2 text-[#3b82f6] font-medium">
               <Check className="w-5 h-5" />
               <span>Isolated from Internet</span>
             </div>
@@ -92,23 +92,23 @@ export function SelfHostedComparison() {
         </Card>
 
         {/* Others Cloud-based */}
-        <Card className="relative border-2 border-orange-500 bg-white rounded-2xl overflow-hidden">
+        <Card className="relative border-2 border-slate-300 bg-white rounded-2xl overflow-hidden">
           <CardContent className="p-6 md:p-8">
             <div className="flex items-center justify-center mb-4">
-              <AlertTriangle className="w-12 h-12 text-orange-600" />
+              <AlertTriangle className="w-12 h-12 text-slate-500" />
             </div>
             <h3 className="text-2xl font-bold text-slate-900 mb-4 text-center">
               Others (Cloud-based)
             </h3>
 
             <div className="mb-6 flex justify-center">
-              <Badge className="bg-orange-500 hover:bg-orange-500 text-white px-4 py-2 text-sm font-medium inline-flex items-center gap-1.5">
+              <Badge className="bg-slate-500 hover:bg-slate-500 text-white px-4 py-2 text-sm font-medium inline-flex items-center gap-1.5">
                 <Globe className="w-3.5 h-3.5" />
                 Public Internet
               </Badge>
             </div>
 
-            <div className="space-y-3 mb-6 border-2 border-dashed border-orange-300 rounded-xl p-4 md:p-6 bg-orange-50/50">
+            <div className="space-y-3 mb-6 border-2 border-dashed border-slate-300 rounded-xl p-4 md:p-6 bg-slate-50">
               <ComparisonRow
                 icon={<Cloud className="w-5 h-5 text-slate-600" />}
                 title="Vendor Infrastructure"
@@ -133,7 +133,7 @@ export function SelfHostedComparison() {
               />
             </div>
 
-            <div className="flex items-center justify-center gap-2 text-orange-600 font-medium">
+            <div className="flex items-center justify-center gap-2 text-slate-500 font-medium">
               <AlertTriangle className="w-5 h-5" />
               <span>Exposed Attack Surface</span>
             </div>

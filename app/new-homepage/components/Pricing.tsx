@@ -3,13 +3,15 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Check } from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { SelfHostedComparison } from "./SelfHostedComparison";
+import { PricingComparisonTable } from "./PricingComparisonTable";
 import { useIsVietnam } from "@/lib/useGeo";
 
 type TabKey = "cloud" | "self-hosted";
 
-export function Pricing() {
+export function Pricing({ showComparisonTable = false }: { showComparisonTable?: boolean }) {
   const { ref, isVisible } = useScrollReveal();
   const isVietnam = useIsVietnam();
   const [activeTab, setActiveTab] = useState<TabKey>("cloud");
@@ -55,7 +57,8 @@ export function Pricing() {
         "Up to 3 MPC wallets",
         "2,000 Hyper wallets",
         "$200K maximum outbound volume",
-        "2 workspaces, 4 users",
+        "1 workspace, 4 users",
+        "Sandbox / testnet access",
         "Advanced security features",
         "Basic support",
       ],
@@ -75,7 +78,7 @@ export function Pricing() {
         "Up to 20 MPC wallets",
         "5,000 Hyper wallets",
         "$1M maximum outbound volume",
-        "3 workspaces, 10 users",
+        "1 workspace, 10 users",
         "Priority support",
         "Advanced analytics",
       ],
@@ -148,12 +151,12 @@ export function Pricing() {
           <div className="border border-slate-200">
             {showCloud ? (
               /* Cloud Plans - 3 Columns */
-              <div className="grid lg:grid-cols-3 gap-0">
+              <div className="grid md:grid-cols-3 gap-0">
                 {cloudPlans.map((plan, index) => (
                   <div
                     key={index}
                     className={`p-8 flex flex-col ${
-                      index < 2 ? "border-b lg:border-b-0 lg:border-r border-slate-200" : ""
+                      index < 2 ? "border-b md:border-b-0 md:border-r border-slate-200" : ""
                     }`}
                   >
                     {/* Badge and Toggle */}
@@ -211,7 +214,9 @@ export function Pricing() {
                     <div className="space-y-3 flex-1">
                       {plan.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-start gap-3">
-                          <Image src="/svg/pricing/check.svg" alt="Check" width={16} height={16} className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
+                          <div className="w-4 h-4 rounded-full bg-[#3b82f6] flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
+                          </div>
                           <span className="text-slate-600 text-sm">{feature}</span>
                         </div>
                       ))}
@@ -243,9 +248,7 @@ export function Pricing() {
                 </span>
 
                 <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-slate-500 text-base">Starts at</span>
-                  <h3 className="text-3xl lg:text-4xl font-bold text-slate-800">$2,000</h3>
-                  <span className="text-slate-500">/month</span>
+                  <h3 className="text-3xl lg:text-4xl font-bold text-slate-800">Custom pricing</h3>
                 </div>
                 <p className="text-slate-500 text-base mb-8">
                   Everything you need to build secure wallet infrastructure
@@ -255,7 +258,9 @@ export function Pricing() {
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   {selfHostedFeatures.map((feature, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Image src="/svg/pricing/check.svg" alt="Check" width={16} height={16} className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
+                      <div className="w-4 h-4 rounded-full bg-[#3b82f6] flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
+                      </div>
                       <div>
                         <p className="font-semibold text-slate-800">{feature.title}</p>
                         <p className="text-slate-500 text-sm">{feature.description}</p>
@@ -294,7 +299,7 @@ export function Pricing() {
               <div className="flex flex-col md:flex-row md:items-center gap-4">
                 <h3 className="text-2xl font-bold text-slate-800">Enterprise</h3>
                 <p className="text-slate-500 text-sm">
-                  For teams that need custom integrations, SLA guarantees, and dedicated support.
+                  For teams that need multiple workspaces, custom integrations, SLA guarantees, and dedicated support.
                 </p>
               </div>
               <Link
@@ -303,8 +308,18 @@ export function Pricing() {
               >
                 Talk to us
               </Link>
-            </div>       
+            </div>
           </div>
+
+          {/* Full Feature Comparison */}
+          {showComparisonTable && showCloud && (
+            <div className="mt-12 lg:mt-16">
+              <h3 className="text-xl lg:text-2xl font-bold text-slate-800 mb-6 text-center">
+                Compare plans in detail
+              </h3>
+              <PricingComparisonTable />
+            </div>
+          )}
         </div>
       </div>
     </section>
