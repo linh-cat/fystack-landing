@@ -151,7 +151,15 @@ export default function RootLayout({
               description:
                 "Secure MPC wallet platform for developers. Create hack-resistant wallets with enterprise-grade security.",
               foundingDate: "2024",
-              sameAs: ["https://github.com/fystack", "https://x.com/fystack"],
+              sameAs: [
+                "https://github.com/fystack",
+                "https://x.com/fystack",
+                "https://www.linkedin.com/company/fystack",
+                "https://partners.circle.com/partner/fystack",
+                "https://www.alchemy.com/dapps/fystack",
+                "https://web3.bitget.com/dapp/fystack-31973",
+                "https://peerlist.io/company/fystack",
+              ],
               contactPoint: {
                 "@type": "ContactPoint",
                 contactType: "customer service",
