@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { ArrowRight, Github, Shield, Lock, Cloud, Globe, Server, AlertTriangle } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { WhyChooseUsTable } from '@/app/new-homepage/components/WhyChooseUsTable';
+import { GetStartedLink } from './components/GetStartedLink';
 
 export const metadata: Metadata = {
   title: 'Fystack Self-hosted vs Others',
@@ -349,13 +350,10 @@ export default function ComparePage() {
               Ready to take control of your digital asset custody?
             </h3>
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="https://app.fystack.io"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#3b82f6] text-white rounded-lg font-medium hover:bg-blue-600 transition-colors"
-              >
+              <GetStartedLink className="inline-flex items-center gap-2 px-8 py-4 bg-[#3b82f6] text-white rounded-lg font-medium hover:bg-blue-600 transition-colors">
                 Get Started
                 <ArrowRight className="w-5 h-5" />
-              </Link>
+              </GetStartedLink>
               <Link
                 href="https://docs.fystack.io"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 rounded-lg font-medium border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"

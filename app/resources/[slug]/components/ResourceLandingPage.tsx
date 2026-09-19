@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useForm, Controller } from "react-hook-form"; // Controller still used for guides + newsletter
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { usePostHog } from "@posthog/react";
 import { CheckCircle, FileText, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { CTAFooter } from "@/app/new-homepage/components/CTAFooter";
@@ -38,6 +39,7 @@ type FormValues = z.infer<typeof formSchema>;
 function ResourceForm({ resource: _resource, slug }: { resource: Resource; slug: string }) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const posthog = usePostHog();
   const { submit, isLoading, isError } = useCreateLead();
 
   const utmSource = searchParams.get("utm_source") ?? "";
@@ -57,7 +59,7 @@ function ResourceForm({ resource: _resource, slug }: { resource: Resource; slug:
   });
 
   async function onSubmit(values: FormValues) {
-    await submit({
+    const ok = await submit({
       firstname: values.firstname,
       lastname: values.lastname,
       email: values.email,
@@ -68,10 +70,29 @@ function ResourceForm({ resource: _resource, slug }: { resource: Resource; slug:
       utmSource,
       utmMedium,
       utmCampaign,
-    }).then(() => {
-      form.reset();
-      router.push(`/thank-you?guides=${values.guides.join(",")}`);
     });
+
+    if (!ok) {
+      posthog?.capture("lead_form_submit_failed", {
+        resourceId: slug,
+        guides: values.guides,
+        role: values.role,
+      });
+      return;
+    }
+
+    posthog?.capture("resource_requested", {
+      resourceId: slug,
+      guides: values.guides,
+      role: values.role,
+      newsletterOptIn: values.newsletterOptIn,
+      utmSource,
+      utmMedium,
+      utmCampaign,
+    });
+
+    form.reset();
+    router.push(`/thank-you?guides=${values.guides.join(",")}`);
   }
 
   return (

@@ -28,8 +28,10 @@ export function useCreateLead() {
       });
       if (!res.ok) throw new Error("Submission failed");
       setStatus("success");
+      return true;
     } catch {
       setStatus("error");
+      return false;
     }
   }
 

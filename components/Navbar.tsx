@@ -3,8 +3,10 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePostHog } from "@posthog/react";
 import { Button } from "@/components/ui/button";
 import { useIsVietnam } from "@/lib/useGeo";
+import { useAppUrl } from "@/hooks/useAppUrl";
 import {
   ChevronDown,
   ChevronRight,
@@ -247,6 +249,8 @@ const DeveloperDropdown = () => {
 
 const MobileNavigation = () => {
   const isVietnam = useIsVietnam();
+  const appUrl = useAppUrl();
+  const posthog = usePostHog();
   const [isOpen, setIsOpen] = useState(false);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
@@ -461,7 +465,7 @@ const MobileNavigation = () => {
             </Button>
             <Button variant="ghost" size="sm" asChild className="justify-start">
               <Link
-                href="https://app.fystack.io"
+                href={appUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -469,7 +473,10 @@ const MobileNavigation = () => {
               </Link>
             </Button>
             <Button size="sm" asChild className="justify-start">
-              <Link href="/contact">
+              <Link
+                href="/contact"
+                onClick={() => posthog?.capture("contact_clicked", { location: "navbar_mobile" })}
+              >
                 {isVietnam ? "Contact Us" : "Request a demo"}
               </Link>
             </Button>
@@ -482,6 +489,8 @@ const MobileNavigation = () => {
 
 export default function Navbar() {
   const isVietnam = useIsVietnam();
+  const appUrl = useAppUrl();
+  const posthog = usePostHog();
 
   return (
     <>
@@ -589,7 +598,7 @@ export default function Navbar() {
 
           <Button variant="ghost" size="sm" asChild className="hidden sm:inline-flex">
             <Link
-              href="https://app.fystack.io"
+              href={appUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -598,7 +607,10 @@ export default function Navbar() {
           </Button>
 
           <Button size="sm" asChild className="hidden sm:inline-flex">
-            <Link href="/contact">
+            <Link
+              href="/contact"
+              onClick={() => posthog?.capture("contact_clicked", { location: "navbar_desktop" })}
+            >
               {isVietnam ? "Contact Us" : "Request a demo"}
             </Link>
           </Button>

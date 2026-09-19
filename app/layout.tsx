@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
+import PostHogProvider from "@/components/analytics/PostHogProvider";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import NextTopLoader from 'nextjs-toploader';
@@ -260,9 +261,11 @@ export default function RootLayout({
           enableSystem={false}
           forcedTheme="light"
         >
-          {children}
-          <Analytics />
-          <Toaster />
+          <PostHogProvider>
+            {children}
+            <Analytics />
+            <Toaster />
+          </PostHogProvider>
         </ThemeProvider>
       </body>
     </html>

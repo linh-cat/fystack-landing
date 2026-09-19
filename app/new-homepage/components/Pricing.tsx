@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePostHog } from "@posthog/react";
 import { Check } from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { SelfHostedComparison } from "./SelfHostedComparison";
@@ -14,6 +15,7 @@ type TabKey = "cloud" | "self-hosted";
 export function Pricing({ showComparisonTable = false }: { showComparisonTable?: boolean }) {
   const { ref, isVisible } = useScrollReveal();
   const isVietnam = useIsVietnam();
+  const posthog = usePostHog();
   const [activeTab, setActiveTab] = useState<TabKey>("cloud");
   const [annualEnabled, setAnnualEnabled] = useState<Record<number, boolean>>({});
 
@@ -305,6 +307,7 @@ export function Pricing({ showComparisonTable = false }: { showComparisonTable?:
               <Link
                 className="px-8 py-3 border border-slate-200 bg-white text-slate-700 rounded-full text-sm font-medium hover:bg-slate-50 transition-colors whitespace-nowrap"
                 href="/contact"
+                onClick={() => posthog?.capture("enterprise_cta_clicked")}
               >
                 Talk to us
               </Link>

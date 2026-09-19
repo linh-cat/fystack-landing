@@ -8,11 +8,13 @@ import Image from "next/image";
 import { ArrowUpRight, ArrowDownLeft, RefreshCw, Bell } from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { useIsVietnam } from "@/lib/useGeo";
+import { useAppUrl } from "@/hooks/useAppUrl";
 
 export function Hero() {
   const { ref: scrollRef, isVisible } = useScrollReveal(0.1);
   const [isDemoOpen, setIsDemoOpen] = useState(false);
   const isVietnam = useIsVietnam();
+  const appUrl = useAppUrl();
 
   return (
     <section className="overflow-hidden py-4 lg:py-10">
@@ -84,7 +86,7 @@ export function Hero() {
                     asChild
                   >
                     <Link
-                      href="https://app.fystack.io"
+                      href={appUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

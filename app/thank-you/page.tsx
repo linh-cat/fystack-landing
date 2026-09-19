@@ -1,8 +1,9 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { usePostHog } from "@posthog/react";
 import { CheckCircle, ArrowLeft, ExternalLink, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { CTAFooter } from "@/app/new-homepage/components/CTAFooter";
@@ -12,6 +13,7 @@ const GUIDE_MAP = Object.fromEntries(GUIDES.map((g) => [g.value, g]));
 
 function ThankYouContent() {
   const searchParams = useSearchParams();
+  const posthog = usePostHog();
   const rawGuides = searchParams.get("guides") ?? "";
   const selectedGuides = rawGuides
     .split(",")
@@ -19,6 +21,13 @@ function ThankYouContent() {
     .filter(Boolean)
     .map((key) => GUIDE_MAP[key])
     .filter(Boolean);
+
+  useEffect(() => {
+    posthog?.capture("lead_converted", {
+      guides: selectedGuides.map((g) => g.value),
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [posthog]);
 
   return (
     <section className="py-24 lg:py-36">

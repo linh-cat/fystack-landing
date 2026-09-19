@@ -5,9 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { useScrollReveal } from "../../new-homepage/hooks/useScrollReveal";
+import { useAppUrl } from "@/hooks/useAppUrl";
 
 export function Hero() {
   const { ref: scrollRef, isVisible } = useScrollReveal(0.1);
+  const appUrl = useAppUrl();
 
   return (
     <section className="relative overflow-hidden">
@@ -59,7 +61,7 @@ export function Hero() {
                   asChild
                 >
                   <Link
-                    href="https://app.fystack.io"
+                    href={appUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
