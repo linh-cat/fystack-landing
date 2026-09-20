@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { appendUtmToUrl } from "@/lib/utm";
 
-const DEFAULT_APP_URL = "https://app.fystack.io/auth";
+const DEFAULT_APP_URL = process.env.NEXT_PUBLIC_DEV === "true" ? "http://localhost:5174/auth" : "https://app.fystack.io/auth";
 
 /**
  * Returns a link to the app, with the visitor's UTM params appended once available.
