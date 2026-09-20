@@ -1,5 +1,6 @@
 import { ghostAPI } from "@/lib/ghost";
 import { MetadataRoute } from "next";
+import { DOCUMENTS } from "@/app/documents/data";
 
 // Revalidate the sitemap every 1 hour (3600 seconds)
 export const revalidate = 3600;
@@ -76,11 +77,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: 'weekly' as const,
         priority: 0.9,
       },
+      {
+        url: 'https://fystack.io/documents',
+        lastModified: new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+      },
       // Add other static pages here
     ];
 
+    // Create sitemap entries for individual documents
+    const documentPages = DOCUMENTS.map((doc) => ({
+      url: `https://fystack.io/documents/${doc.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    }));
+
     // Combine and cache the sitemap entries
-    sitemapCache = [...staticPages, ...blogPosts];
+    sitemapCache = [...staticPages, ...blogPosts, ...documentPages];
     lastFetched = now;
 
     return sitemapCache;

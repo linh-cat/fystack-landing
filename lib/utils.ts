@@ -5,6 +5,13 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+// A file hosted under /public (e.g. "/documents/foo.pdf") is same-origin and
+// can use the `download` attribute; an absolute URL (Drive, etc.) can't and
+// should open in a new tab instead.
+export function isExternalFileUrl(url: string): boolean {
+  return /^https?:\/\//.test(url);
+}
+
 // Common free / personal email providers. A signup from one of these isn't a
 // business email, so we ask for a company website instead.
 const FREE_EMAIL_DOMAINS = new Set([

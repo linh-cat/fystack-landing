@@ -4,10 +4,11 @@ import { Suspense, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { usePostHog } from "@posthog/react";
-import { CheckCircle, ArrowLeft, ExternalLink, Clock } from "lucide-react";
+import { CheckCircle, ArrowLeft, Download, ExternalLink, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { CTAFooter } from "@/app/new-homepage/components/CTAFooter";
 import { GUIDES } from "@/configs/constant";
+import { isExternalFileUrl } from "@/lib/utils";
 
 const GUIDE_MAP = Object.fromEntries(GUIDES.map((g) => [g.value, g]));
 
@@ -76,12 +77,22 @@ function ThankYouContent() {
                   {guide.pdfLink ? (
                     <a
                       href={guide.pdfLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      {...(isExternalFileUrl(guide.pdfLink)
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : { download: true })}
                       className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#3b82f6] hover:bg-[#3b82f6]/90 text-white text-sm font-medium rounded-md transition-colors flex-shrink-0"
                     >
-                      Open Guide
-                      <ExternalLink className="w-3.5 h-3.5" />
+                      {isExternalFileUrl(guide.pdfLink) ? (
+                        <>
+                          Open Guide
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </>
+                      ) : (
+                        <>
+                          Download Guide
+                          <Download className="w-3.5 h-3.5" />
+                        </>
+                      )}
                     </a>
                   ) : (
                     <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-100 text-slate-500 text-sm font-medium rounded-md flex-shrink-0">
